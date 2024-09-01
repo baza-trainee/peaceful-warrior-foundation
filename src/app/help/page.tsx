@@ -6,11 +6,7 @@
 
 type PageProps = {};
 const Page = ({}: PageProps) => {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Help Page
-    </main>
-  );
+  return <>Help Page</>;
 };
 
 export default Page;
