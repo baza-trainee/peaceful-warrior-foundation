@@ -11,6 +11,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         noteworthy: ["Noteworthy", "sans-serif"],
+        helvetica: ["Helvetica Neue", "sans-serif"],
       },
     },
   },
