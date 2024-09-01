@@ -13,8 +13,9 @@ const links = [
   },
   { name: "ЯК ДОПОМОГТИ", href: "/help" },
   { name: "НОВИНИ", href: "/news" },
+  { name: "КОНТАКТИ", href: "/contacts" },
 ];
-export default function Header({}: HeaderProps) {
+const Header = ({}: HeaderProps) => {
   const pathname = usePathname();
   return (
     <header className="flex w-full  px-3   justify-center ">
@@ -33,4 +34,6 @@ export default function Header({}: HeaderProps) {
       </nav>
     </header>
   );
-}
+};
+
+export default Header;

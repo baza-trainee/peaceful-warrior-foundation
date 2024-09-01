@@ -5,7 +5,7 @@ import Link from "next/link";
 
 type PageProps = {};
 
-export default function NotFound({}: PageProps) {
+const NotFound = ({}: PageProps) => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h2>Not Found</h2>
@@ -15,4 +15,6 @@ export default function NotFound({}: PageProps) {
       </Link>
     </main>
   );
-}
+};
+
+export default NotFound;
