@@ -18,8 +18,8 @@ const links = [
 const Header = ({}: HeaderProps) => {
   const pathname = usePathname();
   return (
-    <header className="flex w-full  px-3   justify-center ">
-      <nav className="flex w-3/4 justify-between ">
+    <header className="container">
+      <nav className="flex justify-between ">
         {links.map((link) => (
           <Link
             className={clsx("py-4", {
