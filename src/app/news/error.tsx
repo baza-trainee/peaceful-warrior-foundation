@@ -1,6 +1,7 @@
-"use client";
+'use client';
 
-import React from "react";
+import ErrorDisplay from '@/components/layout/error-display';
+import React from 'react';
 
 type ErrorComponentProps = {
   error: Error;
@@ -10,16 +11,7 @@ type ErrorComponentProps = {
 export default function ErrorComponent({ error, reset }: ErrorComponentProps) {
   return (
     <>
-      <h2 className="text-center">Something went wrong!</h2>
-      <button
-        className="mt-4 rounded-md bg-blue-500 px-4 py-2 text-sm text-white transition-colors hover:bg-blue-400"
-        onClick={
-          // Attempt to recover by trying to re-render the invoices route
-          () => reset()
-        }
-      >
-        Try again
-      </button>
+      <ErrorDisplay error={error} reset={reset} />
     </>
   );
 }
