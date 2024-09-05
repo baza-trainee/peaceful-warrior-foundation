@@ -3,6 +3,7 @@ import { NAV_LINKS } from '@/constants/navlinks/navlinks';
 import { Navigation } from '../Navigation/Navigation';
 import Link from 'next/link';
 import { ICONS } from '@/constants/icons/icons';
+import Dropdown from '../Dropdown/Dropdown';
 
 const Header = () => {
   const email = 'ukr.peaceful.warrior@gmail.com';
@@ -24,11 +25,11 @@ const Header = () => {
             target="_blank"
             href={`mailto:${email}`}
             title={`Send an email to ${email}`}
-            className="hidden hover:underline laptop:flex mr-[32px]"
+            className="hidden hover:underline laptop:flex mr-[32px] font-normal text-sm leading-[21.94px] cursor-pointer"
           >
             {email}
           </Link>
-          <ul className='hidden laptop:flex gap-[16px] mr-[32px]'>
+          <ul className='hidden laptop:flex gap-[16px] mr-[32px] cursor-pointer'>
             <li>
               <ICONS.INSTAGRAM className="w-[28px] fill-accent" />
             </li>
@@ -36,9 +37,10 @@ const Header = () => {
               <ICONS.FACEBOOK className="w-[28px] fill-accent" />
             </li>
           </ul>
-          <button type='button' className='hidden laptop:flex rounded-btn-radius bg-accent text-white uppercase font-medium text-m py-[12px] px-[24px] mr-[24px] shadow-btn-shadow'>ПІДТРИМАТИ ПРОЄКТ</button>
-          <button className="flex laptop:hidden" type="button">
-            <ICONS.BURGER_MENU className="w-[32px] fill-body-text" />
+          <button type='button' className='hidden max-w-[237px] laptop:flex rounded-btn-radius bg-accent text-white uppercase font-medium text-m py-[12px] px-[24px] mr-[24px] shadow-btn-shadow'>ПІДТРИМАТИ ПРОЄКТ</button>
+          <Dropdown/>
+          <button className="flex laptop:hidden cursor-pointer" type="button">
+            <ICONS.BURGER_MENU className="w-[32px] fill-body-text " />
           </button>
         </div>
         <Navigation headerNav={NAV_LINKS} />
