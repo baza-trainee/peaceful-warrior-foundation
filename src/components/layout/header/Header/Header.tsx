@@ -7,10 +7,10 @@ import { ICONS } from '@/constants/icons/icons';
 const Header = () => {
   const email = 'ukr.peaceful.warrior@gmail.com';
   return (
-    <header className="container flex items-center pb-[13px] pt-[16px] lg:gap-[12px] lg:pb-[48px] lg:pt-[40px]">
+    <header className="container flex items-center pb-[13px] pt-[16px] laptop:gap-[12px] laptop:pb-[48px] laptop:pt-[40px]">
       <Logo type="dark" />
-      <div className="flex w-full items-center justify-between lg:flex-col lg:items-stretch lg:gap-y-[12px] lg:pl-[56px]">
-        <div className="flex flex-col pl-[4px] lg:hidden">
+      <div className="flex w-full items-center justify-between laptop:flex-col laptop:items-stretch laptop:gap-y-[12px] laptop:pl-[56px]">
+        <div className="flex flex-col pl-[4px] laptop:hidden">
           <h3 className="mb-[2px] text-m font-medium uppercase leading-[19.5px] text-body-text">
             МИРНИЙ ВОЇН
           </h3>
@@ -24,11 +24,11 @@ const Header = () => {
             target="_blank"
             href={`mailto:${email}`}
             title={`Send an email to ${email}`}
-            className="hidden hover:underline lg:flex mr-[32px]"
+            className="hidden hover:underline laptop:flex mr-[32px]"
           >
             {email}
           </Link>
-          <ul className='flex gap-[16px] mr-[32px]'>
+          <ul className='hidden laptop:flex gap-[16px] mr-[32px]'>
             <li>
               <ICONS.INSTAGRAM className="w-[28px] fill-accent" />
             </li>
@@ -36,8 +36,8 @@ const Header = () => {
               <ICONS.FACEBOOK className="w-[28px] fill-accent" />
             </li>
           </ul>
-          <button type='button' className='rounded-btn-radius bg-accent text-white uppercase font-medium text-m py-[12px] px-[24px] mr-[24px] shadow-btn-shadow'>ПІДТРИМАТИ ПРОЄКТ</button>
-          <button className="flex lg:hidden" type="button">
+          <button type='button' className='hidden laptop:flex rounded-btn-radius bg-accent text-white uppercase font-medium text-m py-[12px] px-[24px] mr-[24px] shadow-btn-shadow'>ПІДТРИМАТИ ПРОЄКТ</button>
+          <button className="flex laptop:hidden" type="button">
             <ICONS.BURGER_MENU className="w-[32px] fill-body-text" />
           </button>
         </div>

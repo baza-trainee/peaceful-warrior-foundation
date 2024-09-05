@@ -12,8 +12,8 @@ export const Navigation = ({
   const pathname = usePathname();
 
   return (
-    <nav className='hidden lg:flex'>
-      <ul className="lg:flex items-center w-full justify-between">
+    <nav className='hidden laptop:flex'>
+      <ul className="laptop:flex items-center w-full justify-between">
         {headerNav.map(({ name, href }) => (
           <li className='flex items-center' key={name}>
             <Link

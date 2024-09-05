@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-//import { Inter } from "next/font/google";
 import { montserrat } from '@/styles/fonts';
 import '../styles/globals.css';
 import Footer from '@/components/layout/Footer';
@@ -24,6 +23,7 @@ export default function RootLayout({
         </main>
         <div id="modal-container" />
       </body>
+      <Footer />
     </html>
   );
 }
