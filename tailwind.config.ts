@@ -11,17 +11,20 @@ const config: Config = {
     container: {
       center: true,
       padding: {
-        mobile: "16px",
-        tablet: "",
-        desktop: "150px",
+        sm: "16px",
+        md: "16px",
+        lg: "80px",
+        xl: "150px",
       },
     },
     screens: {
-      mobile: "375px",
+      sm: "375px",
       // => @media (min-width: 375px) { ... }
-      tablet: "768px",
+      md: "768px",
       // => @media (min-width: 768px) { ... }
-      desktop: "1440px",
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+      xl: "1440px",
       // => @media (min-width: 1440px) { ... }
     },
     colors: {
