@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <>
       <h1>Home Page</h1>
-      <Hero /> {/* ? */}
-      <Mission /> {/* ? */}
+      <Hero /> {/* Сергій */}
+      <Mission /> {/* Віталій */}
       <Directions /> {/*  Віка */}
       <Team /> {/*  Влад */}
       <SupportUs /> {/*  Ганна */}

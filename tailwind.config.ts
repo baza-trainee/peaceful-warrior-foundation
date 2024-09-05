@@ -12,7 +12,8 @@ const config: Config = {
       center: true,
       padding: {
         mobile: '16px',
-        tablet: '',
+        tablet: '16px',
+        laptop: '80px',
         desktop: '150px',
       },
     },
@@ -21,9 +22,12 @@ const config: Config = {
       // => @media (min-width: 375px) { ... }
       tablet: '768px',
       // => @media (min-width: 768px) { ... }
+      laptop: '1024px',
+      // => @media (min-width: 1024px) { ... }
       desktop: '1440px',
       // => @media (min-width: 1440px) { ... }
     },
+
     colors: {
       accent: '#115ccd',
 
@@ -90,4 +94,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;
