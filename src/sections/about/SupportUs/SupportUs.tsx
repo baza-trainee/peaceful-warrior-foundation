@@ -63,16 +63,16 @@ const SupportUs = ({}: SupportUsProps) => {
               />
               <div
                 className={clsx(
-                  `flex h-11 w-full items-center justify-center border text-m font-medium hover:border focus:border-accent`,
+                  `mb-8 flex h-11 w-full items-center justify-center border text-m font-medium leading-[19.5px]`,
                   activeButton === option.value
-                    ? 'border-accent text-accent'
+                    ? 'border-accent text-accent shadow-btn-shadow'
                     : 'border-gray-form',
                   option.value === 'one_time'
-                    ? `rounded-bl-btn-radius rounded-tl-btn-radius`
-                    : `rounded-br-btn-radius rounded-tr-btn-radius`
+                    ? 'rounded-bl-btn-radius rounded-tl-btn-radius'
+                    : 'rounded-br-btn-radius rounded-tr-btn-radius'
                 )}
               >
-                {option.label}
+                <p>{option.label}</p>
               </div>
             </label>
           ))}
@@ -128,3 +128,4 @@ export default SupportUs;
 //                     ? 'border-accent text-accent'
 //                     : 'border-gray-form'
 //                 }`}
+// hover:border-accent focus:border-accent
