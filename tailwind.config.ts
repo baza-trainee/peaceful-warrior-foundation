@@ -11,33 +11,23 @@ const config: Config = {
     container: {
       center: true,
       padding: {
-        sm: "16px",
-        md: "16px",
-        lg: "80px",
-        xl: "150px",
+        mobile: '16px',
+        tablet: '16px',
+        laptop: '80px',
+        desktop: '150px',
       },
-    },
-    // screens: {
-    //   sm: "375px",
-    //   // => @media (min-width: 375px) { ... }
-    //   md: "768px",
-    //   // => @media (min-width: 768px) { ... }
-    //   lg: "1024px",
-    //   // => @media (min-width: 1024px) { ... }
-    //   xl: "1440px",
-    //     mobile: '16px',
-    //     tablet: '',
-    //     desktop: '150px',
-    //   },
     },
     screens: {
       mobile: '375px',
       // => @media (min-width: 375px) { ... }
       tablet: '768px',
       // => @media (min-width: 768px) { ... }
+      laptop: '1024px',
+      // => @media (min-width: 1024px) { ... }
       desktop: '1440px',
       // => @media (min-width: 1440px) { ... }
     },
+
     colors: {
       accent: '#115ccd',
 
@@ -104,4 +94,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;
