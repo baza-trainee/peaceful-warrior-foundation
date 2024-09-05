@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 //import { Inter } from "next/font/google";
 import { montserrat } from '@/styles/fonts';
 import '../styles/globals.css';
-import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/header/Header/Header';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,11 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className} antialiased`}>
-        <Header />
+        <Header/>
         <main className="container min-h-screen ">
           {children}
         </main>
-
         <Footer />
       </body>
     </html>
