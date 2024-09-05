@@ -16,10 +16,10 @@ const subscriptionOptions = [
   },
 ];
 const currencyOptions = [
-  { value: 'UAH', label: '₴ UAH', symbol: '₴' },
-  { value: 'USD', label: '$ USD', symbol: '$' },
+  { value: 'UAH', label: 'UAH', symbol: '₴' },
+  { value: 'USD', label: 'USD', symbol: '$' },
 
-  { value: 'EUR', label: '€ EUR', symbol: '€' },
+  { value: 'EUR', label: 'EUR', symbol: '€' },
 ];
 
 const SupportUs = ({}: SupportUsProps) => {
@@ -49,6 +49,7 @@ const SupportUs = ({}: SupportUsProps) => {
         пожертвуйте зручну для вас суму.
       </p>
       <form className="mt-7 flex w-full flex-col gap-y-8">
+        {/* Choose subscriptionOption */}
         <div className="flex h-11 text-center">
           {subscriptionOptions.map((option) => (
             <label
@@ -77,41 +78,44 @@ const SupportUs = ({}: SupportUsProps) => {
             </label>
           ))}
         </div>
+
         {/* Select for currency */}
-        <div className="relative w-full max-w-xs">
-          <select
-            value={selectedCurrency}
-            onChange={handlecurrencyChange}
-            className="border-gray-300 text-gray-700 focus:border-blue-500 focus:ring-blue-500 block w-full appearance-none rounded-lg border bg-white px-4 py-2 pr-8 text-sm leading-tight focus:outline-none focus:ring-2"
-          >
-            {currencyOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-          <div className="text-gray-700 pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
-            <svg
-              className="fill-current h-4 w-4"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <path d="M10 12l-5-5h10l-5 5z" />
-            </svg>
-          </div>
-        </div>
+        {/* <div className="relative w-full max-w-xs"></div> */}
         {/* Input for amount */}
-        <div className="relative w-full max-w-xs">
+        <div className="relative w-full">
           <input
             type="number"
             value={donationAmount}
             onChange={handleAmountChange}
-            placeholder="Enter amount"
-            className="border-gray-300 text-gray-700 focus:border-blue-500 focus:ring-blue-500 block w-full rounded-lg border px-4 py-2 text-sm leading-tight focus:outline-none focus:ring-2"
+            placeholder="Сума внеску"
+            className="block w-full border-b border-solid bg-[transparent] pb-3 text-md leading-[17.07px] placeholder:text-s placeholder:text-[#565656] focus:border-accent focus:outline-none"
           />
-          {/* Currency symbol */}
-          <div className="text-gray-700 absolute inset-y-0 right-0 flex items-center pr-3">
-            {selectedCurrencySymbol}
+          {/* Currency */}
+          <div className="absolute bottom-3 right-0 flex font-medium text-body-text">
+            <select
+              value={selectedCurrency}
+              onChange={handlecurrencyChange}
+              className="block w-full appearance-none bg-[transparent] px-4 py-2 pr-8 text-sm leading-[19.5px] focus:outline-none"
+            >
+              {currencyOptions.map((option) => (
+                <option
+                  key={option.value}
+                  value={option.value}
+                  className="bg-[transparent]"
+                >
+                  {option.label}
+                </option>
+              ))}
+            </select>
+            <div className="text-gray-700 pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
+              <svg
+                className="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path d="M10 12l-5-5h10l-5 5z" />
+              </svg>
+            </div>
           </div>
         </div>
       </form>
@@ -129,3 +133,4 @@ export default SupportUs;
 //                     : 'border-gray-form'
 //                 }`}
 // hover:border-accent focus:border-accent
+//text-[#565656]
