@@ -17,13 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.className} antialiased`}>
-        <Header/>
-        <main className="container min-h-screen ">
-          {children}
-        </main>
+        <Header />
+        <main className="container min-h-screen">{children}</main>
         <div id="modal-container" />
+        <Footer />
       </body>
-      <Footer />
     </html>
   );
 }
