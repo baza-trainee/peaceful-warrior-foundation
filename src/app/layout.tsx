@@ -22,7 +22,7 @@ export default function RootLayout({
         <main className="container min-h-screen ">
           {children}
         </main>
-        <Footer />
+        <div id="modal-container" />
       </body>
     </html>
   );
