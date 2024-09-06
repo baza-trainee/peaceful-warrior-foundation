@@ -4,6 +4,7 @@ import InstagramIcon from '../../../public/assets/icons/socials/instagram.svg'
 import BurgerMenu from '../../../public/assets/icons/header/burger-menu.svg'
 import FacebookIcon from '../../../public/assets/icons/socials/facebook.svg'
 import ArrowIcon from '../../../public/assets/icons/header/arrow.svg'
+import LogoLoader from '../../../public/assets/icons/logo/logo-loader.svg'
 
 export const ICONS = {
     LOGO_DARK: LogoDark,
@@ -12,4 +13,5 @@ export const ICONS = {
     FACEBOOK: FacebookIcon,
     BURGER_MENU: BurgerMenu,
     ARROW: ArrowIcon,
+    LOGO_LOADER: LogoLoader,
   };

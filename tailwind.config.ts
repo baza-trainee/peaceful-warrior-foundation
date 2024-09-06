@@ -32,6 +32,7 @@ const config: Config = {
       accent: '#115ccd',
 
       // => background-colors
+      'light-background': '#f0f0f0',
       'card-background': '#f1e9d9',
       'btn-background': '#ededed',
       'swiper-card-background': '#ede8dd',
