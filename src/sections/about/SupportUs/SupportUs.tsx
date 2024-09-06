@@ -108,11 +108,6 @@ const SupportUs = ({}: SupportUsProps) => {
           {/* Donate amount */}
 
           <div className="relative mx-auto w-full laptop:w-[442px]">
-            {errorDonationAmount && (
-              <p className="text-xs leading-[19.5px] text-[#FF0000] laptop:text-s laptop:leading-[24.38px]">
-                Введіть, будь ласка, суму
-              </p>
-            )}
             <input
               type="number"
               value={donationAmount}
@@ -123,13 +118,17 @@ const SupportUs = ({}: SupportUsProps) => {
                 errorDonationAmount ? 'border-[#FF0000]' : 'border-body-text'
               )}
             />
-
+            {errorDonationAmount && (
+              <p className="absolute text-xs leading-[19.5px] text-[#FF0000] laptop:text-s laptop:leading-[24.38px]">
+                Введіть, будь ласка, суму
+              </p>
+            )}
             {/* Currency */}
-            <div className="absolute bottom-3 right-0 flex font-medium text-body-text">
+            <div className="absolute bottom-4 right-0 flex font-medium text-body-text">
               <select
                 value={selectedCurrency}
                 onChange={handlecurrencyChange}
-                className="block w-full appearance-none bg-[transparent] px-4 pr-8 text-sm leading-[19.5px] focus:outline-none laptop:text-md laptop:leading-[24.38px]"
+                className="block w-full appearance-none bg-[transparent] px-4 pr-8 text-sm leading-[19.5px] focus:outline-none laptop:text-md laptop:leading-[21.94px]"
               >
                 {currencyOptions.map((option) => (
                   <option
