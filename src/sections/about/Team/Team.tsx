@@ -4,7 +4,7 @@ import TeamSwiper from './Swiper/TeamSwiper';
 const Team = () => {
   return (
     <section className="mb-[60px] rounded-3xl tablet:bg-swiper-card-background desktop:mb-[100px]">
-      <h2 className="pb-3 text-center font-noteworthy text-5xl font-bold tracking-[1.44px] text-accent desktop:pb-12 desktop:pt-10 desktop:text-8xl desktop:tracking-[2.24px]">
+      <h2 className="pb-3 text-center font-noteworthy text-5xl font-bold tracking-[1.44px] text-accent tablet:pt-6 desktop:pb-12 desktop:pt-10 desktop:text-8xl desktop:tracking-[2.24px]">
         КОМАНДА
       </h2>
       <TeamSwiper />
