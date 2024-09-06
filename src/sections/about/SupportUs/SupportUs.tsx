@@ -71,10 +71,10 @@ const SupportUs = ({}: SupportUsProps) => {
                 />
                 <div
                   className={clsx(
-                    `bg-[ #EDEDED ] laptop:text-2xl laptop:leading-[36.57px] laptop:h-[61px] flex h-11 w-full items-center justify-center border text-m font-medium leading-[19.5px]`,
+                    `laptop:text-2xl laptop:leading-[36.57px] laptop:h-[61px] flex h-11 w-full items-center justify-center border text-m font-medium leading-[19.5px]`,
                     activeButton === option.value
-                      ? 'border-accent text-accent shadow-btn-shadow'
-                      : 'border-gray-form',
+                      ? 'border-accent bg-[#E7E7E7] text-accent shadow-btn-shadow'
+                      : 'border-gray-form bg-[transparent]',
                     option.value === 'one_time'
                       ? 'rounded-bl-btn-radius rounded-tl-btn-radius'
                       : 'rounded-br-btn-radius rounded-tr-btn-radius'
@@ -87,20 +87,20 @@ const SupportUs = ({}: SupportUsProps) => {
             ))}
           </div>
 
-          <div className="relative w-full">
+          <div className="laptop:w-[442px] laptop:h-10 relative mx-auto w-full">
             <input
               type="number"
               value={donationAmount}
               onChange={handleAmountChange}
               placeholder="Сума внеску"
-              className="block w-full border-b border-solid bg-[transparent] pb-3 text-md leading-[17.07px] placeholder:text-s placeholder:text-[#565656] focus:border-accent focus:outline-none"
+              className="laptop:pb-4 laptop:placeholder:text-md laptop:placeholder:leading-[24.38px] laptop:placeholder:font-medium block w-full border-b border-solid bg-[transparent] pb-3 text-md leading-[17.07px] placeholder:text-s placeholder:text-[#565656] focus:border-accent focus:outline-none"
             />
             {/* Currency */}
             <div className="absolute bottom-3 right-0 flex font-medium text-body-text">
               <select
                 value={selectedCurrency}
                 onChange={handlecurrencyChange}
-                className="block w-full appearance-none bg-[transparent] px-4 py-2 pr-8 text-sm leading-[19.5px] focus:outline-none"
+                className="laptop:text-md laptop:leading-[24.38px] block w-full appearance-none bg-[transparent] px-4 pr-8 text-sm leading-[19.5px] focus:outline-none"
               >
                 {currencyOptions.map((option) => (
                   <option
@@ -123,7 +123,7 @@ const SupportUs = ({}: SupportUsProps) => {
               </div>
             </div>
           </div>
-          <Button>ПІДТРИМАТИ</Button>
+          <Button className="m-auto">ПІДТРИМАТИ</Button>
         </form>
       </div>
     </section>
