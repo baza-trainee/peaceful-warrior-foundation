@@ -32,7 +32,9 @@ const SupportUs = ({}: SupportUsProps) => {
     currencyOptions[0].value
   );
   const [donationAmount, setDonationAmount] = useState<number | ''>('');
-  // const [isOpen, setIsOpen] = useState(false);
+  const [errorDonationAmount, setErrorDonationAmount] =
+    useState<boolean>(false);
+
   const handlecurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCurrency(e.target.value);
   };
@@ -40,27 +42,39 @@ const SupportUs = ({}: SupportUsProps) => {
     const value = e.target.value;
     setDonationAmount(value === '' ? '' : parseFloat(value));
   };
-  const selectedCurrencySymbol =
-    currencyOptions.find((option) => option.value === selectedCurrency)
-      ?.symbol || '';
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // donationAmount validation
+    if (donationAmount === '' || donationAmount <= 0 || isNaN(donationAmount)) {
+      setErrorDonationAmount(true);
+      return;
+    }
+    //new order
+    const newOrder = {
+      order_id: `id-${Date.now()}`,
+      amount: donationAmount,
+      currency: selectedCurrency,
+      regularMode: activeButton,
+    };
+    console.log('donation: ', newOrder);
+  };
+
   return (
-    <section className="laptop:pb-[100px] pb-[60px]">
-      <div className="laptop:w-[908px] m-auto">
-        {/* <h2 className="laptop:hidden mb-3 text-center font-noteworthy text-5xl font-bold uppercase leading-[58.14px] text-accent">
-          підтримка
-        </h2>
-        <h2 className="laptop:block mb-12 hidden text-center font-noteworthy text-8xl font-light uppercase leading-[90.44px] text-accent">
-          підтримайте нас
-        </h2> */}
-        <SectionTitle className="laptop:hidden mb-3">підтримка</SectionTitle>
-        <SectionTitle className="laptop:block laptop:mb-12 hidden">
+    <section className="pb-[60px] laptop:pb-[100px]">
+      <div className="m-auto laptop:w-[908px]">
+        <SectionTitle className="mb-3 laptop:hidden">підтримка</SectionTitle>
+        <SectionTitle className="hidden laptop:mb-12 laptop:block">
           підтримайте нас
         </SectionTitle>
-        <p className="laptop:text-center laptop:mb-10 laptop:text-lg laptop:leading-[31.69px] mb-6 text-md leading-[24.38px]">
+        <p className="mb-6 text-md leading-[24.38px] laptop:mb-10 laptop:text-center laptop:text-lg laptop:leading-[31.69px]">
           Якщо вас надихнув проект і ви бажаєте стати нашим донором, будь ласка,
           пожертвуйте зручну для вас суму.
         </p>
-        <form className="laptop:gap-y-12 mt-7 flex w-full flex-col gap-y-8">
+        <form
+          onSubmit={handleSubmit}
+          className="mt-7 flex w-full flex-col gap-y-8 laptop:gap-y-12"
+        >
           {/* Choose subscriptionOption */}
           <div className="flex text-center">
             {subscriptionOptions.map((option) => (
@@ -76,7 +90,7 @@ const SupportUs = ({}: SupportUsProps) => {
                 />
                 <div
                   className={clsx(
-                    `laptop:text-2xl laptop:leading-[36.57px] laptop:h-[61px] flex h-11 w-full items-center justify-center border text-m font-medium leading-[19.5px]`,
+                    `flex h-11 w-full items-center justify-center border text-m font-medium leading-[19.5px] laptop:h-[61px] laptop:text-2xl laptop:leading-[36.57px]`,
                     activeButton === option.value
                       ? 'border-accent bg-[#E7E7E7] text-accent shadow-btn-shadow'
                       : 'border-gray-form bg-[transparent]',
@@ -86,26 +100,36 @@ const SupportUs = ({}: SupportUsProps) => {
                   )}
                 >
                   <p className="laptop:hidden">{option.labelMob}</p>
-                  <p className="laptop:block hidden">{option.labelDesktop}</p>
+                  <p className="hidden laptop:block">{option.labelDesktop}</p>
                 </div>
               </label>
             ))}
           </div>
+          {/* Donate amount */}
 
-          <div className="laptop:w-[442px] laptop:h-10 relative mx-auto w-full">
+          <div className="relative mx-auto w-full laptop:w-[442px]">
+            {errorDonationAmount && (
+              <p className="text-xs leading-[19.5px] text-[#FF0000] laptop:text-s laptop:leading-[24.38px]">
+                Введіть, будь ласка, суму
+              </p>
+            )}
             <input
               type="number"
               value={donationAmount}
               onChange={handleAmountChange}
               placeholder="Сума внеску"
-              className="laptop:pb-4 laptop:placeholder:text-md laptop:placeholder:leading-[24.38px] laptop:placeholder:font-medium block w-full border-b border-solid bg-[transparent] pb-3 text-md leading-[17.07px] placeholder:text-s placeholder:text-[#565656] focus:border-accent focus:outline-none"
+              className={clsx(
+                'block w-full border-b border-solid bg-[transparent] pb-3 text-md leading-[17.07px] placeholder:text-s placeholder:leading-[19.5px] placeholder:text-[#565656] focus:border-accent focus:outline-none laptop:pb-4 laptop:placeholder:text-md laptop:placeholder:font-medium laptop:placeholder:leading-[24.38px]',
+                errorDonationAmount ? 'border-[#FF0000]' : 'border-body-text'
+              )}
             />
+
             {/* Currency */}
             <div className="absolute bottom-3 right-0 flex font-medium text-body-text">
               <select
                 value={selectedCurrency}
                 onChange={handlecurrencyChange}
-                className="laptop:text-md laptop:leading-[24.38px] block w-full appearance-none bg-[transparent] px-4 pr-8 text-sm leading-[19.5px] focus:outline-none"
+                className="block w-full appearance-none bg-[transparent] px-4 pr-8 text-sm leading-[19.5px] focus:outline-none laptop:text-md laptop:leading-[24.38px]"
               >
                 {currencyOptions.map((option) => (
                   <option
@@ -128,6 +152,7 @@ const SupportUs = ({}: SupportUsProps) => {
               </div>
             </div>
           </div>
+
           <Button className="m-auto">ПІДТРИМАТИ</Button>
         </form>
       </div>
@@ -137,12 +162,11 @@ const SupportUs = ({}: SupportUsProps) => {
 
 export default SupportUs;
 
+// const [isOpen, setIsOpen] = useState(false);
 // <ButtonDonate /> call modal
-//  <div
-//                 className={`flex h-11 w-full items-center justify-center rounded-bl-btn-radius rounded-tl-btn-radius border text-m font-medium hover:border focus:border-accent ${
-//                   activeButton === option.value
-//                     ? 'border-accent text-accent'
-//                     : 'border-gray-form'
-//                 }`}
-// hover:border-accent focus:border-accent
-//text-[#565656]
+// <h2 className="laptop:hidden mb-3 text-center font-noteworthy text-5xl font-bold uppercase leading-[58.14px] text-accent">
+//         підтримка
+//       </h2>
+//       <h2 className="laptop:block mb-12 hidden text-center font-noteworthy text-8xl font-light uppercase leading-[90.44px] text-accent">
+//         підтримайте нас
+//       </h2>
