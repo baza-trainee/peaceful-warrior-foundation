@@ -41,17 +41,20 @@ const SupportUs = ({}: SupportUsProps) => {
     currencyOptions.find((option) => option.value === selectedCurrency)
       ?.symbol || '';
   return (
-    <section className="pb-11">
-      <h2 className="mb-3 text-center font-noteworthy text-5xl font-bold uppercase leading-[58.14px] text-accent">
+    <section className="laptop:pb-[100px] pb-[60px]">
+      <h2 className="laptop:hidden mb-3 text-center font-noteworthy text-5xl font-bold uppercase leading-[58.14px] text-accent">
         підтримка
       </h2>
-      <p className="mb-6 text-md leading-[24.38px]">
+      <h2 className="laptop:block mb-12 hidden text-center font-noteworthy text-8xl font-light uppercase leading-[90.44px] text-accent">
+        підтримайте нас
+      </h2>
+      <p className="laptop:mb-10 laptop:text-lg laptop:leading-[31.69px] mb-6 text-md leading-[24.38px]">
         Якщо вас надихнув проект і ви бажаєте стати нашим донором, будь ласка,
         пожертвуйте зручну для вас суму.
       </p>
-      <form className="mt-7 flex w-full flex-col">
+      <form className="mt-7 flex w-full flex-col gap-y-8">
         {/* Choose subscriptionOption */}
-        <div className="mb-8 flex h-11 text-center">
+        <div className="flex h-11 text-center">
           {subscriptionOptions.map((option) => (
             <label
               className="flex flex-1 cursor-pointer items-center gap-x-2"
@@ -80,10 +83,7 @@ const SupportUs = ({}: SupportUsProps) => {
           ))}
         </div>
 
-        {/* Select for currency */}
-        {/* <div className="relative w-full max-w-xs"></div> */}
-        {/* Input for amount */}
-        <div className="relative mb-8 w-full">
+        <div className="relative w-full">
           <input
             type="number"
             value={donationAmount}
