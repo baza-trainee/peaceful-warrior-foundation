@@ -1,5 +1,5 @@
 'use client';
-import TeamSwiper from './TeamSwiper';
+import TeamSwiper from './Swiper/TeamSwiper';
 
 const Team = () => {
   return (
