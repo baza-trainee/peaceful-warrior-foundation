@@ -1,5 +1,6 @@
 'use client';
 import Button from '@/components/ui/Button';
+import SectionTitle from '@/components/ui/SectionTitle';
 import clsx from 'clsx';
 
 import React, { useState } from 'react';
@@ -45,12 +46,16 @@ const SupportUs = ({}: SupportUsProps) => {
   return (
     <section className="laptop:pb-[100px] pb-[60px]">
       <div className="laptop:w-[908px] m-auto">
-        <h2 className="laptop:hidden mb-3 text-center font-noteworthy text-5xl font-bold uppercase leading-[58.14px] text-accent">
+        {/* <h2 className="laptop:hidden mb-3 text-center font-noteworthy text-5xl font-bold uppercase leading-[58.14px] text-accent">
           підтримка
         </h2>
         <h2 className="laptop:block mb-12 hidden text-center font-noteworthy text-8xl font-light uppercase leading-[90.44px] text-accent">
           підтримайте нас
-        </h2>
+        </h2> */}
+        <SectionTitle className="laptop:hidden mb-3">підтримка</SectionTitle>
+        <SectionTitle className="laptop:block laptop:mb-12 hidden">
+          підтримайте нас
+        </SectionTitle>
         <p className="laptop:text-center laptop:mb-10 laptop:text-lg laptop:leading-[31.69px] mb-6 text-md leading-[24.38px]">
           Якщо вас надихнув проект і ви бажаєте стати нашим донором, будь ласка,
           пожертвуйте зручну для вас суму.
