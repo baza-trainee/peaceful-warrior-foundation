@@ -27,6 +27,7 @@ const TeamSwiper = ({}: TeamSwiperProps) => {
           <Image
             src="/assets/images/TeamMemberVictoria.png"
             alt="member Victoria"
+            priority={false}
             width={441}
             height={464}
             className="relative z-0 order-3 pb-4 desktop:order-1 desktop:mr-[25px] desktop:p-0"
