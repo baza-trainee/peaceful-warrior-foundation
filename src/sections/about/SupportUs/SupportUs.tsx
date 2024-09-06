@@ -1,4 +1,5 @@
 'use client';
+import Button from '@/components/ui/Button';
 import clsx from 'clsx';
 
 import React, { useState } from 'react';
@@ -48,9 +49,9 @@ const SupportUs = ({}: SupportUsProps) => {
         Якщо вас надихнув проект і ви бажаєте стати нашим донором, будь ласка,
         пожертвуйте зручну для вас суму.
       </p>
-      <form className="mt-7 flex w-full flex-col gap-y-8">
+      <form className="mt-7 flex w-full flex-col">
         {/* Choose subscriptionOption */}
-        <div className="flex h-11 text-center">
+        <div className="mb-8 flex h-11 text-center">
           {subscriptionOptions.map((option) => (
             <label
               className="flex flex-1 cursor-pointer items-center gap-x-2"
@@ -64,7 +65,7 @@ const SupportUs = ({}: SupportUsProps) => {
               />
               <div
                 className={clsx(
-                  `mb-8 flex h-11 w-full items-center justify-center border text-m font-medium leading-[19.5px]`,
+                  `flex h-11 w-full items-center justify-center border text-m font-medium leading-[19.5px]`,
                   activeButton === option.value
                     ? 'border-accent text-accent shadow-btn-shadow'
                     : 'border-gray-form',
@@ -82,7 +83,7 @@ const SupportUs = ({}: SupportUsProps) => {
         {/* Select for currency */}
         {/* <div className="relative w-full max-w-xs"></div> */}
         {/* Input for amount */}
-        <div className="relative w-full">
+        <div className="relative mb-8 w-full">
           <input
             type="number"
             value={donationAmount}
@@ -118,6 +119,7 @@ const SupportUs = ({}: SupportUsProps) => {
             </div>
           </div>
         </div>
+        <Button>ПІДТРИМАТИ</Button>
       </form>
     </section>
   );
