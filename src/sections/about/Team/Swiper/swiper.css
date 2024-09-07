@@ -26,9 +26,30 @@
   right: 46px;
 }
 
+.custom-pagination {
+  display: none;
+}
+
 @media (max-width: 1439px) {
   .custom-button-prev,
   .custom-button-next {
     display: none;
+  }
+
+  .custom-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .custom-pagination .swiper-pagination-bullet {
+    min-width: 82.75px;
+    height: 4px;
+    background-color: #c6c4c4;
+    border-radius: 0;
+  }
+
+  .custom-pagination .swiper-pagination-bullet-active {
+    background-color: #115ccd;
   }
 }
