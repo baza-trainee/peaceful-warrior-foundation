@@ -7,16 +7,16 @@ export const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-      <button
-        className="flex cursor-pointer font-medium text-m leading-[19.5px] text-light-background laptop:font-semibold laptop:text-sm laptop:leading-[21.94px] laptop:text-body-text items-center uppercase"
-        onClick={() => setIsOpen((prev) => !prev)}
-      >
-        UA
-        <ICONS.ARROW
-          className={`fill-light-background laptop:fill-body-text h-[16px] duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}
-          aria-label="arrow"
-        />
-      </button>
+    <button
+      className="hover:text-hover flex cursor-pointer items-center text-m font-medium uppercase leading-[19.5px] text-light-background transition-all duration-300 laptop:text-sm laptop:font-semibold laptop:leading-[21.94px] laptop:text-body-text"
+      onClick={() => setIsOpen((prev) => !prev)}
+    >
+      UA
+      <ICONS.ARROW
+        className={`hover:fill-hover h-[16px] fill-light-background transition-all duration-300 laptop:fill-body-text ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+        aria-label="arrow"
+      />
+    </button>
   );
 };
 

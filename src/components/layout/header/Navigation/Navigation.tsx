@@ -12,21 +12,22 @@ export const Navigation = ({
   const pathname = usePathname();
 
   return (
-    <nav className='hidden laptop:flex'>
-      <ul className="laptop:flex items-center w-full justify-between">
-        {headerNav.map(({ name, href }) => (
-          <li className='flex items-center' key={name}>
-            <Link
-              href={href}
-              className={clsx('font-medium text-m uppercase', {
+    <>
+      {headerNav.map(({ name, href }) => (
+        <li className="flex items-center" key={name}>
+          <Link
+            href={href}
+            className={clsx(
+              'hover:text-hover text-m font-medium uppercase leading-[20px] transition-all duration-300',
+              {
                 'text-accent': pathname === href,
-              })}
-            >
-              {name}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+              }
+            )}
+          >
+            {name}
+          </Link>
+        </li>
+      ))}
+    </>
   );
 };

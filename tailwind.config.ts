@@ -30,6 +30,7 @@ const config: Config = {
 
     colors: {
       accent: '#115ccd',
+      hover: '#0d408c',
 
       // => background-colors
       'light-background': '#f0f0f0',
@@ -43,6 +44,8 @@ const config: Config = {
       white: '#fff',
       'body-text': '#3b3b3b',
       'gray-footer-text': '#bcb9b9',
+      'second-text': '#dadada',
+      'footer-text': '#8b8b8b',
 
       // => decor-elements
       'gray-devider': '#858585',
