@@ -12,19 +12,22 @@ export const Navigation = ({
   const pathname = usePathname();
 
   return (
-      <ul className="flex flex-col justify-center gap-y-[8px] text-btn-background laptop:text-black laptop:flex-row laptop:flex items-center laptop:w-full laptop:justify-between">
-        {headerNav.map(({ name, href }) => (
-          <li className='flex items-center' key={name}>
-            <Link
-              href={href}
-              className={clsx('font-medium text-m uppercase', {
+    <>
+      {headerNav.map(({ name, href }) => (
+        <li className="flex items-center" key={name}>
+          <Link
+            href={href}
+            className={clsx(
+              'hover:text-hover text-m font-medium uppercase leading-[20px] transition-all duration-300',
+              {
                 'text-accent': pathname === href,
-              })}
-            >
-              {name}
-            </Link>
-          </li>
-        ))}
-      </ul>
+              }
+            )}
+          >
+            {name}
+          </Link>
+        </li>
+      ))}
+    </>
   );
 };

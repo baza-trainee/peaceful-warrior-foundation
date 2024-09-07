@@ -30,6 +30,7 @@ const config: Config = {
 
     colors: {
       accent: '#115ccd',
+      hover: '#0d408c',
 
       // => background-colors
       'light-background': '#f0f0f0',

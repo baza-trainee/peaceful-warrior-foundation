@@ -8,7 +8,7 @@ const Email = () => {
       target="_blank"
       href={`mailto:${email}`}
       title={`Send an email to ${email}`}
-      className="cursor-pointer hover:underline"
+      className="cursor-pointer transition-all duration-200 hover:text-gray-border hover:underline"
     >
       {email}
     </Link>

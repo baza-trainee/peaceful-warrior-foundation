@@ -43,19 +43,19 @@ const SupportUs = ({}: SupportUsProps) => {
     currencyOptions.find((option) => option.value === selectedCurrency)
       ?.symbol || '';
   return (
-    <section className="laptop:pb-[100px] pb-[60px]">
-      <div className="laptop:w-[908px] m-auto">
-        <h2 className="laptop:hidden mb-3 text-center font-noteworthy text-5xl font-bold uppercase leading-[58.14px] text-accent">
+    <section id="support" className="pb-[60px] laptop:pb-[100px]">
+      <div className="m-auto laptop:w-[908px]">
+        <h2 className="mb-3 text-center font-noteworthy text-5xl font-bold uppercase leading-[58.14px] text-accent laptop:hidden">
           підтримка
         </h2>
-        <h2 className="laptop:block mb-12 hidden text-center font-noteworthy text-8xl font-light uppercase leading-[90.44px] text-accent">
+        <h2 className="mb-12 hidden text-center font-noteworthy text-8xl font-light uppercase leading-[90.44px] text-accent laptop:block">
           підтримайте нас
         </h2>
-        <p className="laptop:text-center laptop:mb-10 laptop:text-lg laptop:leading-[31.69px] mb-6 text-md leading-[24.38px]">
+        <p className="mb-6 text-md leading-[24.38px] laptop:mb-10 laptop:text-center laptop:text-lg laptop:leading-[31.69px]">
           Якщо вас надихнув проект і ви бажаєте стати нашим донором, будь ласка,
           пожертвуйте зручну для вас суму.
         </p>
-        <form className="laptop:gap-y-12 mt-7 flex w-full flex-col gap-y-8">
+        <form className="mt-7 flex w-full flex-col gap-y-8 laptop:gap-y-12">
           {/* Choose subscriptionOption */}
           <div className="flex text-center">
             {subscriptionOptions.map((option) => (
@@ -71,7 +71,7 @@ const SupportUs = ({}: SupportUsProps) => {
                 />
                 <div
                   className={clsx(
-                    `laptop:text-2xl laptop:leading-[36.57px] laptop:h-[61px] flex h-11 w-full items-center justify-center border text-m font-medium leading-[19.5px]`,
+                    `flex h-11 w-full items-center justify-center border text-m font-medium leading-[19.5px] laptop:h-[61px] laptop:text-2xl laptop:leading-[36.57px]`,
                     activeButton === option.value
                       ? 'border-accent bg-[#E7E7E7] text-accent shadow-btn-shadow'
                       : 'border-gray-form bg-[transparent]',
@@ -81,26 +81,26 @@ const SupportUs = ({}: SupportUsProps) => {
                   )}
                 >
                   <p className="laptop:hidden">{option.labelMob}</p>
-                  <p className="laptop:block hidden">{option.labelDesktop}</p>
+                  <p className="hidden laptop:block">{option.labelDesktop}</p>
                 </div>
               </label>
             ))}
           </div>
 
-          <div className="laptop:w-[442px] laptop:h-10 relative mx-auto w-full">
+          <div className="relative mx-auto w-full laptop:h-10 laptop:w-[442px]">
             <input
               type="number"
               value={donationAmount}
               onChange={handleAmountChange}
               placeholder="Сума внеску"
-              className="laptop:pb-4 laptop:placeholder:text-md laptop:placeholder:leading-[24.38px] laptop:placeholder:font-medium block w-full border-b border-solid bg-[transparent] pb-3 text-md leading-[17.07px] placeholder:text-s placeholder:text-[#565656] focus:border-accent focus:outline-none"
+              className="block w-full border-b border-solid bg-[transparent] pb-3 text-md leading-[17.07px] placeholder:text-s placeholder:text-[#565656] focus:border-accent focus:outline-none laptop:pb-4 laptop:placeholder:text-md laptop:placeholder:font-medium laptop:placeholder:leading-[24.38px]"
             />
             {/* Currency */}
             <div className="absolute bottom-3 right-0 flex font-medium text-body-text">
               <select
                 value={selectedCurrency}
                 onChange={handlecurrencyChange}
-                className="laptop:text-md laptop:leading-[24.38px] block w-full appearance-none bg-[transparent] px-4 pr-8 text-sm leading-[19.5px] focus:outline-none"
+                className="block w-full appearance-none bg-[transparent] px-4 pr-8 text-sm leading-[19.5px] focus:outline-none laptop:text-md laptop:leading-[24.38px]"
               >
                 {currencyOptions.map((option) => (
                   <option
