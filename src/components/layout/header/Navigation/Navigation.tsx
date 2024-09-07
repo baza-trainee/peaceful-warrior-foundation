@@ -12,8 +12,7 @@ export const Navigation = ({
   const pathname = usePathname();
 
   return (
-    <nav className='hidden laptop:flex'>
-      <ul className="laptop:flex items-center w-full justify-between">
+      <ul className="flex flex-col justify-center gap-y-[8px] text-btn-background laptop:text-black laptop:flex-row laptop:flex items-center laptop:w-full laptop:justify-between">
         {headerNav.map(({ name, href }) => (
           <li className='flex items-center' key={name}>
             <Link
@@ -27,6 +26,5 @@ export const Navigation = ({
           </li>
         ))}
       </ul>
-    </nav>
   );
 };

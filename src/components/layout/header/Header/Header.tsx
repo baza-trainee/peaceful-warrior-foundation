@@ -1,19 +1,18 @@
 import { Logo } from '@/components/ui/Logo/Logo';
 import { NAV_LINKS } from '@/constants/navlinks/navlinks';
 import { Navigation } from '../Navigation/Navigation';
-import Link from 'next/link';
 import { ICONS } from '@/constants/icons/icons';
 import Dropdown from '../Dropdown/Dropdown';
 import Socials from '../Socials/Socials';
+import Email from '../Email/Email';
 
 const Header = () => {
-  const email = 'ukr.peaceful.warrior@gmail.com';
   return (
     <header>
       {/* Mobile-dark-element before 1024px */}
-      <div className="flex h-[87px] w-full laptop:hidden bg-footer-background">
+      <div className="flex h-[87px] w-full bg-footer-background laptop:hidden">
         <ul className="container flex cursor-pointer items-end justify-between pb-[8px] laptop:hidden">
-          <div className='flex gap-[16px]'>
+          <div className="flex gap-[16px]">
             <Socials />
           </div>
           <div className="flex laptop:hidden">
@@ -34,17 +33,10 @@ const Header = () => {
               Благодійний фонд
             </p>
           </div>
-
-          <div className="flex items-center justify-end ">
-            <Link
-              rel="nofollow noreferrer"
-              target="_blank"
-              href={`mailto:${email}`}
-              title={`Send an email to ${email}`}
-              className="mr-[32px] hidden cursor-pointer text-sm font-normal leading-[21.94px] hover:underline laptop:flex"
-            >
-              {email}
-            </Link>
+          <div className="flex items-center justify-end">
+            <div className="mr-[32px] hidden font-normal text-sm leading-[21.94px] laptop:flex">
+              <Email />
+            </div>
             <ul className="mr-[32px] hidden cursor-pointer gap-[16px] laptop:flex laptop:flex-row">
               <Socials />
             </ul>
@@ -63,8 +55,10 @@ const Header = () => {
               <ICONS.BURGER_MENU className="w-[32px] fill-body-text" />
             </button>
           </div>
-          <hr className="hidden laptop:flex laptop:border-[1px] laptop:border-gray-devider laptop:w-full" />
-          <Navigation headerNav={NAV_LINKS} />
+          <hr className="hidden laptop:flex laptop:w-full laptop:border-[1px] laptop:border-gray-devider" />
+          <nav className="hidden laptop:flex">
+            <Navigation headerNav={NAV_LINKS} />
+          </nav>
         </div>
       </div>
     </header>

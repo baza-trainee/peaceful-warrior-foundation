@@ -43,6 +43,8 @@ const config: Config = {
       white: '#fff',
       'body-text': '#3b3b3b',
       'gray-footer-text': '#bcb9b9',
+      'second-text': '#dadada',
+      'footer-text': '#8b8b8b',
 
       // => decor-elements
       'gray-devider': '#858585',
