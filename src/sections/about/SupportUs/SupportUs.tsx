@@ -61,7 +61,7 @@ const SupportUs = ({}: SupportUsProps) => {
   };
 
   return (
-    <section className="pb-[60px] laptop:pb-[100px]">
+    <section id="support" className="pb-[60px] laptop:pb-[100px]">
       <div className="m-auto laptop:w-[908px]">
         <SectionTitle className="mb-3 laptop:hidden">підтримка</SectionTitle>
         <SectionTitle className="hidden laptop:mb-12 laptop:block">
