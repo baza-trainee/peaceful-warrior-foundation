@@ -5,7 +5,7 @@ import { ICONS } from '@/constants/icons/icons';
 
 const Directions = () => {
   return (
-    <section className="pb-[60px] relative">
+    <section className="pb-[60px] desktop:pb-[100px] relative">
       <h2 className="pb-3 desktop:pb-12 text-center font-noteworthy text-5xl desktop:text-8xl font-bold desktop:font-light tracking-[1.44px] text-accent leading-[58px] desktop:leading-[90px]">НАПРЯМИ<span className='hidden desktop:inline'> РОБОТИ</span></h2>
       <section>
         <div className="flex flex-col desktop:flex-row justify-center desktop:justify-end items-center desktop:pb-[140px]">
@@ -59,10 +59,10 @@ const Directions = () => {
           type="button"
           title="applying"
           // onClick={() => {clickHandler}}
-          className="w-[343px] desktop:w-[326px] rounded-3xl bg-accent text-sm font-medium py-[15px] text-white leading-[22px] absolute left-0 right-0 mx-auto bottom-[151px] desktop:bottom-[86px]"
+          className="w-[343px] desktop:w-[326px] rounded-3xl bg-accent text-sm font-medium py-[11px] text-white leading-[22px] absolute left-0 right-0 mx-auto bottom-[146px] desktop:bottom-[106px] flex flex-row justify-center items-center"
         >
-          <span className='inline desktop:hidden'>ПОДАТИ ЗАЯВКУ</span><span className='hidden desktop:inline'>ЗВЕРНУТИСЬ ЗА ДОПОМОГОЮ</span>
-          {/* {ICON.VECTOR} */}
+          <div><span className='inline desktop:hidden'>ПОДАТИ ЗАЯВКУ</span><span className='hidden desktop:inline'>ЗВЕРНУТИСЬ ЗА ДОПОМОГОЮ</span></div>
+          <div><span className="inline-flex"><svg data-testid="geist-icon" fill="none" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" viewBox="0 0 24 24" className="w-[26px] h-[26px]"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg></span></div>
         </button>
     </section>
   );
