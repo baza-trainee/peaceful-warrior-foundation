@@ -7,12 +7,11 @@ import Team from '@/sections/about/Team/Team';
 export default function Home() {
   return (
     <>
-      <h1>Home Page</h1>
-      <Hero /> {/* Сергій */}
-      <Mission /> {/* Віталій */}
-      <Directions /> {/*  Віка */}
-      <Team /> {/*  Влад */}
-      <SupportUs /> {/*  Ганна */}
+      <Hero />
+      <Mission />
+      <Directions />
+      <Team />
+      <SupportUs />
     </>
   );
 }
