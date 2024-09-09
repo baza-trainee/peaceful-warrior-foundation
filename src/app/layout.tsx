@@ -18,7 +18,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${montserrat.className} antialiased`}>
         <Header />
-        <main className="container min-h-screen">{children}</main>
+        <main
+          id="main-content"
+          className="container min-h-screen pt-[138px] laptop:pt-[224px]"
+        >
+          {children}
+        </main>
         <div id="modal-container" />
         <Footer />
       </body>

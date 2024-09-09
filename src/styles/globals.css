@@ -20,6 +20,10 @@ body {
   height: 100%;
 }
 
+.main-content {
+  padding-top: 224px; /* Висота вашого хедера  */
+}
+
 input[type='number'] {
   appearance: none;
   -moz-appearance: textfield; /* Для Firefox */

@@ -1,3 +1,5 @@
+'use client';
+
 import { Logo } from '@/components/ui/Logo/Logo';
 import Socials from '../../header/Socials/Socials';
 import TextLogo from '@/components/ui/Logo/TextLogo';
@@ -8,9 +10,7 @@ import Email from '../../header/Email/Email';
 import Link from 'next/link';
 import RuleLinks from '../RuleLinks/ruleLinks';
 
-type FooterProps = {};
-
-const Footer = ({}: FooterProps) => {
+const Footer: React.FC = () => {
   return (
     <footer className="flex flex-col bg-footer-background pt-[22px] text-light-background laptop:pt-[56px]">
       <div className="container">
@@ -29,7 +29,7 @@ const Footer = ({}: FooterProps) => {
           </p>
 
           {/* Mobile-socials before 1024px */}
-          <ul className="hover:fill-hover flex cursor-pointer items-center gap-[16px] transition-all duration-300 laptop:hidden">
+          <ul className="flex cursor-pointer items-center gap-[16px] transition-all duration-300 hover:fill-hover laptop:hidden">
             <Socials />
           </ul>
           {/* Desktop-footer-socials after 1024px */}
@@ -118,7 +118,7 @@ const Footer = ({}: FooterProps) => {
           </div>
         </div>
 
-        <p className="text-footer-text mb-[32px] text-center font-helvetica text-xs font-normal leading-[14.32px] laptop:mb-[56px] laptop:text-s laptop:font-normal laptop:leading-[16.7px]">
+        <p className="mb-[32px] text-center font-helvetica text-xs font-normal leading-[14.32px] text-footer-text laptop:mb-[56px] laptop:text-s laptop:font-normal laptop:leading-[16.7px]">
           Розробка
           <a
             href="https://baza-trainee.tech/ua"

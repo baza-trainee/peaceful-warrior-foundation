@@ -38,6 +38,7 @@ const config: Config = {
       'btn-background': '#ededed',
       'swiper-card-background': '#ede8dd',
       'footer-background': '#2b3748',
+      'header-background': 'rgba(205, 204, 199, 0.85)',
 
       // => text-colors
       black: '#000',
