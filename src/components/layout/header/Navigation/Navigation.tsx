@@ -18,7 +18,7 @@ export const Navigation = ({
           <Link
             href={href}
             className={clsx(
-              'hover:text-hover text-m font-medium uppercase leading-[20px] transition-all duration-300',
+              'text-md font-medium uppercase transition-all duration-300 hover:text-hover laptop:text-m laptop:leading-[20px]',
               {
                 'text-accent': pathname === href,
               }
