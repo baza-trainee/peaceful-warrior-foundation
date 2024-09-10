@@ -1,12 +1,17 @@
+'use client';
+
 import { Logo } from '@/components/ui/Logo/Logo';
 import { NAV_LINKS } from '@/constants/navlinks/navlinks';
 import { Navigation } from '../Navigation/Navigation';
-import { ICONS } from '@/constants/icons/icons';
 import Dropdown from '../Dropdown/Dropdown';
 import Socials from '../Socials/Socials';
 import Email from '../Email/Email';
+import MobileMenu from '../MobileMenu/MobileMenu';
+import { useState } from 'react';
+import clsx from 'clsx';
 
 const Header: React.FC = () => {
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
   return (
     <header>
       {/* Mobile-dark-element before 1024px */}
@@ -21,7 +26,12 @@ const Header: React.FC = () => {
         </ul>
       </div>
 
-      <div className="container flex items-center pb-[12px] pt-[16px] laptop:gap-[12px] laptop:pb-[48px] laptop:pt-[40px]">
+      <div
+        className={clsx(
+          'container flex items-center pb-[12px] pt-[16px] laptop:gap-[12px] laptop:pb-[48px] laptop:pt-[40px]',
+          { 'bg-swiper-card-background': openMobileMenu }
+        )}
+      >
         <div>
           <Logo type="dark" />
         </div>
@@ -55,10 +65,6 @@ const Header: React.FC = () => {
               <Dropdown />
             </div>
           </div>
-          {/* Mobile-burger-btn before 1024px */}
-          <button className="flex cursor-pointer laptop:hidden" type="button">
-            <ICONS.BURGER_MENU className="w-[32px] fill-body-text" />
-          </button>
           <hr className="hidden laptop:flex laptop:w-full laptop:border-[1px] laptop:border-gray-devider" />
 
           {/* Desktop-navlinks after 1024px */}
@@ -67,6 +73,12 @@ const Header: React.FC = () => {
               <Navigation headerNav={NAV_LINKS} />
             </ul>
           </nav>
+
+          {/* Mobile-burger-menu before 1024px */}
+          <MobileMenu
+            openMobileMenu={openMobileMenu}
+            setOpenMobileMenu={setOpenMobileMenu}
+          />
         </div>
       </div>
     </header>
