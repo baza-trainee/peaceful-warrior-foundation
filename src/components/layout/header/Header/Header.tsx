@@ -75,10 +75,10 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Mobile-burger-menu before 1024px */}
-          <MobileMenu
+          {/* <MobileMenu
             openMobileMenu={openMobileMenu}
             setOpenMobileMenu={setOpenMobileMenu}
-          />
+          /> */}
         </div>
       </div>
     </header>
