@@ -32,7 +32,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   }, [setOpenMobileMenu]);
 
   return (
-    <>
+    <div className="laptop:hidden">
       <button
         onClick={() => setOpenMobileMenu(!openMobileMenu)}
         className="flex cursor-pointer transition-all duration-300 laptop:hidden"
@@ -64,7 +64,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
