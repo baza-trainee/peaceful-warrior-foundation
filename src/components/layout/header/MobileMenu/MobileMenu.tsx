@@ -1,7 +1,7 @@
 'use client';
 
 import { ICONS } from '@/constants/icons/icons';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import { NAV_LINKS } from '@/constants/navlinks/navlinks';
 import { MobileNav } from '../MobileNav/MobileNav';
 import clsx from 'clsx';
@@ -22,14 +22,22 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       }
     };
 
+    // Додаємо слухача подій на клавіатуру
     window.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden';
 
+    // Змінюємо overflow тільки якщо меню відкрите
+    if (openMobileMenu) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    // Очищення слухача подій та overflow при демонтажі
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'auto';
     };
-  }, [setOpenMobileMenu]);
+  }, [openMobileMenu, setOpenMobileMenu]);
 
   return (
     <div className="laptop:hidden">
