@@ -73,16 +73,16 @@ const SupportUs = ({}: SupportUsProps) => {
         <SectionTitle className="hidden laptop:mb-12 laptop:block">
           підтримайте нас
         </SectionTitle>
-        <p className="mb-6 text-center text-md leading-[24.38px] laptop:hidden">
+        <p className="mb-6 text-center text-md leading-[24.38px] tablet:hidden">
           Якщо вас надихнув проект, будь ласка, підтримайте наш фонд.
         </p>
-        <p className="hidden laptop:mb-10 laptop:block laptop:text-center laptop:text-lg laptop:leading-[31.69px]">
+        <p className="hidden text-center tablet:mb-10 tablet:block tablet:text-l tablet:leading-[26px] laptop:text-lg laptop:leading-[31.69px]">
           Якщо вас надихнув проект і ви бажаєте стати нашим донором, будь ласка,
           пожертвуйте зручну для вас суму.
         </p>
         <form
           onSubmit={handleSubmit}
-          className="mt-7 flex w-full flex-col gap-y-8 laptop:gap-y-12"
+          className="mt-7 flex w-full flex-col gap-y-8 tablet:gap-y-10 laptop:gap-y-12"
         >
           {/* Choose subscriptionOption */}
           <div className="flex text-center">
@@ -99,39 +99,41 @@ const SupportUs = ({}: SupportUsProps) => {
                 />
                 <div
                   className={clsx(
-                    `flex h-[46px] w-full items-center justify-center border text-sm laptop:h-[61px] laptop:text-2xl laptop:leading-[36.57px]`,
+                    `flex h-[46px] w-full items-center justify-center border text-sm leading-[22px] tablet:h-[53px] tablet:text-[24px] tablet:leading-[29.26px] laptop:h-[61px] laptop:text-2xl laptop:leading-[36.57px]`,
                     activeButton === option.value
-                      ? 'border-accent bg-[#E7E7E7] font-semibold leading-[21.94px] text-accent shadow-btn-shadow'
-                      : 'border-gray-devider bg-[transparent] font-medium leading-[22px] text-gray-devider',
+                      ? 'border-accent bg-[#E7E7E7] font-semibold text-accent shadow-btn-shadow tablet:font-medium'
+                      : 'border-gray-devider bg-[transparent] font-medium text-gray-devider tablet:font-medium',
                     option.value === 'one_time'
                       ? 'rounded-bl-btn-radius rounded-tl-btn-radius'
                       : 'rounded-br-btn-radius rounded-tr-btn-radius'
                   )}
                 >
-                  <p className="laptop:hidden">{option.labelMob}</p>
-                  <p className="hidden laptop:block">{option.labelDesktop}</p>
+                  <p className="tablet:hidden">{option.labelMob}</p>
+                  <p className="hidden tablet:block">{option.labelDesktop}</p>
                 </div>
               </label>
             ))}
           </div>
           {/* Donate amount */}
-          <div className="flex flex-col justify-center text-l font-medium leading-8">
-            <div className="mb-[20px] flex gap-x-4">
+          <div className="flex flex-col justify-center gap-y-[20px] text-l font-medium leading-8 tablet:flex-row tablet:tablet:gap-x-6 tablet:px-12 tablet:text-xl">
+            <div className="flex flex-1 gap-x-4 tablet:gap-x-6">
               {paymentAmountData.map((el, index) => (
                 <div
                   className={clsx(
-                    'flex h-11 flex-1 items-center justify-center rounded-xl border-2 border-accent py-2 leading-8'
+                    'flex h-11 flex-1 items-center justify-center rounded-xl border-2 border-accent py-2 leading-8 tablet:h-14',
+                    donationAmount.toString() === el && 'bg-[#E7E7E7]'
                   )}
                   key={index + el}
                   onClick={() => handleAmountChange(el)}
                 >
-                  {el}&nbsp;<span className="pb-[2px] text-sm">₴</span>
+                  {el}&nbsp;
+                  <span className="text-sm tablet:text-[24px]">₴</span>
                 </div>
               ))}
             </div>
 
             <input
-              className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent]"
+              className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent] tablet:m-0 tablet:h-14 tablet:w-[184px]"
               type="number"
               // pattern="[0-9]"
               // className={`${donateStyle} col-span-2`}
