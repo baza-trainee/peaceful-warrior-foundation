@@ -35,9 +35,10 @@ const SupportUs = ({}: SupportUsProps) => {
   const [errorDonationAmount, setErrorDonationAmount] =
     useState<boolean>(false);
 
-  const handlecurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCurrency(e.target.value);
-  };
+  const paymentAmountData = ['20', '50', '100'];
+  // const handlecurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   setSelectedCurrency(e.target.value);
+  // };
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setDonationAmount(value === '' ? '' : parseFloat(value));
@@ -67,7 +68,10 @@ const SupportUs = ({}: SupportUsProps) => {
         <SectionTitle className="hidden laptop:mb-12 laptop:block">
           підтримайте нас
         </SectionTitle>
-        <p className="mb-6 text-md leading-[24.38px] laptop:mb-10 laptop:text-center laptop:text-lg laptop:leading-[31.69px]">
+        <p className="mb-6 text-center text-md leading-[24.38px] laptop:hidden">
+          Якщо вас надихнув проект, будь ласка, підтримайте наш фонд.
+        </p>
+        <p className="hidden laptop:mb-10 laptop:block laptop:text-center laptop:text-lg laptop:leading-[31.69px]">
           Якщо вас надихнув проект і ви бажаєте стати нашим донором, будь ласка,
           пожертвуйте зручну для вас суму.
         </p>
@@ -90,10 +94,10 @@ const SupportUs = ({}: SupportUsProps) => {
                 />
                 <div
                   className={clsx(
-                    `flex h-11 w-full items-center justify-center border text-m font-medium leading-[19.5px] laptop:h-[61px] laptop:text-2xl laptop:leading-[36.57px]`,
+                    `flex h-[46px] w-full items-center justify-center border text-sm laptop:h-[61px] laptop:text-2xl laptop:leading-[36.57px]`,
                     activeButton === option.value
-                      ? 'border-accent bg-[#E7E7E7] text-accent shadow-btn-shadow'
-                      : 'border-gray-form bg-[transparent]',
+                      ? 'border-accent bg-[#E7E7E7] font-semibold leading-[21.94px] text-accent shadow-btn-shadow'
+                      : 'border-gray-devider bg-[transparent] font-medium leading-[22px] text-gray-devider',
                     option.value === 'one_time'
                       ? 'rounded-bl-btn-radius rounded-tl-btn-radius'
                       : 'rounded-br-btn-radius rounded-tr-btn-radius'
@@ -106,8 +110,31 @@ const SupportUs = ({}: SupportUsProps) => {
             ))}
           </div>
           {/* Donate amount */}
+          <div className="sm:h-[19.2rem] my-[4.8rem] grid h-[10.8rem] grid-cols-3 gap-[3.2rem] font-medium uppercase">
+            <div className="">
+              {paymentAmountData.map((el, index) => (
+                <button
+                  className={clsx(
+                    'h-11 rounded-xl border-2 border-accent py-2 pl-4 pr-[14px]'
+                  )}
+                  key={index + el}
+                  // onClick={() => handleAmountChange(el)}
+                >
+                  {el} &#8372;
+                </button>
+              ))}
+            </div>
 
-          <div className="relative mx-auto w-full laptop:w-[442px]">
+            <input
+              type="text"
+              pattern="[0-9]"
+              // className={`${donateStyle} col-span-2`}
+              // placeholder={otherSum}
+              // onChange={(e) => handleAmountChange(e.target.value)}
+              // value={paymentAmount}
+            ></input>
+          </div>
+          {/* <div className="relative mx-auto w-full laptop:w-[442px]">
             <input
               type="number"
               value={donationAmount}
@@ -123,7 +150,7 @@ const SupportUs = ({}: SupportUsProps) => {
                 Введіть, будь ласка, суму
               </p>
             )}
-            {/* Currency */}
+
             <div className="absolute bottom-4 right-0 flex font-medium text-body-text">
               <select
                 value={selectedCurrency}
@@ -150,7 +177,7 @@ const SupportUs = ({}: SupportUsProps) => {
                 </svg>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <Button className="m-auto">ПІДТРИМАТИ</Button>
         </form>
