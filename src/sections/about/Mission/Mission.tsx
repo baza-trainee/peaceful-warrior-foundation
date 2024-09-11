@@ -9,11 +9,44 @@ const Mission = ({}: MissionProps) => {
         Наша місія
       </h2>
       <p className="text-1 relative mx-auto mb-16 max-w-[908px] text-center mobile:text-[22px] desktop:text-[26px]">
-        <span className="sm:top-5 sm:left-6 md:top-8 md:left-8 lg:top[-95px] lg:left-10 absolute left-5 top-11 h-8 w-8 bg-[url('/assets/images/Mission/icon_quote.svg')] bg-contain bg-center bg-no-repeat desktop:left-[-30px]" />
+        <span className="sm:top-5 sm:left-6 md:top-8 md:left-8 lg:top[-9px] lg:left-10 absolute bottom-[-45px] left-0 h-8 w-8 bg-[url('/assets/images/Mission/icon_quote.svg')] bg-contain bg-center bg-no-repeat leading-loose desktop:left-[-30px]" />
         Повноцінне життя та рівні можливості для тих, хто боронив нашу країну
         від ворога, в сучасному та післявоєнному суспільстві
-        <span className="absolute right-[-10px] md:right-[-20px] lg:right-[-30px] top-[-30px] h-8 w-8 bg-[url('/assets/images/Mission/icon_quote.svg')] bg-contain bg-center bg-no-repeat" />
+        <span className="md:right-[-20px] lg:right-[-30px] absolute right-[-10px] top-[-30px] h-8 w-8 bg-[url('/assets/images/Mission/icon_quote.svg')] bg-contain bg-center bg-no-repeat" />
       </p>
+      <div className="relative items-start justify-between text-center tablet:flex">
+        <span className="sm:top-5 sm:left-6 md:top-8 md:left-[-8] lg:top[-9px] lg:left-10 absolute bottom-[-45%] left-0 h-[75%] w-[100%] bg-[url('/assets/images/Mission/decor.svg')] bg-contain bg-center bg-no-repeat leading-loose desktop:left-[-30px]" />
+        <div className="md:translate-x-0 translate-x-5 transform">
+          <div className="bg-gray-300 p-4">
+            <h3 className="font-normal leading-loose mobile:text-[20px] desktop:text-[30px]">
+              Реабілітація
+            </h3>
+            <p className="font-light leading-snug mobile:text-[14px] desktop:text-[16px]">
+              організуємо доступ до кращих лікарів і новітніх медичних розробок
+            </p>
+          </div>
+        </div>
+        <div className="-translate-x-10 transform tablet:mt-[9%] tablet:w-1/2 tablet:translate-x-0">
+          <div className="bg-gray-300 p-4">
+            <h3 className="font-normal leading-loose mobile:text-[20px] desktop:text-[30px]">
+              Працевлаштування
+            </h3>
+            <p className="font-light leading-snug mobile:text-[14px] desktop:text-[16px]">
+              допомагаємо знайти роботу та реалізувати професійний потенціал
+            </p>
+          </div>
+        </div>
+        <div className="md:translate-x-0 translate-x-5 transform">
+          <div className="tablet:bg-gray-200 p-4">
+            <h3 className="font-normal leading-loose mobile:text-[20px] desktop:text-[30px]">
+              Соціалізація
+            </h3>
+            <p className="font-light leading-snug mobile:text-[14px] desktop:text-[16px]">
+              сприяємо поверненню військових до повноцінного суспільного життя
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
