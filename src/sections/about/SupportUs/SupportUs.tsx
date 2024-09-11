@@ -67,22 +67,22 @@ const SupportUs = ({}: SupportUsProps) => {
   };
 
   return (
-    <section id="support" className="pb-[60px] laptop:pb-[100px]">
-      <div className="m-auto laptop:w-[908px]">
-        <SectionTitle className="mb-3 laptop:hidden">підтримка</SectionTitle>
-        <SectionTitle className="hidden laptop:mb-12 laptop:block">
+    <section id="support" className="pb-[60px] tablet:pb-20 desktop:pb-[100px]">
+      <div className="m-auto desktop:w-[908px]">
+        <SectionTitle className="mb-3 tablet:hidden">підтримка</SectionTitle>
+        <SectionTitle className="hidden tablet:mb-6 tablet:block desktop:mb-12">
           підтримайте нас
         </SectionTitle>
         <p className="mb-6 text-center text-md leading-[24.38px] tablet:hidden">
           Якщо вас надихнув проект, будь ласка, підтримайте наш фонд.
         </p>
-        <p className="hidden text-center tablet:mb-10 tablet:block tablet:text-l tablet:leading-[26px] laptop:text-lg laptop:leading-[31.69px]">
+        <p className="hidden text-center tablet:mb-10 tablet:block tablet:text-l tablet:leading-[26px] desktop:text-lg desktop:leading-[31.69px]">
           Якщо вас надихнув проект і ви бажаєте стати нашим донором, будь ласка,
           пожертвуйте зручну для вас суму.
         </p>
         <form
           onSubmit={handleSubmit}
-          className="mt-7 flex w-full flex-col gap-y-8 tablet:gap-y-10 laptop:gap-y-12"
+          className="mt-7 flex w-full flex-col gap-y-8 tablet:gap-y-10 desktop:gap-y-12"
         >
           {/* Choose subscriptionOption */}
           <div className="flex text-center">
@@ -99,7 +99,7 @@ const SupportUs = ({}: SupportUsProps) => {
                 />
                 <div
                   className={clsx(
-                    `flex h-[46px] w-full items-center justify-center border text-sm leading-[22px] tablet:h-[53px] tablet:text-[24px] tablet:leading-[29.26px] laptop:h-[61px] laptop:text-2xl laptop:leading-[36.57px]`,
+                    `flex h-[46px] w-full items-center justify-center border text-sm leading-[22px] tablet:h-[53px] tablet:text-[24px] tablet:leading-[29.26px] desktop:h-[61px] desktop:text-2xl desktop:leading-[36.57px]`,
                     activeButton === option.value
                       ? 'border-accent bg-[#E7E7E7] font-semibold text-accent shadow-btn-shadow tablet:font-medium'
                       : 'border-gray-devider bg-[transparent] font-medium text-gray-devider tablet:font-medium',
@@ -115,7 +115,7 @@ const SupportUs = ({}: SupportUsProps) => {
             ))}
           </div>
           {/* Donate amount */}
-          <div className="flex flex-col justify-center gap-y-[20px] text-l font-medium leading-8 tablet:flex-row tablet:gap-x-6 tablet:px-12 tablet:text-xl laptop:px-[161px]">
+          <div className="flex flex-col justify-center gap-y-[20px] text-l font-medium leading-8 tablet:flex-row tablet:gap-x-6 tablet:px-12 tablet:text-xl desktop:px-[161px]">
             <div className="flex flex-1 gap-x-4 tablet:gap-x-6">
               {paymentAmountData.map((el, index) => (
                 <div
@@ -187,7 +187,7 @@ const SupportUs = ({}: SupportUsProps) => {
             </div>
           </div> */}
 
-          <Button type="submit" className="m-auto">
+          <Button type="submit" className="m-auto w-full tablet:w-[326px]">
             ПІДТРИМАТИ
           </Button>
         </form>
