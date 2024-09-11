@@ -1,7 +1,6 @@
 'use client';
 
-import { ICONS } from '@/constants/icons/icons';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import { NAV_LINKS } from '@/constants/navlinks/navlinks';
 import { MobileNav } from '../MobileNav/MobileNav';
 import clsx from 'clsx';
@@ -9,53 +8,94 @@ import clsx from 'clsx';
 interface MobileMenuProps {
   openMobileMenu: boolean;
   setOpenMobileMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  isExiting: boolean;
+  setIsExiting: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
   openMobileMenu,
   setOpenMobileMenu,
+  isExiting,
+  setIsExiting,
 }) => {
   useEffect(() => {
     const handleKeyDown = (e: { code: string }) => {
       if (e.code === 'Escape') {
-        setOpenMobileMenu(false);
+        closeMenu();
       }
     };
 
+    const closeMenu = () => {
+      setIsExiting(true);
+      setTimeout(() => {
+        setIsExiting(false);
+        setOpenMobileMenu(false);
+      }, 300); // Відповідає тривалості анімації
+    };
+
     window.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden';
+
+    const mainElement = document.querySelector('main'); // Додаємо/видаляємо розмиття фону для <main>
+    if (openMobileMenu) {
+      document.body.style.overflow = 'hidden';
+      if (mainElement) {
+        mainElement.classList.add('backdrop-blur');
+      }
+    } else {
+      document.body.style.overflow = 'auto';
+      if (mainElement) {
+        mainElement.classList.remove('backdrop-blur');
+      }
+    }
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'auto';
+      if (mainElement) {
+        mainElement.classList.remove('backdrop-blur');
+      }
     };
-  }, [setOpenMobileMenu]);
+  }, [openMobileMenu, setIsExiting, setOpenMobileMenu]);
+
+  const handleMenuClick = () => {
+    if (openMobileMenu) {
+      setIsExiting(true);
+      setTimeout(() => {
+        setIsExiting(false);
+        setOpenMobileMenu(false);
+      }, 300);
+    } else {
+      setOpenMobileMenu(true);
+    }
+  };
 
   return (
     <div className="laptop:hidden">
       <button
-        onClick={() => setOpenMobileMenu(!openMobileMenu)}
-        className="flex cursor-pointer transition-all duration-300 laptop:hidden"
+        onClick={handleMenuClick}
+        className={clsx('menu-btn', {
+          active: openMobileMenu && !isExiting,
+        })}
         type="button"
       >
-        {openMobileMenu ? (
-          <ICONS.CROSS className="h-[32px] fill-body-text" />
-        ) : (
-          <ICONS.BURGER_MENU className="w-[32px] fill-body-text" />
-        )}
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
       </button>
 
-      {openMobileMenu && (
+      {(openMobileMenu || isExiting) && (
         <div
-          onClick={() => setOpenMobileMenu(false)}
+          onClick={handleMenuClick}
           className={clsx(
-            'fixed left-0 top-0 z-50 w-full',
-            openMobileMenu ? 'mobile-menu-enter' : 'mobile-menu-exit'
+            'fixed right-0 top-0 z-50 h-full w-full',
+            openMobileMenu && !isExiting
+              ? 'mobile-menu-enter'
+              : 'mobile-menu-exit'
           )}
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="absolute left-0 top-[126px] flex h-screen w-full flex-col overflow-y-hidden bg-swiper-card-background px-[16px] pt-[48px] text-body-text"
+            className="absolute left-0 top-[126px] flex w-full flex-col overflow-y-hidden bg-swiper-card-background px-[16px] pb-[24px] pt-[48px] text-body-text shadow-md"
           >
             <MobileNav
               setOpenMobileMenu={setOpenMobileMenu}
