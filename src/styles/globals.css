@@ -68,6 +68,11 @@ input[type='number']::-webkit-inner-spin-button {
   transition: background-color 150ms ease-in-out;
 }
 
+.backdrop-blur {
+  background-color: rgba(113, 112, 112, 0.8);
+  transition: background-color 0.3s ease;
+}
+
 /* Styles for burger button animation */
 .menu-btn {
   display: flex;

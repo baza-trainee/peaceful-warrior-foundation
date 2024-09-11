@@ -30,20 +30,30 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       setTimeout(() => {
         setIsExiting(false);
         setOpenMobileMenu(false);
-      }, 600); // Відповідає тривалості анімації
+      }, 300); // Відповідає тривалості анімації
     };
 
     window.addEventListener('keydown', handleKeyDown);
 
+    const mainElement = document.querySelector('main'); // Додаємо/видаляємо розмиття фону для <main>
     if (openMobileMenu) {
       document.body.style.overflow = 'hidden';
+      if (mainElement) {
+        mainElement.classList.add('backdrop-blur');
+      }
     } else {
       document.body.style.overflow = 'auto';
+      if (mainElement) {
+        mainElement.classList.remove('backdrop-blur');
+      }
     }
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'auto';
+      if (mainElement) {
+        mainElement.classList.remove('backdrop-blur');
+      }
     };
   }, [openMobileMenu, setIsExiting, setOpenMobileMenu]);
 
@@ -63,7 +73,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
     <div className="laptop:hidden">
       <button
         onClick={handleMenuClick}
-        className={clsx('menu-btn', { active: openMobileMenu && !isExiting })}
+        className={clsx('menu-btn', {
+          active: openMobileMenu && !isExiting,
+        })}
         type="button"
       >
         <span className="bar"></span>
@@ -75,7 +87,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         <div
           onClick={handleMenuClick}
           className={clsx(
-            'fixed right-0 top-0 z-50 w-full',
+            'fixed right-0 top-0 z-50 h-full w-full',
             openMobileMenu && !isExiting
               ? 'mobile-menu-enter'
               : 'mobile-menu-exit'
@@ -83,7 +95,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="absolute left-0 top-[126px] flex h-screen w-full flex-col overflow-y-hidden bg-swiper-card-background px-[16px] pt-[48px] text-body-text"
+            className="absolute left-0 top-[126px] flex w-full flex-col overflow-y-hidden bg-swiper-card-background px-[16px] pb-[24px] pt-[48px] text-body-text shadow-md"
           >
             <MobileNav
               setOpenMobileMenu={setOpenMobileMenu}

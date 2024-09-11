@@ -3,7 +3,7 @@
 import { Logo } from '@/components/ui/Logo/Logo';
 import { NAV_LINKS } from '@/constants/navlinks/navlinks';
 import { Navigation } from '../Navigation/Navigation';
-import Dropdown from '../Dropdown/Dropdown';
+import Dropdown from '../LanguageToogler/LanguageToogler';
 import Socials from '../Socials/Socials';
 import Email from '../Email/Email';
 import MobileMenu from '../MobileMenu/MobileMenu';
