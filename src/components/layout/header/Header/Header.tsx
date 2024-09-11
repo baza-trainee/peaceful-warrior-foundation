@@ -12,6 +12,7 @@ import clsx from 'clsx';
 
 const Header: React.FC = () => {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
+  const [isExiting, setIsExiting] = useState(false);
   return (
     <header>
       {/* Mobile-dark-element before 1024px */}
@@ -25,11 +26,11 @@ const Header: React.FC = () => {
           </div>
         </ul>
       </div>
-
+      {/* Mobile-logo-and-text-block before 1024px */}
       <div
         className={clsx(
-          'container flex items-center pb-[12px] pt-[16px] laptop:gap-[12px] laptop:pb-[48px] laptop:pt-[40px]',
-          { 'bg-swiper-card-background': openMobileMenu }
+          'bg-transition container flex items-center pb-[12px] pt-[16px] laptop:gap-[12px] laptop:pb-[48px] laptop:pt-[40px]',
+          { 'bg-swiper-card-background': openMobileMenu || isExiting }
         )}
       >
         <div>
@@ -75,10 +76,12 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Mobile-burger-menu before 1024px */}
-          {/* <MobileMenu
+          <MobileMenu
             openMobileMenu={openMobileMenu}
             setOpenMobileMenu={setOpenMobileMenu}
-          /> */}
+            isExiting={isExiting}
+            setIsExiting={setIsExiting}
+          />
         </div>
       </div>
     </header>

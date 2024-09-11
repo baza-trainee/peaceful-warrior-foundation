@@ -1,6 +1,5 @@
 'use client';
 
-import { ICONS } from '@/constants/icons/icons';
 import { useEffect } from 'react';
 import { NAV_LINKS } from '@/constants/navlinks/navlinks';
 import { MobileNav } from '../MobileNav/MobileNav';
@@ -9,56 +8,77 @@ import clsx from 'clsx';
 interface MobileMenuProps {
   openMobileMenu: boolean;
   setOpenMobileMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  isExiting: boolean;
+  setIsExiting: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({
   openMobileMenu,
   setOpenMobileMenu,
+  isExiting,
+  setIsExiting,
 }) => {
   useEffect(() => {
     const handleKeyDown = (e: { code: string }) => {
       if (e.code === 'Escape') {
-        setOpenMobileMenu(false);
+        closeMenu();
       }
     };
 
-    // Додаємо слухача подій на клавіатуру
+    const closeMenu = () => {
+      setIsExiting(true);
+      setTimeout(() => {
+        setIsExiting(false);
+        setOpenMobileMenu(false);
+      }, 600); // Відповідає тривалості анімації
+    };
+
     window.addEventListener('keydown', handleKeyDown);
 
-    // Змінюємо overflow тільки якщо меню відкрите
     if (openMobileMenu) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
 
-    // Очищення слухача подій та overflow при демонтажі
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'auto';
     };
-  }, [openMobileMenu, setOpenMobileMenu]);
+  }, [openMobileMenu, setIsExiting, setOpenMobileMenu]);
+
+  const handleMenuClick = () => {
+    if (openMobileMenu) {
+      setIsExiting(true);
+      setTimeout(() => {
+        setIsExiting(false);
+        setOpenMobileMenu(false);
+      }, 300);
+    } else {
+      setOpenMobileMenu(true);
+    }
+  };
 
   return (
     <div className="laptop:hidden">
       <button
-        onClick={() => setOpenMobileMenu(!openMobileMenu)}
-        className="flex cursor-pointer transition-all duration-300 laptop:hidden"
+        onClick={handleMenuClick}
+        className={clsx('menu-btn', { active: openMobileMenu && !isExiting })}
         type="button"
       >
-        {openMobileMenu ? (
-          <ICONS.CROSS className="h-[32px] fill-body-text" />
-        ) : (
-          <ICONS.BURGER_MENU className="w-[32px] fill-body-text" />
-        )}
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
       </button>
 
-      {openMobileMenu && (
+      {(openMobileMenu || isExiting) && (
         <div
-          onClick={() => setOpenMobileMenu(false)}
+          onClick={handleMenuClick}
           className={clsx(
-            'fixed left-0 top-0 z-50 w-full',
-            openMobileMenu ? 'mobile-menu-enter' : 'mobile-menu-exit'
+            'fixed right-0 top-0 z-50 w-full',
+            openMobileMenu && !isExiting
+              ? 'mobile-menu-enter'
+              : 'mobile-menu-exit'
           )}
         >
           <div
