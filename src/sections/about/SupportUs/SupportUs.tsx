@@ -115,7 +115,7 @@ const SupportUs = ({}: SupportUsProps) => {
             ))}
           </div>
           {/* Donate amount */}
-          <div className="flex flex-col justify-center gap-y-[20px] text-l font-medium leading-8 tablet:flex-row tablet:tablet:gap-x-6 tablet:px-12 tablet:text-xl">
+          <div className="flex flex-col justify-center gap-y-[20px] text-l font-medium leading-8 tablet:flex-row tablet:gap-x-6 tablet:px-12 tablet:text-xl laptop:px-[161px]">
             <div className="flex flex-1 gap-x-4 tablet:gap-x-6">
               {paymentAmountData.map((el, index) => (
                 <div
