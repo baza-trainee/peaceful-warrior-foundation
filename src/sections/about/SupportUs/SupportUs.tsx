@@ -19,28 +19,32 @@ const subscriptionOptions = [
     value: 'monthly',
   },
 ];
-const currencyOptions = [
-  { value: 'UAH', label: 'UAH', symbol: '₴' },
-  { value: 'USD', label: 'USD', symbol: '$' },
+const paymentAmountData = ['20', '50', '100'];
 
-  { value: 'EUR', label: 'EUR', symbol: '€' },
-];
+// const currencyOptions = [
+//   { value: 'UAH', label: 'UAH', symbol: '₴' },
+//   { value: 'USD', label: 'USD', symbol: '$' },
+
+//   { value: 'EUR', label: 'EUR', symbol: '€' },
+// ];
 
 const SupportUs = ({}: SupportUsProps) => {
   const [activeButton, setActiveButton] = useState<string>('one_time');
-  const [selectedCurrency, setSelectedCurrency] = useState<string>(
-    currencyOptions[0].value
-  );
+  // const [selectedCurrency, setSelectedCurrency] = useState<string>(
+  //   currencyOptions[0].value
+  // );
   const [donationAmount, setDonationAmount] = useState<number | ''>('');
   const [errorDonationAmount, setErrorDonationAmount] =
     useState<boolean>(false);
 
-  const paymentAmountData = ['20', '50', '100'];
   // const handlecurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
   //   setSelectedCurrency(e.target.value);
   // };
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+  // const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const value = e.target.value;
+  //   setDonationAmount(value === '' ? '' : parseFloat(value));
+  // };
+  const handleAmountChange = (value: string) => {
     setDonationAmount(value === '' ? '' : parseFloat(value));
   };
 
@@ -55,10 +59,11 @@ const SupportUs = ({}: SupportUsProps) => {
     const newOrder = {
       order_id: `id-${Date.now()}`,
       amount: donationAmount,
-      currency: selectedCurrency,
+      // currency: selectedCurrency,
       regularMode: activeButton,
     };
     console.log('donation: ', newOrder);
+    setDonationAmount('');
   };
 
   return (
@@ -110,28 +115,29 @@ const SupportUs = ({}: SupportUsProps) => {
             ))}
           </div>
           {/* Donate amount */}
-          <div className="sm:h-[19.2rem] my-[4.8rem] grid h-[10.8rem] grid-cols-3 gap-[3.2rem] font-medium uppercase">
-            <div className="">
+          <div className="flex flex-col justify-center text-l font-medium leading-8">
+            <div className="mb-[20px] flex gap-x-4">
               {paymentAmountData.map((el, index) => (
-                <button
+                <div
                   className={clsx(
-                    'h-11 rounded-xl border-2 border-accent py-2 pl-4 pr-[14px]'
+                    'flex h-11 flex-1 items-center justify-center rounded-xl border-2 border-accent py-2 leading-8'
                   )}
                   key={index + el}
-                  // onClick={() => handleAmountChange(el)}
+                  onClick={() => handleAmountChange(el)}
                 >
-                  {el} &#8372;
-                </button>
+                  {el}&nbsp;<span className="pb-[2px] text-sm">₴</span>
+                </div>
               ))}
             </div>
 
             <input
-              type="text"
-              pattern="[0-9]"
+              className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent]"
+              type="number"
+              // pattern="[0-9]"
               // className={`${donateStyle} col-span-2`}
-              // placeholder={otherSum}
-              // onChange={(e) => handleAmountChange(e.target.value)}
-              // value={paymentAmount}
+              placeholder="інша сума"
+              onChange={(e) => handleAmountChange(e.target.value)}
+              value={donationAmount}
             ></input>
           </div>
           {/* <div className="relative mx-auto w-full laptop:w-[442px]">
@@ -179,7 +185,9 @@ const SupportUs = ({}: SupportUsProps) => {
             </div>
           </div> */}
 
-          <Button className="m-auto">ПІДТРИМАТИ</Button>
+          <Button type="submit" className="m-auto">
+            ПІДТРИМАТИ
+          </Button>
         </form>
       </div>
     </section>
