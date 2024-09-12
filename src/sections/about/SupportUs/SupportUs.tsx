@@ -102,7 +102,7 @@ const SupportUs = ({}: SupportUsProps) => {
                     `flex h-[46px] w-full items-center justify-center border text-sm leading-[22px] tablet:h-[53px] tablet:text-[24px] tablet:leading-[29.26px] desktop:h-[61px] desktop:text-2xl desktop:leading-[36.57px]`,
                     activeButton === option.value
                       ? 'border-accent bg-[#E7E7E7] font-semibold text-accent shadow-btn-shadow tablet:font-medium'
-                      : 'border-gray-devider bg-[transparent] font-medium text-gray-devider tablet:font-medium',
+                      : 'border-gray-devider bg-[transparent] font-medium text-gray-devider tablet:font-regular',
                     option.value === 'one_time'
                       ? 'rounded-bl-btn-radius rounded-tl-btn-radius'
                       : 'rounded-br-btn-radius rounded-tr-btn-radius'
