@@ -13,6 +13,7 @@ import './swiper.css';
 type TeamSwiperProps = {};
 
 const TeamSwiper = ({}: TeamSwiperProps) => {
+  console.log('test');
   return (
     <div className="relative">
       <Swiper
