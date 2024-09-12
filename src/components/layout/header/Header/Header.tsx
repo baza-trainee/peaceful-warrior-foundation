@@ -3,12 +3,12 @@
 import { Logo } from '@/components/ui/Logo/Logo';
 import { NAV_LINKS } from '@/constants/navlinks/navlinks';
 import { Navigation } from '../Navigation/Navigation';
-import Dropdown from '../LanguageToogler/LanguageToogler';
 import Socials from '../Socials/Socials';
 import Email from '../Email/Email';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import { useState } from 'react';
 import clsx from 'clsx';
+import LanguageToogler from '../LanguageToogler/LanguageToogler';
 
 const Header: React.FC = () => {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
@@ -22,7 +22,7 @@ const Header: React.FC = () => {
             <Socials />
           </div>
           <div className="flex laptop:hidden">
-            <Dropdown />
+            <LanguageToogler />
           </div>
         </ul>
       </div>
@@ -55,15 +55,14 @@ const Header: React.FC = () => {
             <ul className="mr-[32px] hidden cursor-pointer gap-[16px] laptop:flex laptop:flex-row">
               <Socials />
             </ul>
-            <a
-              href="#support"
+            <button
               type="button"
-              className="mr-[24px] hidden max-w-[237px] rounded-btn-radius bg-accent px-[24px] py-[12px] text-center text-m font-medium uppercase text-white shadow-btn-shadow transition-all duration-300 hover:bg-hover laptop:flex"
+              className="btn-support mr-[24px] hidden max-w-[237px] animate-bounce rounded-btn-radius bg-accent px-[24px] py-[12px] text-center text-m font-medium uppercase text-white shadow-btn-shadow transition-all duration-300 hover:bg-hover laptop:flex"
             >
               ПІДТРИМАТИ
-            </a>
+            </button>
             <div className="hidden laptop:flex">
-              <Dropdown />
+              <LanguageToogler />
             </div>
           </div>
           <hr className="hidden laptop:flex laptop:w-full laptop:border-[1px] laptop:border-gray-devider" />
