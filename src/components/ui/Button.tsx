@@ -13,9 +13,10 @@ const Button = ({ disabled, children, className, ...rest }: ButtonProps) => {
       disabled={disabled}
       {...rest}
       className={clsx(
-        'h-[52px] rounded-btn-radius bg-accent text-center text-sm font-medium uppercase leading-[22px] text-white shadow-btn-shadow',
-        !disabled && 'hover:bg-gray-800 active:bg-gray-950',
-        disabled && 'bg-[#407cd7]',
+        'h-[52px] rounded-btn-radius bg-accent text-center text-sm font-medium uppercase leading-[22px] text-[#FFFDFD] shadow-btn-shadow hover:bg-hover',
+        'transition-colors duration-200 ease-out',
+
+        disabled && 'bg-gray-devider text-gray-border',
         className
       )}
     >
