@@ -34,6 +34,7 @@ const SupportUs = ({}: SupportUsProps) => {
   //   currencyOptions[0].value
   // );
   const [donationAmount, setDonationAmount] = useState<number | ''>('');
+
   const [errorDonationAmount, setErrorDonationAmount] =
     useState<boolean>(false);
 
@@ -45,12 +46,14 @@ const SupportUs = ({}: SupportUsProps) => {
   //   setDonationAmount(value === '' ? '' : parseFloat(value));
   // };
   const handleAmountChange = (value: string) => {
+    setErrorDonationAmount(false);
     setDonationAmount(value === '' ? '' : parseFloat(value));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // donationAmount validation
+
     if (donationAmount === '' || donationAmount <= 0 || isNaN(donationAmount)) {
       setErrorDonationAmount(true);
       return;
@@ -64,6 +67,8 @@ const SupportUs = ({}: SupportUsProps) => {
     };
     console.log('donation: ', newOrder);
     setDonationAmount('');
+
+    setErrorDonationAmount(false);
   };
 
   return (
@@ -119,7 +124,8 @@ const SupportUs = ({}: SupportUsProps) => {
           <div className="relative flex flex-col justify-center gap-y-[20px] text-l font-medium leading-8 tablet:flex-row tablet:gap-x-6 tablet:px-12 tablet:text-xl desktop:px-[161px]">
             <div className="flex w-full flex-1 gap-x-4 tablet:gap-x-6">
               {paymentAmountData.map((el, index) => (
-                <div
+                <button
+                  type="button"
                   className={clsx(
                     'flex h-11 flex-1 cursor-pointer items-center justify-center rounded-xl border-2 border-accent py-2 leading-8 text-body-text tablet:h-14',
                     donationAmount.toString() === el &&
@@ -130,18 +136,19 @@ const SupportUs = ({}: SupportUsProps) => {
                 >
                   {el}&nbsp;
                   <span className="text-sm tablet:text-[24px]">₴</span>
-                </div>
+                </button>
               ))}
             </div>
 
             <input
               className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent] focus:bg-accent focus:text-light-background tablet:m-0 tablet:h-14 tablet:w-[184px]"
               type="number"
+              min="1"
               // pattern="[0-9]"
               // className={`${donateStyle} col-span-2`}
               placeholder="інша сума"
               onChange={(e) => handleAmountChange(e.target.value)}
-              // value={donationAmount}
+              value={donationAmount}
             />
             {errorDonationAmount && (
               <p className="absolute bottom-[-24px] self-center text-s font-regular leading-4 text-[#F76666] tablet:bottom-[-30px]">
@@ -149,51 +156,6 @@ const SupportUs = ({}: SupportUsProps) => {
               </p>
             )}
           </div>
-
-          {/* <div className="relative mx-auto w-full laptop:w-[442px]">
-            <input
-              type="number"
-              value={donationAmount}
-              onChange={handleAmountChange}
-              placeholder="Сума внеску"
-              className={clsx(
-                'block w-full border-b border-solid bg-[transparent] pb-3 text-md leading-[17.07px] placeholder:text-s placeholder:leading-[19.5px] placeholder:text-[#565656] focus:border-accent focus:outline-none laptop:pb-4 laptop:placeholder:text-md laptop:placeholder:font-medium laptop:placeholder:leading-[24.38px]',
-                errorDonationAmount ? 'border-[#FF0000]' : 'border-body-text'
-              )}
-            />
-            {errorDonationAmount && (
-              <p className="absolute text-xs leading-[19.5px] text-[#FF0000] laptop:text-s laptop:leading-[24.38px]">
-                Введіть, будь ласка, суму
-              </p>
-            )}
-
-            <div className="absolute bottom-4 right-0 flex font-medium text-body-text">
-              <select
-                value={selectedCurrency}
-                onChange={handlecurrencyChange}
-                className="block w-full appearance-none bg-[transparent] px-4 pr-8 text-sm leading-[19.5px] focus:outline-none laptop:text-md laptop:leading-[21.94px]"
-              >
-                {currencyOptions.map((option) => (
-                  <option
-                    key={option.value}
-                    value={option.value}
-                    className="bg-[transparent]"
-                  >
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-              <div className="text-gray-700 pointer-events-none absolute inset-y-0 right-0 flex items-center px-2">
-                <svg
-                  className="fill-current h-4 w-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M10 12l-5-5h10l-5 5z" />
-                </svg>
-              </div>
-            </div>
-          </div> */}
 
           <Button type="submit" className="m-auto w-full tablet:w-[326px]">
             ПІДТРИМАТИ
@@ -205,12 +167,3 @@ const SupportUs = ({}: SupportUsProps) => {
 };
 
 export default SupportUs;
-
-// const [isOpen, setIsOpen] = useState(false);
-// <ButtonDonate /> call modal
-// <h2 className="laptop:hidden mb-3 text-center font-noteworthy text-5xl font-bold uppercase leading-[58.14px] text-accent">
-//         підтримка
-//       </h2>
-//       <h2 className="laptop:block mb-12 hidden text-center font-noteworthy text-8xl font-light uppercase leading-[90.44px] text-accent">
-//         підтримайте нас
-//       </h2>
