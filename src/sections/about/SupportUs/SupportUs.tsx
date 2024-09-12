@@ -115,13 +115,15 @@ const SupportUs = ({}: SupportUsProps) => {
             ))}
           </div>
           {/* Donate amount */}
-          <div className="flex flex-col justify-center gap-y-[20px] text-l font-medium leading-8 tablet:flex-row tablet:gap-x-6 tablet:px-12 tablet:text-xl desktop:px-[161px]">
-            <div className="flex flex-1 gap-x-4 tablet:gap-x-6">
+
+          <div className="relative flex flex-col justify-center gap-y-[20px] text-l font-medium leading-8 tablet:flex-row tablet:gap-x-6 tablet:px-12 tablet:text-xl desktop:px-[161px]">
+            <div className="flex w-full flex-1 gap-x-4 tablet:gap-x-6">
               {paymentAmountData.map((el, index) => (
                 <div
                   className={clsx(
-                    'flex h-11 flex-1 items-center justify-center rounded-xl border-2 border-accent py-2 leading-8 tablet:h-14',
-                    donationAmount.toString() === el && 'bg-[#E7E7E7]'
+                    'flex h-11 flex-1 cursor-pointer items-center justify-center rounded-xl border-2 border-accent py-2 leading-8 text-body-text tablet:h-14',
+                    donationAmount.toString() === el &&
+                      'bg-accent text-light-background'
                   )}
                   key={index + el}
                   onClick={() => handleAmountChange(el)}
@@ -133,15 +135,21 @@ const SupportUs = ({}: SupportUsProps) => {
             </div>
 
             <input
-              className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent] tablet:m-0 tablet:h-14 tablet:w-[184px]"
+              className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent] focus:bg-accent focus:text-light-background tablet:m-0 tablet:h-14 tablet:w-[184px]"
               type="number"
               // pattern="[0-9]"
               // className={`${donateStyle} col-span-2`}
               placeholder="інша сума"
               onChange={(e) => handleAmountChange(e.target.value)}
-              value={donationAmount}
-            ></input>
+              // value={donationAmount}
+            />
+            {errorDonationAmount && (
+              <p className="absolute bottom-[-24px] self-center text-s font-regular leading-4 text-[#F76666] tablet:bottom-[-30px]">
+                Введіть, будь ласка, суму
+              </p>
+            )}
           </div>
+
           {/* <div className="relative mx-auto w-full laptop:w-[442px]">
             <input
               type="number"
