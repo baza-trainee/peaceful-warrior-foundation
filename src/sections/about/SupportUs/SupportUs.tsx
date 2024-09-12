@@ -19,27 +19,32 @@ const subscriptionOptions = [
     value: 'monthly',
   },
 ];
-const currencyOptions = [
-  { value: 'UAH', label: 'UAH', symbol: '₴' },
-  { value: 'USD', label: 'USD', symbol: '$' },
+const paymentAmountData = ['20', '50', '100'];
 
-  { value: 'EUR', label: 'EUR', symbol: '€' },
-];
+// const currencyOptions = [
+//   { value: 'UAH', label: 'UAH', symbol: '₴' },
+//   { value: 'USD', label: 'USD', symbol: '$' },
+
+//   { value: 'EUR', label: 'EUR', symbol: '€' },
+// ];
 
 const SupportUs = ({}: SupportUsProps) => {
   const [activeButton, setActiveButton] = useState<string>('one_time');
-  const [selectedCurrency, setSelectedCurrency] = useState<string>(
-    currencyOptions[0].value
-  );
+  // const [selectedCurrency, setSelectedCurrency] = useState<string>(
+  //   currencyOptions[0].value
+  // );
   const [donationAmount, setDonationAmount] = useState<number | ''>('');
   const [errorDonationAmount, setErrorDonationAmount] =
     useState<boolean>(false);
 
-  const handlecurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCurrency(e.target.value);
-  };
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+  // const handlecurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  //   setSelectedCurrency(e.target.value);
+  // };
+  // const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const value = e.target.value;
+  //   setDonationAmount(value === '' ? '' : parseFloat(value));
+  // };
+  const handleAmountChange = (value: string) => {
     setDonationAmount(value === '' ? '' : parseFloat(value));
   };
 
@@ -54,26 +59,30 @@ const SupportUs = ({}: SupportUsProps) => {
     const newOrder = {
       order_id: `id-${Date.now()}`,
       amount: donationAmount,
-      currency: selectedCurrency,
+      // currency: selectedCurrency,
       regularMode: activeButton,
     };
     console.log('donation: ', newOrder);
+    setDonationAmount('');
   };
 
   return (
-    <section id="support" className="pb-[60px] laptop:pb-[100px]">
-      <div className="m-auto laptop:w-[908px]">
-        <SectionTitle className="mb-3 laptop:hidden">підтримка</SectionTitle>
-        <SectionTitle className="hidden laptop:mb-12 laptop:block">
+    <section id="support" className="pb-[60px] tablet:pb-20 desktop:pb-[100px]">
+      <div className="m-auto desktop:w-[908px]">
+        <SectionTitle className="mb-3 tablet:hidden">підтримка</SectionTitle>
+        <SectionTitle className="hidden tablet:mb-6 tablet:block desktop:mb-12">
           підтримайте нас
         </SectionTitle>
-        <p className="mb-6 text-md leading-[24.38px] laptop:mb-10 laptop:text-center laptop:text-lg laptop:leading-[31.69px]">
+        <p className="mb-6 text-center text-md leading-[24.38px] tablet:hidden">
+          Якщо вас надихнув проект, будь ласка, підтримайте наш фонд.
+        </p>
+        <p className="hidden text-center tablet:mb-10 tablet:block tablet:text-l tablet:leading-[26px] desktop:text-lg desktop:leading-[31.69px]">
           Якщо вас надихнув проект і ви бажаєте стати нашим донором, будь ласка,
           пожертвуйте зручну для вас суму.
         </p>
         <form
           onSubmit={handleSubmit}
-          className="mt-7 flex w-full flex-col gap-y-8 laptop:gap-y-12"
+          className="mt-7 flex w-full flex-col gap-y-8 tablet:gap-y-10 desktop:gap-y-12"
         >
           {/* Choose subscriptionOption */}
           <div className="flex text-center">
@@ -90,24 +99,50 @@ const SupportUs = ({}: SupportUsProps) => {
                 />
                 <div
                   className={clsx(
-                    `flex h-11 w-full items-center justify-center border text-m font-medium leading-[19.5px] laptop:h-[61px] laptop:text-2xl laptop:leading-[36.57px]`,
+                    `flex h-[46px] w-full items-center justify-center border text-sm leading-[22px] tablet:h-[53px] tablet:text-[24px] tablet:leading-[29.26px] desktop:h-[61px] desktop:text-2xl desktop:leading-[36.57px]`,
                     activeButton === option.value
-                      ? 'border-accent bg-[#E7E7E7] text-accent shadow-btn-shadow'
-                      : 'border-gray-form bg-[transparent]',
+                      ? 'border-accent bg-[#E7E7E7] font-semibold text-accent shadow-btn-shadow tablet:font-medium'
+                      : 'border-gray-devider bg-[transparent] font-medium text-gray-devider tablet:font-medium',
                     option.value === 'one_time'
                       ? 'rounded-bl-btn-radius rounded-tl-btn-radius'
                       : 'rounded-br-btn-radius rounded-tr-btn-radius'
                   )}
                 >
-                  <p className="laptop:hidden">{option.labelMob}</p>
-                  <p className="hidden laptop:block">{option.labelDesktop}</p>
+                  <p className="tablet:hidden">{option.labelMob}</p>
+                  <p className="hidden tablet:block">{option.labelDesktop}</p>
                 </div>
               </label>
             ))}
           </div>
           {/* Donate amount */}
+          <div className="flex flex-col justify-center gap-y-[20px] text-l font-medium leading-8 tablet:flex-row tablet:gap-x-6 tablet:px-12 tablet:text-xl desktop:px-[161px]">
+            <div className="flex flex-1 gap-x-4 tablet:gap-x-6">
+              {paymentAmountData.map((el, index) => (
+                <div
+                  className={clsx(
+                    'flex h-11 flex-1 items-center justify-center rounded-xl border-2 border-accent py-2 leading-8 tablet:h-14',
+                    donationAmount.toString() === el && 'bg-[#E7E7E7]'
+                  )}
+                  key={index + el}
+                  onClick={() => handleAmountChange(el)}
+                >
+                  {el}&nbsp;
+                  <span className="text-sm tablet:text-[24px]">₴</span>
+                </div>
+              ))}
+            </div>
 
-          <div className="relative mx-auto w-full laptop:w-[442px]">
+            <input
+              className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent] tablet:m-0 tablet:h-14 tablet:w-[184px]"
+              type="number"
+              // pattern="[0-9]"
+              // className={`${donateStyle} col-span-2`}
+              placeholder="інша сума"
+              onChange={(e) => handleAmountChange(e.target.value)}
+              value={donationAmount}
+            ></input>
+          </div>
+          {/* <div className="relative mx-auto w-full laptop:w-[442px]">
             <input
               type="number"
               value={donationAmount}
@@ -123,7 +158,7 @@ const SupportUs = ({}: SupportUsProps) => {
                 Введіть, будь ласка, суму
               </p>
             )}
-            {/* Currency */}
+
             <div className="absolute bottom-4 right-0 flex font-medium text-body-text">
               <select
                 value={selectedCurrency}
@@ -150,9 +185,11 @@ const SupportUs = ({}: SupportUsProps) => {
                 </svg>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <Button className="m-auto">ПІДТРИМАТИ</Button>
+          <Button type="submit" className="m-auto w-full tablet:w-[326px]">
+            ПІДТРИМАТИ
+          </Button>
         </form>
       </div>
     </section>
