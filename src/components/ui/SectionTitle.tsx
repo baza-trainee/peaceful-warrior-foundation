@@ -12,7 +12,7 @@ export default function SectionTitle({
   return (
     <h2
       className={clsx(
-        'laptop:text-8xl laptop:leading-[90.44px] laptop:font-light text-center font-noteworthy text-5xl font-bold uppercase leading-[58.14px] text-accent',
+        'text-center font-noteworthy text-5xl font-bold uppercase leading-[58px] text-accent tablet:text-[48px] tablet:font-light tablet:leading-[90px] desktop:text-8xl',
         className
       )}
     >
