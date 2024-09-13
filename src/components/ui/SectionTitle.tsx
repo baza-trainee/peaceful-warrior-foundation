@@ -34,3 +34,9 @@ export default function SectionTitle({
           підтримайте нас
         </SectionTitle> */
 }
+// for modal
+{
+  /* <SectionTitle modal className="mb-8">
+  ПІДТРИМАТИ ФОНД!
+</SectionTitle>; */
+}
