@@ -16,12 +16,12 @@ const Header: React.FC = () => {
   return (
     <header>
       {/* Mobile-dark-element before 1024px */}
-      <div className="flex w-full bg-footer-background transition-all duration-300 ease-in-out laptop:hidden">
-        <ul className="container flex cursor-pointer items-end justify-between pb-[8px] pt-[4px] laptop:hidden">
+      <div className="flex w-full bg-footer-background transition-all duration-300 ease-in-out tablet:hidden">
+        <ul className="container flex cursor-pointer items-end justify-between pb-[8px] pt-[4px] tablet:hidden">
           <div className="flex gap-[16px]">
             <Socials />
           </div>
-          <div className="flex laptop:hidden">
+          <div className="flex tablet:hidden">
             <LanguageToogler />
           </div>
         </ul>
@@ -29,7 +29,7 @@ const Header: React.FC = () => {
       {/* Mobile-logo-and-text-block before 1024px */}
       <div
         className={clsx(
-          'bg-transition container flex items-center pb-[12px] pt-[16px] laptop:gap-[12px] laptop:pb-[48px] laptop:pt-[40px]',
+          'bg-transition container flex items-center pb-[12px] pt-[16px] tablet:gap-[12px] tablet:pb-[48px] tablet:pt-[40px]',
           { 'bg-swiper-card-background': openMobileMenu || isExiting }
         )}
       >
@@ -37,9 +37,9 @@ const Header: React.FC = () => {
           <Logo type="dark" />
         </div>
 
-        <div className="flex w-full items-center justify-between laptop:flex-col laptop:items-stretch laptop:gap-y-[12px] laptop:pl-[56px]">
+        <div className="flex w-full items-center justify-between tablet:flex-col tablet:items-stretch tablet:gap-y-[12px] tablet:pl-[56px]">
           {/* Mobile-logo-text before 1024px */}
-          <div className="flex flex-col pl-[4px] laptop:hidden">
+          <div className="flex flex-col pl-[4px] tablet:hidden">
             <h3 className="mb-[2px] text-m font-medium uppercase leading-[19.5px] text-body-text">
               МИРНИЙ ВОЇН
             </h3>
@@ -52,24 +52,24 @@ const Header: React.FC = () => {
             <div className="mr-[32px] hidden text-sm font-normal leading-[21.94px] laptop:flex">
               <Email />
             </div>
-            <ul className="mr-[32px] hidden cursor-pointer gap-[16px] laptop:flex laptop:flex-row">
+            <ul className="mr-[32px] hidden cursor-pointer gap-[16px] tablet:flex tablet:flex-row">
               <Socials />
             </ul>
             <button
               type="button"
-              className="btn-support mr-[24px] hidden max-w-[237px] animate-bounce rounded-btn-radius bg-accent px-[24px] py-[12px] text-center text-m font-medium uppercase text-white shadow-btn-shadow transition-all duration-300 hover:bg-hover laptop:flex"
+              className="btn-support mr-[24px] hidden max-w-[237px] animate-bounce rounded-btn-radius bg-accent px-[24px] py-[12px] text-center text-m font-medium uppercase text-white shadow-btn-shadow transition-all duration-300 hover:bg-hover tablet:flex"
             >
               ПІДТРИМАТИ
             </button>
-            <div className="hidden laptop:flex">
+            <div className="hidden tablet:flex">
               <LanguageToogler />
             </div>
           </div>
-          <hr className="hidden laptop:flex laptop:w-full laptop:border-[1px] laptop:border-gray-devider" />
+          <hr className="hidden tablet:flex tablet:w-full tablet:border-[1px] tablet:border-gray-devider" />
 
           {/* Desktop-navlinks after 1024px */}
-          <nav className="hidden laptop:flex">
-            <ul className="flex flex-col items-center justify-center gap-y-[8px] text-light-background laptop:flex laptop:w-full laptop:flex-row laptop:justify-between laptop:text-black">
+          <nav className="hidden tablet:flex">
+            <ul className="flex flex-col items-center justify-center gap-y-[8px] text-light-background tablet:flex tablet:w-full tablet:flex-row tablet:justify-between tablet:text-black">
               <Navigation headerNav={NAV_LINKS} />
             </ul>
           </nav>
