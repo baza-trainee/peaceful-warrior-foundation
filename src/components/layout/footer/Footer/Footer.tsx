@@ -14,10 +14,12 @@ const Footer: React.FC = () => {
   return (
     <footer className="flex flex-col bg-footer-background pt-[22px] text-light-background laptop:pt-[56px]">
       <div className="container">
-        <div className="mb-[12px] flex items-center justify-between text-light-background laptop:mb-[40px]">
+        <div className="mb-[20px] flex items-center justify-between text-light-background laptop:mb-[40px]">
           {/* Mobile-logo before 1024px */}
           <div className="flex items-center laptop:hidden">
-            <Logo type="light" />
+            <Link href="/" aria-label="logo">
+              <ICONS.LOGO_LIGHT className="h-[74px] laptop:h-[196px]" />
+            </Link>
             {/* Mobile-logo-text before 1024px */}
             <div className="flex flex-col pl-[4px]">
               <TextLogo />
@@ -28,17 +30,19 @@ const Footer: React.FC = () => {
             Благодійний фонд “Мирний воїн”
           </p>
 
-          {/* Mobile-socials before 1024px */}
-          <ul className="flex cursor-pointer items-center gap-[16px] transition-all duration-300 hover:fill-hover laptop:hidden">
-            <Socials />
-          </ul>
-          {/* Desktop-footer-socials after 1024px */}
-          <ul className="hidden gap-[16px] laptop:flex">
+          {/* Socials */}
+          <ul className="flex cursor-pointer items-center gap-[16px]">
             <li>
-              <ICONS.INSTAGRAM className="w-[40px] cursor-pointer fill-light-background transition-all duration-300 hover:fill-gray-border" />
+              <ICONS.INSTAGRAM
+                aria-label="instagram"
+                className="laptop:fill-gray-background w-[28px] fill-gray-border transition-all duration-300 hover:scale-125 hover:fill-light-background laptop:w-[34px]"
+              />
             </li>
             <li>
-              <ICONS.FACEBOOK className="-[40px] w-[40px] cursor-pointer fill-light-background transition-all duration-300 hover:fill-gray-border" />
+              <ICONS.FACEBOOK
+                aria-label="facebook"
+                className="laptop:fill-gray-background w-[28px] fill-gray-border transition-all duration-300 hover:scale-125 hover:fill-light-background laptop:w-[34px]"
+              />
             </li>
           </ul>
         </div>
@@ -51,8 +55,8 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Mobile-footer-navigation before 1024px */}
-          <nav className="mx-auto mb-[24px] flex items-center justify-center laptop:hidden">
-            <ul className="flex flex-col items-center justify-center gap-y-[8px] text-light-background laptop:flex laptop:w-full laptop:flex-row laptop:justify-between">
+          <nav className="mb-[16px] flex laptop:hidden">
+            <ul className="flex flex-col gap-y-[8px] text-light-background laptop:flex laptop:w-full laptop:flex-row laptop:justify-between">
               <Navigation headerNav={NAV_LINKS} />
             </ul>
           </nav>
@@ -63,7 +67,7 @@ const Footer: React.FC = () => {
             </ul>
           </nav>
 
-          <div className="laptop:flex laptop:flex-row-reverse laptop:gap-[10px] desktop:gap-[85px]">
+          <div className="laptop:flex laptop:flex-row-reverse laptop:gap-[25px] desktop:gap-[85px]">
             <ul className="mb-[20px] flex flex-wrap justify-between gap-y-[20px] text-light-background laptop:m-0 laptop:flex-col-reverse laptop:flex-nowrap laptop:gap-y-[16px]">
               <li className="flex max-w-[176px] flex-col tablet:max-w-full">
                 <div className="flex items-center gap-[2px]">
@@ -73,6 +77,7 @@ const Footer: React.FC = () => {
                   </h3>
                 </div>
                 <Link
+                  aria-label="address"
                   href="https://www.google.com/maps/search/?api=1&query=м.+Харків,+вул.+92-ої+Бригади,+29"
                   rel="nofollow noreferrer"
                   target="_blank"
@@ -89,12 +94,14 @@ const Footer: React.FC = () => {
                   </h3>
                 </div>
                 <a
+                  aria-label="phone"
                   href="tel:+38 (050) 502 75 29"
                   className="mt-[4px] block text-m font-light leading-[19.5px] transition-all duration-200 hover:text-gray-border hover:underline"
                 >
                   +38 050 502 75 29
                 </a>
                 <a
+                  aria-label="phone"
                   href="tel:+38 (050) 502 75 29"
                   className="mt-[4px] block text-m font-light leading-[19.5px] transition-all duration-200 hover:text-gray-border hover:underline"
                 >
@@ -121,6 +128,7 @@ const Footer: React.FC = () => {
         <p className="mb-[32px] text-center font-helvetica text-xs font-normal leading-[14.32px] text-footer-text laptop:mb-[56px] laptop:text-s laptop:font-normal laptop:leading-[16.7px]">
           Розробка
           <a
+            aria-label="baza traenee link"
             href="https://baza-trainee.tech/ua"
             target="_blank"
             rel="noopener noreferrer"

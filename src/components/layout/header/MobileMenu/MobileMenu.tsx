@@ -70,7 +70,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   };
 
   return (
-    <div className="laptop:hidden">
+    <div className="tablet:hidden">
       <button
         onClick={handleMenuClick}
         className={clsx('menu-btn', {
