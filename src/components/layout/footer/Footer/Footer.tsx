@@ -16,12 +16,12 @@ const Footer: React.FC = () => {
       <div className="container">
         <div className="mb-[20px] flex items-center justify-between text-light-background laptop:mb-[40px]">
           {/* Mobile-logo before 1024px */}
-          <div className="flex items-center laptop:hidden">
+          <div className="flex items-center gap-x-[4px] laptop:hidden">
             <Link href="/" aria-label="logo">
               <ICONS.LOGO_LIGHT className="h-[74px] laptop:h-[196px]" />
             </Link>
             {/* Mobile-logo-text before 1024px */}
-            <div className="flex flex-col pl-[4px]">
+            <div className="flex flex-col">
               <TextLogo />
             </div>
           </div>

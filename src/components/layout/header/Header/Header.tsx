@@ -9,8 +9,10 @@ import MobileMenu from '../MobileMenu/MobileMenu';
 import { useState } from 'react';
 import clsx from 'clsx';
 import LanguageToogler from '../LanguageToogler/LanguageToogler';
+import ButtonDonate from '@/components/buttonDonate/buttonDonate';
 
 const Header: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
   return (
@@ -55,12 +57,18 @@ const Header: React.FC = () => {
             <ul className="mr-[32px] hidden cursor-pointer gap-[16px] tablet:flex tablet:flex-row">
               <Socials />
             </ul>
+
             <button
+              onClick={() => setIsOpen(true)}
               type="button"
               className="btn-support mr-[24px] hidden max-w-[237px] animate-bounce rounded-btn-radius bg-accent px-[24px] py-[12px] text-center text-m font-medium uppercase text-white shadow-btn-shadow transition-all duration-300 hover:bg-hover tablet:flex"
             >
               ПІДТРИМАТИ
             </button>
+
+            {isOpen && (
+              <ButtonDonate isOpen={isOpen} onClose={() => setIsOpen(false)} />
+            )}
             <div className="hidden tablet:flex">
               <LanguageToogler />
             </div>
