@@ -9,6 +9,8 @@ import {
 import Button from '@/components/ui/Button';
 import SectionTitle from '@/components/ui/SectionTitle';
 import DonateForm from './DonateForm/DonateForm';
+import ButtonDonate from '@/components/buttonDonate/buttonDonate';
+import ModalDonate from './DonateForm/ModalDonate';
 
 type SupportUsProps = {};
 
@@ -45,7 +47,7 @@ const SupportUs = ({}: SupportUsProps) => {
 
   //   setErrorDonationAmount(false);
   // };
-
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <section id="support" className="pb-[60px] tablet:pb-20 desktop:pb-[100px]">
       <div className="m-auto desktop:w-[908px]">
@@ -137,7 +139,13 @@ const SupportUs = ({}: SupportUsProps) => {
             ПІДТРИМАТИ
           </Button>
         </form> */}
-        <DonateForm  />
+        <DonateForm />
+        <Button className="mt-2" modal onClick={() => setIsOpen(true)}>
+          Check Modal
+        </Button>
+        {isOpen && (
+          <ModalDonate isOpen={isOpen} onClose={() => setIsOpen(false)} />
+        )}
       </div>
     </section>
   );
