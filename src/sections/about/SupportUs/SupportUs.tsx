@@ -1,4 +1,5 @@
 'use client';
+import ButtonDonate from '@/components/buttonDonate/buttonDonate';
 import Button from '@/components/ui/Button';
 import SectionTitle from '@/components/ui/SectionTitle';
 import clsx from 'clsx';
@@ -29,6 +30,7 @@ const paymentAmountData = ['20', '50', '100'];
 // ];
 
 const SupportUs = ({}: SupportUsProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   const [activeButton, setActiveButton] = useState<string>('one_time');
   // const [selectedCurrency, setSelectedCurrency] = useState<string>(
   //   currencyOptions[0].value
@@ -157,9 +159,16 @@ const SupportUs = ({}: SupportUsProps) => {
             )}
           </div>
 
-          <Button type="submit" className="m-auto w-full tablet:w-[326px]">
+          <Button
+            onClick={() => setIsOpen(true)}
+            type="submit"
+            className="m-auto w-full tablet:w-[326px]"
+          >
             ПІДТРИМАТИ
           </Button>
+          {isOpen && (
+            <ButtonDonate isOpen={isOpen} onClose={() => setIsOpen(false)} />
+          )}
         </form>
       </div>
     </section>

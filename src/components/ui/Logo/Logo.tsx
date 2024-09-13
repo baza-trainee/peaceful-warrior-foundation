@@ -11,7 +11,7 @@ export const Logo: React.FC<LogoProps> = ({ type }) => {
 
   return (
     <Link href="/" aria-label="logo">
-      <LogoComponent className="h-[74px] laptop:h-[136px]" />
+      <LogoComponent className="h-[74px] tablet:h-[124px] laptop:h-[136px]" />
     </Link>
   );
 };

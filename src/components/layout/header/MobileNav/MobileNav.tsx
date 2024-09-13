@@ -21,6 +21,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
       {mobileNav.map(({ name, href }, index) => (
         <li className="flex flex-col" key={name}>
           <Link
+            aria-label="navigation link"
             onClick={() => setOpenMobileMenu(false)}
             href={href}
             className={clsx(
