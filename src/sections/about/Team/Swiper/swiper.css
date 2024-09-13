@@ -1,7 +1,7 @@
 .custom-button-prev {
   position: absolute;
-  top: 50%;
-  left: 46px;
+  top: 36%;
+  left: 34px;
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
@@ -14,7 +14,7 @@
 
 .custom-button-next {
   position: absolute;
-  top: 50%;
+  top: 36%;
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
@@ -23,14 +23,31 @@
   align-items: center;
   cursor: pointer;
   z-index: 99;
-  right: 46px;
+  right: 34px;
+}
+
+.custom-button-prev svg,
+.custom-button-next svg {
+  transition:
+    background-color 0.3s,
+    fill 0.3s;
+}
+
+.custom-button-prev.swiper-button-disabled svg circle,
+.custom-button-next.swiper-button-disabled svg circle {
+  fill: #858585;
+}
+
+.custom-button-prev.swiper-button-disabled svg path,
+.custom-button-next.swiper-button-disabled svg path {
+  fill: #c6c6c5;
 }
 
 .custom-pagination {
   display: none;
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 767px) {
   .custom-button-prev,
   .custom-button-next {
     display: none;
@@ -38,14 +55,14 @@
 
   .custom-pagination {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     margin-top: 16px;
+    width: 100%;
   }
 
   .custom-pagination .swiper-pagination-bullet {
     min-width: 82.75px;
     height: 4px;
-    background-color: #c6c4c4;
     border-radius: 0;
   }
 
