@@ -6,12 +6,14 @@ export interface ButtonProps
   children: React.ReactNode;
   className?: string;
   modal?: boolean;
+  directionBtn?: boolean;
 }
 
 const Button = ({
   disabled,
   children,
   modal = false,
+  directionBtn = false,
   className,
   ...rest
 }: ButtonProps) => {
@@ -20,11 +22,13 @@ const Button = ({
       disabled={disabled}
       {...rest}
       className={clsx(
-        'rounded-btn-radius bg-accent text-center text-sm font-medium uppercase leading-[22px] text-[#FFFDFD] shadow-btn-shadow hover:bg-hover tablet:w-[326px]',
+        'rounded-btn-radius bg-accent text-center text-sm font-medium uppercase leading-[22px] text-[#FFFDFD] shadow-btn-shadow hover:bg-hover',
         'transition-colors duration-200 ease-out',
         modal && 'h-11 w-full tablet:h-[52px]',
         !modal && 'h-[52px] w-[343px]',
         disabled && 'bg-gray-devider text-gray-border',
+        directionBtn && 'tablet:w-[332px] desktop:w-[364px]',
+        !directionBtn && 'tablet:w-[326px]',
         className
       )}
     >
@@ -34,6 +38,7 @@ const Button = ({
 };
 
 export default Button;
+
 // example how to use
 {
   /* <Button
@@ -42,6 +47,18 @@ export default Button;
   aria-label="Перейти до сторінки платежу"
 >
   ПІДТРИМАТИ
+</Button>; */
+}
+
+// example for Direction Section
+{
+  /* <Button
+  type="submit"
+  className="m-auto"
+  aria-label="Перейти до сторінки платежу"
+  directionBtn //!!!!!!!!!!!!!!!!!!
+>
+  ЗВЕРНУТИСЬ ЗА ДОПОМОГОЮ + icon(if necessary)
 </Button>; */
 }
 

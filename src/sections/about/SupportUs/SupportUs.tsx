@@ -162,6 +162,7 @@ const SupportUs = ({}: SupportUsProps) => {
             type="submit"
             className="m-auto"
             aria-label="Перейти до сторінки платежу"
+            directionBtn
           >
             ПІДТРИМАТИ
           </Button>
