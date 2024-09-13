@@ -30,7 +30,6 @@ const paymentAmountData = ['20', '50', '100'];
 // ];
 
 const SupportUs = ({}: SupportUsProps) => {
-  const [isOpen, setIsOpen] = useState(false);
   const [activeButton, setActiveButton] = useState<string>('one_time');
   // const [selectedCurrency, setSelectedCurrency] = useState<string>(
   //   currencyOptions[0].value
@@ -160,15 +159,12 @@ const SupportUs = ({}: SupportUsProps) => {
           </div>
 
           <Button
-            onClick={() => setIsOpen(true)}
             type="submit"
-            className="m-auto w-full tablet:w-[326px]"
+            className="m-auto"
+            aria-label="Перейти до сторінки платежу"
           >
             ПІДТРИМАТИ
           </Button>
-          {isOpen && (
-            <ButtonDonate isOpen={isOpen} onClose={() => setIsOpen(false)} />
-          )}
         </form>
       </div>
     </section>
@@ -176,3 +172,10 @@ const SupportUs = ({}: SupportUsProps) => {
 };
 
 export default SupportUs;
+
+//
+// for modal
+//const [isOpen, setIsOpen] = useState(false);
+// {
+//   isOpen && <ButtonDonate isOpen={isOpen} onClose={() => setIsOpen(false)} />;
+// }
