@@ -29,7 +29,7 @@ const Header: React.FC = () => {
       {/* Mobile-logo-and-text-block before 1024px */}
       <div
         className={clsx(
-          'bg-transition container flex items-center pb-[12px] pt-[16px] tablet:gap-[12px] tablet:pb-[48px] tablet:pt-[40px]',
+          'bg-transition container flex items-center gap-x-[4px] pb-[12px] pt-[16px] tablet:gap-[12px] tablet:gap-x-[24px] tablet:pb-[48px] tablet:pt-[40px] laptop:gap-x-[56px]',
           { 'bg-swiper-card-background': openMobileMenu || isExiting }
         )}
       >
@@ -37,9 +37,9 @@ const Header: React.FC = () => {
           <Logo type="dark" />
         </div>
 
-        <div className="flex w-full items-center justify-between tablet:flex-col tablet:items-stretch tablet:gap-y-[12px] tablet:pl-[56px]">
+        <div className="flex w-full items-center justify-between tablet:flex-col tablet:items-stretch tablet:gap-y-[12px]">
           {/* Mobile-logo-text before 1024px */}
-          <div className="flex flex-col pl-[4px] tablet:hidden">
+          <div className="flex flex-col tablet:hidden">
             <h3 className="mb-[2px] text-m font-medium uppercase leading-[19.5px] text-body-text">
               МИРНИЙ ВОЇН
             </h3>
