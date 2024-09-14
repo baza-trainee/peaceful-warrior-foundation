@@ -1,77 +1,53 @@
 'use client';
-import ButtonDonate from '@/components/buttonDonate/buttonDonate';
-import Button from '@/components/ui/Button';
-import SectionTitle from '@/components/ui/SectionTitle';
-import clsx from 'clsx';
 
 import React, { useState } from 'react';
+import clsx from 'clsx';
+import {
+  SUBSCRIPTION_OPTIONS,
+  PAYMENT_AMOUNT_DATA,
+} from '@/constants/donateForm/donateForm';
+import Button from '@/components/ui/Button';
+import SectionTitle from '@/components/ui/SectionTitle';
+import DonateForm from './DonateForm/DonateForm';
+import ButtonDonate from '@/components/buttonDonate/buttonDonate';
+import ModalDonate from './DonateForm/ModalDonate';
 
 type SupportUsProps = {};
 
-const subscriptionOptions = [
-  {
-    labelMob: 'Один платіж',
-    labelDesktop: 'Одноразовий платіж',
-    value: 'one_time',
-  },
-  {
-    labelMob: 'Щомісячно',
-    labelDesktop: 'Щомісячний внесок',
-    value: 'monthly',
-  },
-];
-const paymentAmountData = ['20', '50', '100'];
-
-// const currencyOptions = [
-//   { value: 'UAH', label: 'UAH', symbol: '₴' },
-//   { value: 'USD', label: 'USD', symbol: '$' },
-
-//   { value: 'EUR', label: 'EUR', symbol: '€' },
-// ];
-
 const SupportUs = ({}: SupportUsProps) => {
-  const [activeButton, setActiveButton] = useState<string>('one_time');
-  // const [selectedCurrency, setSelectedCurrency] = useState<string>(
-  //   currencyOptions[0].value
-  // );
-  const [donationAmount, setDonationAmount] = useState<number | ''>('');
+  //const [activeButton, setActiveButton] = useState<string>('one_time');
 
-  const [errorDonationAmount, setErrorDonationAmount] =
-    useState<boolean>(false);
+  // const [donationAmount, setDonationAmount] = useState<number | ''>('');
 
-  // const handlecurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  //   setSelectedCurrency(e.target.value);
-  // };
-  // const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const value = e.target.value;
+  // const [errorDonationAmount, setErrorDonationAmount] =
+  //   useState<boolean>(false);
+
+  // const handleAmountChange = (value: string) => {
+  //   setErrorDonationAmount(false);
   //   setDonationAmount(value === '' ? '' : parseFloat(value));
   // };
-  const handleAmountChange = (value: string) => {
-    setErrorDonationAmount(false);
-    setDonationAmount(value === '' ? '' : parseFloat(value));
-  };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // donationAmount validation
+  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
 
-    if (donationAmount === '' || donationAmount <= 0 || isNaN(donationAmount)) {
-      setErrorDonationAmount(true);
-      return;
-    }
-    //new order
-    const newOrder = {
-      order_id: `id-${Date.now()}`,
-      amount: donationAmount,
-      // currency: selectedCurrency,
-      regularMode: activeButton,
-    };
-    console.log('donation: ', newOrder);
-    setDonationAmount('');
+  //   // donationAmount validation
+  //   if (donationAmount === '' || donationAmount <= 0 || isNaN(donationAmount)) {
+  //     setErrorDonationAmount(true);
+  //     return;
+  //   }
+  //   //new order
+  //   const newOrder = {
+  //     order_id: `id-${Date.now()}`,
+  //     amount: donationAmount,
+  //     // currency: selectedCurrency,
+  //     regularMode: activeButton,
+  //   };
+  //   console.log('donation: ', newOrder);
+  //   setDonationAmount('');
 
-    setErrorDonationAmount(false);
-  };
-
+  //   setErrorDonationAmount(false);
+  // };
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <section id="support" className="pb-[60px] tablet:pb-20 desktop:pb-[100px]">
       <div className="m-auto desktop:w-[908px]">
@@ -86,13 +62,12 @@ const SupportUs = ({}: SupportUsProps) => {
           Якщо вас надихнув проект і ви бажаєте стати нашим донором, будь ласка,
           пожертвуйте зручну для вас суму.
         </p>
-        <form
+        {/* <form
           onSubmit={handleSubmit}
           className="mt-7 flex w-full flex-col gap-y-8 tablet:gap-y-10 desktop:gap-y-12"
         >
-          {/* Choose subscriptionOption */}
           <div className="flex text-center">
-            {subscriptionOptions.map((option) => (
+            {SUBSCRIPTION_OPTIONS.map((option) => (
               <label
                 className="flex flex-1 cursor-pointer items-center"
                 key={option.value}
@@ -120,11 +95,10 @@ const SupportUs = ({}: SupportUsProps) => {
               </label>
             ))}
           </div>
-          {/* Donate amount */}
 
           <div className="relative flex flex-col justify-center gap-y-[20px] text-l font-medium leading-8 tablet:flex-row tablet:gap-x-6 tablet:px-12 tablet:text-xl desktop:px-[161px]">
             <div className="flex w-full flex-1 gap-x-4 tablet:gap-x-6">
-              {paymentAmountData.map((el, index) => (
+              {PAYMENT_AMOUNT_DATA.map((el, index) => (
                 <button
                   type="button"
                   className={clsx(
@@ -145,8 +119,6 @@ const SupportUs = ({}: SupportUsProps) => {
               className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent] focus:bg-accent focus:text-light-background tablet:m-0 tablet:h-14 tablet:w-[184px]"
               type="number"
               min="1"
-              // pattern="[0-9]"
-              // className={`${donateStyle} col-span-2`}
               placeholder="інша сума"
               onChange={(e) => handleAmountChange(e.target.value)}
               value={donationAmount}
@@ -162,10 +134,18 @@ const SupportUs = ({}: SupportUsProps) => {
             type="submit"
             className="m-auto"
             aria-label="Перейти до сторінки платежу"
+            directionBtn
           >
             ПІДТРИМАТИ
           </Button>
-        </form>
+        </form> */}
+        <DonateForm />
+        <Button className="mt-2" modal onClick={() => setIsOpen(true)}>
+          Check Modal
+        </Button>
+        {isOpen && (
+          <ModalDonate isOpen={isOpen} onClose={() => setIsOpen(false)} />
+        )}
       </div>
     </section>
   );
@@ -179,3 +159,15 @@ export default SupportUs;
 // {
 //   isOpen && <ButtonDonate isOpen={isOpen} onClose={() => setIsOpen(false)} />;
 // }
+
+//my just for case
+//// const [selectedCurrency, setSelectedCurrency] = useState<string>(
+//   currencyOptions[0].value
+//// );
+// const handlecurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+//   setSelectedCurrency(e.target.value);
+// };
+// const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//   const value = e.target.value;
+//   setDonationAmount(value === '' ? '' : parseFloat(value));
+// };
