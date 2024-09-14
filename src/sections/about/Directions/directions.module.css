@@ -1,0 +1,23 @@
+/* .animationBlock{
+    visibility: hidden;
+}
+.animationBlock > * {
+    visibility: visible;
+} */
+.animationBlock> article { z-index: index 9999; }
+
+.animationBlock:hover > article { opacity: 0.8;}
+
+.animationBlock> article:hover {  
+    opacity: 1; 
+    transition-delay: 0ms;
+    transition-timing-function: ease-in-out;
+ }
+
+ .animationBlock> article:hover > img { 
+    filter: grayscale(0);
+ }
+ .animationBlock> article:hover > div { 
+    opacity: 1; 
+ }
+
