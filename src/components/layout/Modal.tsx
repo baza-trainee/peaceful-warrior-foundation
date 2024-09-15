@@ -2,6 +2,7 @@
 
 import { createPortal } from 'react-dom';
 import { MouseEvent, useEffect, useState } from 'react';
+import { ICONS } from '@/constants/icons/icons';
 
 type ModalProps = {
   children: React.ReactNode;
@@ -55,7 +56,7 @@ export default function Modal({ children, isOpen, onClose }: ModalProps) {
             onClick={onClose}
             className="text-gray-500 hover:text-gray-800 absolute right-4 top-4 desktop:right-8 desktop:top-8"
           >
-            &times;
+            <ICONS.CROSS className="h-[33px] w-[33px]" />
           </button>
           {children}
         </div>

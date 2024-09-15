@@ -1,12 +1,15 @@
 'use client';
+import { useState } from 'react';
 import Image from 'next/image';
 import styles from './directions.module.css'
 import Button from '@/components/ui/Button';
 import SectionTitle from '@/components/ui/SectionTitle';
+import ModalApplicationForm from './ModalApplicationForm';
 
 type DirectionsProps = {};
 
 const Directions = ({}: DirectionsProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
     <section className="relative pb-[126px] tablet:pb-[157px] laptop:pb-[156px]">
@@ -60,12 +63,17 @@ const Directions = ({}: DirectionsProps) => {
         </article>
         <Button 
         type="submit"
+        modal
         aria-label="Перейти до сторінки платежу"
+        onClick={() => setIsOpen(true)}
         className="m-auto flex flex-row justify-between items-center px-5 py-3 mt-8 tablet:w-[364px] laptop:w-[364px] laptop:mt-[57px]"
         >
         <div><span className="text-nowrap text-center">ЗВЕРНУТИСЬ ЗА ДОПОМОГОЮ</span></div>
         <div><span className="hidden tablet:inline-flex"><svg data-testid="geist-icon" fill="none" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" viewBox="0 0 24 24" className="w-[26px] h-[26px]"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg></span></div>
-      </Button>
+        </Button>
+        {isOpen && (
+          <ModalApplicationForm isOpen={isOpen} onClose={() => setIsOpen(false)} />
+        )}
 
         <div className="bg-[url('/assets/images/directions_bg3_xs.svg')] h-[111px] w-[317px] bg-contain bg-no-repeat bg-center mb-3.5 z-[-100] absolute top-[1500px] right-0 tablet:bg-[url('/assets/images/directions_bg3_md.svg')] tablet:h-[114px] tablet:w-[364px] tablet:right-[70px] tablet:top-[910px] laptop:right-[120px] laptop:top-[940px] desktop:right-[-107px] desktop:top-[920px] desktop:bg-[url('/assets/images/directions_bg3_xl.svg')] desktop:w-[599px] desktop:h-[253px]"/>
       </section>  
