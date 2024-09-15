@@ -10,8 +10,8 @@
 
 .animationBlock> article:hover {  
     opacity: 1; 
-    transition-delay: 0ms;
-    transition-timing-function: ease-in-out;
+    transition-delay: 50ms;
+    transition-timing-function: ease-out;
  }
 
  .animationBlock> article:hover > img { 
