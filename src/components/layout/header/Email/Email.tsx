@@ -4,6 +4,7 @@ const Email = () => {
   const email = 'ukr.peaceful.warrior@gmail.com';
   return (
     <Link
+      aria-label="email"
       rel="nofollow noreferrer"
       target="_blank"
       href={`mailto:${email}`}

@@ -49,10 +49,11 @@ export default function Modal({ children, isOpen, onClose }: ModalProps) {
         onClick={handleBackdropClick}
         className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
       >
-        <div className="relative rounded-lg bg-white p-6 shadow-lg">
+        <div className="relative rounded-btn-radius bg-light-background desktop:rounded-[32px]">
+          {/* p-6 shadow-lg*/}
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-800 absolute right-2 top-2"
+            className="text-gray-500 hover:text-gray-800 absolute right-4 top-4 desktop:right-8 desktop:top-8"
           >
             &times;
           </button>

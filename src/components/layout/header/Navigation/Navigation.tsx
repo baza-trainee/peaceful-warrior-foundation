@@ -16,9 +16,10 @@ export const Navigation = ({
       {headerNav.map(({ name, href }) => (
         <li className="flex items-center" key={name}>
           <Link
+            aria-label="navigation link"
             href={href}
             className={clsx(
-              'hover:text-hover text-m font-medium uppercase leading-[20px] transition-all duration-300',
+              'text-m font-medium uppercase leading-[1.25] transition-all duration-300 hover:text-hover',
               {
                 'text-accent': pathname === href,
               }

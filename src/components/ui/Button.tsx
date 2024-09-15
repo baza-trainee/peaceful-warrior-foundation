@@ -5,17 +5,30 @@ export interface ButtonProps
   disabled?: boolean;
   children: React.ReactNode;
   className?: string;
+  modal?: boolean;
+  directionBtn?: boolean;
 }
 
-const Button = ({ disabled, children, className, ...rest }: ButtonProps) => {
+const Button = ({
+  disabled,
+  children,
+  modal = false,
+  directionBtn = false,
+  className,
+  ...rest
+}: ButtonProps) => {
   return (
     <button
       disabled={disabled}
       {...rest}
       className={clsx(
-        'h-[52px] w-[343px] rounded-btn-radius bg-accent px-5 py-2.5 text-center text-sm font-medium uppercase leading-[21.94px] text-white shadow-btn-shadow laptop:w-[326px]',
-        !disabled && 'hover:bg-gray-800 active:bg-gray-950',
-        disabled && 'bg-[#407cd7]',
+        'rounded-btn-radius bg-accent text-center text-sm font-medium uppercase leading-[22px] text-[#FFFDFD] shadow-btn-shadow hover:bg-hover',
+        'transition-colors duration-200 ease-out',
+        modal && 'h-11 w-full tablet:h-[52px]',
+        !modal && 'h-[52px] w-[343px]',
+        disabled && 'bg-gray-devider text-gray-border',
+        directionBtn && 'tablet:w-[332px] desktop:w-[364px]',
+        !directionBtn && 'tablet:w-[326px]',
         className
       )}
     >
@@ -25,3 +38,38 @@ const Button = ({ disabled, children, className, ...rest }: ButtonProps) => {
 };
 
 export default Button;
+
+// example how to use
+{
+  /* <Button
+  type="submit"
+  className="m-auto"
+  aria-label="Перейти до сторінки платежу"
+>
+  ПІДТРИМАТИ
+</Button>; */
+}
+
+// example for Direction Section
+{
+  /* <Button
+  type="submit"
+  className="m-auto"
+  aria-label="Перейти до сторінки платежу"
+  directionBtn //!!!!!!!!!!!!!!!!!!
+>
+  ЗВЕРНУТИСЬ ЗА ДОПОМОГОЮ + icon(if necessary)
+</Button>; */
+}
+
+// example for modal
+{
+  /* <Button
+  type="submit"
+  className="m-auto"
+  aria-label="Перейти до сторінки платежу"
+  modal={true} //!!!!!!!!!!!!!!!!!!!!!!!
+>
+  ПІДТРИМАТИ
+</Button>; */
+}

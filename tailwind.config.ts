@@ -12,15 +12,15 @@ const config: Config = {
       center: true,
       padding: {
         mobile: '16px',
-        tablet: '16px',
-        laptop: '80px',
+        tablet: '32px',
+        laptop: '32px',
         desktop: '150px',
       },
     },
     screens: {
       mobile: '375px',
       // => @media (min-width: 375px) { ... }
-      tablet: '768px',
+      tablet: '744px',
       // => @media (min-width: 768px) { ... }
       laptop: '1024px',
       // => @media (min-width: 1024px) { ... }
@@ -34,10 +34,12 @@ const config: Config = {
 
       // => background-colors
       'light-background': '#f0f0f0',
+      'gray-background': '#929ba8',
       'card-background': '#f1e9d9',
       'btn-background': '#ededed',
       'swiper-card-background': '#ede8dd',
       'footer-background': '#2b3748',
+      'header-background': 'rgba(205, 204, 199, 0.5)',
 
       // => text-colors
       black: '#000',
