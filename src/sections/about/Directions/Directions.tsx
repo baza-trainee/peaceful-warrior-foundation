@@ -63,11 +63,13 @@ const Directions = ({}: DirectionsProps) => {
         </article>
         <Button 
         type="submit"
-        modal
+        //modal
+             directionBtn 
         aria-label="Перейти до сторінки платежу"
         onClick={() => setIsOpen(true)}
-        className="m-auto flex flex-row justify-between items-center px-5 py-3 mt-8 tablet:w-[364px] laptop:w-[364px] laptop:mt-[57px]"
-        >
+        className="m-auto flex flex-row tablet:justify-between mobile:px-5 items-center  py-3 mt-8 laptop:mt-[57px]"
+          >
+            {/* tablet:w-[364px] laptop:w-[364px] */}
         <div><span className="text-nowrap text-center">ЗВЕРНУТИСЬ ЗА ДОПОМОГОЮ</span></div>
         <div><span className="hidden tablet:inline-flex"><svg data-testid="geist-icon" fill="none" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" viewBox="0 0 24 24" className="w-[26px] h-[26px]"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg></span></div>
         </Button>

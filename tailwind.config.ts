@@ -11,6 +11,7 @@ const config: Config = {
     container: {
       center: true,
       padding: {
+         smallMobile:"8px",
         mobile: '16px',
         tablet: '32px',
         laptop: '32px',
@@ -18,6 +19,8 @@ const config: Config = {
       },
     },
     screens: {
+      smallMobile: "320px",
+      // => @media (min-width: 320px) { ... }
       mobile: '375px',
       // => @media (min-width: 375px) { ... }
       tablet: '744px',
