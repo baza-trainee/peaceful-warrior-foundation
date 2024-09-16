@@ -1,6 +1,4 @@
-'use client';
-
-export const LanguageToogler = () => {
+export const LanguageToogler: React.FC = () => {
   return (
     <div className="flex items-center gap-[7px]">
       <button

@@ -5,8 +5,8 @@ import { Navigation } from '../../header/Navigation/Navigation';
 import { NAV_LINKS } from '@/constants/navlinks/navlinks';
 import { ICONS } from '@/constants/icons/icons';
 import Link from 'next/link';
-import RuleLinks from '../RuleLinks/ruleLinks';
 import Contacts from '../Contacts/Contacts';
+import RuleLinks from '../RuleLinks/RuleLinks';
 
 const Footer: React.FC = () => {
   return (

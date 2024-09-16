@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const Email = () => {
+const Email: React.FC = () => {
   const email = 'ukr.peaceful.warrior@gmail.com';
   return (
     <Link

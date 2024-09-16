@@ -1,6 +1,6 @@
 import { ICONS } from '@/constants/icons/icons';
 
-const Socials = () => {
+const Socials: React.FC = () => {
   return (
     <>
       <li>
