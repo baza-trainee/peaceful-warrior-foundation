@@ -99,6 +99,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
             className="absolute left-0 top-[126px] flex w-full flex-col overflow-y-hidden bg-swiper-card-background px-[16px] pb-[24px] pt-[48px] text-body-text shadow-md"
           >
             <Navigation
+              onClickLink={handleMenuClick}
               headerNav={NAV_LINKS}
               listClass="flex flex-col"
               renderAfterItem={(index, headerNav) =>

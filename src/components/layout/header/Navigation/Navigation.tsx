@@ -13,11 +13,13 @@ interface NavigationProps {
   listClass?: string;
   headerNav: NavLink[];
   renderAfterItem?: (index: number, headerNav: NavLink[]) => React.ReactNode;
+  onClickLink?: () => void;
 }
 
 export const Navigation: React.FC<NavigationProps> = ({
   headerNav,
   renderAfterItem,
+  onClickLink,
   listClass = 'flex items-center',
 }) => {
   const pathname = usePathname();
@@ -29,6 +31,7 @@ export const Navigation: React.FC<NavigationProps> = ({
           <Link
             aria-label="navigation link"
             href={href}
+            onClick={onClickLink}
             className={clsx(
               'text-m font-medium uppercase leading-[1.25] transition-all duration-300 hover:text-hover',
               {
