@@ -10,7 +10,7 @@ export default function Home() {
       {/* <Hero />*/}
       <Mission />
       <Directions />
-      <Team /> 
+      <Team />
       <SupportUs />
     </>
   );

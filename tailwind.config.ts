@@ -89,6 +89,7 @@ const config: Config = {
         '6xl': '40px',
         '7xl': '44px',
         '8xl': '56px',
+        '9xl': '48px',
       },
       boxShadow: {
         'btn-shadow': '0 4px 8px 0 rgba(150, 150, 152, 0.45)',
