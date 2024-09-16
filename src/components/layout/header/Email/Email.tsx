@@ -1,6 +1,11 @@
 import Link from 'next/link';
+interface EmailProps {
+  linkClass?: string;
+}
 
-const Email: React.FC = () => {
+const Email: React.FC<EmailProps> = ({
+  linkClass = 'cursor-pointer transition-all duration-200 hover:text-gray-border hover:underline',
+}) => {
   const email = 'ukr.peaceful.warrior@gmail.com';
   return (
     <Link
@@ -9,7 +14,7 @@ const Email: React.FC = () => {
       target="_blank"
       href={`mailto:${email}`}
       title={`Send an email to ${email}`}
-      className="cursor-pointer transition-all duration-200 hover:text-gray-border hover:underline"
+      className={`${linkClass}`}
     >
       {email}
     </Link>

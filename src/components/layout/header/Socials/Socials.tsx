@@ -1,19 +1,26 @@
 import { ICONS } from '@/constants/icons/icons';
 
-const Socials: React.FC = () => {
+interface SocialsProps {
+  instagramClass: string;
+  facebookClass: string;
+  itemClass: string;
+}
+
+const Socials: React.FC<SocialsProps> = ({
+  instagramClass = 'w-[24px] fill-light-background transition-all duration-300 hover:scale-125 hover:fill-gray-border tablet:w-[28px] tablet:fill-accent tablet:hover:fill-hover',
+  facebookClass = 'w-[24px] fill-light-background transition-all duration-300 hover:scale-125 hover:fill-gray-border tablet:w-[28px] tablet:fill-accent tablet:hover:fill-hover',
+  itemClass,
+}) => {
   return (
     <>
-      <li>
+      <li className={`${itemClass}`}>
         <ICONS.INSTAGRAM
           aria-label="instagram"
-          className="w-[24px] fill-light-background transition-all duration-300 hover:scale-125 hover:fill-gray-border tablet:w-[28px] tablet:fill-accent tablet:hover:fill-hover"
+          className={`${instagramClass}`}
         />
       </li>
-      <li>
-        <ICONS.FACEBOOK
-          aria-label="facebook"
-          className="w-[24px] fill-light-background transition-all duration-300 hover:scale-125 hover:fill-gray-border tablet:w-[28px] tablet:fill-accent tablet:hover:fill-hover"
-        />
+      <li className={`${itemClass}`}>
+        <ICONS.FACEBOOK aria-label="facebook" className={`${facebookClass}`} />
       </li>
     </>
   );
