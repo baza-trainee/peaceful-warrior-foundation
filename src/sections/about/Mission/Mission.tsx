@@ -4,7 +4,7 @@ type MissionProps = {};
 
 const Mission = ({}: MissionProps) => {
   return (
-    <section className="mb-[60px] desktop:mb-[100px]">
+    <section className="mb-[240px] desktop:mb-[100px]">
       <h2 className="pb-3 pt-10 text-center font-noteworthy text-5xl font-bold uppercase tracking-[1.44px] text-accent desktop:pb-12 desktop:text-8xl desktop:tracking-[2.24px]">
         Наша місія
       </h2>
@@ -16,7 +16,7 @@ const Mission = ({}: MissionProps) => {
       </p>
       <div className="relative items-start justify-between text-center tablet:flex">
         <span className="hidden tablet:block sm:top-5 md:top-8 lg:top[-9px] lg:left-10 absolute bottom-[-30%] left-[-33%] h-[75%] w-[100%] bg-[url('/assets/images/Mission/decor.svg')] bg-contain bg-center bg-no-repeat" />
-        <div className="md:translate-x-0 translate-x-5 transform">
+        <div className="md:translate-x-0 translate-x-2 transform">
           <div className="bg-gray-300 p-4">
             <h3 className="font-normal leading-loose mobile:text-[20px] desktop:text-[30px]">
               Реабілітація
@@ -36,7 +36,7 @@ const Mission = ({}: MissionProps) => {
             </p>
           </div>
         </div>
-        <div className="md:translate-x-0 translate-x-5 transform">
+        <div className="md:translate-x-0 translate-x-2 transform">
           <div className="tablet:bg-gray-200 p-4">
             <h3 className="font-normal leading-loose mobile:text-[20px] desktop:text-[30px]">
               Соціалізація
