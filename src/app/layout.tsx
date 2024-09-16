@@ -22,7 +22,7 @@ export default function RootLayout({
       </head>
       <body className={`${montserrat.className} antialiased`}>
         <Header />
-        <main id="main-content" className="container min-h-screen">
+        <main id="main-content" className="container">
           {children}
         </main>
         <div id="modal-container" />
