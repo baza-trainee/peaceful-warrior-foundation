@@ -49,8 +49,8 @@ const SupportUs = ({}: SupportUsProps) => {
   // };
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <section id="support" className="pb-[60px] tablet:pb-20 desktop:pb-[100px]">
-      <div className="m-auto desktop:w-[908px]">
+    <section id="support" className="pb-[60px] tablet:pb-20 desktop:pb-[100px]">    
+        <div className="m-auto desktop:w-[908px]">
         <SectionTitle className="mb-3 tablet:hidden">підтримка</SectionTitle>
         <SectionTitle className="hidden tablet:mb-6 tablet:block desktop:mb-12">
           підтримайте нас
@@ -147,6 +147,8 @@ const SupportUs = ({}: SupportUsProps) => {
           <ModalDonate isOpen={isOpen} onClose={() => setIsOpen(false)} />
         )}
       </div>
+    
+      
     </section>
   );
 };
