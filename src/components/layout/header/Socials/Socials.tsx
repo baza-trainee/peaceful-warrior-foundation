@@ -1,9 +1,9 @@
 import { ICONS } from '@/constants/icons/icons';
 
 interface SocialsProps {
-  instagramClass: string;
-  facebookClass: string;
-  itemClass: string;
+  instagramClass?: string;
+  facebookClass?: string;
+  itemClass?: string;
 }
 
 const Socials: React.FC<SocialsProps> = ({

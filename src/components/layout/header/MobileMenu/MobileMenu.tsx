@@ -2,8 +2,9 @@
 
 import { useEffect } from 'react';
 import { NAV_LINKS } from '@/constants/navlinks/navlinks';
-import { MobileNav } from '../MobileNav/MobileNav';
 import clsx from 'clsx';
+import { Navigation } from '../Navigation/Navigation';
+import { ICONS } from '@/constants/icons/icons';
 
 interface MobileMenuProps {
   openMobileMenu: boolean;
@@ -97,9 +98,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
             onClick={(e) => e.stopPropagation()}
             className="absolute left-0 top-[126px] flex w-full flex-col overflow-y-hidden bg-swiper-card-background px-[16px] pb-[24px] pt-[48px] text-body-text shadow-md"
           >
-            <MobileNav
-              setOpenMobileMenu={setOpenMobileMenu}
-              mobileNav={NAV_LINKS}
+            <Navigation
+              headerNav={NAV_LINKS}
+              listClass="flex flex-col"
+              renderAfterItem={(index, headerNav) =>
+                index !== headerNav.length - 1 ? (
+                  <ICONS.DASHED_LINE className="mb-[20px] mt-[20px]" />
+                ) : null
+              }
             />
           </div>
         </div>

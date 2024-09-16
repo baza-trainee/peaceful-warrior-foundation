@@ -7,6 +7,7 @@ import { ICONS } from '@/constants/icons/icons';
 import Link from 'next/link';
 import Contacts from '../Contacts/Contacts';
 import RuleLinks from '../RuleLinks/RuleLinks';
+import Socials from '../../header/Socials/Socials';
 
 const Footer: React.FC = () => {
   return (
@@ -30,18 +31,14 @@ const Footer: React.FC = () => {
 
           {/* Socials */}
           <ul className="flex cursor-pointer items-center gap-[16px]">
-            <li>
-              <ICONS.INSTAGRAM
-                aria-label="instagram"
-                className="w-[28px] fill-gray-border transition-all duration-300 hover:scale-125 hover:fill-light-background laptop:w-[34px] laptop:fill-gray-background"
-              />
-            </li>
-            <li>
-              <ICONS.FACEBOOK
-                aria-label="facebook"
-                className="w-[28px] fill-gray-border transition-all duration-300 hover:scale-125 hover:fill-light-background laptop:w-[34px] laptop:fill-gray-background"
-              />
-            </li>
+            <Socials
+              instagramClass={
+                'w-[28px] fill-gray-border transition-all duration-300 hover:scale-125 hover:fill-light-background laptop:w-[34px] laptop:fill-gray-background'
+              }
+              facebookClass={
+                'w-[28px] fill-gray-border transition-all duration-300 hover:scale-125 hover:fill-light-background laptop:w-[34px] laptop:fill-gray-background'
+              }
+            />
           </ul>
         </div>
         {/* Info block */}
