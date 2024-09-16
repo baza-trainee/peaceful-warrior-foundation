@@ -2,16 +2,16 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
-    // "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    // "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    // "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     container: {
       center: true,
       padding: {
-         smallMobile:"8px",
+        smallMobile: '8px',
         mobile: '16px',
         tablet: '32px',
         laptop: '32px',
@@ -19,7 +19,7 @@ const config: Config = {
       },
     },
     screens: {
-      smallMobile: "320px",
+      smallMobile: '320px',
       // => @media (min-width: 320px) { ... }
       mobile: '375px',
       // => @media (min-width: 375px) { ... }
@@ -43,6 +43,7 @@ const config: Config = {
       'swiper-card-background': '#ede8dd',
       'footer-background': '#2b3748',
       'header-background': 'rgba(205, 204, 199, 0.5)',
+      light: '#fffdfd',
 
       // => text-colors
       black: '#000',
