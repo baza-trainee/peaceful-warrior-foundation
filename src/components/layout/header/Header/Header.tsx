@@ -31,7 +31,7 @@ const Header: React.FC = () => {
       {/* Mobile-logo-and-text-block before 1024px */}
       <div
         className={clsx(
-          'bg-transition container flex items-center gap-x-[4px] pb-[12px] pt-[16px] tablet:gap-[12px] tablet:gap-x-[24px] tablet:pb-[48px] tablet:pt-[40px] laptop:gap-x-[56px]',
+          'bg-transition container flex items-center gap-x-[4px] pt-[16px] tablet:gap-[12px] tablet:gap-x-[24px] tablet:pt-[40px] laptop:gap-x-[56px]',
           { 'bg-swiper-card-background': openMobileMenu || isExiting }
         )}
       >

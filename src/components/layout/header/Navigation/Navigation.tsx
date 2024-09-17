@@ -4,20 +4,34 @@ import { Link } from '@/navigation';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 
-export const Navigation = ({
+type NavLink = {
+  name: string;
+  href: string;
+};
+
+interface NavigationProps {
+  listClass?: string;
+  headerNav: NavLink[];
+  renderAfterItem?: (index: number, headerNav: NavLink[]) => React.ReactNode;
+  onClickLink?: () => void;
+}
+
+export const Navigation: React.FC<NavigationProps> = ({
   headerNav,
-}: {
-  headerNav: { name: string; href: string }[];
+  renderAfterItem,
+  onClickLink,
+  listClass = 'flex items-center',
 }) => {
   const pathname = usePathname();
 
   return (
     <>
-      {headerNav.map(({ name, href }) => (
-        <li className="flex items-center" key={name}>
+      {headerNav.map(({ name, href }, idx) => (
+        <li className={`${listClass}`} key={name}>
           <Link
             aria-label="navigation link"
             href={href}
+            onClick={onClickLink}
             className={clsx(
               'text-m font-medium uppercase leading-[1.25] transition-all duration-300 hover:text-hover',
               {
@@ -27,6 +41,7 @@ export const Navigation = ({
           >
             {name}
           </Link>
+          {renderAfterItem && renderAfterItem(idx, headerNav)}
         </li>
       ))}
     </>
