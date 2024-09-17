@@ -14,7 +14,7 @@ const Page: React.FC = () => {
         <ul className="mb-[24px] flex flex-col gap-y-[20px] text-body-text tablet:mb-[32px] tablet:flex-row tablet:flex-wrap tablet:gap-x-[32px] tablet:gap-y-[32px] laptop:flex-col laptop:flex-nowrap">
           <li className="flex items-center gap-x-[12px]">
             <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[50%] bg-accent tablet:h-[42px] tablet:w-[42px]">
-              <ICONS.EMAIL className="fill-light flex w-[19px] tablet:w-[21px]" />
+              <ICONS.EMAIL className="flex w-[19px] fill-light tablet:w-[21px]" />
             </div>
             <div className="flex flex-col gap-y-[8px]">
               <h3 className="text-l font-medium leading-[1.18] tablet:text-xl tablet:leading-[1.14]">
@@ -25,7 +25,7 @@ const Page: React.FC = () => {
           </li>
           <li className="flex items-center gap-x-[12px]">
             <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[50%] bg-accent">
-              <ICONS.PHONE className="fill-light flex w-[19px] tablet:w-[21px]" />
+              <ICONS.PHONE className="flex w-[19px] fill-light tablet:w-[21px]" />
             </div>
             <div className="flex flex-col gap-y-[8px]">
               <h3 className="text-l font-medium leading-[1.18] tablet:text-xl tablet:leading-[1.14]">
@@ -49,7 +49,7 @@ const Page: React.FC = () => {
           </li>
           <li className="flex items-center gap-x-[12px]">
             <div className="flex h-[38px] w-[38px] items-center justify-center rounded-[50%] bg-accent">
-              <ICONS.ADRESS className="fill-light tablet-[24px] flex w-[22px]" />
+              <ICONS.ADRESS className="tablet-[24px] flex w-[22px] fill-light" />
             </div>
             <div className="flex flex-col gap-y-[8px]">
               <h3 className="text-l font-medium leading-[1.18] tablet:text-xl tablet:leading-[1.14]">
@@ -79,14 +79,13 @@ const Page: React.FC = () => {
 
         <Address>
           <Image
-            src="/assets/images/contacts/desktop-map.jpg"
+            src="/assets/images/contacts/map.jpg"
             alt="map"
             width={674}
             height={564}
             className="inline-block w-full tablet:w-[680px] laptop:w-[674px]"
             quality={100}
             sizes="(max-width: 744px) 343px, (max-width: 1024px) 680px, 674px"
-            objectFit="cover"
           />
         </Address>
       </div>
