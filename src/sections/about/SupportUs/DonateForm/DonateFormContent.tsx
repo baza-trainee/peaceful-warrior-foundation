@@ -3,6 +3,8 @@ import clsx from 'clsx';
 
 export interface DonateFormContentProps {
   paymentAmountData: string[];
+
+  modal?: boolean;
   subscriptionOptions: Array<{
     labelMob: string;
     labelDesktop: string;
@@ -23,10 +25,10 @@ export default function DonateFormContent({
   donationAmount,
   handleAmountChange,
   errorDonationAmount,
+  modal = false,
 }: DonateFormContentProps) {
   return (
     <>
-      
       <div className="flex text-center">
         {subscriptionOptions.map((option) => (
           <label
@@ -41,7 +43,7 @@ export default function DonateFormContent({
             />
             <div
               className={clsx(
-                `flex h-[46px] w-full items-center justify-center border text-sm leading-[22px] tablet:h-[53px] tablet:text-[24px] tablet:leading-[29.26px] desktop:h-[61px] desktop:text-2xl desktop:leading-[36.57px]`,
+                `flex h-[46px] w-full items-center justify-center border text-sm leading-[22px] tablet:h-[53px] tablet:text-[24px] tablet:leading-[29.26px]`,
                 activeButton === option.value
                   ? 'border-accent bg-[#E7E7E7] font-semibold text-accent shadow-btn-shadow tablet:font-medium'
                   : 'border-gray-devider bg-[transparent] font-medium text-gray-devider tablet:font-regular',
@@ -57,8 +59,21 @@ export default function DonateFormContent({
         ))}
       </div>
       {/* Donate amount */}
-      <div className="relative flex flex-col justify-center gap-y-[20px] text-l font-medium leading-8 tablet:flex-row tablet:gap-x-6 tablet:px-12 tablet:text-xl desktop:px-[161px]">
-        <div className="flex w-full flex-1 gap-x-4 tablet:gap-x-6">
+      <div
+        className={clsx(
+          'relative flex flex-col justify-center gap-y-[20px] text-l font-medium leading-8 tablet:flex-row tablet:gap-x-6 tablet:text-xl',
+          modal
+            ? 'tablet:px-[31px] desktop:px-[108px]'
+            : 'tablet:px-12 desktop:px-[161px]'
+        )}
+      >
+        <div
+          className={clsx(
+            'flex w-full gap-x-4 tablet:gap-x-6',
+            modal ? '' : ''
+          )}
+          //  className="flex-1 "
+        >
           {paymentAmountData.map((el, index) => (
             <button
               type="button"
@@ -77,11 +92,9 @@ export default function DonateFormContent({
         </div>
 
         <input
-          className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent] focus:bg-accent focus:text-light-background tablet:m-0 tablet:h-14 tablet:w-[184px]"
+          className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent] placeholder:text-sm focus:bg-accent focus:text-light-background tablet:m-0 tablet:h-14 tablet:w-[184px] tablet:placeholder:text-xl desktop:placeholder:text-lg"
           type="number"
           min="1"
-          // pattern="[0-9]"
-          // className={`${donateStyle} col-span-2`}
           placeholder="інша сума"
           onChange={(e) => handleAmountChange(e.target.value)}
           value={donationAmount}
