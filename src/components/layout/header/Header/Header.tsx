@@ -10,11 +10,14 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import LanguageToogler from '../LanguageToogler/LanguageToogler';
 import ButtonDonate from '@/components/buttonDonate/buttonDonate';
+import { useTranslations } from 'next-intl';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
+  const t = useTranslations('Home.Header');
+
   return (
     <header>
       {/* Mobile-dark-element before 1024px */}
@@ -43,10 +46,10 @@ const Header: React.FC = () => {
           {/* Mobile-logo-text before 1024px */}
           <div className="flex flex-col tablet:hidden">
             <h3 className="mb-[2px] text-m font-medium uppercase leading-[19.5px] text-body-text">
-              МИРНИЙ ВОЇН
+              {t('title')}
             </h3>
             <p className="mb-[2px] text-xs font-normal leading-[14.63px] text-body-text">
-              Благодійний фонд
+              {t('title-text')}
             </p>
           </div>
           {/* Desktop after 1024px */}
@@ -63,7 +66,7 @@ const Header: React.FC = () => {
               type="button"
               className="btn-support mr-[24px] hidden max-w-[237px] animate-bounce rounded-btn-radius bg-accent px-[24px] py-[12px] text-center text-m font-medium uppercase text-white shadow-btn-shadow transition-all duration-300 hover:bg-hover tablet:flex"
             >
-              ПІДТРИМАТИ
+              {t('support-btn')}
             </button>
 
             {isOpen && (

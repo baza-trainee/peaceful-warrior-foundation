@@ -1,6 +1,45 @@
 {
-  "Team": {
-    "title": "team",
-    "join": "Do you want to be part of our mission? Join the team today!"
+  "Home": {
+    "Header": {
+      "title": "PEACEFUL WARRIOR",
+      "title-text": "Charitable fund",
+      "support-btn": "SUPPORT US"
+    },
+    "Mission": {
+      "title": "Our mission",
+      "first-text": "Full life and equal opportunities for those who defended our country from the enemy in modern and post-war society",
+      "rehabilitation": "Rehabilitation",
+      "rehabilitation-text": "we will organize access to the best doctors and the latest medical developments",
+      "employment": "Employment",
+      "employment-text": "we help you find a job and realize your professional potential",
+      "socialization": "Socialization",
+      "socialization-text": "we contribute to the return of the military to a full-fledged social life"
+    },
+    "Directions": {
+      "title-first": "DIRECTIONS",
+      "title-second": "OF WORK",
+      "prosthesis": "Prosthesis",
+      "prosthesis-text": "We provide access to the best doctors and the latest medical developments, consultations on prosthetics, help with rehabilitation",
+      "legal-aid": "Legal aid",
+      "legal-aid-text": "Free initial legal assistance on any legal issues",
+      "psychological-help": "Psychological help",
+      "psychological-help-text": "We provide psychological support to help overcome stress after combat experience and adaptation to peaceful life",
+      "ask-for-help": "ASK FOR HELP"
+    },
+    "Team": {
+      "title": "team",
+      "join": "Do you want to be part of our mission? Join the team today!",
+      "join-btn": "Join us"
+    },
+    "Footer": {
+      "title": "Charitable Foundation “Peaceful Warrior“",
+      "development": "Development",
+      "rights": "All rights reserved",
+      "Contacts": {
+        "address": "Address",
+        "address-text": "Kharkiv, str. 92nd Brigade, 29",
+        "phone": "Phone"
+      }
+    }
   }
 }
