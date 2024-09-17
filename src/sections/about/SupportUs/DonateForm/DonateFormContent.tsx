@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { useTranslations } from 'next-intl';
 
 export interface DonateFormContentProps {
   paymentAmountData: string[];
@@ -27,6 +28,7 @@ export default function DonateFormContent({
   errorDonationAmount,
   modal = false,
 }: DonateFormContentProps) {
+  const t = useTranslations('Home.DonateForm');
   return (
     <>
       <div className="flex text-center">
@@ -52,8 +54,20 @@ export default function DonateFormContent({
                   : 'rounded-br-btn-radius rounded-tr-btn-radius'
               )}
             >
-              <p className="tablet:hidden">{option.labelMob}</p>
-              <p className="hidden tablet:block">{option.labelDesktop}</p>
+              <p className="tablet:hidden">
+                {t(
+                  option.value === 'one_time'
+                    ? 'type-first-mobile'
+                    : 'type-second-mobile'
+                )}
+              </p>
+              <p className="hidden tablet:block">
+                {t(
+                  option.value === 'one_time'
+                    ? 'type-first-tablet'
+                    : 'type-second-tablet'
+                )}
+              </p>
             </div>
           </label>
         ))}
@@ -92,16 +106,17 @@ export default function DonateFormContent({
         </div>
 
         <input
-          className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent] placeholder:text-sm focus:bg-accent focus:text-light-background tablet:m-0 tablet:h-14 tablet:w-[184px] tablet:placeholder:text-xl desktop:placeholder:text-lg"
+          className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent] placeholder:text-sm focus:bg-accent focus:text-light-background tablet:m-0 tablet:h-14 tablet:w-[184px] tablet:placeholder:text-l desktop:placeholder:text-l"
           type="number"
           min="1"
-          placeholder="інша сума"
+          placeholder={t('placeholder')}
           onChange={(e) => handleAmountChange(e.target.value)}
+          aria-label={t('aria-label-input')}
           value={donationAmount}
         />
         {errorDonationAmount && (
           <p className="absolute bottom-[-24px] self-center text-s font-regular leading-4 text-[#F76666] tablet:bottom-[-30px]">
-            Введіть, будь ласка, суму
+            {t('error-message')}
           </p>
         )}
       </div>

@@ -44,8 +44,21 @@
     "Support": {
       "title-mobile": "support",
       "title-desktop": "support us",
+      "title-modal-mobile": "SUPPORT THE FUND",
+      "title-modal-tablet": "SUPPORT THE FOUNDATION",
       "text-mobile": "If you are inspired by the project, please support our fund.",
-      "text-tablet": "If the project has inspired you and you wish to become our donor, please donate any amount that is convenient for you."
+      "text-tablet": "If the project has inspired you and you would like to support us, please donate any amount that is convenient for you."
+    },
+    "DonateForm": {
+      "type-first-mobile": "One-time",
+      "type-first-tablet": "Single payment",
+      "type-second-mobile": "Monthly",
+      "type-second-tablet": "Monthly contribution",
+      "placeholder": "other amount",
+      "support-btn": "SUPPORT",
+      "error-message": "Please enter an amount",
+      "aria-label-btn": "Go to payment page",
+      "aria-label-input": "Enter a different amount"
     }
   }
 }

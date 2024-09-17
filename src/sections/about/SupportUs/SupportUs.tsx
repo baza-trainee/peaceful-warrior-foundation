@@ -17,7 +17,7 @@ type SupportUsProps = {};
 
 const SupportUs = ({}: SupportUsProps) => {
   const t = useTranslations('Home.Support');
-  console.log('t', t);
+
   // const [isOpen, setIsOpen] = useState(false);
   return (
     <section id="support" className="pb-[60px] tablet:pb-20 desktop:pb-[100px]">
@@ -32,7 +32,7 @@ const SupportUs = ({}: SupportUsProps) => {
           {t('text-mobile')}
         </p>
         <p className="hidden text-center tablet:mb-10 tablet:block tablet:text-l tablet:leading-[26px] desktop:text-lg desktop:leading-[31.69px]">
-          {t('text-desktop')}
+          {t('text-tablet')}
         </p>
 
         <DonateForm />
