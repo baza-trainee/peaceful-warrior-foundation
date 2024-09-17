@@ -6,7 +6,7 @@ import { NAV_LINKS } from '@/constants/navlinks/navlinks';
 import { ICONS } from '@/constants/icons/icons';
 import Link from 'next/link';
 import Contacts from '../Contacts/Contacts';
-import RuleLinks from '../RuleLinks/RuleLinks';
+import RuleLinks from '../RuleLinks/ruleLinks';
 import Socials from '../../header/Socials/Socials';
 
 const Footer: React.FC = () => {
