@@ -13,7 +13,6 @@ import './swiper.css';
 type TeamSwiperProps = {};
 
 const TeamSwiper = ({}: TeamSwiperProps) => {
-  console.log('test');
   return (
     <div className="relative">
       <Swiper
@@ -33,7 +32,7 @@ const TeamSwiper = ({}: TeamSwiperProps) => {
             slidesPerView: 1,
             spaceBetween: 0,
           },
-          768: {
+          744: {
             slidesPerView: 2,
             spaceBetween: 16,
           },
