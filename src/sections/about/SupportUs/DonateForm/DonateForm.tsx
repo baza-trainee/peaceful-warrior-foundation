@@ -53,7 +53,7 @@ export default function DonateForm({
     <form
       onSubmit={handleSubmit}
       className={clsx(
-        'flex flex-col gap-y-8 tablet:gap-y-10',
+        'm-auto flex flex-col gap-y-8 tablet:gap-y-10',
         modal
           ? 'mobile:w-[298px] tablet:w-[646px] desktop:w-[800px]'
           : 'mobile:w-[343px] tablet:w-[680px] desktop:w-[907px]',

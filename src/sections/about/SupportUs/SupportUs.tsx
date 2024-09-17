@@ -15,7 +15,7 @@ import ModalDonate from './DonateForm/ModalDonate';
 type SupportUsProps = {};
 
 const SupportUs = ({}: SupportUsProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   return (
     <section id="support" className="pb-[60px] tablet:pb-20 desktop:pb-[100px]">
       <div className="m-auto desktop:w-[908px]">
@@ -32,12 +32,12 @@ const SupportUs = ({}: SupportUsProps) => {
         </p>
 
         <DonateForm />
-        <Button className="mt-2" modal onClick={() => setIsOpen(true)}>
+        {/* <Button className="mt-2" modal onClick={() => setIsOpen(true)}>
           Check Modal
-        </Button>
-        {isOpen && (
+        </Button> */}
+        {/* {isOpen && (
           <ModalDonate isOpen={isOpen} onClose={() => setIsOpen(false)} />
-        )}
+        )} */}
       </div>
     </section>
   );
