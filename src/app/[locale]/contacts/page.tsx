@@ -86,6 +86,7 @@ const Page: React.FC = () => {
             className="inline-block w-full tablet:w-[680px] laptop:w-[674px]"
             quality={100}
             sizes="(max-width: 744px) 343px, (max-width: 1024px) 680px, 674px"
+            priority
           />
         </Address>
       </div>
