@@ -11,12 +11,12 @@ export default function ModalContentDonate({
   isOpen,
 }: ModalContentDonateProps) {
   return (
-    <div className="px-6 pb-12 pt-[60px] desktop:px-[77px] desktop:py-14">
-      <SectionTitle modal className="mb-8">
-        ПІДТРИМАТИ ФОНД!
+    <div className="px-6 pb-12 pt-[60px] tablet:pb-14 tablet:pt-[72px] desktop:px-[77px] desktop:py-14">
+      <SectionTitle modal className="mb-8 tablet:mb-12 desktop:mb-10">
+        ПІДТРИМАТИ ФОНД
       </SectionTitle>
 
-      <DonateForm isOpen={isOpen} />
+      <DonateForm isOpen={isOpen} modal />
     </div>
   );
 }

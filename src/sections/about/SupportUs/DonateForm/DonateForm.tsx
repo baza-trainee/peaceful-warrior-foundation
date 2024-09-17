@@ -11,9 +11,15 @@ import DonateFormContent from './DonateFormContent';
 
 export interface DonateFormProps {
   isOpen?: boolean;
+  className?: string;
+  modal?: boolean;
 }
 
-export default function DonateForm({ isOpen = false }: DonateFormProps) {
+export default function DonateForm({
+  isOpen = false,
+  modal = false,
+  className,
+}: DonateFormProps) {
   const [activeButton, setActiveButton] = useState<string>('one_time');
   const [donationAmount, setDonationAmount] = useState<number | ''>('');
   const [errorDonationAmount, setErrorDonationAmount] =
@@ -46,8 +52,16 @@ export default function DonateForm({ isOpen = false }: DonateFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mt-7 flex w-full flex-col gap-y-8 tablet:gap-y-10 desktop:gap-y-12"
+      className={clsx(
+        'flex flex-col gap-y-8 tablet:gap-y-10',
+        modal
+          ? 'w-[298px] tablet:w-[646px] desktop:w-[800px]'
+          : 'w-[343px] tablet:w-[680px] desktop:w-[907px]',
+        className
+      )}
+      // className="flex w-full flex-col gap-y-8 tablet:gap-y-10 desktop:gap-y-12"
     >
+      {/* mt-7 */}
       {/* Choose subscriptionOption */}
       <DonateFormContent
         paymentAmountData={PAYMENT_AMOUNT_DATA}
@@ -58,10 +72,9 @@ export default function DonateForm({ isOpen = false }: DonateFormProps) {
         handleAmountChange={handleAmountChange}
         errorDonationAmount={errorDonationAmount}
       />
-
       <Button
         type="submit"
-        className="m-auto"
+        className="mx-auto desktop:mt-4"
         aria-label="Перейти до сторінки платежу"
         modal={isOpen}
       >
