@@ -55,13 +55,11 @@ export default function DonateForm({
       className={clsx(
         'flex flex-col gap-y-8 tablet:gap-y-10',
         modal
-          ? 'w-[298px] tablet:w-[646px] desktop:w-[800px]'
-          : 'w-[343px] tablet:w-[680px] desktop:w-[907px]',
+          ? 'mobile:w-[298px] tablet:w-[646px] desktop:w-[800px]'
+          : 'mobile:w-[343px] tablet:w-[680px] desktop:w-[907px]',
         className
       )}
-      // className="flex w-full flex-col gap-y-8 tablet:gap-y-10 desktop:gap-y-12"
     >
-      {/* mt-7 */}
       {/* Choose subscriptionOption */}
       <DonateFormContent
         paymentAmountData={PAYMENT_AMOUNT_DATA}
@@ -71,6 +69,7 @@ export default function DonateForm({
         donationAmount={donationAmount}
         handleAmountChange={handleAmountChange}
         errorDonationAmount={errorDonationAmount}
+        modal={modal}
       />
       <Button
         type="submit"
