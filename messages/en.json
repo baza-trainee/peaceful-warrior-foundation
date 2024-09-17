@@ -40,6 +40,12 @@
         "address-text": "Kharkiv, str. 92nd Brigade, 29",
         "phone": "Phone"
       }
+    },
+    "Support": {
+      "title-mobile": "support",
+      "title-desktop": "support us",
+      "text-mobile": "If you are inspired by the project, please support our fund.",
+      "text-tablet": "If the project has inspired you and you wish to become our donor, please donate any amount that is convenient for you."
     }
   }
 }

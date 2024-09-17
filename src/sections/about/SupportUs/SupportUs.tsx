@@ -1,34 +1,38 @@
-'use client';
+// 'use client';
 
-import React, { useState } from 'react';
-import clsx from 'clsx';
-import {
-  SUBSCRIPTION_OPTIONS,
-  PAYMENT_AMOUNT_DATA,
-} from '@/constants/donateForm/donateForm';
-import Button from '@/components/ui/Button';
+import React from 'react';
+import { useTranslations } from 'next-intl';
+// import clsx from 'clsx';
+// import {
+//   SUBSCRIPTION_OPTIONS,
+//   PAYMENT_AMOUNT_DATA,
+// } from '@/constants/donateForm/donateForm';
+// import Button from '@/components/ui/Button';
 import SectionTitle from '@/components/ui/SectionTitle';
 import DonateForm from './DonateForm/DonateForm';
-import ButtonDonate from '@/components/buttonDonate/buttonDonate';
-import ModalDonate from './DonateForm/ModalDonate';
+// import ButtonDonate from '@/components/buttonDonate/buttonDonate';
+// import ModalDonate from './DonateForm/ModalDonate';
 
 type SupportUsProps = {};
 
 const SupportUs = ({}: SupportUsProps) => {
+  const t = useTranslations('Home.Support');
+  console.log('t', t);
   // const [isOpen, setIsOpen] = useState(false);
   return (
     <section id="support" className="pb-[60px] tablet:pb-20 desktop:pb-[100px]">
       <div className="m-auto desktop:w-[908px]">
-        <SectionTitle className="mb-3 tablet:hidden">підтримка</SectionTitle>
+        <SectionTitle className="mb-3 tablet:hidden">
+          {t('title-mobile')}
+        </SectionTitle>
         <SectionTitle className="hidden tablet:mb-6 tablet:block desktop:mb-12">
-          підтримайте нас
+          {t('title-desktop')}
         </SectionTitle>
         <p className="mb-6 text-center text-md leading-[24.38px] tablet:hidden">
-          Якщо вас надихнув проект, будь ласка, підтримайте наш фонд.
+          {t('text-mobile')}
         </p>
         <p className="hidden text-center tablet:mb-10 tablet:block tablet:text-l tablet:leading-[26px] desktop:text-lg desktop:leading-[31.69px]">
-          Якщо вас надихнув проект і ви бажаєте стати нашим донором, будь ласка,
-          пожертвуйте зручну для вас суму.
+          {t('text-desktop')}
         </p>
 
         <DonateForm />
