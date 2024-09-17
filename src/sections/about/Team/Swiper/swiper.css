@@ -1,7 +1,7 @@
 .custom-button-prev {
   position: absolute;
   top: 36%;
-  left: 34px;
+  left: 7px;
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
@@ -23,7 +23,7 @@
   align-items: center;
   cursor: pointer;
   z-index: 99;
-  right: 34px;
+  right: 7px;
 }
 
 .custom-button-prev svg,
@@ -47,7 +47,7 @@
   display: none;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 743px) {
   .custom-button-prev,
   .custom-button-next {
     display: none;
