@@ -8,8 +8,11 @@ import Link from 'next/link';
 import Contacts from '../Contacts/Contacts';
 import RuleLinks from '../RuleLinks/ruleLinks';
 import Socials from '../../header/Socials/Socials';
+import { useTranslations } from 'next-intl';
 
 const Footer: React.FC = () => {
+  const t = useTranslations('Home.Footer');
+
   return (
     <footer className="flex flex-col bg-footer-background pt-[22px] text-light-background laptop:pt-[56px]">
       <div className="container">
@@ -26,7 +29,7 @@ const Footer: React.FC = () => {
           </div>
 
           <p className="hidden text-4xl font-normal leading-[41.45px] laptop:flex">
-            Благодійний фонд “Мирний воїн”
+            {t('title')}
           </p>
 
           {/* Socials */}
@@ -70,7 +73,7 @@ const Footer: React.FC = () => {
         </div>
 
         <p className="mb-[32px] text-center font-helvetica text-xs font-normal leading-[14.32px] text-footer-text laptop:mb-[56px] laptop:text-s laptop:font-normal laptop:leading-[16.7px]">
-          Розробка
+          {t('development')}
           <a
             aria-label="baza traenee link"
             href="https://baza-trainee.tech/ua"
@@ -81,7 +84,7 @@ const Footer: React.FC = () => {
             {' '}
             Baza Trainee Ukraine{' '}
           </a>
-          2024 © Усі права захищені
+          2024 © {t('rights')}
         </p>
       </div>
     </footer>

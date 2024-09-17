@@ -1,14 +1,19 @@
 import { ICONS } from '@/constants/icons/icons';
 import Link from 'next/link';
 import Email from '../../header/Email/Email';
+import { useTranslations } from 'next-intl';
 
 const Contacts: React.FC = () => {
+  const t = useTranslations('Home.Footer.Contacts');
+
   return (
     <ul className="mb-[20px] flex flex-wrap justify-between gap-y-[20px] text-light-background laptop:m-0 laptop:flex-col-reverse laptop:flex-nowrap laptop:gap-y-[16px]">
       <li className="flex max-w-[176px] flex-col tablet:max-w-full">
         <div className="flex items-center gap-[2px]">
           <ICONS.ADRESS className="h-[20px] fill-light-background" />
-          <h3 className="text-md font-medium leading-[24.38px]">Адреса</h3>
+          <h3 className="text-md font-medium leading-[24.38px]">
+            {t('address')}
+          </h3>
         </div>
         <Link
           aria-label="address"
@@ -17,13 +22,15 @@ const Contacts: React.FC = () => {
           target="_blank"
           className="mt-[4px] text-m font-light leading-[19.5px] transition-all duration-200 hover:text-gray-border hover:underline"
         >
-          м. Харків, вул. 92-ої Бригади, 29
+          {t('address-text')}
         </Link>
       </li>
       <li className="flex max-w-[176px] flex-col tablet:max-w-full">
         <div className="flex items-center gap-[2px]">
           <ICONS.PHONE className="h-[20px] fill-light-background" />
-          <h3 className="text-md font-medium leading-[24.38px]">Телефон</h3>
+          <h3 className="text-md font-medium leading-[24.38px]">
+            {t('phone')}
+          </h3>
         </div>
         <a
           aria-label="phone"
