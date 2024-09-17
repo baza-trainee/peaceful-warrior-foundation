@@ -8,7 +8,7 @@ const Mission = ({}: MissionProps) => {
 
   return (
     <section className="mb-[240px] desktop:mb-[100px]">
-      <h2 className="pb-3 pt-10 text-center font-noteworthy text-5xl font-bold uppercase tracking-[1.44px] text-accent desktop:pb-12 desktop:text-8xl desktop:tracking-[2.24px]">
+      <h2 className="pb-3 pt-10 text-center font-noteworthy text-5xl font-normal uppercase tracking-[1.44px] text-accent desktop:pb-12 desktop:text-8xl desktop:tracking-[2.24px]">
         {t('title')}
       </h2>
       <p className="text-1 relative mx-auto mb-16 max-w-[908px] text-center mobile:text-[22px] desktop:text-[26px]">
@@ -48,7 +48,7 @@ const Mission = ({}: MissionProps) => {
             </p>
           </div>
         </div>
-        <span className="sm:top-5 sm:right-6 md:top-8 lg:top[-9px] lg:right-10 absolute bottom-[-30%] right-[-17%] hidden h-[75%] w-[50%] scale-x-[-1] transform bg-[url('/assets/images/Mission/decor.svg')] bg-contain bg-center bg-no-repeat leading-loose tablet:block" />
+        <span className=" absolute bottom-[-30%] right-[-10%] hidden h-[75%] w-[50%] scale-x-[-1] transform bg-[url('/assets/images/Mission/decor.svg')] bg-contain bg-center bg-no-repeat leading-loose tablet:block" />
         <span className="absolute bottom-[-20%] left-[-11%] -z-10 h-[100%] w-[100%] bg-[url('/assets/images/Mission/decor-mob.svg')] bg-contain bg-left bg-no-repeat leading-loose tablet:hidden" />
       </div>
     </section>
