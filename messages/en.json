@@ -31,7 +31,8 @@
     "Header": {
       "title": "PEACEFUL WARRIOR",
       "description": "Charitable Foundation",
-      "support-btn": "SUPPORT"
+      "support-btn": "SUPPORT",
+      "logo": "Foundation logo"
     },
     "Footer": {
       "title": "Charitable Foundation “Peaceful Warrior”",
@@ -41,7 +42,7 @@
       "baza": "Baza Trainee link",
       "Contacts": {
         "address": "Address",
-        "address-text": "29 92nd Brigade St., Kharkiv, Ukraine",
+        "address-text": "m. Kharkiv, vul. 92-oyi Bryhady, 29",
         "phone": "Phone",
         "email": "E-mail"
       }

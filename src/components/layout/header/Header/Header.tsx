@@ -16,7 +16,7 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
-  const t = useTranslations('Home.Header');
+  const t = useTranslations('Layout.Header');
 
   return (
     <header>
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
         )}
       >
         <div>
-          <Logo type="dark" />
+          <Logo aria-label={t('logo')} type="dark" />
         </div>
 
         <div className="flex w-full items-center justify-between tablet:flex-col tablet:items-stretch tablet:gap-y-[12px]">
@@ -49,7 +49,7 @@ const Header: React.FC = () => {
               {t('title')}
             </h3>
             <p className="mb-[2px] text-xs font-normal leading-[14.63px] text-body-text">
-              {t('title-text')}
+              {t('description')}
             </p>
           </div>
           {/* Desktop after 1024px */}
