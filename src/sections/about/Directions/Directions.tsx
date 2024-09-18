@@ -23,7 +23,7 @@ const Directions = ({}: DirectionsProps) => {
         <section className={styles.animationBlock}>
           <article className="flex flex-col items-center justify-center tablet:flex-row desktop:justify-end desktop:pb-[140px]">
             <Image
-              src="/assets/images/prosthesis_help.png"
+              src="/assets/images/Directions/prosthesis_help.png"
               alt="prosthesis"
               width={331}
               height={220}
@@ -43,7 +43,7 @@ const Directions = ({}: DirectionsProps) => {
 
           <article className="flex flex-col items-center justify-center tablet:flex-row-reverse desktop:justify-end desktop:pb-[140px]">
             <Image
-              src="/assets/images/lawyer_help.png"
+              src="/assets/images/Directions/lawyer_help.png"
               alt="prosthesis"
               width={331}
               height={220}
@@ -63,7 +63,7 @@ const Directions = ({}: DirectionsProps) => {
 
           <article className="flex flex-col items-center justify-center tablet:flex-row desktop:justify-end">
             <Image
-              src="/assets/images/psycological_help.png"
+              src="/assets/images/Directions/psycological_help.png"
               alt="prosthesis"
               width={331}
               height={220}
@@ -82,7 +82,7 @@ const Directions = ({}: DirectionsProps) => {
             type="submit"
             //modal
             directionBtn
-            aria-label="Подати заявку"
+            aria-label={t('ask-for-help')}
             onClick={() => setIsOpen(true)}
             className="m-auto mt-8 flex flex-row items-center py-3 mobile:px-5 tablet:justify-between laptop:mt-[57px]"
           >
