@@ -29,7 +29,25 @@
     "Team": {
       "title": "team",
       "join": "Do you want to be part of our mission? Join the team today!",
-      "join-btn": "Join us"
+      "join-btn": "Join us",
+      "teamMembers": {
+        "1": {
+          "name": "Victoria",
+          "role": "Founder of 'PEACEFUL WARRIOR' Foundation, lawyer"
+        },
+        "2": {
+          "name": "Antonina",
+          "role": "Not the founder of 'PEACEFUL WARRIOR' Foundation, lawyer"
+        },
+        "3": {
+          "name": "Iryna",
+          "role": "Came to test the website"
+        },
+        "4": {
+          "name": "Natalya",
+          "role": "Doesn’t want anything, just here"
+        }
+      }
     },
     "Footer": {
       "title": "Charitable Foundation “Peaceful Warrior“",
