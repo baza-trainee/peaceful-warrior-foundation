@@ -1,10 +1,5 @@
 {
   "Home": {
-    "Header": {
-      "title": "МИРНИЙ ВОЇН",
-      "title-text": "Благодійний фонд",
-      "support-btn": "ПІДТРИМАТИ"
-    },
     "Mission": {
       "title": "Наша місія",
       "first-text": "Повноцінне життя та рівні можливості для тих, хто боронив нашу країну від ворога, в сучасному та післявоєнному суспільстві",
@@ -58,16 +53,6 @@
         }
       }
     },
-    "Footer": {
-      "title": "Благодійний фонд “Мирний воїн”",
-      "development": "Розробка",
-      "rights": "Усі права захищені",
-      "Contacts": {
-        "address": "Address",
-        "address-text": "Kharkiv, str. 92nd Brigade, 29",
-        "phone": "Phone"
-      }
-    },
     "Support": {
       "title-mobile": "підтримка",
       "title-desktop": "підтримайте нас",
@@ -86,6 +71,55 @@
       "error-message": "Введіть, будь ласка, суму",
       "aria-label-btn": "Перейти до сторінки платежу",
       "aria-label-input": "Введіть іншу суму"
+    }
+  },
+  "Layout": {
+    "Header": {
+      "title": "МИРНИЙ ВОЇН",
+      "description": "Благодійний фонд",
+      "support-btn": "ПІДТРИМАТИ",
+      "logo": "Логотип фонду",
+      "baza": "База Трейні лінк"
+    },
+    "Footer": {
+      "title": "Благодійний фонд “Мирний воїн”",
+      "development": "Розробка",
+      "rights": "Усі права захищені",
+      "logo": "Логотип фонду",
+      "baza": "Лінк Бази Трейні",
+      "Contacts": {
+        "address": "Адреса",
+        "address-text": "вул. 92-ої Бригади, 29 м. Харків, Україна",
+        "phone": "Телефон",
+        "email": "E-mail",
+        "email-text": "info@peaceful-warrior-foundation.org",
+        "address-icon": "Іконка адреси",
+        "address-link": "Адреса",
+        "phone-icon": "Іконка телефону",
+        "phone-number": "Номер телефону",
+        "email-icon": "Іконка пошти"
+      }
+    },
+    "TextLogo": {
+      "title": "Мирний воїн",
+      "description": "Благодійний фонд"
+    },
+    "AriaLabels": {
+      "instagram": "Логотип інстаграму",
+      "facebook": "Логотип фейсбуку",
+      "email": "Пошта"
+    },
+    "Navigation": {
+      "home": "ГОЛОВНА",
+      "projects": "НАШІ ПРОЄКТИ",
+      "help": "ЯК ДОПОМОГТИ",
+      "contacts": "КОНТАКТИ"
+    },
+    "Rules": {
+      "policy": "Політика конфіденційності",
+      "rules": "Правила користування сайтом",
+      "statute": "Статут",
+      "reporting": "Звітність"
     }
   }
 }

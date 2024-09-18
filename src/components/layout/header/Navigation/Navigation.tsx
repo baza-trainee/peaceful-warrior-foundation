@@ -2,6 +2,7 @@
 
 import { Link, usePathname } from '@/navigation';
 import clsx from 'clsx';
+import { useTranslations } from 'next-intl';
 
 type NavLink = {
   name: string;
@@ -22,6 +23,7 @@ export const Navigation: React.FC<NavigationProps> = ({
   listClass = 'flex items-center',
 }) => {
   const pathname = usePathname();
+  const t = useTranslations('Layout.Navigation');
 
   return (
     <>
@@ -30,7 +32,7 @@ export const Navigation: React.FC<NavigationProps> = ({
         return (
           <li className={`${listClass}`} key={name}>
             <Link
-              aria-label="navigation link"
+              aria-label={t(name)}
               href={href}
               onClick={onClickLink}
               className={clsx(
@@ -40,7 +42,7 @@ export const Navigation: React.FC<NavigationProps> = ({
                 }
               )}
             >
-              {name}
+              {t(name)}
             </Link>
             {renderAfterItem && renderAfterItem(idx, headerNav)}
           </li>

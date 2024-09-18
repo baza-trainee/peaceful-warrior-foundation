@@ -1,10 +1,5 @@
 {
   "Home": {
-    "Header": {
-      "title": "PEACEFUL WARRIOR",
-      "title-text": "Charitable fund",
-      "support-btn": "SUPPORT US"
-    },
     "Mission": {
       "title": "Our mission",
       "first-text": "Full life and equal opportunities for those who defended our country from the enemy in modern and post-war society",
@@ -58,16 +53,6 @@
         }
       }
     },
-    "Footer": {
-      "title": "Charitable Foundation “Peaceful Warrior“",
-      "development": "Development",
-      "rights": "All rights reserved",
-      "Contacts": {
-        "address": "Address",
-        "address-text": "Kharkiv, str. 92nd Brigade, 29",
-        "phone": "Phone"
-      }
-    },
     "Support": {
       "title-mobile": "support",
       "title-desktop": "support us",
@@ -86,6 +71,54 @@
       "error-message": "Please enter an amount",
       "aria-label-btn": "Go to payment page",
       "aria-label-input": "Enter a different amount"
+    }
+  },
+  "Layout": {
+    "Header": {
+      "title": "PEACEFUL WARRIOR",
+      "description": "Charitable Foundation",
+      "support-btn": "SUPPORT",
+      "logo": "Foundation logo",
+      "baza": "Baza Trainee link"
+    },
+    "Footer": {
+      "title": "Charitable Foundation “Peaceful Warrior”",
+      "development": "Development",
+      "rights": "All rights reserved",
+      "logo": "Foundation logo",
+      "baza": "Baza Trainee link",
+      "Contacts": {
+        "address": "Address",
+        "address-text": "m. Kharkiv, vul. 92-oyi Bryhady, 29",
+        "phone": "Phone",
+        "email": "E-mail",
+        "address-icon": "Address icon",
+        "address-link": "Address",
+        "phone-icon": "Phone icon",
+        "phone-number": "Phone number",
+        "email-icon": "Email icon"
+      }
+    },
+    "TextLogo": {
+      "title": "Peaceful Warrior",
+      "description": "Charitable Foundation"
+    },
+    "AriaLabels": {
+      "instagram": "Instagram logo",
+      "facebook": "Facebook logo",
+      "email": "Email"
+    },
+    "Navigation": {
+      "home": "HOME",
+      "projects": "OUR PROJECTS",
+      "help": "HOW TO HELP",
+      "contacts": "CONTACTS"
+    },
+    "Rules": {
+      "policy": "Privacy policy",
+      "rules": "Website terms of use",
+      "statute": "Statute",
+      "reporting": "Reporting"
     }
   }
 }
