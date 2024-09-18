@@ -48,7 +48,7 @@ const Mission = ({}: MissionProps) => {
             </p>
           </div>
         </div>
-        <span className="sm:right-6 desktop:right-[-10%] laptop:right-[-3%] absolute tablet:bottom-[-30%]  right-[-10%] hidden h-[75%] w-[50%] scale-x-[-1] transform bg-[url('/assets/images/Mission/decor.svg')] bg-contain bg-center bg-no-repeat leading-loose tablet:block tablet:right-[-3%] w-[100%]" />
+        <span className="sm:right-6 desktop:right-[-10%] laptop:right-[-3%] absolute tablet:bottom-[-30%]  right-[-10%] hidden h-[75%] w-[50%] scale-x-[-1] transform bg-[url('/assets/images/Mission/decor.svg')] bg-contain bg-center bg-no-repeat leading-loose tablet:block tablet:right-[-3%]" />
         <span className="absolute bottom-[-20%] left-[-11%] -z-10 h-[100%] w-[100%] bg-[url('/assets/images/Mission/decor-mob.svg')] bg-contain bg-left bg-no-repeat leading-loose tablet:hidden" />
       </div>
     </section>
