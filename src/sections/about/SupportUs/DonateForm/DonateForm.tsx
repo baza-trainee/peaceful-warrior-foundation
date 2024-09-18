@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import clsx from 'clsx';
+import { useTranslations } from 'next-intl';
 import {
   SUBSCRIPTION_OPTIONS,
   PAYMENT_AMOUNT_DATA,
@@ -20,6 +21,7 @@ export default function DonateForm({
   modal = false,
   className,
 }: DonateFormProps) {
+  const t = useTranslations('Home.DonateForm');
   const [activeButton, setActiveButton] = useState<string>('one_time');
   const [donationAmount, setDonationAmount] = useState<number | ''>('');
   const [errorDonationAmount, setErrorDonationAmount] =
@@ -74,10 +76,10 @@ export default function DonateForm({
       <Button
         type="submit"
         className="mx-auto desktop:mt-4"
-        aria-label="Перейти до сторінки платежу"
+        aria-label={t('aria-label-btn')}
         modal={isOpen}
       >
-        ПІДТРИМАТИ
+        {t('support-btn')}
       </Button>
     </form>
   );
