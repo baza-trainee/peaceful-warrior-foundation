@@ -24,7 +24,16 @@
       "legal-aid-text": "Free initial legal assistance on any legal issues",
       "psychological-help": "Psychological help",
       "psychological-help-text": "We provide psychological support to help overcome stress after combat experience and adaptation to peaceful life",
-      "ask-for-help": "ASK FOR HELP"
+      "ask-for-help": "ASK FOR HELP",
+      "modal": {
+        "title": "call for help",
+        "name-placeholder": "Name*",
+        "phone-placeholder": "Phone*",
+        "message": "Leave a message",
+        "message-placeholder": "Message",
+        "confirm-text": "I consent to the processing of information in accordance with the Law of Ukraine “On Personal Data Protection”.",
+        "btn-text": "SUBMIT APPLICATION"
+      }
     },
     "Team": {
       "title": "team",
