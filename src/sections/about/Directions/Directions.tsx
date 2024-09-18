@@ -4,7 +4,7 @@ import Image from 'next/image';
 import styles from './directions.module.css';
 import Button from '@/components/ui/Button';
 import SectionTitle from '@/components/ui/SectionTitle';
-import ModalApplicationForm from './ModalApplicationForm';
+import ModalApplicationForm from './ModalApplicationForm/ModalApplicationForm';
 import { useTranslations } from 'next-intl';
 
 type DirectionsProps = {};
@@ -23,7 +23,7 @@ const Directions = ({}: DirectionsProps) => {
         <section className={styles.animationBlock}>
           <article className="flex flex-col items-center justify-center tablet:flex-row desktop:justify-end desktop:pb-[140px]">
             <Image
-              src="/assets/images/prosthesis_help.png"
+              src="/assets/images/Directions/prosthesis_help.png"
               alt="prosthesis"
               width={331}
               height={220}
@@ -39,11 +39,11 @@ const Directions = ({}: DirectionsProps) => {
             </div>
           </article>
 
-          <div className="z-[-100] mb-3.5 mt-3 h-[142px] bg-[url('/assets/images/directions_bg1_xs.svg')] bg-contain bg-center bg-no-repeat tablet:mt-3.5 tablet:h-[96px] tablet:bg-[url('/assets/images/directions_bg1_md.svg')] desktop:absolute desktop:left-[180px] desktop:top-[230px] desktop:h-[376px] desktop:w-[891px] desktop:bg-[url('/assets/images/directions_bg1_xl.svg')]" />
+          <div className="z-[-100] mb-3.5 mt-3 h-[142px] bg-[url('/assets/icons/directions/directions_bg1_xs.svg')] bg-contain bg-center bg-no-repeat tablet:mt-3.5 tablet:h-[96px] tablet:bg-[url('/assets/icons/directions/directions_bg1_md.svg')] desktop:absolute desktop:left-[180px] desktop:top-[230px] desktop:h-[376px] desktop:w-[891px] desktop:bg-[url('/assets/icons/directions/directions_bg1_xl.svg')]" />
 
           <article className="flex flex-col items-center justify-center tablet:flex-row-reverse desktop:justify-end desktop:pb-[140px]">
             <Image
-              src="/assets/images/lawyer_help.png"
+              src="/assets/images/Directions/lawyer_help.png"
               alt="prosthesis"
               width={331}
               height={220}
@@ -59,11 +59,11 @@ const Directions = ({}: DirectionsProps) => {
             </div>
           </article>
 
-          <div className="z-[-100] mb-3.5 mt-3 h-[142px] bg-[url('/assets/images/directions_bg2_xs.svg')] bg-contain bg-center bg-no-repeat tablet:mt-3.5 tablet:h-[97px] tablet:bg-[url('/assets/images/directions_bg2_md.svg')] desktop:absolute desktop:left-[-103px] desktop:top-[580px] desktop:h-[202px] desktop:w-[363px] desktop:bg-[url('/assets/images/directions_bg2_xl.svg')]" />
+          <div className="z-[-100] mb-3.5 mt-3 h-[142px] bg-[url('/assets/icons/directions/directions_bg2_xs.svg')] bg-contain bg-center bg-no-repeat tablet:mt-3.5 tablet:h-[97px] tablet:bg-[url('/assets/icons/directions/directions_bg2_md.svg')] desktop:absolute desktop:left-[-103px] desktop:top-[580px] desktop:h-[202px] desktop:w-[363px] desktop:bg-[url('/assets/icons/directions/directions_bg2_xl.svg')]" />
 
           <article className="flex flex-col items-center justify-center tablet:flex-row desktop:justify-end">
             <Image
-              src="/assets/images/psycological_help.png"
+              src="/assets/images/Directions/psycological_help.png"
               alt="prosthesis"
               width={331}
               height={220}
@@ -82,7 +82,7 @@ const Directions = ({}: DirectionsProps) => {
             type="submit"
             //modal
             directionBtn
-            aria-label="Перейти до сторінки платежу"
+            aria-label={t('ask-for-help')}
             onClick={() => setIsOpen(true)}
             className="m-auto mt-8 flex flex-row items-center py-3 mobile:px-5 tablet:justify-between laptop:mt-[57px]"
           >
@@ -118,7 +118,7 @@ const Directions = ({}: DirectionsProps) => {
             />
           )}
 
-          <div className="absolute right-0 top-[1500px] z-[-100] mb-3.5 h-[111px] w-[317px] bg-[url('/assets/images/directions_bg3_xs.svg')] bg-contain bg-center bg-no-repeat tablet:right-[70px] tablet:top-[910px] tablet:h-[114px] tablet:w-[364px] tablet:bg-[url('/assets/images/directions_bg3_md.svg')] laptop:right-[120px] laptop:top-[940px] desktop:right-[-107px] desktop:top-[920px] desktop:h-[253px] desktop:w-[599px] desktop:bg-[url('/assets/images/directions_bg3_xl.svg')]" />
+          <div className="absolute right-0 top-[1500px] z-[-100] mb-3.5 h-[111px] w-[317px] bg-[url('/assets/icons/directions/directions_bg3_xs.svg')] bg-contain bg-center bg-no-repeat tablet:right-[70px] tablet:top-[910px] tablet:h-[114px] tablet:w-[364px] tablet:bg-[url('/assets/icons/directions/directions_bg3_md.svg')] laptop:right-[120px] laptop:top-[940px] desktop:right-[-107px] desktop:top-[920px] desktop:h-[253px] desktop:w-[599px] desktop:bg-[url('/assets/icons/directions/directions_bg3_xl.svg')]" />
         </section>
       </section>
     </>
