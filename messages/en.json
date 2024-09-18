@@ -33,24 +33,24 @@
     "Team": {
       "title": "team",
       "join": "Do you want to be part of our mission? Join the team today!",
-      "join-btn": "Join us"
-    },
-    "teamMembers": {
-      "1": {
-        "name": "Victoria",
-        "role": "Founder of 'PEACEFUL WARRIOR' Foundation, lawyer"
-      },
-      "2": {
-        "name": "Antonina",
-        "role": "Not the founder of 'PEACEFUL WARRIOR' Foundation, lawyer"
-      },
-      "3": {
-        "name": "Iryna",
-        "role": "Came to test the website"
-      },
-      "4": {
-        "name": "Natalya",
-        "role": "Doesn’t want anything, just here"
+      "join-btn": "Join us",
+      "teamMembers": {
+        "1": {
+          "name": "Victoria",
+          "role": "Founder of 'PEACEFUL WARRIOR' Foundation, lawyer"
+        },
+        "2": {
+          "name": "Antonina",
+          "role": "Not the founder of 'PEACEFUL WARRIOR' Foundation, lawyer"
+        },
+        "3": {
+          "name": "Iryna",
+          "role": "Came to test the website"
+        },
+        "4": {
+          "name": "Natalya",
+          "role": "Doesn’t want anything, just here"
+        }
       }
     },
     "Support": {
@@ -78,7 +78,8 @@
       "title": "PEACEFUL WARRIOR",
       "description": "Charitable Foundation",
       "support-btn": "SUPPORT",
-      "logo": "Foundation logo"
+      "logo": "Foundation logo",
+      "baza": "Baza Trainee link"
     },
     "Footer": {
       "title": "Charitable Foundation “Peaceful Warrior”",
@@ -90,7 +91,12 @@
         "address": "Address",
         "address-text": "m. Kharkiv, vul. 92-oyi Bryhady, 29",
         "phone": "Phone",
-        "email": "E-mail"
+        "email": "E-mail",
+        "address-icon": "Address icon",
+        "address-link": "Address",
+        "phone-icon": "Phone icon",
+        "phone-number": "Phone number",
+        "email-icon": "Email icon"
       }
     },
     "TextLogo": {
@@ -100,11 +106,6 @@
     "AriaLabels": {
       "instagram": "Instagram logo",
       "facebook": "Facebook logo",
-      "address-icon": "Address icon",
-      "address": "Address",
-      "phone-icon": "Phone icon",
-      "phone-number": "Phone number",
-      "email-icon": "Email icon",
       "email": "Email"
     },
     "Navigation": {

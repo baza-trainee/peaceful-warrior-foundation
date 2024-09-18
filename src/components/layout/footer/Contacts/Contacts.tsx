@@ -11,7 +11,7 @@ const Contacts: React.FC = () => {
       <li className="flex max-w-[176px] flex-col">
         <div className="flex items-center gap-[2px]">
           <ICONS.ADRESS
-            aria-label={t('Layout.AriaLabels.address-icon')}
+            aria-label={t('address-icon')}
             className="h-[20px] fill-light-background"
           />
           <h3 className="text-md font-medium leading-[24.38px]">
@@ -19,7 +19,7 @@ const Contacts: React.FC = () => {
           </h3>
         </div>
         <Link
-          aria-label={t('Layout.AriaLabels.address')}
+          aria-label={t('address-link')}
           href="https://www.google.com/maps/search/?api=1&query=м.+Харків,+вул.+92-ої+Бригади,+29"
           rel="nofollow noreferrer"
           target="_blank"
@@ -31,7 +31,7 @@ const Contacts: React.FC = () => {
       <li className="flex max-w-[176px] flex-col tablet:max-w-full">
         <div className="flex items-center gap-[2px]">
           <ICONS.PHONE
-            aria-label={t('Layout.AriaLabels.phone-icon')}
+            aria-label={t('phone-icon')}
             className="h-[20px] fill-light-background"
           />
           <h3 className="text-md font-medium leading-[24.38px]">
@@ -39,14 +39,14 @@ const Contacts: React.FC = () => {
           </h3>
         </div>
         <a
-          aria-label={t('Layout.AriaLabels.phone-number')}
+          aria-label={t('phone-number')}
           href="tel:+38 (050) 502 75 29"
           className="mt-[4px] block text-m font-light leading-[19.5px] transition-all duration-200 hover:text-gray-border hover:underline"
         >
           +38 050 502 75 29
         </a>
         <a
-          aria-label={t('Layout.AriaLabels.phone-number')}
+          aria-label={t('phone-number')}
           href="tel:+38 (050) 502 75 29"
           className="mt-[4px] block text-m font-light leading-[19.5px] transition-all duration-200 hover:text-gray-border hover:underline"
         >
@@ -56,7 +56,7 @@ const Contacts: React.FC = () => {
       <li className="flex max-w-[176px] flex-col tablet:max-w-full">
         <div className="flex items-center gap-[2px]">
           <ICONS.EMAIL
-            aria-label={t('Layout.AriaLabels.email-icon')}
+            aria-label={t('email-icon')}
             className="h-[20px] fill-light-background"
           />
           <h3 className="text-md font-medium leading-[24.38px]">
