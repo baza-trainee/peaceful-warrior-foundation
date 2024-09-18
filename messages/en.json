@@ -1,10 +1,5 @@
 {
   "Home": {
-    "Header": {
-      "title": "PEACEFUL WARRIOR",
-      "title-text": "Charitable fund",
-      "support-btn": "SUPPORT US"
-    },
     "Mission": {
       "title": "Our mission",
       "first-text": "Full life and equal opportunities for those who defended our country from the enemy in modern and post-war society",
@@ -30,16 +25,52 @@
       "title": "team",
       "join": "Do you want to be part of our mission? Join the team today!",
       "join-btn": "Join us"
+    }
+  },
+  "Layout": {
+    "Header": {
+      "title": "PEACEFUL WARRIOR",
+      "description": "Charitable Foundation",
+      "support-btn": "SUPPORT"
     },
     "Footer": {
-      "title": "Charitable Foundation “Peaceful Warrior“",
+      "title": "Charitable Foundation “Peaceful Warrior”",
       "development": "Development",
       "rights": "All rights reserved",
+      "logo": "Foundation logo",
+      "baza": "Baza Trainee link",
       "Contacts": {
         "address": "Address",
-        "address-text": "Kharkiv, str. 92nd Brigade, 29",
-        "phone": "Phone"
+        "address-text": "29 92nd Brigade St., Kharkiv, Ukraine",
+        "phone": "Phone",
+        "email": "E-mail"
       }
+    },
+    "TextLogo": {
+      "title": "Peaceful Warrior",
+      "description": "Charitable Foundation"
+    },
+    "AriaLabels": {
+      "instagram": "Instagram logo",
+      "facebook": "Facebook logo",
+      "address-icon": "Address icon",
+      "address": "Address",
+      "phone-icon": "Phone icon",
+      "phone-number": "Phone number",
+      "email-icon": "Email icon",
+      "email": "Email"
+    },
+    "Navigation": {
+      "home": "HOME",
+      "projects": "OUR PROJECTS",
+      "help": "HOW TO HELP",
+      "contacts": "CONTACTS"
+    },
+    "Rules": {
+      "policy": "Privacy policy",
+      "rules": "Website terms of use",
+      "statute": "Statute",
+      "reporting": "Reporting"
     }
   }
 }

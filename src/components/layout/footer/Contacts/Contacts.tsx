@@ -4,19 +4,22 @@ import Email from '../../header/Email/Email';
 import { useTranslations } from 'next-intl';
 
 const Contacts: React.FC = () => {
-  const t = useTranslations('Home.Footer.Contacts');
+  const t = useTranslations('Layout.Footer.Contacts');
 
   return (
-    <ul className="mb-[20px] flex flex-wrap justify-between gap-y-[20px] text-light-background laptop:m-0 laptop:flex-col-reverse laptop:flex-nowrap laptop:gap-y-[16px]">
-      <li className="flex max-w-[176px] flex-col tablet:max-w-full">
+    <ul className="mb-[20px] flex flex-wrap justify-between gap-y-[20px] text-light-background tablet:flex-nowrap laptop:m-0 laptop:flex-col-reverse laptop:gap-y-[16px]">
+      <li className="flex max-w-[176px] flex-col">
         <div className="flex items-center gap-[2px]">
-          <ICONS.ADRESS className="h-[20px] fill-light-background" />
+          <ICONS.ADRESS
+            aria-label={t('Layout.AriaLabels.address-icon')}
+            className="h-[20px] fill-light-background"
+          />
           <h3 className="text-md font-medium leading-[24.38px]">
             {t('address')}
           </h3>
         </div>
         <Link
-          aria-label="address"
+          aria-label={t('Layout.AriaLabels.address')}
           href="https://www.google.com/maps/search/?api=1&query=м.+Харків,+вул.+92-ої+Бригади,+29"
           rel="nofollow noreferrer"
           target="_blank"
@@ -27,20 +30,23 @@ const Contacts: React.FC = () => {
       </li>
       <li className="flex max-w-[176px] flex-col tablet:max-w-full">
         <div className="flex items-center gap-[2px]">
-          <ICONS.PHONE className="h-[20px] fill-light-background" />
+          <ICONS.PHONE
+            aria-label={t('Layout.AriaLabels.phone-icon')}
+            className="h-[20px] fill-light-background"
+          />
           <h3 className="text-md font-medium leading-[24.38px]">
             {t('phone')}
           </h3>
         </div>
         <a
-          aria-label="phone"
+          aria-label={t('Layout.AriaLabels.phone-number')}
           href="tel:+38 (050) 502 75 29"
           className="mt-[4px] block text-m font-light leading-[19.5px] transition-all duration-200 hover:text-gray-border hover:underline"
         >
           +38 050 502 75 29
         </a>
         <a
-          aria-label="phone"
+          aria-label={t('Layout.AriaLabels.phone-number')}
           href="tel:+38 (050) 502 75 29"
           className="mt-[4px] block text-m font-light leading-[19.5px] transition-all duration-200 hover:text-gray-border hover:underline"
         >
@@ -49,8 +55,13 @@ const Contacts: React.FC = () => {
       </li>
       <li className="flex max-w-[176px] flex-col tablet:max-w-full">
         <div className="flex items-center gap-[2px]">
-          <ICONS.EMAIL className="h-[20px] fill-light-background" />
-          <h3 className="text-md font-medium leading-[24.38px]">E-mail</h3>
+          <ICONS.EMAIL
+            aria-label={t('Layout.AriaLabels.email-icon')}
+            className="h-[20px] fill-light-background"
+          />
+          <h3 className="text-md font-medium leading-[24.38px]">
+            {t('email')}
+          </h3>
         </div>
         <div className="mt-[4px] w-full text-m font-light leading-[19.5px]">
           <Email />

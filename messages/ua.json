@@ -1,10 +1,5 @@
 {
   "Home": {
-    "Header": {
-      "title": "МИРНИЙ ВОЇН",
-      "title-text": "Благодійний фонд",
-      "support-btn": "ПІДТРИМАТИ"
-    },
     "Mission": {
       "title": "Наша місія",
       "first-text": "Повноцінне життя та рівні можливості для тих, хто боронив нашу країну від ворога, в сучасному та післявоєнному суспільстві",
@@ -30,16 +25,53 @@
       "title": "команда",
       "join": "Бажаєш стати частиною нашої місії? Долучайся до команди вже сьогодні!",
       "join-btn": "Приєднатись"
+    }
+  },
+  "Layout": {
+    "Header": {
+      "title": "МИРНИЙ ВОЇН",
+      "title-text": "Благодійний фонд",
+      "support-btn": "ПІДТРИМАТИ"
     },
     "Footer": {
       "title": "Благодійний фонд “Мирний воїн”",
       "development": "Розробка",
       "rights": "Усі права захищені",
+      "logo": "Логотип фонду",
+      "baza": "Лінк Бази Трейні",
       "Contacts": {
-        "address": "Address",
-        "address-text": "Kharkiv, str. 92nd Brigade, 29",
-        "phone": "Phone"
+        "address": "Адреса",
+        "address-text": "вул. 92-ої Бригади, 29 м. Харків, Україна",
+        "phone": "Телефон",
+        "email": "E-mail",
+        "email-text": "info@peaceful-warrior-foundation.org"
       }
+    },
+    "TextLogo": {
+      "title": "Мирний воїн",
+      "description": "Благодійний фонд"
+    },
+    "AriaLabels": {
+      "instagram": "Логотип інстаграму",
+      "facebook": "Логотип фейсбуку",
+      "address-icon": "Іконка адреси",
+      "address": "Адреса",
+      "phone-icon": "Іконка телефону",
+      "phone-number": "Номер телефону",
+      "email-icon": "Іконка пошти",
+      "email": "Пошта"
+    },
+    "Navigation": {
+      "home": "ГОЛОВНА",
+      "projects": "НАШІ ПРОЄКТИ",
+      "help": "ЯК ДОПОМОГТИ",
+      "contacts": "КОНТАКТИ"
+    },
+    "Rules": {
+      "policy": "Політика конфіденційності",
+      "rules": "Правила користування сайтом",
+      "statute": "Статут",
+      "reporting": "Звітність"
     }
   }
 }
