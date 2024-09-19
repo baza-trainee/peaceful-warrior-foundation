@@ -14,7 +14,10 @@ const Footer: React.FC = () => {
   const t = useTranslations('Layout.Footer');
 
   return (
-    <footer className="flex flex-col bg-footer-background pt-[22px] text-light-background laptop:pt-[56px]">
+    <footer
+      id="footer"
+      className="flex flex-col bg-footer-background pt-[22px] text-light-background laptop:pt-[56px]"
+    >
       <div className="container">
         <div className="mb-[20px] flex items-center justify-between text-light-background laptop:mb-[40px]">
           {/* Mobile-logo before 1024px */}

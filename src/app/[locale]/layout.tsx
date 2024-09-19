@@ -11,6 +11,7 @@ type Props = {
 
 export default async function RootLayout({ children }: Props) {
   const messages = await getMessages();
+
   return (
     <NextIntlClientProvider messages={messages}>
       <Header />
