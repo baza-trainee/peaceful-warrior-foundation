@@ -1,13 +1,12 @@
 'use client';
 
-import { useRouter } from '@/navigation';
-import { usePathname } from '@/navigation';
+import { useRouter, usePathname } from '@/i18n/routing';
 
 export const LanguageToogler = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const changeLanguage = (locale: string) => {
+  const changeLanguage = (locale: any) => {
     router.push(pathname, { locale });
   };
 
