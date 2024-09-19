@@ -1,3 +1,4 @@
+import ScrollBtn from '@/components/ui/ScrollBtn/ScrollBtn';
 import Directions from '@/sections/about/Directions/Directions';
 import Hero from '@/sections/about/Hero/Hero';
 import Mission from '@/sections/about/Mission/Mission';
@@ -14,6 +15,7 @@ export default function Home() {
       <Team />
       <Partners />
       <SupportUs />
+      <ScrollBtn />
     </>
   );
 }
