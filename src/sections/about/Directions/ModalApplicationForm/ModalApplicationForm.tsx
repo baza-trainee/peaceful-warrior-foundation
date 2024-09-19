@@ -72,7 +72,7 @@ export default function ModalApplicationForm({
               type="submit"
               modal
               aria-label="Подати заявку"
-              className="m-auto h-[44px] w-[298px] py-[11px] tablet:h-[52px] tablet:w-[326px]"
+              className="m-auto h-[44px] w-[298px] py-[11px] tablet:h-[52px] tablet:w-[326px] z-[999]"
             >
               <div>
                 <span className="text-center text-sm font-medium leading-[22px]">
