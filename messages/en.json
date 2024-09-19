@@ -120,5 +120,19 @@
       "statute": "Statute",
       "reporting": "Reporting"
     }
+  },
+  "ContactsPage": {
+    "title": "Our contacts",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "E-mail",
+    "address-icon": "Address icon",
+    "phone-icon": "Phone icon",
+    "phone-number": "Phone number",
+    "email-icon": "Email icon",
+    "address-text-1": "m. Kharkiv,",
+    "address-text-2": "vul. 92-oyi Bryhady, 29",
+    "description": "Follow us on social media:",
+     "map":"map"
   }
 }

@@ -121,5 +121,19 @@
       "statute": "Статут",
       "reporting": "Звітність"
     }
+  },
+  "ContactsPage": {
+    "title": "наші контакти",
+    "address": "Адреса",
+    "address-text-1": "вул. 92-ої Бригади, 29",
+    "address-text-2": "м. Харків, Україна",
+    "phone": "Телефон",
+    "email": "E-mail",
+    "address-icon": "Іконка адреси",
+    "phone-icon": "Іконка телефону",
+    "phone-number": "Номер телефону",
+    "email-icon": "Іконка пошти",
+    "description": "Стежте за нами в соціальних мережах:",
+    "map":"Карта"
   }
 }
