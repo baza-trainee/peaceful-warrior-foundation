@@ -18,9 +18,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './swiper.css';
 
-type TeamSwiperProps = {};
-
-const TeamSwiper = ({}: TeamSwiperProps) => {
+const TeamSwiper = () => {
   const t = useTranslations('Home.Team');
 
   // !!!!! be careful when add new members !!!!! you need to check them id, and add to translate files by them id
