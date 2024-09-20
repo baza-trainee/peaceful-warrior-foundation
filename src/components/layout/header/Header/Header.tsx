@@ -4,13 +4,19 @@ import { Logo } from '@/components/ui/Logo/Logo';
 import { NAV_LINKS } from '@/constants/navlinks/navlinks';
 import { Navigation } from '../Navigation/Navigation';
 import Socials from '../Socials/Socials';
-import Email from '../Email/Email';
-import MobileMenu from '../MobileMenu/MobileMenu';
 import { useState } from 'react';
 import clsx from 'clsx';
 import LanguageToogler from '../LanguageToogler/LanguageToogler';
-import ButtonDonate from '@/components/buttonDonate/buttonDonate';
 import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
+
+const MobileMenu = dynamic(() => import('../MobileMenu/MobileMenu'), {
+  ssr: false,
+});
+const ButtonDonate = dynamic(
+  () => import('@/components/buttonDonate/buttonDonate')
+);
+const Email = dynamic(() => import('../Email/Email'));
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,14 +28,14 @@ const Header: React.FC = () => {
     <header>
       {/* Mobile-dark-element before 1024px */}
       <div className="flex w-full bg-footer-background transition-all duration-300 ease-in-out tablet:hidden">
-        <ul className="container flex cursor-pointer items-end justify-between pb-[8px] pt-[4px] tablet:hidden">
-          <div className="flex gap-[16px]">
+        <div className="container flex cursor-pointer items-end justify-between pb-[8px] pt-[4px] tablet:hidden">
+          <ul className="flex gap-[16px]">
             <Socials />
-          </div>
+          </ul>
           <div className="flex tablet:hidden">
             <LanguageToogler />
           </div>
-        </ul>
+        </div>
       </div>
       {/* Mobile-logo-and-text-block before 1024px */}
       <div

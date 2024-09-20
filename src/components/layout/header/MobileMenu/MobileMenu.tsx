@@ -5,6 +5,7 @@ import { NAV_LINKS } from '@/constants/navlinks/navlinks';
 import clsx from 'clsx';
 import { Navigation } from '../Navigation/Navigation';
 import { ICONS } from '@/constants/icons/icons';
+import { useTranslations } from 'next-intl';
 
 interface MobileMenuProps {
   openMobileMenu: boolean;
@@ -19,6 +20,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   isExiting,
   setIsExiting,
 }) => {
+  const t = useTranslations('Layout.Header');
+
   useEffect(() => {
     const handleKeyDown = (e: { code: string }) => {
       if (e.code === 'Escape') {
@@ -78,6 +81,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           active: openMobileMenu && !isExiting,
         })}
         type="button"
+        aria-label={t('burger-menu')}
       >
         <span className="bar"></span>
         <span className="bar"></span>

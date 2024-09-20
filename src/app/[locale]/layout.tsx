@@ -1,9 +1,12 @@
 import '../../styles/globals.css';
-import Footer from '@/components/layout/footer/Footer/Footer';
 import Header from '@/components/layout/header/Header/Header';
 import { ReactNode } from 'react';
 import { getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
+import dynamic from 'next/dynamic';
+import ScrollBtn from '@/components/ui/ScrollBtn/ScrollBtn';
+import Footer from '@/components/layout/footer/Footer/Footer';
+
 
 type Props = {
   children: ReactNode;
@@ -19,6 +22,7 @@ export default async function RootLayout({ children }: Props) {
         {children}
       </main>
       <div id="modal-container" />
+      <ScrollBtn />
       <Footer />
     </NextIntlClientProvider>
   );
