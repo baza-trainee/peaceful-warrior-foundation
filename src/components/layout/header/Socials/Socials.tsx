@@ -20,24 +20,28 @@ const Socials: React.FC<SocialsProps> = ({
 
   return (
     <>
-      <Link
-        className={`${itemClass}`}
-        href={instagramUrl}
-        aria-label={t('instagram')}
-        target="_blank"
-        rel="nofollow noreferrer"
-      >
-        <ICONS.INSTAGRAM className={`${instagramClass}`} />
-      </Link>
-      <Link
-        className={`${itemClass}`}
-        href={facebookUrl}
-        aria-label={t('facebook')}
-        target="_blank"
-        rel="nofollow noreferrer"
-      >
-        <ICONS.FACEBOOK className={`${facebookClass}`} />
-      </Link>
+      <li>
+        <Link
+          className={`${itemClass}`}
+          href={instagramUrl}
+          aria-label={t('instagram')}
+          target="_blank"
+          rel="nofollow noreferrer"
+        >
+          <ICONS.INSTAGRAM className={`${instagramClass}`} />
+        </Link>
+      </li>
+      <li>
+        <Link
+          className={`${itemClass}`}
+          href={facebookUrl}
+          aria-label={t('facebook')}
+          target="_blank"
+          rel="nofollow noreferrer"
+        >
+          <ICONS.FACEBOOK className={`${facebookClass}`} />
+        </Link>
+      </li>
     </>
   );
 };
