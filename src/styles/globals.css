@@ -149,10 +149,20 @@ input[type='number']::-webkit-inner-spin-button {
 
 @keyframes slideLeft {
   0% {
-    transform: translateX(-80px);
+    transform: translateX(0);
   }
   100% {
     transform: translateX(-100px);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+  }
+
+  100% {
+    transform: translateX(0);
   }
 }
 
@@ -167,7 +177,7 @@ input[type='number']::-webkit-inner-spin-button {
   border: solid 2px;
   border-color: #929ba8;
   transform: translateX(-100px);
-  animation: slideLeft 1s;
+  /* animation: slideLeft 1s forwards; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -187,4 +197,11 @@ input[type='number']::-webkit-inner-spin-button {
 .scrollBtn.hidden {
   opacity: 0;
   visibility: hidden;
+  animation: slideRight 1s forwards;
+}
+
+.scrollBtn.show {
+  opacity: 1;
+  visibility: visible;
+  animation: slideLeft 1s forwards;
 }
