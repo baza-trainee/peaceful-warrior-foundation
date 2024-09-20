@@ -4,6 +4,7 @@ import Button from '@/components/ui/Button';
 import SectionTitle from '@/components/ui/SectionTitle';
 
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 const Team = () => {
   const t = useTranslations('Home.Team');
@@ -13,7 +14,14 @@ const Team = () => {
         {t('title')}
       </SectionTitle>
       <TeamSwiper />
-      <section className="m-auto flex flex-col items-center tablet:max-w-[908px] tablet:border-t tablet:border-dashed tablet:border-dashed-border tablet:pb-8 laptop:mt-12 laptop:pb-10">
+      <Image
+        src="/assets/icons/team/dashed-border.svg"
+        width={908}
+        height={1}
+        alt="border"
+        className="mx-auto mt-10"
+      />
+      <section className="m-auto flex flex-col items-center tablet:max-w-[908px] tablet:pb-8 laptop:mt-6 laptop:pb-10">
         <p className="mb-6 mt-8 text-center text-l font-regular leading-[26px] text-body-text tablet:w-[506px] laptop:w-[908px] laptop:pb-2 laptop:pt-6 laptop:text-lg laptop:leading-[32px]">
           {t('join')}
         </p>
