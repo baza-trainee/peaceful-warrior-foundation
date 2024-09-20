@@ -17,7 +17,7 @@ const Mission = ({}: MissionProps) => {
         <span className="md:right-[-20px] lg:right-[-30px] absolute right-[-10px] top-[-40px] h-8 w-8 bg-[url('/assets/images/Mission/icon_quote.svg')] bg-contain bg-center bg-no-repeat" />
       </p>
       <div className="relative items-start justify-between text-center tablet:flex">
-        <span className="sm:top-5 md:top-8 lg:top[-9px] lg:left-10 absolute bottom-[-30%] left-[-33%] hidden h-[75%] w-[100%] bg-[url('/assets/images/Mission/decor.svg')] bg-contain bg-center bg-no-repeat tablet:block" />
+        <span className="sm:top-5 md:top-8 lg:top[-9px] tablet:left-[-30%] absolute bottom-[-30%] left-[-33%] hidden h-[75%] w-[100%] bg-[url('/assets/images/Mission/decor.svg')] bg-contain bg-center bg-no-repeat tablet:block" />
         <div className="md:translate-x-0 translate-x-2 transform">
           <div className="bg-gray-300 p-4">
             <h3 className="font-normal leading-loose mobile:text-[20px] desktop:text-[30px]">
@@ -48,7 +48,7 @@ const Mission = ({}: MissionProps) => {
             </p>
           </div>
         </div>
-        <span className="sm:right-6 desktop:right-[-8%] laptop:right-[-3%] absolute tablet:bottom-[-30%]  right-[-10%] hidden h-[75%] w-[50%] scale-x-[-1] transform bg-[url('/assets/images/Mission/decor.svg')] bg-contain bg-center bg-no-repeat leading-loose tablet:block tablet:right-[-3%]" />
+        <span className="sm:right-6 desktop:right-[-8%] laptop:right-[-5%] absolute tablet:bottom-[-30%]  right-[-10%] hidden h-[75%] w-[50%] scale-x-[-1] transform bg-[url('/assets/images/Mission/decor.svg')] bg-contain bg-center bg-no-repeat leading-loose tablet:block tablet:right-[-4%]" />
         <span className="absolute bottom-[-20%] left-[-11%] -z-10 h-[100%] w-[100%] bg-[url('/assets/images/Mission/decor-mob.svg')] bg-contain bg-left bg-no-repeat leading-loose tablet:hidden" />
       </div>
     </section>
