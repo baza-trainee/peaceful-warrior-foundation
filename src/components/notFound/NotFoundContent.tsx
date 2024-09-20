@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../ui/Button';
+import Link from 'next/link';
 
 export interface NotFoundContentProps {}
 
@@ -16,7 +17,9 @@ export default function NotFoundContent({}: NotFoundContentProps) {
             долучіться до наших ініціатив.
           </p>
         </div>
-        <Button className="tablet:m-auto">на головну</Button>
+        <Link className="tablet:m-auto" href="/">
+          <Button>На головну</Button>
+        </Link>
       </div>
     </section>
   );
