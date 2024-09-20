@@ -9,14 +9,14 @@ const ScrollBtn = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      const footer = document.getElementById('footer'); // ID футера
+      const footer = document.getElementById('footer');
       if (!footer) return;
 
       const scrollPosition = window.scrollY + window.innerHeight; // Позиція скролу
       const footerTop = footer.getBoundingClientRect().top + window.scrollY; // Верхня частина футера
 
       // Логіка для показу/сховування кнопки
-      const shouldShow = window.scrollY > 500; // Показувати кнопку, якщо прокрутка більше ніж 500 пікселів
+      const shouldShow = window.scrollY > 450; // Показувати кнопку, якщо прокрутка більше ніж 500 пікселів
 
       if (scrollPosition >= footerTop && window.scrollY >= footerTop - offset) {
         setHideBtn(true); // Сховати кнопку
@@ -44,7 +44,7 @@ const ScrollBtn = () => {
   return (
     <button
       type="button"
-      className={`${showBtn ? 'scrollBtn' : 'hidden'}`}
+      className={`scrollBtn ${showBtn ? 'show' : 'hidden'}`}
       onClick={scrollToTop}
     >
       <ICONS.ARROW className="h-7 w-7 rotate-180 fill-gray-devider" />

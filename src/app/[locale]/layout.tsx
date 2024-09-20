@@ -3,10 +3,8 @@ import Header from '@/components/layout/header/Header/Header';
 import { ReactNode } from 'react';
 import { getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
-import dynamic from 'next/dynamic';
 import ScrollBtn from '@/components/ui/ScrollBtn/ScrollBtn';
 import Footer from '@/components/layout/footer/Footer/Footer';
-
 
 type Props = {
   children: ReactNode;
