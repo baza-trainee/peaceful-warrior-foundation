@@ -1,7 +1,12 @@
-import React from 'react';
+import NotFoundContent from '@/components/notFound/NotFoundContent';
+import { useTranslations } from 'next-intl';
 
 export interface NotFoundProps {}
 
 export default function NotFound({}: NotFoundProps) {
-  return <div>This is My NOT FOUND in locale</div>;
+  return (
+    <>
+      <NotFoundContent />
+    </>
+  );
 }

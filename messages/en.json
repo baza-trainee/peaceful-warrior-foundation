@@ -135,5 +135,10 @@
     "address-text-2": "vul. 92-oyi Bryhady, 29",
     "description": "Follow us on social media:",
     "map": "map"
+  },
+  "NotFoundPage": {
+    "title": "Oops, this page is lost...",
+    "text": "...but your help is always appreciated - go back to the homepage and join our initiatives.",
+    "btn": "Home"
   }
 }
