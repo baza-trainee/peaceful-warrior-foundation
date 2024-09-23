@@ -16,7 +16,10 @@ export default async function RootLayout({ children }: Props) {
   return (
     <NextIntlClientProvider messages={messages}>
       <Header />
-      <main id="main-content" className="container min-h-screen">
+      <main
+        id="main-content"
+        className="min-h-screen w-full px-[16px] tablet:container"
+      >
         {children}
       </main>
       <div id="modal-container" />

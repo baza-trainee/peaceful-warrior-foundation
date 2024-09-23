@@ -28,7 +28,7 @@ const Header: React.FC = () => {
     <header>
       {/* Mobile-dark-element before 1024px */}
       <div className="flex w-full bg-footer-background transition-all duration-300 ease-in-out tablet:hidden">
-        <div className="container flex cursor-pointer items-end justify-between pb-[8px] pt-[4px] tablet:hidden">
+        <div className="flex w-full cursor-pointer items-end justify-between px-[16px] pb-[8px] pt-[4px] tablet:container tablet:hidden">
           <ul className="flex gap-[16px]">
             <Socials />
           </ul>
@@ -40,8 +40,8 @@ const Header: React.FC = () => {
       {/* Mobile-logo-and-text-block before 1024px */}
       <div
         className={clsx(
-          'bg-transition container flex items-center gap-x-[4px] pt-[16px] tablet:gap-[12px] tablet:gap-x-[24px] tablet:pt-[40px] laptop:gap-x-[56px]',
-          { 'bg-swiper-card-background': openMobileMenu || isExiting }
+          'bg-transition flex items-center gap-x-[4px] px-[16px] pt-[16px] tablet:container tablet:gap-[12px] tablet:gap-x-[24px] tablet:pt-[40px] laptop:gap-x-[56px]',
+          { 'w-full bg-swiper-card-background': openMobileMenu || isExiting }
         )}
       >
         <div>
