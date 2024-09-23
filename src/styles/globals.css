@@ -71,13 +71,12 @@ input[type='number']::-webkit-inner-spin-button {
 .backdrop-blur::before {
   content: '';
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(181, 182, 183, 0.8);
   backdrop-filter: blur(10px);
-  z-index: 40;
+  z-index: 60;
 }
 
 /* Styles for burger button animation */
@@ -87,7 +86,6 @@ input[type='number']::-webkit-inner-spin-button {
   align-items: center;
   width: 32px;
   height: 32px;
-
   cursor: pointer;
   position: relative;
 }
@@ -168,7 +166,7 @@ input[type='number']::-webkit-inner-spin-button {
 
 .scrollBtn {
   position: fixed;
-  z-index: 100;
+  z-index: 40;
   right: -80px;
   bottom: 50px;
   width: 46px;

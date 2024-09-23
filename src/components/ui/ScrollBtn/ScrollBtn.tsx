@@ -16,7 +16,10 @@ const ScrollBtn = () => {
       const footerTop = footer.getBoundingClientRect().top + window.scrollY; // Верхня частина футера
 
       // Логіка для показу/сховування кнопки
-      const shouldShow = window.scrollY > 450; // Показувати кнопку, якщо прокрутка більше ніж 500 пікселів
+      // const shouldShow = window.scrollY > 450; // Показувати кнопку, якщо прокрутка більше ніж 500 пікселів
+      const viewportHeight = window.innerHeight;
+
+      const shouldShow = window.scrollY > viewportHeight; // Показувати кнопку після прокрутки більше висоти в'юпорту
 
       if (scrollPosition >= footerTop && window.scrollY >= footerTop - offset) {
         setHideBtn(true); // Сховати кнопку
