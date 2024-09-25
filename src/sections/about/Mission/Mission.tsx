@@ -28,8 +28,8 @@ const Mission = ({}: MissionProps) => {
             </p>
           </div>
         </div>
-        <div className="-translate-x-10 transform tablet:mt-[14%] tablet:w-1/2 tablet:translate-x-0">
-          <div className="bg-gray-300 p-4">
+        <div className="-translate-x-10 transform tablet:mt-[14%] tablet:translate-x-0">
+          <div className="p-4 w-[442px]">
             <h3 className="font-normal leading-loose mobile:text-[20px] desktop:text-[30px]">
               {t('employment')}
             </h3>
