@@ -74,7 +74,7 @@ const Partners = ({}: PartnersProps) => {
           </a>
         </div>
         <span className="-z-10 absolute top-[-14%] hidden desktop:right-[-9%] tablet:right-[-3%] h-[180%] laptop:w-[30%] w-[55%] tablet:rotate-0 rotate-[40deg] bg-[url('/assets/images/Partners/partnersDecor-2.png')] bg-contain bg-center bg-no-repeat laptop:block" />
-        <span className="-z-10 absolute top-[-14%] right-[-6%] h-[130%] w-[39%] bg-[url('/assets/images/Partners/partnersDecorMob.png')] bg-contain bg-center bg-no-repeat md:hidden tablet:block laptop:block mobile:hidden" />   
+        <span className="-z-10 absolute top-[-14%] right-[-6.5%] h-[130%] w-[39%] bg-[url('/assets/images/Partners/partnersDecorMob.png')] bg-contain bg-center bg-no-repeat md:hidden tablet:block laptop:hidden mobile:hidden" />   
       </div>
       <Button className="w-[343px] text-center tablet:w-[326px]">
         Стати партнером
