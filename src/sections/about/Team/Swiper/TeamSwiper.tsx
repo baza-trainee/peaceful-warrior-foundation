@@ -1,19 +1,41 @@
+// use swiper.js library
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, Navigation, Pagination } from 'swiper/modules';
 import { SwiperButtonNext, SwiperButtonPrev } from './SwiperButtons';
+
+// take data of members
 import { teamMembers } from '../teamMembers';
 
+// use next-intl library
+import { useTranslations } from 'next-intl';
+
+// use next image
 import Image from 'next/image';
 
+// swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './swiper.css';
 
-type TeamSwiperProps = {};
+const TeamSwiper = () => {
+  const t = useTranslations('Home.Team');
 
-const TeamSwiper = ({}: TeamSwiperProps) => {
-  console.log('test');
+  // !!!!! be careful when add new members !!!!! you need to check them id, and add to translate files by them id
+  // translated name and role of member
+  const translatedTeamMembers = teamMembers.map((member) => {
+    const translationKey = `teamMembers.${member.id}`;
+
+    const translatedName = t(`${translationKey}.name`) || member.name;
+    const translatedRole = t(`${translationKey}.role`) || member.role;
+
+    return {
+      ...member,
+      name: translatedName,
+      role: translatedRole,
+    };
+  });
+
   return (
     <div className="relative">
       <Swiper
@@ -33,7 +55,7 @@ const TeamSwiper = ({}: TeamSwiperProps) => {
             slidesPerView: 1,
             spaceBetween: 0,
           },
-          768: {
+          744: {
             slidesPerView: 2,
             spaceBetween: 16,
           },
@@ -44,7 +66,7 @@ const TeamSwiper = ({}: TeamSwiperProps) => {
         }}
         className="w-[343px] tablet:w-[540px] desktop:w-[908px]"
       >
-        {teamMembers.map((member) => (
+        {translatedTeamMembers.map((member: any) => (
           <SwiperSlide
             key={member.id}
             className="tablet:w-[262px] laptop:w-[286.65px]"

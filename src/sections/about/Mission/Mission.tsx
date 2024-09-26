@@ -1,54 +1,55 @@
 import { HTMLAttributes } from 'react';
+import { useTranslations } from 'next-intl';
 
 type MissionProps = {};
 
 const Mission = ({}: MissionProps) => {
+  const t = useTranslations('Home.Mission');
+
   return (
-    <section className="mb-[240px] desktop:mb-[100px]">
-      <h2 className="pb-3 pt-10 text-center font-noteworthy text-5xl font-bold uppercase tracking-[1.44px] text-accent desktop:pb-12 desktop:text-8xl desktop:tracking-[2.24px]">
-        Наша місія
+    <section className="mb-[240px] desktop:mb-[300px]">
+      <h2 className="pb-3 pt-10 text-center font-noteworthy text-5xl font-normal uppercase tracking-[1.44px] text-accent desktop:pb-12 desktop:text-8xl desktop:tracking-[2.24px]">
+        {t('title')}
       </h2>
       <p className="text-1 relative mx-auto mb-16 max-w-[908px] text-center mobile:text-[22px] desktop:text-[26px]">
         <span className="sm:top-5 sm:left-6 md:top-8 md:left-8 lg:top[-9px] lg:left-10 absolute bottom-[-45px] left-0 h-8 w-8 bg-[url('/assets/images/Mission/icon_quote.svg')] bg-contain bg-center bg-no-repeat leading-loose desktop:left-[-30px]" />
-        Повноцінне життя та рівні можливості для тих, хто боронив нашу країну
-        від ворога, в сучасному та післявоєнному суспільстві
+        {t('first-text')}
         <span className="md:right-[-20px] lg:right-[-30px] absolute right-[-10px] top-[-40px] h-8 w-8 bg-[url('/assets/images/Mission/icon_quote.svg')] bg-contain bg-center bg-no-repeat" />
       </p>
       <div className="relative items-start justify-between text-center tablet:flex">
-        <span className="hidden tablet:block sm:top-5 md:top-8 lg:top[-9px] lg:left-10 absolute bottom-[-30%] left-[-33%] h-[75%] w-[100%] bg-[url('/assets/images/Mission/decor.svg')] bg-contain bg-center bg-no-repeat" />
+        <span className="lg:top[-9px] absolute bottom-[-65%] desktop:left-[-7%] laptop:left-[-6%] left-[-3%] hidden h-[100%] w-[50%] bg-[url('/assets/images/Mission/decor.svg')] bg-contain bg-center bg-no-repeat tablet:block" />
         <div className="md:translate-x-0 translate-x-2 transform">
           <div className="bg-gray-300 p-4">
             <h3 className="font-normal leading-loose mobile:text-[20px] desktop:text-[30px]">
-              Реабілітація
+              {t('rehabilitation')}
             </h3>
             <p className="font-light leading-snug mobile:text-[14px] desktop:text-[16px]">
-              організуємо доступ до кращих лікарів і новітніх медичних розробок
+              {t('rehabilitation-text')}
             </p>
           </div>
         </div>
-        <div className="-translate-x-10 transform tablet:mt-[9%] tablet:w-1/2 tablet:translate-x-0">
-          <div className="bg-gray-300 p-4">
+        <div className="-translate-x-10 transform tablet:mt-[8%] tablet:translate-x-0">
+          <div className="p-4 desktop:w-[395px]">
             <h3 className="font-normal leading-loose mobile:text-[20px] desktop:text-[30px]">
-              Працевлаштування
+              {t('employment')}
             </h3>
             <p className="font-light leading-snug mobile:text-[14px] desktop:text-[16px]">
-              допомагаємо знайти роботу та реалізувати професійний потенціал
+              {t('employment-text')}
             </p>
           </div>
         </div>
-        <div className="md:translate-x-0 translate-x-2 transform">
+        <div className="md:translate-x-0 translate-x-2 transform ">
           <div className="tablet:bg-gray-200 p-4">
             <h3 className="font-normal leading-loose mobile:text-[20px] desktop:text-[30px]">
-              Соціалізація
+              {t('socialization')}
             </h3>
             <p className="font-light leading-snug mobile:text-[14px] desktop:text-[16px]">
-              сприяємо поверненню військових до повноцінного суспільного життя
+              {t('socialization-text')}
             </p>
           </div>
         </div>
-        <span className="hidden tablet:block sm:top-5 sm:right-6 md:top-8 lg:top[-9px] lg:right-10 absolute bottom-[-30%] right-[-17%] h-[75%] w-[50%] scale-x-[-1] transform bg-[url('/assets/images/Mission/decor.svg')] bg-contain bg-center bg-no-repeat leading-loose " />
-        <span className="tablet:hidden absolute bottom-[-20%] left-[-11%] h-[100%] w-[100%] bg-[url('/assets/images/Mission/decor-mob.svg')] bg-contain bg-left bg-no-repeat -z-10 leading-loose " />
-        
+        <span className="desktop:right-[-4%] absolute bottom-[-67%] right-[-3%] hidden h-[102%] w-[45%] scale-x-[-1] bg-[url('/assets/images/Mission/decor.svg')] bg-contain bg-center bg-no-repeat tablet:block" />
+        <span className="absolute bottom-[-40%] left-[-4%] -z-10 h-[100%] w-[100%] bg-[url('/assets/images/Mission/decor-mob.png')] bg-contain bg-left bg-no-repeat leading-loose tablet:hidden" />
       </div>
     </section>
   );

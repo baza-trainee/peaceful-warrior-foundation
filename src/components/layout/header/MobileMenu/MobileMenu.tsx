@@ -2,8 +2,10 @@
 
 import { useEffect } from 'react';
 import { NAV_LINKS } from '@/constants/navlinks/navlinks';
-import { MobileNav } from '../MobileNav/MobileNav';
 import clsx from 'clsx';
+import { Navigation } from '../Navigation/Navigation';
+import { ICONS } from '@/constants/icons/icons';
+import { useTranslations } from 'next-intl';
 
 interface MobileMenuProps {
   openMobileMenu: boolean;
@@ -18,6 +20,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   isExiting,
   setIsExiting,
 }) => {
+  const t = useTranslations('Layout.Header');
+
   useEffect(() => {
     const handleKeyDown = (e: { code: string }) => {
       if (e.code === 'Escape') {
@@ -77,6 +81,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
           active: openMobileMenu && !isExiting,
         })}
         type="button"
+        aria-label={t('burger-menu')}
       >
         <span className="bar"></span>
         <span className="bar"></span>
@@ -97,9 +102,15 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
             onClick={(e) => e.stopPropagation()}
             className="absolute left-0 top-[126px] flex w-full flex-col overflow-y-hidden bg-swiper-card-background px-[16px] pb-[24px] pt-[48px] text-body-text shadow-md"
           >
-            <MobileNav
-              setOpenMobileMenu={setOpenMobileMenu}
-              mobileNav={NAV_LINKS}
+            <Navigation
+              onClickLink={handleMenuClick}
+              headerNav={NAV_LINKS}
+              listClass="flex flex-col"
+              renderAfterItem={(index, headerNav) =>
+                index !== headerNav.length - 1 ? (
+                  <ICONS.DASHED_LINE className="mb-[20px] mt-[20px]" />
+                ) : null
+              }
             />
           </div>
         </div>

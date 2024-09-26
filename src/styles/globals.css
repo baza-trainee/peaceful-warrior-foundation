@@ -68,9 +68,15 @@ input[type='number']::-webkit-inner-spin-button {
   transition: background-color 150ms ease-in-out;
 }
 
-.backdrop-blur {
-  background-color: rgba(113, 112, 112, 0.8);
-  transition: background-color 0.3s ease;
+.backdrop-blur::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(181, 182, 183, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 60;
 }
 
 /* Styles for burger button animation */
@@ -80,7 +86,6 @@ input[type='number']::-webkit-inner-spin-button {
   align-items: center;
   width: 32px;
   height: 32px;
-
   cursor: pointer;
   position: relative;
 }
@@ -136,4 +141,65 @@ input[type='number']::-webkit-inner-spin-button {
 
 .btn-support {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Scroll-btn animation styles */
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100px);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.scrollBtn {
+  position: fixed;
+  z-index: 40;
+  right: -80px;
+  bottom: 50px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: solid 2px;
+  border-color: #929ba8;
+  transform: translateX(-100px);
+  /* animation: slideLeft 1s forwards; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+.scrollBtn:hover,
+.scrollBtn:focus {
+  border: solid 2.5px;
+  border-color: #0d408c;
+}
+
+.scrollBtn.hidden {
+  opacity: 0;
+  visibility: hidden;
+  animation: slideRight 1s forwards;
+}
+
+.scrollBtn.show {
+  opacity: 1;
+  visibility: visible;
+  animation: slideLeft 1s forwards;
 }

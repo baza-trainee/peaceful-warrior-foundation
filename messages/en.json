@@ -1,0 +1,144 @@
+{
+  "Home": {
+    "Mission": {
+      "title": "Our mission",
+      "first-text": "Full life and equal opportunities for those who defended our country from the enemy in modern and post-war society",
+      "rehabilitation": "Rehabilitation",
+      "rehabilitation-text": "we will organize access to the best doctors and the latest medical developments",
+      "employment": "Employment",
+      "employment-text": "we help you find a job and realize your professional potential",
+      "socialization": "Socialization",
+      "socialization-text": "we contribute to the return of the military to a full-fledged social life"
+    },
+    "Directions": {
+      "title-first": "DIRECTIONS",
+      "title-second": "OF WORK",
+      "prosthesis": "Prosthesis",
+      "prosthesis-text": "We provide access to the best doctors and the latest medical developments, consultations on prosthetics, help with rehabilitation",
+      "legal-aid": "Legal aid",
+      "legal-aid-text": "Free initial legal assistance on any legal issues",
+      "psychological-help": "Psychological help",
+      "psychological-help-text": "We provide psychological support to help overcome stress after combat experience and adaptation to peaceful life",
+      "ask-for-help": "ASK FOR HELP",
+      "modal": {
+        "title": "call for help",
+        "name-placeholder": "Name*",
+        "phone-placeholder": "Phone*",
+        "message": "Leave a message",
+        "message-placeholder": "Message",
+        "confirm-text": "I consent to the processing of information in accordance with the Law of Ukraine “On Personal Data Protection”.",
+        "btn-text": "SUBMIT APPLICATION"
+      }
+    },
+    "Team": {
+      "title": "team",
+      "join": "Do you want to be part of our mission? Join the team today!",
+      "join-btn": "Join us",
+      "teamMembers": {
+        "1": {
+          "name": "Victoria",
+          "role": "Founder of 'PEACEFUL WARRIOR' Foundation, lawyer"
+        },
+        "2": {
+          "name": "Antonina",
+          "role": "Not the founder of 'PEACEFUL WARRIOR' Foundation, lawyer"
+        },
+        "3": {
+          "name": "Iryna",
+          "role": "Came to test the website"
+        },
+        "4": {
+          "name": "Natalya",
+          "role": "Doesn’t want anything, just here"
+        }
+      }
+    },
+    "Support": {
+      "title-mobile": "support",
+      "title-desktop": "support us",
+      "title-modal-mobile": "SUPPORT THE FUND",
+      "title-modal-tablet": "SUPPORT THE FOUNDATION",
+      "text-mobile": "If you are inspired by the project, please support our fund.",
+      "text-tablet": "If the project has inspired you and you would like to support us, please donate any amount that is convenient for you."
+    },
+    "DonateForm": {
+      "type-first-mobile": "One-time",
+      "type-first-tablet": "Single payment",
+      "type-second-mobile": "Monthly",
+      "type-second-tablet": "Monthly contribution",
+      "placeholder": "other amount",
+      "support-btn": "SUPPORT",
+      "error-message": "Please enter an amount",
+      "aria-label-btn": "Go to payment page",
+      "aria-label-input": "Enter a different amount"
+    }
+  },
+  "Layout": {
+    "Header": {
+      "title": "PEACEFUL WARRIOR",
+      "description": "Charitable Foundation",
+      "support-btn": "SUPPORT",
+      "logo": "Foundation logo",
+      "baza": "Baza Trainee link",
+      "burger-menu": "Open menu"
+    },
+    "Footer": {
+      "title": "Charitable Foundation “Peaceful Warrior”",
+      "development": "Development",
+      "rights": "All rights reserved",
+      "logo": "Foundation logo",
+      "baza": "Baza Trainee link",
+      "Contacts": {
+        "address": "Address",
+        "address-text": "m. Kharkiv, vul. 92-oyi Bryhady, 29",
+        "phone": "Phone",
+        "email": "E-mail",
+        "address-icon": "Address icon",
+        "address-link": "Address",
+        "phone-icon": "Phone icon",
+        "phone-number": "Phone number",
+        "email-icon": "Email icon"
+      }
+    },
+    "TextLogo": {
+      "title": "Peaceful Warrior",
+      "description": "Charitable Foundation"
+    },
+    "AriaLabels": {
+      "instagram": "Instagram logo",
+      "facebook": "Facebook logo",
+      "email": "Email"
+    },
+    "Navigation": {
+      "home": "HOME",
+      "projects": "OUR PROJECTS",
+      "help": "HOW TO HELP",
+      "contacts": "CONTACTS"
+    },
+    "Rules": {
+      "policy": "Privacy policy",
+      "rules": "Website terms of use",
+      "statute": "Statute",
+      "reporting": "Reporting"
+    }
+  },
+  "ContactsPage": {
+    "title": "Our contacts",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "E-mail",
+    "address-icon": "Address icon",
+    "phone-icon": "Phone icon",
+    "phone-number": "Phone number",
+    "email-icon": "Email icon",
+    "address-text-1": "m. Kharkiv,",
+    "address-text-2": "vul. 92-oyi Bryhady, 29",
+    "description": "Follow us on social media:",
+    "map": "map"
+  },
+  "NotFoundPage": {
+    "title": "Oops, this page is lost...",
+    "text": "...but your help is always appreciated - go back to the homepage and join our initiatives.",
+    "btn": "Home"
+  }
+}
