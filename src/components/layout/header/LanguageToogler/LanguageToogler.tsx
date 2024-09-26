@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter, usePathname } from '@/i18n/routing';
+import clsx from 'clsx';
 import { useLocale } from 'next-intl';
 
 export const LanguageToogler = () => {
@@ -17,8 +18,12 @@ export const LanguageToogler = () => {
       <button
         onClick={() => changeLanguage('ua')}
         type="button"
-        className="flex cursor-pointer items-center text-m font-medium uppercase leading-[19.5px] text-body-text transition-all duration-300 hover:text-accent tablet:text-sm tablet:font-semibold tablet:leading-[21.94px] tablet:text-body-text"
-        style={{ color: currentLocale === 'ua' ? '#115ccd' : '#3b3b3b' }}
+        className={clsx(
+          'flex cursor-pointer items-center text-m font-medium uppercase leading-[19.5px] transition-all duration-300 hover:text-accent tablet:text-sm tablet:font-semibold tablet:leading-[21.94px]',
+          currentLocale === 'ua'
+            ? 'text-accent'
+            : 'text-light-background tablet:text-body-text'
+        )}
       >
         UA
       </button>
@@ -26,8 +31,12 @@ export const LanguageToogler = () => {
       <button
         onClick={() => changeLanguage('en')}
         type="button"
-        className="flex cursor-pointer items-center text-m font-medium uppercase leading-[19.5px] text-body-text transition-all duration-300 hover:text-accent tablet:text-sm tablet:font-semibold tablet:leading-[21.94px] tablet:text-body-text"
-        style={{ color: currentLocale === 'en' ? '#115ccd' : '#3b3b3b' }}
+        className={clsx(
+          'flex cursor-pointer items-center text-m font-medium uppercase leading-[19.5px] transition-all duration-300 hover:text-accent tablet:text-sm tablet:font-semibold tablet:leading-[21.94px]',
+          currentLocale === 'en'
+            ? 'text-accent'
+            : 'text-light-background tablet:text-body-text'
+        )}
       >
         EN
       </button>
