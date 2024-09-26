@@ -11,6 +11,7 @@ import Email from '../../../public/assets/icons/contacts/email.svg';
 import Phone from '../../../public/assets/icons/contacts/phone.svg';
 import Cross from '../../../public/assets/icons/header/cross.svg';
 import DashedLine from '../../../public/assets/icons/header/dashedLine2.svg';
+import WavyLine from '../../../public/assets/icons/hero/wavyLine.svg'
 
 export const ICONS = {
   LOGO_DARK: LogoDark,
@@ -26,4 +27,5 @@ export const ICONS = {
   EMAIL: Email,
   PHONE: Phone,
   CROSS: Cross,
+  WAVY_LINE: WavyLine,
 };
