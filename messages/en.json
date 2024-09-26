@@ -60,6 +60,10 @@
         }
       }
     },
+    "Partners": {
+      "title": "OUR PARTNERS",
+      "partners-btn": "BECOME PARTNER"
+    } ,
     "Support": {
       "title-mobile": "support",
       "title-desktop": "support us",

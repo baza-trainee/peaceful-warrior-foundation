@@ -59,6 +59,11 @@
         }
       }
     },
+    "Partners": {
+      "title": "НАШІ ПАРТНЕРИ",
+      "partners-btn": "СТАТИ ПАРТНЕРОМ"
+
+    } ,
     "Support": {
       "title-mobile": "підтримка",
       "title-desktop": "підтримайте нас",
