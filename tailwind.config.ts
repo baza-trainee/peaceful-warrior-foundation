@@ -34,6 +34,8 @@ const config: Config = {
     colors: {
       accent: '#115ccd',
       hover: '#0d408c',
+      secondaryTitile: '#fffdfd',
+      mainTitle:'#3b3b3b',
 
       // => background-colors
       'light-background': '#f0f0f0',

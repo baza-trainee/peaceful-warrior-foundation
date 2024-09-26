@@ -1,5 +1,12 @@
 {
   "Home": {
+    "Hero":{
+      "title-first": "Let's support ours ",
+      "title-span": "defenders ",
+      "title-second": " let's strengthen the country's future",
+      "support-btn": "SUPPORT"
+
+    },
     "Mission": {
       "title": "Our mission",
       "first-text": "Full life and equal opportunities for those who defended our country from the enemy in modern and post-war society",

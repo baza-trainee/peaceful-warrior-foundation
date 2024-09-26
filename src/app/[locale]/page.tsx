@@ -8,7 +8,7 @@ import Team from '@/sections/about/Team/Team';
 export default function Home() {
   return (
     <>
-      {/* <Hero />*/}
+      <Hero />
       <Mission />
       <Directions />
       <Team />
