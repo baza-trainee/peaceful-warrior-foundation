@@ -17,8 +17,8 @@ export const LanguageToogler = () => {
       <button
         onClick={() => changeLanguage('ua')}
         type="button"
-        className="flex cursor-pointer items-center text-m font-medium uppercase leading-[19.5px] text-light-background transition-all duration-300 hover:text-accent tablet:text-sm tablet:font-semibold tablet:leading-[21.94px] tablet:text-body-text"
-        style={{ color: currentLocale === 'ua' ? '#115ccd' : '#f0f0f0' }}
+        className="flex cursor-pointer items-center text-m font-medium uppercase leading-[19.5px] text-body-text transition-all duration-300 hover:text-accent tablet:text-sm tablet:font-semibold tablet:leading-[21.94px] tablet:text-body-text"
+        style={{ color: currentLocale === 'ua' ? '#115ccd' : '#3b3b3b' }}
       >
         UA
       </button>
@@ -26,8 +26,8 @@ export const LanguageToogler = () => {
       <button
         onClick={() => changeLanguage('en')}
         type="button"
-        className="flex cursor-pointer items-center text-m font-medium uppercase leading-[19.5px] text-light-background transition-all duration-300 hover:text-accent tablet:text-sm tablet:font-semibold tablet:leading-[21.94px] tablet:text-body-text"
-        style={{ color: currentLocale === 'en' ? '#115ccd' : '#f0f0f0' }}
+        className="flex cursor-pointer items-center text-m font-medium uppercase leading-[19.5px] text-body-text transition-all duration-300 hover:text-accent tablet:text-sm tablet:font-semibold tablet:leading-[21.94px] tablet:text-body-text"
+        style={{ color: currentLocale === 'en' ? '#115ccd' : '#3b3b3b' }}
       >
         EN
       </button>
