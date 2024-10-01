@@ -49,21 +49,21 @@ export default function DonateFormContent({
                 activeButton === option.value
                   ? 'border-accent bg-[#E7E7E7] font-semibold text-accent shadow-btn-shadow tablet:font-medium'
                   : 'border-gray-devider bg-[transparent] font-medium text-gray-devider tablet:font-regular',
-                option.value === 'one_time'
+                option.value === 'once'
                   ? 'rounded-bl-btn-radius rounded-tl-btn-radius'
                   : 'rounded-br-btn-radius rounded-tr-btn-radius'
               )}
             >
               <p className="tablet:hidden">
                 {t(
-                  option.value === 'one_time'
+                  option.value === 'once'
                     ? 'type-first-mobile'
                     : 'type-second-mobile'
                 )}
               </p>
               <p className="hidden tablet:block">
                 {t(
-                  option.value === 'one_time'
+                  option.value === 'once'
                     ? 'type-first-tablet'
                     : 'type-second-tablet'
                 )}

@@ -2,30 +2,31 @@
 import axios from 'axios';
 
 const { PAYMENT_MERCHANT_ID, WAYFORPAY_SECRET_KEY } = process.env;
-
+console.log(PAYMENT_MERCHANT_ID, WAYFORPAY_SECRET_KEY);
 const paymentSignatureGenerator = (data) => {
   const merchantAccount = PAYMENT_MERCHANT_ID || '';
   const params = [
     merchantAccount,
-    merchantDomainName, // obj.merchantDomainName,
-    orderReference, //obj.orderReference,order_id
-    orderDate,
-    amount,
-    currency,
-    productName,
-    productCount,
-    productPrice,
+    data.merchantDomainName, // obj.merchantDomainName,
+    data.orderReference, //obj.orderReference,order_id
+    data.orderDate,
+    data.amount,
+    data.currency,
+    ...data.productName,
+    ...data.productCount,
+    ...data.productPrice,
   ];
 
   const valuesString = params.join(';');
   const signature = createHmac('md5', WAYFORPAY_SECRET_KEY)
     .update(valuesString, 'utf8')
     .digest('hex');
-
+  console.log('in handler', signature);
   return signature;
 };
 
 export default async function handler(req, res) {
+  console.log('in handler', req.body);
   if (req.method === 'POST') {
     try {
       const merchantSignature = paymentSignatureGenerator(req.body);
@@ -36,8 +37,13 @@ export default async function handler(req, res) {
         merchantAccount,
         merchantSignature,
       };
-
-      const response = await axios.post(url, body);
+      console.log('in handler body', body);
+      const response = await axios.post(url, body, {
+        headers: {
+          'Content-Type': 'application/json',
+          acceptCharset: 'utf-8',
+        },
+      });
       const data = response.data;
 
       if (data.invoiceUrl) {
