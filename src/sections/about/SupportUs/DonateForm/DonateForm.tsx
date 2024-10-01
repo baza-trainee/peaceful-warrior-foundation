@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from '@/i18n/routing';
+import { useLocale } from 'next-intl';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import {
@@ -23,6 +25,8 @@ export default function DonateForm({
   className,
 }: DonateFormProps) {
   const t = useTranslations('Home.DonateForm');
+  const currentLocale = useLocale();
+
   const [activeButton, setActiveButton] = useState<string>('once');
   const [donationAmount, setDonationAmount] = useState<number | ''>('');
   const [errorDonationAmount, setErrorDonationAmount] =
@@ -72,7 +76,10 @@ export default function DonateForm({
     // };
 
     try {
-      const response = await axios.post('/api/payment', paymentData); // to our API
+      const response = await axios.post(
+        `/${currentLocale}/api/payment`,
+        paymentData
+      ); // to our API
       //console.log('Response from API:', response.data);
       const checkoutUrl = response.data?.invoiceUrl;
       if (checkoutUrl) {
