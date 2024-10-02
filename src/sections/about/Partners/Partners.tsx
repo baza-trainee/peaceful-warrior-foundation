@@ -1,12 +1,15 @@
 'use client';
+import { useState } from 'react';
 import { HTMLAttributes } from 'react';
 import { useTranslations } from 'next-intl';
 import Button from '@/components/ui/Button';
+import ModalApplicationForm from './ModalApplicationForm/ModalApplicationForm';
 import Home from '@/app/[locale]/page';
 
 type PartnersProps = {};
 
-const Partners = ({}: PartnersProps) => {
+const Partners = ({ }: PartnersProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations('Home.Partners');
   return (
     <section className="tablet:transparent mb-[60px] text-center laptop:mb-[100px]">
@@ -78,9 +81,18 @@ const Partners = ({}: PartnersProps) => {
         <span className="absolute top-[-14%] -z-10 hidden h-[180%] w-[55%] rotate-[40deg] bg-[url('/assets/images/Partners/partnersDecor-2.png')] bg-contain bg-center bg-no-repeat tablet:right-[-3%] tablet:rotate-0 laptop:block laptop:w-[30%] desktop:right-[-9%]" />
         <span className="md:hidden absolute right-[-6.5%] top-[-14%] -z-10 h-[130%] w-[39%] bg-[url('/assets/images/Partners/partnersDecorMob.png')] bg-contain bg-center bg-no-repeat mobile:hidden tablet:block laptop:hidden" />
       </div>
-      <Button className="w-[343px] text-center tablet:w-[326px]">
+      <Button
+        type="submit"
+        onClick={() => setIsOpen(true)}
+        className="w-[343px] text-center tablet:w-[326px]">
         {t('partners-btn')}
       </Button>
+      {isOpen && (
+        <ModalApplicationForm
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+        />
+      )}
     </section>
   );
 };

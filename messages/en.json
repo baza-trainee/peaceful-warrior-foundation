@@ -62,8 +62,17 @@
     },
     "Partners": {
       "title": "OUR PARTNERS",
-      "partners-btn": "BECOME PARTNER"
-    } ,
+      "partners-btn": "BECOME PARTNER",
+      "modal":{
+        "title":"Become a partner",
+        "name-placeholder": "Name*",
+        "surname-placeholder": "Surname *",
+        "phone-placeholder": "Phone*",
+        "position-placeholder": "Position*",
+        "confirm-text":"I consent to the processing of information in accordance with the Law of Ukraine ‘On Personal Data Protection’.",
+        "btn-text":"Become a partner"
+      }
+    },
     "Support": {
       "title-mobile": "support",
       "title-desktop": "support us",
