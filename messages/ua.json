@@ -61,9 +61,17 @@
     },
     "Partners": {
       "title": "НАШІ ПАРТНЕРИ",
-      "partners-btn": "СТАТИ ПАРТНЕРОМ"
-
-    } ,
+      "partners-btn": "СТАТИ ПАРТНЕРОМ",
+      "modal": {
+        "title": "Стати партнером",
+        "name-placeholder": "Імʼя*",
+        "surname-placeholder": "Прізвище *",
+        "phone-placeholder": "Телефон*",
+        "position-placeholder": "Посада*",
+        "confirm-text": "Я надаю згоду на обробку інформації згідно Закону України “Про захист персональних даних”.",
+        "btn-text": "СТАТИ ПАРТНЕРОМ"
+      }
+    },
     "Support": {
       "title-mobile": "підтримка",
       "title-desktop": "підтримайте нас",
