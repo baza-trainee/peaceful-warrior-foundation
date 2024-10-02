@@ -51,7 +51,7 @@ export default function DonateForm({
       orderReference: `id-${Date.now()}`,
       orderDate: Date.now(),
       amount: donationAmount,
-      language: 'UA',
+      language: currentLocale,
       currency: 'UAH',
       productName: ['Peacefull Warrior support'],
       productCount: [1],
@@ -63,7 +63,7 @@ export default function DonateForm({
       defaultPaymentSystem: 'card',
       serviceUrl: `${window.location.origin}/${currentLocale}/api/payment/complete`,
     };
-    console.log('window.location.origin ', window.location.origin);
+
     //https://secure.wayforpay.com/pay?behavior=offline
 
     try {
@@ -71,7 +71,7 @@ export default function DonateForm({
         `/${currentLocale}/api/payment`,
         paymentData
       ); // to our API
-      //console.log('Response from API:', response.data);
+
       const checkoutUrl = response.data?.invoiceUrl;
 
       if (checkoutUrl) {

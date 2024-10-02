@@ -41,7 +41,7 @@ export async function POST(req: Request) {
       merchantAccount,
       merchantSignature,
     };
-    console.log('in handler body', body);
+    //console.log('in handler body', body);
     const response = await axios.post(url, body, {
       headers: {
         'Content-Type': 'application/json',

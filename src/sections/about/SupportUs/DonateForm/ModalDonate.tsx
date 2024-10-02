@@ -7,10 +7,7 @@ export interface ModalDonateProps {
   onClose: () => void;
 }
 
-export default async function ModalDonate({
-  isOpen,
-  onClose,
-}: ModalDonateProps) {
+export default function ModalDonate({ isOpen, onClose }: ModalDonateProps) {
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose}>
