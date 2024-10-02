@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useRouter } from '@/i18n/routing';
 import { useLocale } from 'next-intl';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
@@ -59,21 +58,13 @@ export default function DonateForm({
       productPrice: [donationAmount],
       regularMode: activeButton,
       //regularAmount,
-      //paymentSystems:card;googlePay;applePay;privat24
-      //clientEmail*??????
-      defaultPaymentSystem: 'card',
+      //paymentSystems: 'card;googlePay;applePay;privat24', for later
 
-      //serviceUrl: 'https://domen/api/v1/payment/complete', // Our serviceUrl?
+      defaultPaymentSystem: 'card',
+      serviceUrl: `${window.location.origin}/${currentLocale}/api/payment/complete`,
     };
-    console.log('donation: ', paymentData);
+    console.log('window.location.origin ', window.location.origin);
     //https://secure.wayforpay.com/pay?behavior=offline
-    //new order
-    // const newOrder = {
-    //   order_id: `id-${Date.now()}`,
-    //   amount: donationAmount,
-    //   // currency: selectedCurrency,
-    //   regularMode: activeButton,
-    // };
 
     try {
       const response = await axios.post(
@@ -82,9 +73,11 @@ export default function DonateForm({
       ); // to our API
       //console.log('Response from API:', response.data);
       const checkoutUrl = response.data?.invoiceUrl;
+
       if (checkoutUrl) {
-        console.log('checkoutUrl', checkoutUrl);
-        window.location.href = checkoutUrl; // To payment page
+        window.open(checkoutUrl, '_blank'); // in new window
+        // window.location.href = checkoutUrl; // To payment page, works
+        //window.location.href = `${checkoutUrl}?behavior=true`; variant
       }
     } catch (error) {
       setErrorDonationAmount(true); // Think about later
