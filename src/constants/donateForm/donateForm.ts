@@ -2,7 +2,7 @@ export const SUBSCRIPTION_OPTIONS = [
   {
     labelMob: 'Один платіж',
     labelDesktop: 'Одноразовий платіж',
-    value: 'one_time',
+    value: 'once',
   },
   {
     labelMob: 'Щомісячно',

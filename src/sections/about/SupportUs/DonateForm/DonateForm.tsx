@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useLocale } from 'next-intl';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import {
@@ -9,6 +10,7 @@ import {
 } from '@/constants/donateForm/donateForm';
 import Button from '@/components/ui/Button';
 import DonateFormContent from './DonateFormContent';
+import axios from 'axios';
 
 export interface DonateFormProps {
   isOpen?: boolean;
@@ -22,7 +24,9 @@ export default function DonateForm({
   className,
 }: DonateFormProps) {
   const t = useTranslations('Home.DonateForm');
-  const [activeButton, setActiveButton] = useState<string>('one_time');
+  const currentLocale = useLocale();
+
+  const [activeButton, setActiveButton] = useState<string>('once');
   const [donationAmount, setDonationAmount] = useState<number | ''>('');
   const [errorDonationAmount, setErrorDonationAmount] =
     useState<boolean>(false);
@@ -39,14 +43,47 @@ export default function DonateForm({
       setErrorDonationAmount(true);
       return;
     }
-    //new order
-    const newOrder = {
-      order_id: `id-${Date.now()}`,
+    //---------------
+    const paymentData = {
+      transactionType: 'CREATE_INVOICE',
+      merchantDomainName: window.location.hostname, //????
+      apiVersion: 1,
+      orderReference: `id-${Date.now()}`,
+      orderDate: Date.now(),
       amount: donationAmount,
-      // currency: selectedCurrency,
+      language: currentLocale,
+      currency: 'UAH',
+      productName: ['Peacefull Warrior support'],
+      productCount: [1],
+      productPrice: [donationAmount],
       regularMode: activeButton,
+      //regularAmount,
+      //paymentSystems: 'card;googlePay;applePay;privat24', for later
+
+      defaultPaymentSystem: 'card',
+      serviceUrl: `${window.location.origin}/${currentLocale}/api/payment/complete`,
     };
-    console.log('donation: ', newOrder);
+
+    //https://secure.wayforpay.com/pay?behavior=offline
+
+    try {
+      const response = await axios.post(
+        `/${currentLocale}/api/payment`,
+        paymentData
+      ); // to our API
+
+      const checkoutUrl = response.data?.invoiceUrl;
+
+      if (checkoutUrl) {
+        window.open(checkoutUrl, '_blank'); // in new window
+        // window.location.href = checkoutUrl; // To payment page, works
+        //window.location.href = `${checkoutUrl}?behavior=true`; variant
+      }
+    } catch (error) {
+      setErrorDonationAmount(true); // Think about later
+      console.error('Error processing payment:', error);
+    }
+
     setDonationAmount('');
 
     setErrorDonationAmount(false);
