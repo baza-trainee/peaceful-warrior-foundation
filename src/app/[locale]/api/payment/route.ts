@@ -53,16 +53,28 @@ export async function POST(req: Request) {
     if (responseData.invoiceUrl) {
       return NextResponse.json(responseData);
     } else {
+      const reasonCode = responseData.reasonCode;
+      console.error('WayForPay Error:', responseData);
+      const statusCode =
+        reasonCode >= 200 && reasonCode <= 599 ? reasonCode : 400;
       return NextResponse.json(
         { message: 'Request failed with error ' + responseData },
-        { status: responseData.reasonCode || 400 }
+        { status: statusCode }
       );
     }
   } catch (error: any) {
     console.error(error);
+    const status =
+      error.response.status >= 200 && error.response.status <= 599
+        ? error.response.status
+        : 500;
     return NextResponse.json(
-      { message: `Can't get payment url`, error: error.message },
-      { status: 500 }
+      {
+        message: `Can't get wayforpay`,
+        wayforpayResponse: error.response.data,
+      },
+
+      { status: status }
     );
   }
 }
