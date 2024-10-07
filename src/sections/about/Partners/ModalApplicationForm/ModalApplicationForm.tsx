@@ -75,7 +75,7 @@ export default function ModalApplicationForm({
           </label>
           <label className="block w-full pb-6">
             <InputMask
-              mask="+38 (999) 999-99-99"
+              mask="+380 (99) 999-99-99"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             >
