@@ -11,6 +11,15 @@ import {
 import Button from '@/components/ui/Button';
 import DonateFormContent from './DonateFormContent';
 import axios from 'axios';
+import Script from 'next/script'; //New W
+
+declare const Wayforpay: any; //New W
+const isMobile = () => {
+  return (
+    typeof window !== 'undefined' &&
+    /(Mobi|Android|iPhone|iPad|iPod)/i.test(navigator.userAgent)
+  );
+}; // New N
 
 export interface DonateFormProps {
   isOpen?: boolean;
@@ -30,6 +39,7 @@ export default function DonateForm({
   const [donationAmount, setDonationAmount] = useState<number | ''>('');
   const [errorDonationAmount, setErrorDonationAmount] =
     useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false); //New W
 
   const handleAmountChange = (value: string) => {
     setErrorDonationAmount(false);
@@ -37,7 +47,7 @@ export default function DonateForm({
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setIsLoading(true);
     // donationAmount validation
     if (donationAmount === '' || donationAmount <= 0 || isNaN(donationAmount)) {
       setErrorDonationAmount(true);
@@ -72,52 +82,87 @@ export default function DonateForm({
         paymentData
       ); // to our API
 
-      const checkoutUrl = response.data?.invoiceUrl;
+      //const checkoutUrl = response.data?.invoiceUrl; New W
+      const { merchantSignature } = response.data; //New W
+      const wayforpay = new Wayforpay(); //New W
+      console.log('isMobile', isMobile);
+      wayforpay.run(
+        //New W
+        {
+          ...paymentData,
+          merchantAccount: 'test_merch_n1',
+          merchantSignature: merchantSignature,
+          authorizationType: 'SimpleSignature',
+          straightWidget: isMobile(),
+        },
+        function (response: any) {
+          console.log('Payment approved', response);
+        },
+        function (response: any) {
+          console.log('Payment declined', response);
+        },
+        function (response: any) {
+          console.log('Payment processing', response);
+        }
+      );
 
-      if (checkoutUrl) {
-        window.open(checkoutUrl, '_blank'); // in new window
-        // window.location.href = checkoutUrl; // To payment page, works
-        //window.location.href = `${checkoutUrl}?behavior=true`; variant
-      }
+      // if (checkoutUrl) {New W
+      //   window.open(checkoutUrl, '_blank'); // in new window
+      //   // window.location.href = checkoutUrl; // To payment page, works
+      //   //window.location.href = `${checkoutUrl}?behavior=true`; variant
+      // }
     } catch (error) {
-      setErrorDonationAmount(true); // Think about later
-      console.error('Error processing payment:', error);
+      // New W
+      console.error('Ошибка при запуске виджета:', error);
+    } finally {
+      setIsLoading(false);
     }
+    // } catch (error) { New W
+    //   setErrorDonationAmount(true); // Think about later
+    //   console.error('Error processing payment:', error);
+    // }
 
     setDonationAmount('');
 
     setErrorDonationAmount(false);
   };
   return (
-    <form
-      onSubmit={handleSubmit}
-      className={clsx(
-        'm-auto flex flex-col gap-y-8 tablet:gap-y-10',
-        modal
-          ? 'mobile:w-[298px] tablet:w-[646px] desktop:w-[800px]'
-          : 'mobile:w-[343px] tablet:w-[680px] desktop:w-[907px]',
-        className
-      )}
-    >
-      {/* Choose subscriptionOption */}
-      <DonateFormContent
-        paymentAmountData={PAYMENT_AMOUNT_DATA}
-        subscriptionOptions={SUBSCRIPTION_OPTIONS}
-        activeButton={activeButton}
-        setActiveButton={setActiveButton}
-        donationAmount={donationAmount}
-        handleAmountChange={handleAmountChange}
-        errorDonationAmount={errorDonationAmount}
-        modal={modal}
-      />
-      <Button
-        type="submit"
-        className="mx-auto desktop:mt-4"
-        aria-label={t('aria-label-btn')}
-        modal={isOpen}
+    <>
+      <form
+        onSubmit={handleSubmit}
+        className={clsx(
+          'm-auto flex flex-col gap-y-8 tablet:gap-y-10',
+          modal
+            ? 'mobile:w-[298px] tablet:w-[646px] desktop:w-[800px]'
+            : 'mobile:w-[343px] tablet:w-[680px] desktop:w-[907px]',
+          className
+        )}
       >
-        {t('support-btn')}
-      </Button>
-    </form>
+        {/* Choose subscriptionOption */}
+        <DonateFormContent
+          paymentAmountData={PAYMENT_AMOUNT_DATA}
+          subscriptionOptions={SUBSCRIPTION_OPTIONS}
+          activeButton={activeButton}
+          setActiveButton={setActiveButton}
+          donationAmount={donationAmount}
+          handleAmountChange={handleAmountChange}
+          errorDonationAmount={errorDonationAmount}
+          modal={modal}
+        />
+        <Button
+          type="submit"
+          className="mx-auto desktop:mt-4"
+          aria-label={t('aria-label-btn')}
+          modal={isOpen}
+        >
+          {t('support-btn')}
+        </Button>
+      </form>
+      <Script
+        id="wayforpay-script"
+        src="https://secure.wayforpay.com/server/pay-widget.js"
+        strategy="afterInteractive" // загружаем скрипт после рендеринга страницы
+      />
+    </>
   );
 }

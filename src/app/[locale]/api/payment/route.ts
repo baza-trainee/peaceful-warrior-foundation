@@ -29,52 +29,67 @@ const paymentSignatureGenerator = (data: any) => {
   return signature;
 };
 
+// export async function POST(req: Request) {
+//   try {
+//     const data = await req.json();
+//     const merchantAccount = PAYMENT_MERCHANT_ID || '';
+//     const merchantSignature = paymentSignatureGenerator(data);
+//     const url = 'https://api.wayforpay.com/api';
+//     //const url = 'https://secure.wayforpay.com/pay?behavior=true';
+//     const body = {
+//       ...data,
+//       merchantAccount,
+//       merchantSignature,
+//     };
+//     //console.log('in handler body', body);
+//     const response = await axios.post(url, body, {
+//       headers: {
+//         'Content-Type': 'application/json',
+//         acceptCharset: 'utf-8',
+//       },
+//     });
+//     const responseData = response.data;
+
+//     if (responseData.invoiceUrl) {
+//       return NextResponse.json(responseData);
+//     } else {
+//       const reasonCode = responseData.reasonCode;
+//       console.error('WayForPay Error:', responseData);
+//       const statusCode =
+//         reasonCode >= 200 && reasonCode <= 599 ? reasonCode : 400;
+//       return NextResponse.json(
+//         { message: 'Request failed with error ' + responseData },
+//         { status: statusCode }
+//       );
+//     }
+//   } catch (error: any) {
+//     console.error(error);
+//     const status =
+//       error.response.status >= 200 && error.response.status <= 599
+//         ? error.response.status
+//         : 500;
+//     return NextResponse.json(
+//       {
+//         message: `Can't get wayforpay`,
+//         wayforpayResponse: error.response.data,
+//       },
+
+//       { status: status }
+//     );
+//   }
+// }
 export async function POST(req: Request) {
   try {
     const data = await req.json();
-    const merchantAccount = PAYMENT_MERCHANT_ID || '';
     const merchantSignature = paymentSignatureGenerator(data);
-    const url = 'https://api.wayforpay.com/api';
-    //const url = 'https://secure.wayforpay.com/pay?behavior=true';
-    const body = {
-      ...data,
-      merchantAccount,
-      merchantSignature,
-    };
-    //console.log('in handler body', body);
-    const response = await axios.post(url, body, {
-      headers: {
-        'Content-Type': 'application/json',
-        acceptCharset: 'utf-8',
-      },
-    });
-    const responseData = response.data;
 
-    if (responseData.invoiceUrl) {
-      return NextResponse.json(responseData);
-    } else {
-      const reasonCode = responseData.reasonCode;
-      console.error('WayForPay Error:', responseData);
-      const statusCode =
-        reasonCode >= 200 && reasonCode <= 599 ? reasonCode : 400;
-      return NextResponse.json(
-        { message: 'Request failed with error ' + responseData },
-        { status: statusCode }
-      );
-    }
+    // Возвращаем клиенту сгенерированную подпись
+    return NextResponse.json({ merchantSignature });
   } catch (error: any) {
-    console.error(error);
-    const status =
-      error.response.status >= 200 && error.response.status <= 599
-        ? error.response.status
-        : 500;
+    console.error('Error generating signature:', error);
     return NextResponse.json(
-      {
-        message: `Can't get wayforpay`,
-        wayforpayResponse: error.response.data,
-      },
-
-      { status: status }
+      { message: 'Failed to generate signature' },
+      { status: 500 }
     );
   }
 }
