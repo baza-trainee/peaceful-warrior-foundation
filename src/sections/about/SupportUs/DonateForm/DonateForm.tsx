@@ -14,6 +14,7 @@ import axios from 'axios';
 import Script from 'next/script'; //New W
 
 declare const Wayforpay: any; //New W
+
 const isMobile = () => {
   return (
     typeof window !== 'undefined' &&
@@ -39,7 +40,9 @@ export default function DonateForm({
   const [donationAmount, setDonationAmount] = useState<number | ''>('');
   const [errorDonationAmount, setErrorDonationAmount] =
     useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false); //New W
+  const [transactionStatus, setTransactionStatus] = useState<string>('n'); //"Declined","Approved"
+
+  // const [isLoading, setIsLoading] = useState<boolean>(false); //New W
 
   const handleAmountChange = (value: string) => {
     setErrorDonationAmount(false);
@@ -47,7 +50,7 @@ export default function DonateForm({
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true);
+    // setIsLoading(true);
     // donationAmount validation
     if (donationAmount === '' || donationAmount <= 0 || isNaN(donationAmount)) {
       setErrorDonationAmount(true);
@@ -55,7 +58,7 @@ export default function DonateForm({
     }
     //---------------
     const paymentData = {
-      transactionType: 'CREATE_INVOICE',
+      // transactionType: 'CREATE_INVOICE',
       merchantDomainName: window.location.hostname, //????
       apiVersion: 1,
       orderReference: `id-${Date.now()}`,
@@ -85,41 +88,60 @@ export default function DonateForm({
       //const checkoutUrl = response.data?.invoiceUrl; New W
       const { merchantSignature } = response.data; //New W
       const wayforpay = new Wayforpay(); //New W
-      console.log('isMobile', isMobile);
+
+      //We can process the result of interaction of  user  with widget
+      window.addEventListener(
+        'message',
+        function (event) {
+          //setWfpWidgetData(event.data);
+          //  console.log(event.data);
+
+          //     // if (event.data === 'WfpWidgetEventApproved') {
+          //     //   // window.location.href = '/success-page-url'; // Replace with the URL you want to redirect to
+          //     //   console.log('in Message', event.data);
+          //     // } else if (event.data === 'WfpWidgetEventDeclined') {
+          //     //   console.log('Payment declined', event.data);
+          //     // } else if (event.data === 'WfpWidgetEventPending') {
+          //     //   console.log('Payment is being processed', event.data);
+          //     // } else
+          if (event.data === 'WfpWidgetEventClose') {
+            console.log('Widget was closed by the user');
+            console.log('transactionStatus 2', transactionStatus);
+            setTransactionStatus("b")
+          }
+        },
+        false
+      );
+
       wayforpay.run(
         //New W
         {
           ...paymentData,
-          merchantAccount: 'test_merch_n1',
+          merchantAccount: 'test_merch_n1', // Think about env
           merchantSignature: merchantSignature,
           authorizationType: 'SimpleSignature',
           straightWidget: isMobile(),
         },
+
         function (response: any) {
-          console.log('Payment approved', response);
+          console.log('Payment approved in f', response);
+          setTransactionStatus(response.transactionStatus);
         },
         function (response: any) {
-          console.log('Payment declined', response);
+          console.log('Payment declined in f', response);
+          setTransactionStatus(response.transactionStatus);
         },
         function (response: any) {
-          console.log('Payment processing', response);
+          console.log('Payment processing in f', response);
+          setTransactionStatus(response.transactionStatus);
         }
       );
-
-      // if (checkoutUrl) {New W
-      //   window.open(checkoutUrl, '_blank'); // in new window
-      //   // window.location.href = checkoutUrl; // To payment page, works
-      //   //window.location.href = `${checkoutUrl}?behavior=true`; variant
-      // }
     } catch (error) {
       // New W
-      console.error('Ошибка при запуске виджета:', error);
-    } finally {
-      setIsLoading(false);
+      console.error('Error processing  widget:', error);
     }
-    // } catch (error) { New W
-    //   setErrorDonationAmount(true); // Think about later
-    //   console.error('Error processing payment:', error);
+    //finally {
+    // setIsLoading(false);
     // }
 
     setDonationAmount('');
@@ -161,7 +183,7 @@ export default function DonateForm({
       <Script
         id="wayforpay-script"
         src="https://secure.wayforpay.com/server/pay-widget.js"
-        strategy="afterInteractive" // загружаем скрипт после рендеринга страницы
+        strategy="afterInteractive"
       />
     </>
   );
