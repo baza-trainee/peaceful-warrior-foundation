@@ -11,19 +11,18 @@ import {
 import Button from '@/components/ui/Button';
 import DonateFormContent from './DonateFormContent';
 import axios from 'axios';
-import Script from 'next/script'; //New W
+import Script from 'next/script';
 import useModalDonateStore from '@/state/stateModalDonate';
 import useTransactionStore from '@/state/TransactionState';
 
-declare const Wayforpay: any; //New W
+declare const Wayforpay: any;
 
 const isMobile = () => {
   return (
     typeof window !== 'undefined' &&
     /(Mobi|Android|iPhone|iPad|iPod)/i.test(navigator.userAgent)
   );
-}; // New N
-
+};
 export interface DonateFormProps {
   isOpen?: boolean;
   className?: string;
@@ -71,19 +70,17 @@ export default function DonateForm({
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setTransactionStatus('');
-    // setIsLoading(true);
+
     // donationAmount validation
     if (donationAmount === '' || donationAmount <= 0 || isNaN(donationAmount)) {
       setErrorDonationAmount(true);
       return;
     }
     //---------------
-    const paymentData = {
+    const paymentObj = {
       // transactionType: 'CREATE_INVOICE',
-      merchantDomainName: window.location.hostname, //????
-      apiVersion: 1,
-      orderReference: `id-${Date.now()}`,
-      orderDate: Date.now(),
+      merchantDomainName: window.location.hostname,
+
       amount: donationAmount,
       language: currentLocale,
       currency: 'UAH',
@@ -91,36 +88,26 @@ export default function DonateForm({
       productCount: [1],
       productPrice: [donationAmount],
       regularMode: activeButton,
-      //regularAmount,
-     // paymentSystems: 'card;googlePay;applePay;privat24', //for later
-
-      defaultPaymentSystem: 'card',
-      serviceUrl: `${window.location.origin}/${currentLocale}/api/payment/complete`,
     };
-
-  
+    // paymentSystems: 'card;googlePay;applePay;privat24', //for later
+    //serviceUrl: `${window.location.origin}/${currentLocale}/api/payment/complete`,
 
     try {
       const response = await axios.post(
         `/${currentLocale}/api/payment`,
-        paymentData
+        paymentObj
       ); // to our API
 
-    
-      const { merchantSignature } = response.data; //New W
+      const paymentData = response.data;
 
       if (isModalOpen) {
         closeModal();
       }
-      const wayforpay = new Wayforpay(); //New W
+      const wayforpay = new Wayforpay();
 
       wayforpay.run(
-        //New W
         {
           ...paymentData,
-          merchantAccount: 'test_merch_n1', // Think about env
-          merchantSignature: merchantSignature,
-          authorizationType: 'SimpleSignature',
           straightWidget: isMobile(),
         },
         //approved
@@ -140,36 +127,8 @@ export default function DonateForm({
         }
       );
     } catch (error) {
-      // New W
       console.error('Error processing  widget:', error);
     }
-    //We can process the result of interaction of  user  with widget-
-    // For a while don't delete!!
-    // window.addEventListener(
-    //   'message',
-    //   function (event) {
-    //     //setWfpWidgetData(event.data);
-    //     //  console.log(event.data);
-
-    //     //     // if (event.data === 'WfpWidgetEventApproved') {
-    //     //     //   // window.location.href = '/success-page-url'; // Replace with the URL you want to redirect to
-   
-    //     //     // } else if (event.data === 'WfpWidgetEventDeclined') {
-   
-    //     //     // } else if (event.data === 'WfpWidgetEventPending') {
-    //     //     //   console.log('Payment is being processed', event.data);
-    //     //     // } else
-    //     if (event.data === 'WfpWidgetEventClose') {
-    //
-    //       if (transactionStatus === 'Declined') {
-    //
-    //         openModal();
-    //       } //!!!!! Then change to "Approved"
-
-    //     }
-    //   },
-    //   false
-    // );
 
     setDonationAmount('');
 
@@ -215,3 +174,30 @@ export default function DonateForm({
     </>
   );
 }
+//We can process the result of interaction of  user  with widget-
+// For a while don't delete!!
+// window.addEventListener(
+//   'message',
+//   function (event) {
+//     //setWfpWidgetData(event.data);
+//     //  console.log(event.data);
+
+//     //     // if (event.data === 'WfpWidgetEventApproved') {
+//     //     //   // window.location.href = '/success-page-url'; // Replace with the URL you want to redirect to
+
+//     //     // } else if (event.data === 'WfpWidgetEventDeclined') {
+
+//     //     // } else if (event.data === 'WfpWidgetEventPending') {
+//     //     //   console.log('Payment is being processed', event.data);
+//     //     // } else
+//     if (event.data === 'WfpWidgetEventClose') {
+//
+//       if (transactionStatus === 'Declined') {
+//
+//         openModal();
+//       } //!!!!! Then change to "Approved"
+
+//     }
+//   },
+//   false
+// );
