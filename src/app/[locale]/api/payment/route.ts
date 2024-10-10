@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { createHmac } from 'crypto';
 import { NextResponse } from 'next/server';
 
@@ -10,8 +9,8 @@ const paymentSignatureGenerator = (data: any) => {
   const merchantAccount = PAYMENT_MERCHANT_ID || '';
   const params = [
     merchantAccount,
-    data.merchantDomainName, // obj.merchantDomainName,
-    data.orderReference, //obj.orderReference,order_id
+    data.merchantDomainName,
+    data.orderReference,
     data.orderDate,
     data.amount,
     data.currency,
@@ -32,36 +31,42 @@ const paymentSignatureGenerator = (data: any) => {
 export async function POST(req: Request) {
   try {
     const data = await req.json();
-    const merchantAccount = PAYMENT_MERCHANT_ID || '';
-    const merchantSignature = paymentSignatureGenerator(data);
-    const url = 'https://api.wayforpay.com/api';
-    //const url = 'https://secure.wayforpay.com/pay?behavior=true';
-    const body = {
+    const orderReference = `id-${Date.now()}`;
+    const orderDate = Math.floor(Date.now() / 1000);
+    const merchantSignature = paymentSignatureGenerator({
       ...data,
-      merchantAccount,
-      merchantSignature,
-    };
-    //console.log('in handler body', body);
-    const response = await axios.post(url, body, {
-      headers: {
-        'Content-Type': 'application/json',
-        acceptCharset: 'utf-8',
-      },
+      orderReference,
+      orderDate,
     });
-    const responseData = response.data;
 
-    if (responseData.invoiceUrl) {
-      return NextResponse.json(responseData);
-    } else {
-      return NextResponse.json(
-        { message: 'Request failed with error ' + responseData },
-        { status: responseData.reasonCode || 400 }
-      );
-    }
+    const paymentData = {
+      merchantAccount: PAYMENT_MERCHANT_ID,
+      merchantSignature: merchantSignature,
+      // transactionType: 'CREATE_INVOICE',
+      merchantDomainName: data.merchantDomainName,
+      apiVersion: 1,
+      authorizationType: 'SimpleSignature',
+      defaultPaymentSystem: 'card',
+      orderReference: orderReference,
+      orderDate: orderDate,
+      amount: data.amount,
+      language: data.language,
+      currency: data.currency,
+      productName: data.productName,
+      productCount: data.productCount,
+      productPrice: data.productPrice,
+      regularMode: data.regularMode,
+      //regularAmount,
+      // paymentSystems: 'card;googlePay;applePay;privat24', //for later
+
+      //serviceUrl: `${window.location.origin}/${currentLocale}/api/payment/complete`,
+    };
+
+    return NextResponse.json(paymentData);
   } catch (error: any) {
-    console.error(error);
+    console.error('Error generating payment data:', error);
     return NextResponse.json(
-      { message: `Can't get payment url`, error: error.message },
+      { message: 'Failed to generate payment data' },
       { status: 500 }
     );
   }

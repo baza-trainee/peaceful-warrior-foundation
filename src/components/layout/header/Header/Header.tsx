@@ -9,6 +9,7 @@ import clsx from 'clsx';
 import LanguageToogler from '../LanguageToogler/LanguageToogler';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
+import useModalDonateStore from '@/state/stateModalDonate';
 
 const MobileMenu = dynamic(() => import('../MobileMenu/MobileMenu'), {
   ssr: false,
@@ -23,7 +24,7 @@ const Header: React.FC = () => {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
   const t = useTranslations('Layout.Header');
-
+  const { isModalOpen, openModal, closeModal } = useModalDonateStore();
   return (
     <header>
       {/* Mobile-dark-element before 1024px */}
@@ -68,16 +69,14 @@ const Header: React.FC = () => {
             </ul>
 
             <button
-              onClick={() => setIsOpen(true)}
+              onClick={openModal}
               type="button"
               className="btn-support mr-[24px] hidden max-w-[237px] animate-bounce rounded-btn-radius bg-accent px-[24px] py-[12px] text-center text-m font-medium uppercase text-white shadow-btn-shadow transition-all duration-300 hover:bg-hover tablet:flex"
             >
               {t('support-btn')}
             </button>
 
-            {isOpen && (
-              <ButtonDonate isOpen={isOpen} onClose={() => setIsOpen(false)} />
-            )}
+            {isModalOpen && <ButtonDonate />}
             <div className="hidden tablet:flex">
               <LanguageToogler />
             </div>
