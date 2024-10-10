@@ -41,7 +41,7 @@ export default function DonateForm({
   const [errorDonationAmount, setErrorDonationAmount] =
     useState<boolean>(false);
   const [transactionStatus, setTransactionStatus] = useState<string>('n'); //"Declined","Approved"
-
+  console.log('transactionStatus 1', transactionStatus);
   // const [isLoading, setIsLoading] = useState<boolean>(false); //New W
 
   const handleAmountChange = (value: string) => {
@@ -107,7 +107,7 @@ export default function DonateForm({
           if (event.data === 'WfpWidgetEventClose') {
             console.log('Widget was closed by the user');
             console.log('transactionStatus 2', transactionStatus);
-            setTransactionStatus("b")
+            setTransactionStatus('b');
           }
         },
         false
