@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocale } from 'next-intl';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
@@ -12,6 +12,8 @@ import Button from '@/components/ui/Button';
 import DonateFormContent from './DonateFormContent';
 import axios from 'axios';
 import Script from 'next/script'; //New W
+import useModalDonateStore from '@/state/stateModalDonate';
+import useTransactionStore from '@/state/TransactionState';
 
 declare const Wayforpay: any; //New W
 
@@ -35,21 +37,45 @@ export default function DonateForm({
 }: DonateFormProps) {
   const t = useTranslations('Home.DonateForm');
   const currentLocale = useLocale();
+  const { isModalOpen, closeModal, openModal } = useModalDonateStore();
+  const { transactionStatus, setTransactionStatus } = useTransactionStore(); //"Declined","Approved"
 
   const [activeButton, setActiveButton] = useState<string>('once');
   const [donationAmount, setDonationAmount] = useState<number | ''>('');
   const [errorDonationAmount, setErrorDonationAmount] =
     useState<boolean>(false);
-  const [transactionStatus, setTransactionStatus] = useState<string>('n'); //"Declined","Approved"
+
   console.log('transactionStatus 1', transactionStatus);
   // const [isLoading, setIsLoading] = useState<boolean>(false); //New W
+
+  useEffect(() => {
+    const handleEvent = (event: MessageEvent) => {
+      if (event.data === 'WfpWidgetEventClose') {
+        console.log('Widget was closed by the user');
+
+        if (transactionStatus === 'Declined') {
+          //!!!!! Then change to "Approved", and in ModalDonate also!
+          console.log('Opening modal for declined payment');
+          openModal();
+        }
+      }
+    };
+
+    window.addEventListener('message', handleEvent);
+
+    return () => {
+      window.removeEventListener('message', handleEvent);
+    };
+  }, [openModal, transactionStatus]);
 
   const handleAmountChange = (value: string) => {
     setErrorDonationAmount(false);
     setDonationAmount(value === '' ? '' : parseFloat(value));
   };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setTransactionStatus('');
     // setIsLoading(true);
     // donationAmount validation
     if (donationAmount === '' || donationAmount <= 0 || isNaN(donationAmount)) {
@@ -87,31 +113,12 @@ export default function DonateForm({
 
       //const checkoutUrl = response.data?.invoiceUrl; New W
       const { merchantSignature } = response.data; //New W
+      console.log('isModalOpen?', isModalOpen);
+      if (isModalOpen) {
+        console.log('in ModalOpen');
+        closeModal();
+      }
       const wayforpay = new Wayforpay(); //New W
-
-      //We can process the result of interaction of  user  with widget
-      window.addEventListener(
-        'message',
-        function (event) {
-          //setWfpWidgetData(event.data);
-          //  console.log(event.data);
-
-          //     // if (event.data === 'WfpWidgetEventApproved') {
-          //     //   // window.location.href = '/success-page-url'; // Replace with the URL you want to redirect to
-          //     //   console.log('in Message', event.data);
-          //     // } else if (event.data === 'WfpWidgetEventDeclined') {
-          //     //   console.log('Payment declined', event.data);
-          //     // } else if (event.data === 'WfpWidgetEventPending') {
-          //     //   console.log('Payment is being processed', event.data);
-          //     // } else
-          if (event.data === 'WfpWidgetEventClose') {
-            console.log('Widget was closed by the user');
-            console.log('transactionStatus 2', transactionStatus);
-            setTransactionStatus('b');
-          }
-        },
-        false
-      );
 
       wayforpay.run(
         //New W
@@ -124,15 +131,15 @@ export default function DonateForm({
         },
 
         function (response: any) {
-          console.log('Payment approved in f', response);
+          console.log('Payment approved in f', response.transactionStatus);
           setTransactionStatus(response.transactionStatus);
         },
         function (response: any) {
-          console.log('Payment declined in f', response);
+          console.log('Payment declined in f', response.transactionStatus);
           setTransactionStatus(response.transactionStatus);
         },
         function (response: any) {
-          console.log('Payment processing in f', response);
+          console.log('Payment processing in f', response.transactionStatus);
           setTransactionStatus(response.transactionStatus);
         }
       );
@@ -140,9 +147,33 @@ export default function DonateForm({
       // New W
       console.error('Error processing  widget:', error);
     }
-    //finally {
-    // setIsLoading(false);
-    // }
+    //We can process the result of interaction of  user  with widget-
+    // For a while don't delete
+    // window.addEventListener(
+    //   'message',
+    //   function (event) {
+    //     //setWfpWidgetData(event.data);
+    //     //  console.log(event.data);
+
+    //     //     // if (event.data === 'WfpWidgetEventApproved') {
+    //     //     //   // window.location.href = '/success-page-url'; // Replace with the URL you want to redirect to
+    //     //     //   console.log('in Message', event.data);
+    //     //     // } else if (event.data === 'WfpWidgetEventDeclined') {
+    //     //     //   console.log('Payment declined', event.data);
+    //     //     // } else if (event.data === 'WfpWidgetEventPending') {
+    //     //     //   console.log('Payment is being processed', event.data);
+    //     //     // } else
+    //     if (event.data === 'WfpWidgetEventClose') {
+    //
+    //       if (transactionStatus === 'Declined') {
+    //
+    //         openModal();
+    //       } //!!!!! Then change to "Approved"
+
+    //     }
+    //   },
+    //   false
+    // );
 
     setDonationAmount('');
 
