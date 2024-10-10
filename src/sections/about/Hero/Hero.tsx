@@ -42,9 +42,7 @@ const Hero = ({}: HeroProps) => {
           {t('support-btn')}
         </button>
 
-        {isModalOpen && (
-          <ButtonDonate isOpen={isModalOpen} onClose={closeModal} />
-        )}
+        {isModalOpen && <ButtonDonate />}
       </div>
       <div className="relative tablet:hidden">
         <Image

@@ -76,9 +76,7 @@ const Header: React.FC = () => {
               {t('support-btn')}
             </button>
 
-            {isModalOpen && (
-              <ButtonDonate isOpen={isModalOpen} onClose={closeModal} />
-            )}
+            {isModalOpen && <ButtonDonate />}
             <div className="hidden tablet:flex">
               <LanguageToogler />
             </div>

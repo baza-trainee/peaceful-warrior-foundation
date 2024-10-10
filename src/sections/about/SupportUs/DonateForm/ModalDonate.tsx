@@ -3,13 +3,9 @@ import React from 'react';
 import ModalContentDonate from './ModalContentDonate';
 import useModalDonateStore from '@/state/stateModalDonate';
 import useTransactionStore from '@/state/TransactionState';
+import ThanksModal from './ThanksModal';
 
-export interface ModalDonateProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-export default function ModalDonate({ isOpen, onClose }: ModalDonateProps) {
+export default function ModalDonate() {
   const { isModalOpen, closeModal } = useModalDonateStore();
   const { transactionStatus, setTransactionStatus } = useTransactionStore();
   const handleClose = () => {
@@ -23,7 +19,7 @@ export default function ModalDonate({ isOpen, onClose }: ModalDonateProps) {
           {transactionStatus === '' && (
             <ModalContentDonate isOpen={isModalOpen} />
           )}
-          {transactionStatus === 'Declined' && <p>Kukuku</p>}
+          {transactionStatus === 'Declined' && <ThanksModal />}
         </div>
       </Modal>
     </>

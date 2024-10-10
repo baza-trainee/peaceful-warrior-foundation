@@ -45,17 +45,12 @@ export default function DonateForm({
   const [errorDonationAmount, setErrorDonationAmount] =
     useState<boolean>(false);
 
-  console.log('transactionStatus 1', transactionStatus);
-  // const [isLoading, setIsLoading] = useState<boolean>(false); //New W
-
   useEffect(() => {
     const handleEvent = (event: MessageEvent) => {
       if (event.data === 'WfpWidgetEventClose') {
-        console.log('Widget was closed by the user');
-
         if (transactionStatus === 'Declined') {
           //!!!!! Then change to "Approved", and in ModalDonate also!
-          console.log('Opening modal for declined payment');
+
           openModal();
         }
       }
@@ -97,13 +92,13 @@ export default function DonateForm({
       productPrice: [donationAmount],
       regularMode: activeButton,
       //regularAmount,
-      //paymentSystems: 'card;googlePay;applePay;privat24', for later
+     // paymentSystems: 'card;googlePay;applePay;privat24', //for later
 
       defaultPaymentSystem: 'card',
       serviceUrl: `${window.location.origin}/${currentLocale}/api/payment/complete`,
     };
 
-    //https://secure.wayforpay.com/pay?behavior=offline
+  
 
     try {
       const response = await axios.post(
@@ -111,11 +106,10 @@ export default function DonateForm({
         paymentData
       ); // to our API
 
-      //const checkoutUrl = response.data?.invoiceUrl; New W
+    
       const { merchantSignature } = response.data; //New W
-      console.log('isModalOpen?', isModalOpen);
+
       if (isModalOpen) {
-        console.log('in ModalOpen');
         closeModal();
       }
       const wayforpay = new Wayforpay(); //New W
@@ -129,17 +123,19 @@ export default function DonateForm({
           authorizationType: 'SimpleSignature',
           straightWidget: isMobile(),
         },
-
+        //approved
         function (response: any) {
-          console.log('Payment approved in f', response.transactionStatus);
+          // console.log('Payment approved in f', response.transactionStatus);
           setTransactionStatus(response.transactionStatus);
         },
+        //declined
         function (response: any) {
-          console.log('Payment declined in f', response.transactionStatus);
+          // console.log('Payment declined in f', response.transactionStatus);
           setTransactionStatus(response.transactionStatus);
         },
+        // processing
         function (response: any) {
-          console.log('Payment processing in f', response.transactionStatus);
+          // console.log('Payment processing in f', response.transactionStatus);
           setTransactionStatus(response.transactionStatus);
         }
       );
@@ -148,7 +144,7 @@ export default function DonateForm({
       console.error('Error processing  widget:', error);
     }
     //We can process the result of interaction of  user  with widget-
-    // For a while don't delete
+    // For a while don't delete!!
     // window.addEventListener(
     //   'message',
     //   function (event) {
@@ -157,9 +153,9 @@ export default function DonateForm({
 
     //     //     // if (event.data === 'WfpWidgetEventApproved') {
     //     //     //   // window.location.href = '/success-page-url'; // Replace with the URL you want to redirect to
-    //     //     //   console.log('in Message', event.data);
+   
     //     //     // } else if (event.data === 'WfpWidgetEventDeclined') {
-    //     //     //   console.log('Payment declined', event.data);
+   
     //     //     // } else if (event.data === 'WfpWidgetEventPending') {
     //     //     //   console.log('Payment is being processed', event.data);
     //     //     // } else

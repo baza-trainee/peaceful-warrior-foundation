@@ -1,11 +1,10 @@
 {
   "Home": {
-    "Hero":{
+    "Hero": {
       "title-first": "Let's support ours ",
       "title-span": "defenders ",
       "title-second": " let's strengthen the country's future",
       "support-btn": "SUPPORT"
-
     },
     "Mission": {
       "title": "Our mission",
@@ -63,15 +62,15 @@
     "Partners": {
       "title": "OUR PARTNERS",
       "partners-btn": "BECOME PARTNER",
-      "modal":{
-        "title":"Become a partner",
+      "modal": {
+        "title": "Become a partner",
         "name-placeholder": "Name*",
         "surname-placeholder": "Surname *",
         "phone-placeholder": "Phone*",
         "position-placeholder": "Position*",
         "error-message": "Please fill out the form",
-        "confirm-text":"I consent to the processing of information in accordance with the Law of Ukraine ‘On Personal Data Protection’.",
-        "btn-text":"Become a partner"
+        "confirm-text": "I consent to the processing of information in accordance with the Law of Ukraine ‘On Personal Data Protection’.",
+        "btn-text": "Become a partner"
       }
     },
     "Support": {
@@ -81,6 +80,11 @@
       "title-modal-tablet": "SUPPORT THE FOUNDATION",
       "text-mobile": "If you are inspired by the project, please support our fund.",
       "text-tablet": "If the project has inspired you and you would like to support us, please donate any amount that is convenient for you."
+    },
+    "ThanksCard": {
+      "title": "Thank you so much!  ",
+      "title-mobil": "Thank you!  ",
+      "text": "You are the best!"
     },
     "DonateForm": {
       "type-first-mobile": "One-time",
