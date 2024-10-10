@@ -5,7 +5,7 @@ import * as heroImg from '../../../../public/assets/images/HeroImages/index';
 import { ICONS } from '@/constants/icons/icons';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
-
+import useModalDonateStore from '@/state/stateModalDonate';
 
 type HeroProps = {};
 const ButtonDonate = dynamic(
@@ -14,10 +14,11 @@ const ButtonDonate = dynamic(
 
 const Hero = ({}: HeroProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isModalOpen, openModal, closeModal } = useModalDonateStore();
   const t = useTranslations('Home.Hero');
   return (
-    <section className="relative flex justify-center tablet:flex-col pb-[60px] pt-[12px] tablet:pb-[80px] tablet:pt-[32px] desktop:pb-[100px] desktop:pt-[48px]">
-      <div className="absolute  top-[168px]  z-10 block tablet:relative tablet:top-0 tablet:mb-[53px]">
+    <section className="relative flex justify-center pb-[60px] pt-[12px] tablet:flex-col tablet:pb-[80px] tablet:pt-[32px] desktop:pb-[100px] desktop:pt-[48px]">
+      <div className="absolute top-[168px] z-10 block tablet:relative tablet:top-0 tablet:mb-[53px]">
         <h1 className="m-0 mx-auto max-w-[343px] text-center text-[26px] leading-[36px] text-secondaryTitile tablet:max-w-[680px] tablet:text-[36px] tablet:leading-[44px] tablet:text-mainTitle laptop:max-w-[903px] laptop:text-[44px] desktop:leading-[54px]">
           {/* Підтримаємо наших{' '} */}
           {t('title-first')}
@@ -25,7 +26,7 @@ const Hero = ({}: HeroProps) => {
             {/* захисників */}
             {t('title-span')}
           </span>{' '}
-          <span>—</span> 
+          <span>—</span>
           {/* зміцнимо майбутнє країни */}
           {t('title-second')}
         </h1>
@@ -34,20 +35,20 @@ const Hero = ({}: HeroProps) => {
         </div>
 
         <button
-          onClick={() => setIsOpen(true)}
+          onClick={openModal}
           type="button"
           className="btn-support mx-auto mt-[24px] flex max-w-[244px] animate-bounce rounded-btn-radius bg-accent px-[57px] py-[15px] text-center text-m font-medium uppercase text-white shadow-btn-shadow transition-all duration-300 hover:bg-hover tablet:hidden"
         >
-        {t('support-btn')}
+          {t('support-btn')}
         </button>
 
-        {isOpen && (
-          <ButtonDonate isOpen={isOpen} onClose={() => setIsOpen(false)} />
+        {isModalOpen && (
+          <ButtonDonate isOpen={isModalOpen} onClose={closeModal} />
         )}
       </div>
-      <div className="relative  tablet:hidden">
+      <div className="relative tablet:hidden">
         <Image
-          className="absolute "
+          className="absolute"
           src={heroImg.heroMobileGradient}
           width={475}
           height={449}

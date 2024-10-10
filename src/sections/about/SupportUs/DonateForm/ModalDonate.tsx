@@ -1,6 +1,7 @@
 import Modal from '@/components/layout/Modal';
 import React from 'react';
 import ModalContentDonate from './ModalContentDonate';
+import useModalDonateStore from '@/state/stateModalDonate';
 
 export interface ModalDonateProps {
   isOpen: boolean;
@@ -8,11 +9,12 @@ export interface ModalDonateProps {
 }
 
 export default function ModalDonate({ isOpen, onClose }: ModalDonateProps) {
+  const { isModalOpen, closeModal } = useModalDonateStore();
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
         <div>
-          <ModalContentDonate isOpen={isOpen} />
+          <ModalContentDonate isOpen={isModalOpen} />
         </div>
       </Modal>
     </>
