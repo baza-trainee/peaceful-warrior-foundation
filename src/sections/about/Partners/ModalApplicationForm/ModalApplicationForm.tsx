@@ -55,7 +55,7 @@ export default function ModalApplicationForm({
           className="flex w-full flex-col items-start tablet:w-[461px]"
           onSubmit={handleSubmit}
         >
-          <label className="flex w-full gap-5 pb-[24px]">
+          <label className="flex tablet:flex-nowrap flex-wrap w-full gap-5 pb-[24px]">
             <input
               type="text"
               name="name"
