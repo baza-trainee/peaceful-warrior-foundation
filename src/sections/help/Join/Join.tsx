@@ -5,7 +5,8 @@ import { useTranslations } from 'next-intl';
 import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import Button from '@/components/ui/Button';
 import SectionTitle from '@/components/ui/SectionTitle';
-import InputMask from 'react-input-mask';
+//import InputMask from 'react-input-mask';
+import InputMask from 'react-input-mask-next';
 
 type JoinProps = {};
 type JoinForm = {
@@ -23,6 +24,7 @@ const Join: React.FC<JoinProps> = () => {
     reset,
     resetField,
     watch,
+    setValue,
     formState: { errors },
 
     formState: { isSubmitSuccessful },
@@ -44,6 +46,11 @@ const Join: React.FC<JoinProps> = () => {
   const errorForm: SubmitErrorHandler<JoinForm> = (er) => {
     console.log('er-', er);
   };
+
+  const phoneValue = watch('phone');
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue('phone', e.target.value);
+  };
   return (
     <section className="pb-[60px] pt-6">
       <SectionTitle className="mb-3">{t('title')}</SectionTitle>
@@ -62,19 +69,19 @@ const Join: React.FC<JoinProps> = () => {
             aria-invalid={errors.name ? 'true' : 'false'}
             className={clsx(
               'block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
-              { 'border-red-500': errors.name }
+              { 'border-red-error': errors.name }
             )}
             // placeholder={t('name-placeholder')}Ім’я *
             placeholder="Ім’я *"
           />
           {errors.name?.type === 'required' && (
-            <p role="alert" className="text-red-600">
-              First name is required
+            <p role="alert" className="text-red-error">
+              Ім’я обов’язкове
             </p>
           )}
           {errors.name?.type === 'minLength' && (
-            <p role="alert" className="text-red-600">
-              First Name is too short
+            <p role="alert" className="text-red-error">
+              Ім’я занадто коротке
             </p>
           )}
         </label>
@@ -82,30 +89,26 @@ const Join: React.FC<JoinProps> = () => {
           <label className="block w-full tablet:pb-6">
             <InputMask
               mask="+380 (99) 999-99-99"
+              //   value={phoneValue}
+              //   onChange={handlePhoneChange}
               {...register('phone', {
-                required: 'Tel is required',
-                pattern: {
-                  value: /^[+]?[0-9]{10,15}$/,
-                  message: 'Not valid phone number',
-                },
+                required: 'Телефон обов’язковий',
               })}
             >
-              {(inputProps) => (
-                <input
-                  type="tel"
-                  {...inputProps}
-                  aria-invalid={errors.phone ? 'true' : 'false'}
-                  className={clsx(
-                    'block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
-                    // placeholder={t('phone-placeholder')}
-                    { 'border-red-500': errors.phone }
-                  )}
-                  placeholder="Телефон *"
-                />
-              )}
+              <input
+                type="text"
+                aria-invalid={errors.phone ? 'true' : 'false'}
+                className={clsx(
+                  'block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+                  { 'border-red-500': errors.phone }
+                )}
+                placeholder="Телефон *"
+              />
             </InputMask>
             {errors.phone && (
-              <p className="text-red-500">{errors.phone.message}</p>
+              <p role="alert" className="text-red-error">
+                {errors.phone.message}
+              </p>
             )}
           </label>
           <label className="block w-full pb-6">
@@ -114,18 +117,22 @@ const Join: React.FC<JoinProps> = () => {
                 required: 'Email is required',
                 pattern: {
                   value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
-                  message: 'Invalid email address',
+                  message: 'Некоректна адреса електронної пошти',
                 },
               })}
               aria-invalid={errors.email ? 'true' : 'false'}
               className={clsx(
                 'block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
-                { 'border-red-500': errors.email }
+                { 'border-red-error': errors.email }
               )}
               // placeholder={t('position-placeholder')}
               placeholder="E-mail *"
             />
-            {errors.email && <p>{errors.email.message}</p>}
+            {errors.email && (
+              <p role="alert" className="text-red-error">
+                {errors.email.message}
+              </p>
+            )}
           </label>
         </div>
         {/* Виведення помилки

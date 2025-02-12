@@ -55,6 +55,7 @@ const config: Config = {
       'second-text': '#dadada',
       'footer-text': '#8b8b8b',
       'gray-text': '#5B5B5B',
+      'red-error': '#F76666',
 
       // => decor-elements
       'gray-devider': '#858585',
