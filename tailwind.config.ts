@@ -35,7 +35,7 @@ const config: Config = {
       accent: '#115ccd',
       hover: '#0d408c',
       secondaryTitile: '#fffdfd',
-      mainTitle:'#3b3b3b',
+      mainTitle: '#3b3b3b',
 
       // => background-colors
       'light-background': '#f0f0f0',
@@ -54,6 +54,7 @@ const config: Config = {
       'gray-footer-text': '#bcb9b9',
       'second-text': '#dadada',
       'footer-text': '#8b8b8b',
+      'gray-text': '#5B5B5B',
 
       // => decor-elements
       'gray-devider': '#858585',
@@ -92,6 +93,10 @@ const config: Config = {
         '7xl': '44px',
         '8xl': '56px',
         '9xl': '48px',
+      },
+      lineHeight: {
+        //leading-lh-20
+        'lh-20': '20px',
       },
       boxShadow: {
         'btn-shadow': '0 4px 8px 0 rgba(150, 150, 152, 0.45)',

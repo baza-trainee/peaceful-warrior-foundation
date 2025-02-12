@@ -174,5 +174,16 @@
     "title": "Oops, this page is lost...",
     "text": "...but your help is always appreciated - go back to the homepage and join our initiatives.",
     "btn": "Home"
+  },
+  "HelpPage": {
+    "Join": {
+      "title": "join the foundation"
+    },
+    "BePartner": {
+      "title": "become a partner"
+    },
+    "SupportUs": {
+      "title": "SUPPORT US"
+    }
   }
 }
