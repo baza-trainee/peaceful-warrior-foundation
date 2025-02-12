@@ -47,46 +47,87 @@ const Join: React.FC<JoinProps> = () => {
   return (
     <section className="pb-[60px] pt-6">
       <SectionTitle className="mb-3">{t('title')}</SectionTitle>
-      <p className="text-gray-text leading-lh-20 text-center text-sm">
+      <p className="text-gray-text leading-lh-20 mb-6 text-center text-sm">
         Ваші дії можуть змінити долі. Долучайтесь до нашої ініціативи як
         волонтер
       </p>
       <form
-        className="flex w-full flex-col items-start tablet:w-[461px]"
+        className="flex w-full flex-col items-start"
         onSubmit={handleSubmit(submit, errorForm)}
       >
-        <label className="flex w-full flex-wrap gap-5 pb-[24px] tablet:flex-nowrap">
+        <label className="w-full gap-5 pb-[24px]">
           <input
             type="text"
-            name="name"
-            className="block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]"
+            {...register('name', { required: true, minLength: 2 })}
+            aria-invalid={errors.name ? 'true' : 'false'}
+            className={clsx(
+              'block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+              { 'border-red-500': errors.name }
+            )}
             // placeholder={t('name-placeholder')}Ім’я *
             placeholder="Ім’я *"
           />
+          {errors.name?.type === 'required' && (
+            <p role="alert" className="text-red-600">
+              First name is required
+            </p>
+          )}
+          {errors.name?.type === 'minLength' && (
+            <p role="alert" className="text-red-600">
+              First Name is too short
+            </p>
+          )}
         </label>
-        <label className="block w-full pb-6">
-          <InputMask mask="+380 (99) 999-99-99">
-            {(inputProps) => (
-              <input
-                {...inputProps}
-                type="tel"
-                name="phone"
-                className="block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]"
-                // placeholder={t('phone-placeholder')}
-                placeholder="Телефон *"
-              />
+        <div className="flex flex-wrap gap-4 tablet:flex-nowrap">
+          <label className="block w-full tablet:pb-6">
+            <InputMask
+              mask="+380 (99) 999-99-99"
+              {...register('phone', {
+                required: 'Tel is required',
+                pattern: {
+                  value: /^[+]?[0-9]{10,15}$/,
+                  message: 'Not valid phone number',
+                },
+              })}
+            >
+              {(inputProps) => (
+                <input
+                  type="tel"
+                  {...inputProps}
+                  aria-invalid={errors.phone ? 'true' : 'false'}
+                  className={clsx(
+                    'block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+                    // placeholder={t('phone-placeholder')}
+                    { 'border-red-500': errors.phone }
+                  )}
+                  placeholder="Телефон *"
+                />
+              )}
+            </InputMask>
+            {errors.phone && (
+              <p className="text-red-500">{errors.phone.message}</p>
             )}
-          </InputMask>
-        </label>
-        <label className="block w-full pb-6">
-          <input
-            type="text"
-            name="email"
-            className="block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]"
-            // placeholder={t('position-placeholder')}
-            placeholder="E-mail *"
-          />
-        </label>
+          </label>
+          <label className="block w-full pb-6">
+            <input
+              {...register('email', {
+                required: 'Email is required',
+                pattern: {
+                  value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+                  message: 'Invalid email address',
+                },
+              })}
+              aria-invalid={errors.email ? 'true' : 'false'}
+              className={clsx(
+                'block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+                { 'border-red-500': errors.email }
+              )}
+              // placeholder={t('position-placeholder')}
+              placeholder="E-mail *"
+            />
+            {errors.email && <p>{errors.email.message}</p>}
+          </label>
+        </div>
         {/* Виведення помилки
         {error && <p className="pb-4 text-[#F76666]">{error}</p>} */}
 
@@ -95,16 +136,16 @@ const Join: React.FC<JoinProps> = () => {
           <input
             id="application_agreement"
             type="checkbox"
-            className="checkbox h-4 w-4 cursor-pointer rounded bg-light-background tablet:h-5 tablet:w-5"
+              className="checkbox h-4 w-4 cursor-pointer rounded bg-light-background tablet:h-5 tablet:w-5"
             checked={isChecked}
             onChange={() => setIsChecked(!isChecked)}
           />
           <label
-            htmlFor="application_agreement"
-            className="text-s font-regular leading-4 text-body-text"
-          >
-            {t('confirm-text')}
-          </label>
+              htmlFor="application_agreement"
+              className="text-s font-regular leading-4 text-body-text"
+            >
+              {t('confirm-text')}
+            </label>
         </div> */}
         <Button
           type="submit"
