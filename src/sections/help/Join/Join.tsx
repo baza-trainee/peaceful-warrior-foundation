@@ -2,7 +2,12 @@
 import React from 'react';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
-import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
+import {
+  SubmitErrorHandler,
+  SubmitHandler,
+  useForm,
+  Controller,
+} from 'react-hook-form';
 import Button from '@/components/ui/Button';
 import SectionTitle from '@/components/ui/SectionTitle';
 //import InputMask from 'react-input-mask';
@@ -20,6 +25,7 @@ const Join: React.FC<JoinProps> = () => {
 
   const {
     register,
+    control,
     handleSubmit,
     reset,
     resetField,
@@ -47,10 +53,6 @@ const Join: React.FC<JoinProps> = () => {
     console.log('er-', er);
   };
 
-  const phoneValue = watch('phone');
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue('phone', e.target.value);
-  };
   return (
     <section className="pb-[60px] pt-6">
       <SectionTitle className="mb-3">{t('title')}</SectionTitle>
@@ -86,31 +88,37 @@ const Join: React.FC<JoinProps> = () => {
           )}
         </label>
         <div className="flex flex-wrap gap-4 tablet:flex-nowrap">
+          {/* //------------- */}
           <label className="block w-full tablet:pb-6">
-            <InputMask
-              mask="+380 (99) 999-99-99"
-              //   value={phoneValue}
-              //   onChange={handlePhoneChange}
-              {...register('phone', {
+            <Controller
+              name="phone"
+              control={control} //
+              rules={{
                 required: 'Телефон обов’язковий',
-              })}
-            >
-              <input
-                type="text"
-                aria-invalid={errors.phone ? 'true' : 'false'}
-                className={clsx(
-                  'block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
-                  { 'border-red-500': errors.phone }
-                )}
-                placeholder="Телефон *"
-              />
-            </InputMask>
+                pattern: {
+                  value: /^\+380 \(\d{2}\) \d{3}-\d{2}-\d{2}$/,
+                  message: 'Некоректний номер телефону',
+                },
+              }}
+              render={({ field }) => (
+                <InputMask
+                  {...field}
+                  mask="+380 (99) 999-99-99"
+                  placeholder="Телефон *"
+                  type="text"
+                  aria-invalid={errors.phone ? 'true' : 'false'}
+                  className={clsx(
+                    'block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+                    { 'border-red-error': errors.phone }
+                  )}
+                />
+              )}
+            />
             {errors.phone && (
-              <p role="alert" className="text-red-error">
-                {errors.phone.message}
-              </p>
+              <p className="text-red-error">{errors.phone.message}</p>
             )}
           </label>
+          {/* //------------- */}
           <label className="block w-full pb-6">
             <input
               {...register('email', {
