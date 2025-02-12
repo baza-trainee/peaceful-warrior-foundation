@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import {
@@ -10,7 +11,6 @@ import {
 } from 'react-hook-form';
 import Button from '@/components/ui/Button';
 import SectionTitle from '@/components/ui/SectionTitle';
-//import InputMask from 'react-input-mask';
 import InputMask from 'react-input-mask-next';
 
 type JoinProps = {};
@@ -28,13 +28,7 @@ const Join: React.FC<JoinProps> = () => {
     control,
     handleSubmit,
     reset,
-    resetField,
-    watch,
-    setValue,
     formState: { errors },
-
-    formState: { isSubmitSuccessful },
-    clearErrors,
   } = useForm<JoinForm>({
     defaultValues: {
       name: '',
@@ -45,6 +39,17 @@ const Join: React.FC<JoinProps> = () => {
   const submit: SubmitHandler<JoinForm> = async (data) => {
     try {
       console.log(data);
+      //----------
+      toast.success(`Ваша заявка успішно надіслана! Дякуємо  ${data.name} !`, {
+        duration: 4000,
+        // icon: '👏',
+        ariaProps: {
+          role: 'status',
+          'aria-live': 'polite',
+        },
+      });
+      //----------
+      reset();
     } catch (error) {
       console.error('error-', error);
     }
@@ -60,10 +65,15 @@ const Join: React.FC<JoinProps> = () => {
         Ваші дії можуть змінити долі. Долучайтесь до нашої ініціативи як
         волонтер
       </p>
+      <Toaster
+        position="top-center"
+        toastOptions={{ style: { minWidth: '200px', padding: '16px' } }}
+      />
       <form
-        className="flex w-full flex-col items-start"
+        className="flex w-full flex-col items-start tablet:mx-auto tablet:w-[506px]"
         onSubmit={handleSubmit(submit, errorForm)}
       >
+        {/* //------------- */}
         <label className="w-full gap-5 pb-[24px]">
           <input
             type="text"
@@ -87,7 +97,7 @@ const Join: React.FC<JoinProps> = () => {
             </p>
           )}
         </label>
-        <div className="flex flex-wrap gap-4 tablet:flex-nowrap">
+        <div className="flex w-full flex-wrap gap-4 tablet:flex-nowrap tablet:gap-6">
           {/* //------------- */}
           <label className="block w-full tablet:pb-6">
             <Controller
@@ -143,6 +153,7 @@ const Join: React.FC<JoinProps> = () => {
             )}
           </label>
         </div>
+        {/* //------------- */}
         {/* Виведення помилки
         {error && <p className="pb-4 text-[#F76666]">{error}</p>} */}
 
