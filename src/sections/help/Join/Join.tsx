@@ -102,15 +102,15 @@ const Join: React.FC<JoinProps> = () => {
             </p>
           )}
         </label>
-        {/* //------------- */}
-        <div className="mb-6 flex w-full flex-wrap tablet:mb-4 tablet:flex-nowrap tablet:gap-6">
+        {/* //-------------tablet:mb-4  */}
+        <div className="mb-6 flex w-full flex-wrap tablet:flex-nowrap tablet:gap-6">
           {/* //------------- phone */}
           <label className="relative mb-6 block w-full tablet:mb-0">
             <Controller
               name="phone"
               control={control} //
               rules={{
-                required: 'Поле обов’язкове для заповнення',
+                required: 'Обов’язкове поле',
                 pattern: {
                   value: /^\+380 \(\d{2}\) \d{3}-\d{2}-\d{2}$/,
                   message: 'Некоректний номер телефону',
@@ -143,10 +143,10 @@ const Join: React.FC<JoinProps> = () => {
           <label className="relative block w-full">
             <input
               {...register('email', {
-                required: 'Поле обов’язкове для заповнення',
+                required: 'Обов’язкове поле',
                 pattern: {
                   value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
-                  message: 'Некоректна адреса електронної пошти',
+                  message: 'Некоректний email',
                 },
               })}
               aria-invalid={errors.email ? 'true' : 'false'}
@@ -170,34 +170,38 @@ const Join: React.FC<JoinProps> = () => {
         {/* //------------- */}
 
         {/* Чекбокс для підтвердження */}
-        <Controller
-          name="agreement"
-          control={control}
-          rules={{ required: 'Ви повинні погодитися з умовами' }}
-          render={({ field }) => (
-            <div className="z-10 mb-6 flex items-start gap-3 tablet:mb-8">
-              <input
-                id="application_agreement"
-                type="checkbox"
-                className="checkbox h-4 w-4 cursor-pointer rounded bg-light-background tablet:h-5 tablet:w-5"
-                checked={field.value}
-                onChange={(e) => field.onChange(e.target.checked)}
-              />
-              <label
-                htmlFor="application_agreement"
-                className="text-s font-regular leading-4 text-body-text"
-              >
-                {/* {t('confirm-text')} */}
-                ggggggggg
-              </label>
-            </div>
+        <div className="relative mb-6 w-full tablet:mb-8">
+          <Controller
+            name="agreement"
+            control={control}
+            rules={{ required: 'Ви повинні погодитися з умовами' }}
+            render={({ field }) => (
+              <div className="z-10 flex items-start gap-3">
+                <input
+                  id="application_agreement"
+                  type="checkbox"
+                  className="checkbox h-4 w-4 cursor-pointer rounded bg-light-background tablet:h-5 tablet:w-5"
+                  checked={field.value}
+                  onChange={(e) => field.onChange(e.target.checked)}
+                />
+                <label
+                  htmlFor="application_agreement"
+                  className="text-s font-regular leading-4 text-body-text"
+                >
+                  {/* {t('confirm-text')} */}
+                  ggggggggg
+                </label>
+              </div>
+            )}
+          />
+          {errors.agreement && (
+            //   -bottom-5
+            <p className="text-red-error absolute -bottom-5 text-s leading-4">
+              {errors.agreement.message}
+            </p>
           )}
-        />
-        {errors.agreement && (
-          <p className="text-red-error absolute -bottom-5 text-s leading-4">
-            {errors.agreement.message}
-          </p>
-        )}
+        </div>
+
         {/* //------------ */}
         <Button
           type="submit"
