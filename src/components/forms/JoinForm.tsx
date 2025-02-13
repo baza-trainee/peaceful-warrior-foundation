@@ -12,6 +12,7 @@ import {
 import Button from '@/components/ui/Button';
 
 import InputMask from 'react-input-mask-next';
+import ErrorMessage from './ErrorMessage';
 
 type JoinFormProps = {
   modal?: boolean;
@@ -96,13 +97,15 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
               { 'border-red-error placeholder:text-red-error': errors.name }
             )}
             placeholder={t('name-placeholder')}
-           
           />
 
           {errors.name && (
-            <p className="text-red-error absolute -bottom-5 text-s leading-4">
+            // <p className="text-red-error absolute -bottom-5 text-s leading-4">
+            //   {errors.name.message}
+            // </p>
+            <ErrorMessage className="absolute -bottom-5 text-s leading-4">
               {errors.name.message}
-            </p>
+            </ErrorMessage>
           )}
         </label>
         {/* //-------------tablet:mb-4  */}
@@ -111,7 +114,7 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
           <label className="relative mb-6 block w-full tablet:mb-0">
             <Controller
               name="phone"
-              control={control} 
+              control={control}
               rules={{
                 required: t('required-shot'),
                 pattern: {
@@ -123,7 +126,6 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
                 <InputMask
                   {...field}
                   mask="+380 (99) 999-99-99"
-                 
                   placeholder={t('phone-placeholder')}
                   type="text"
                   aria-invalid={errors.phone ? 'true' : 'false'}
@@ -138,9 +140,12 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
               )}
             />
             {errors.phone && (
-              <p className="text-red-error absolute -bottom-5 text-s leading-4">
+              //   <p className="text-red-error absolute -bottom-5 text-s leading-4">
+              //     {errors.phone.message}
+              //   </p>
+              <ErrorMessage className="absolute -bottom-5 text-s leading-4">
                 {errors.phone.message}
-              </p>
+              </ErrorMessage>
             )}
           </label>
           {/* //------------- email mask */}
@@ -161,15 +166,17 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
                 }
               )}
               placeholder={t('email-placeholder')}
-          
             />
             {errors.email && (
-              <p
-                role="alert"
-                className="text-red-error absolute -bottom-5 text-s leading-4"
-              >
+              //   <p
+              //     role="alert"
+              //     className="text-red-error absolute -bottom-5 text-s leading-4"
+              //   >
+              //     {errors.email.message}
+              //   </p>
+              <ErrorMessage className="absolute -bottom-5 text-s leading-4">
                 {errors.email.message}
-              </p>
+              </ErrorMessage>
             )}
           </label>
         </div>
@@ -195,16 +202,17 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
                   className="text-gray-text text-s font-regular leading-4"
                 >
                   {t('confirm-text')}
-                
                 </label>
               </div>
             )}
           />
           {errors.agreement && (
-           
-            <p className="text-red-error absolute -bottom-5 text-s leading-4">
+            // <p className="text-red-error absolute -bottom-5 text-s leading-4">
+            //   {errors.agreement.message}
+            // </p>
+            <ErrorMessage className="absolute -bottom-5 text-s leading-4">
               {errors.agreement.message}
-            </p>
+            </ErrorMessage>
           )}
         </div>
 
@@ -227,7 +235,6 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
 };
 
 export default JoinForm;
-
 
 // how to use
 //<JoinForm modal /> or without modal
