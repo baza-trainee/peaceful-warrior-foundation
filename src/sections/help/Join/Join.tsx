@@ -1,11 +1,8 @@
 'use client';
 import React from 'react';
-import toast, { Toaster } from 'react-hot-toast';
-
 import { useTranslations } from 'next-intl';
 
 import SectionTitle from '@/components/ui/SectionTitle';
-
 import JoinForm from '@/components/forms/JoinForm';
 
 type JoinProps = {};

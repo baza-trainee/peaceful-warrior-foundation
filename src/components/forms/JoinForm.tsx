@@ -83,11 +83,9 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
           <input
             type="text"
             {...register('name', {
-              //   required: 'Поле обов’язкове для заповнення',
               required: t('required-long'),
               minLength: {
                 value: 2,
-                // message: 'Ім’я занадто коротке',
                 message: t('invalid-name'),
               },
             })}
@@ -98,7 +96,7 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
               { 'border-red-error placeholder:text-red-error': errors.name }
             )}
             placeholder={t('name-placeholder')}
-            // placeholder="Ім’я *"
+           
           />
 
           {errors.name && (
@@ -113,7 +111,7 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
           <label className="relative mb-6 block w-full tablet:mb-0">
             <Controller
               name="phone"
-              control={control} //
+              control={control} 
               rules={{
                 required: t('required-shot'),
                 pattern: {
@@ -125,7 +123,7 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
                 <InputMask
                   {...field}
                   mask="+380 (99) 999-99-99"
-                  //   placeholder="Телефон *"
+                 
                   placeholder={t('phone-placeholder')}
                   type="text"
                   aria-invalid={errors.phone ? 'true' : 'false'}
@@ -163,7 +161,7 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
                 }
               )}
               placeholder={t('email-placeholder')}
-              //   placeholder="E-mail *"
+          
             />
             {errors.email && (
               <p
@@ -197,14 +195,13 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
                   className="text-gray-text text-s font-regular leading-4"
                 >
                   {t('confirm-text')}
-                  {/* Я надаю згоду на обробку інформації згідно Закону України “Про
-                  захист персональних даних”. */}
+                
                 </label>
               </div>
             )}
           />
           {errors.agreement && (
-            //   -bottom-5
+           
             <p className="text-red-error absolute -bottom-5 text-s leading-4">
               {errors.agreement.message}
             </p>
@@ -230,3 +227,7 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
 };
 
 export default JoinForm;
+
+
+// how to use
+//<JoinForm modal /> or without modal

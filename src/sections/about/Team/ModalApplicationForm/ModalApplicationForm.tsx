@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import InputMask from 'react-input-mask';
+import React from 'react';
+
 import Modal from '@/components/layout/Modal';
 import SectionTitle from '@/components/ui/SectionTitle';
-import Button from '@/components/ui/Button';
+
 import { useTranslations } from 'next-intl';
 import JoinForm from '@/components/forms/JoinForm';
 
@@ -16,42 +16,6 @@ export default function ModalApplicationForm({
   onClose,
 }: ModalApplicationFormProps) {
   const t = useTranslations('Home.Team.modal');
-
-  // Стани для кожного інпуту
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmmail] = useState('');
-
-  // Стан для чекбокса
-  const [isChecked, setIsChecked] = useState(false);
-
-  // Стан для помилок
-  const [error, setError] = useState('');
-
-  const validateEmail = (email: string) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Перевірка чи всі поля заповнені і чи погоджено з умовами
-    if (!name || !phone || !email || !isChecked) {
-      setError(t('error-message'));
-      return;
-    }
-
-    // Кастомна перевірка email
-    if (!validateEmail(email)) {
-      setError('Невірний формат email');
-      return;
-    }
-
-    // Якщо все заповнено, можна виконати додаткові дії (наприклад, відправку форми)
-    setError('');
-    console.log({ name, phone, email });
-  };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
