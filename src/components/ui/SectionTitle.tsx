@@ -19,7 +19,7 @@ export default function SectionTitle({
         modal &&
           'text-lg leading-[41.99px] desktop:font-light desktop:leading-[90px]',
         !modal &&
-          'text-5xl leading-[58px] tablet:font-light tablet:leading-[90px] desktop:text-8xl'
+          'tracking-tr-4 text-5xl font-bold leading-[58px] tablet:text-8xl tablet:font-light tablet:leading-[90px] desktop:text-9xl'
       )}
     >
       {children}

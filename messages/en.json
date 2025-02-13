@@ -177,7 +177,8 @@
   },
   "HelpPage": {
     "Join": {
-      "title": "join the foundation"
+      "title": "join the foundation",
+      "text": "Your actions can change lives. Join our initiative as a volunteer"
     },
     "BePartner": {
       "title": "become a partner"

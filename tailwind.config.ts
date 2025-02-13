@@ -93,12 +93,18 @@ const config: Config = {
         '5xl': '36px',
         '6xl': '40px',
         '7xl': '44px',
-        '8xl': '56px',
-        '9xl': '48px',
+
+        '8xl': '48px',
+        '9xl': '56px',
       },
       lineHeight: {
         //leading-lh-20
         'lh-20': '20px',
+      },
+      letterSpacing: {
+        //tracking-tr-4
+
+        'tr-4': '0.04em',
       },
       boxShadow: {
         'btn-shadow': '0 4px 8px 0 rgba(150, 150, 152, 0.45)',
