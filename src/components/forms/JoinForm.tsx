@@ -24,7 +24,7 @@ type JoinForm = {
 };
 
 const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
-  const t = useTranslations('HelpPage.Join');
+  const t = useTranslations('Forms.JoinForm');
 
   const {
     register,
@@ -45,7 +45,7 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
     try {
       console.log(data);
       //----------
-      toast.success(`Ваша заявка успішно надіслана! Дякуємо, ${data.name} !`, {
+      toast.success(`${t('toast')} ${data.name} !`, {
         duration: 4000,
         // icon: '👏',
         ariaProps: {
@@ -83,10 +83,12 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
           <input
             type="text"
             {...register('name', {
-              required: 'Поле обов’язкове для заповнення',
+              //   required: 'Поле обов’язкове для заповнення',
+              required: t('required-long'),
               minLength: {
                 value: 2,
-                message: 'Ім’я занадто коротке',
+                // message: 'Ім’я занадто коротке',
+                message: t('invalid-name'),
               },
             })}
             aria-invalid={errors.name ? 'true' : 'false'}
@@ -95,8 +97,8 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
               'hover:border-form-hover hover:placeholder:text-form-hover block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
               { 'border-red-error placeholder:text-red-error': errors.name }
             )}
-            // placeholder={t('name-placeholder')}Ім’я *
-            placeholder="Ім’я *"
+            placeholder={t('name-placeholder')}
+            // placeholder="Ім’я *"
           />
 
           {errors.name && (
@@ -113,17 +115,18 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
               name="phone"
               control={control} //
               rules={{
-                required: 'Обов’язкове поле',
+                required: t('required-shot'),
                 pattern: {
                   value: /^\+380 \(\d{2}\) \d{3}-\d{2}-\d{2}$/,
-                  message: 'Некоректний номер телефону',
+                  message: t('invalid-phone'),
                 },
               }}
               render={({ field }) => (
                 <InputMask
                   {...field}
                   mask="+380 (99) 999-99-99"
-                  placeholder="Телефон *"
+                  //   placeholder="Телефон *"
+                  placeholder={t('phone-placeholder')}
                   type="text"
                   aria-invalid={errors.phone ? 'true' : 'false'}
                   className={clsx(
@@ -146,10 +149,10 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
           <label className="relative block w-full">
             <input
               {...register('email', {
-                required: 'Обов’язкове поле',
+                required: t('required-shot'),
                 pattern: {
                   value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
-                  message: 'Некоректний email',
+                  message: t('invalid-email'),
                 },
               })}
               aria-invalid={errors.email ? 'true' : 'false'}
@@ -159,8 +162,8 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
                   'border-red-error placeholder:text-red-error': errors.email,
                 }
               )}
-              // placeholder={t('position-placeholder')}
-              placeholder="E-mail *"
+              placeholder={t('email-placeholder')}
+              //   placeholder="E-mail *"
             />
             {errors.email && (
               <p
@@ -179,7 +182,7 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
           <Controller
             name="agreement"
             control={control}
-            rules={{ required: 'Ви повинні погодитися з умовами' }}
+            rules={{ required: t('required-chakbox') }}
             render={({ field }) => (
               <div className="z-10 flex items-start gap-3">
                 <input
@@ -193,9 +196,9 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
                   htmlFor="application_agreement"
                   className="text-gray-text text-s font-regular leading-4"
                 >
-                  {/* {t('confirm-text')} */}
-                  Я надаю згоду на обробку інформації згідно Закону України “Про
-                  захист персональних даних”.
+                  {t('confirm-text')}
+                  {/* Я надаю згоду на обробку інформації згідно Закону України “Про
+                  захист персональних даних”. */}
                 </label>
               </div>
             )}
@@ -212,13 +215,12 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
         <Button
           type="submit"
           modal
-          aria-label="Подати заявку"
+          aria-label={t('aria-label-btn')}
           className="z-[999] m-auto h-[44px] w-[298px] py-[11px] tablet:h-[52px] tablet:w-[326px]"
         >
           <div>
             <span className="text-center text-sm font-medium leading-[22px]">
-              {/* {t('btn-text')} */}
-              ПРИЄДНАТИСЬ
+              {t('btn-text')}
             </span>
           </div>
         </Button>

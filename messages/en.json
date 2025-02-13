@@ -185,5 +185,23 @@
     "SupportUs": {
       "title": "SUPPORT US"
     }
+  },
+  "Forms": {
+    "JoinForm": {
+      "name-placeholder": "Name*",
+      "phone-placeholder": "Phone*",
+      "email-placeholder": "Email*",
+      "error-message": "Please fill out the form",
+      "confirm-text": "I consent to the processing of information in accordance with the Law of Ukraine 'On Personal Data Protection'.",
+      "btn-text": "JOIN",
+      "toast": "Your application has been successfully submitted! Thank you,",
+      "required-shot": "Required field",
+      "required-long": "This field is required",
+      "required-chakbox": "Please confirm your agreement to the terms",
+      "invalid-email": "Invalid email",
+      "invalid-phone": "Invalid phone number",
+      "invalid-name": "Name is too short",
+      "aria-label-btn": "Submit application"
+    }
   }
 }

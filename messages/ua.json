@@ -186,5 +186,23 @@
     "SupportUs": {
       "title": "ПІДТРИМАТИ НАС"
     }
+  },
+  "Forms": {
+    "JoinForm": {
+      "name-placeholder": "Імʼя*",
+      "phone-placeholder": "Телефон*",
+      "email-placeholder": "Email*",
+      "error-message": "Заповнуть, будь ласка, форму",
+      "confirm-text": "Я надаю згоду на обробку інформації згідно Закону України “Про захист персональних даних”.",
+      "btn-text": "ПРИЄДНАТИСЬ",
+      "toast": "Ваша заявка успішно надіслана! Дякуємо,",
+      "required-shot": "Обов'язкове поле",
+      "required-long": "Поле обов’язкове для заповнення",
+      "required-chakbox": "Будь ласка, підтвердіть свою згоду з умовами",
+      "invalid-email": "Некоректний email",
+      "invalid-phone": "Некоректний номер телефону",
+      "invalid-name": "Ім’я занадто коротке",
+      "aria-label-btn": "Подати заявку"
+    }
   }
 }
