@@ -190,9 +190,9 @@
   },
   "Forms": {
     "JoinForm": {
-      "name-placeholder": "Імʼя*",
-      "phone-placeholder": "Телефон*",
-      "email-placeholder": "Email*",
+      "name-placeholder": "Імʼя *",
+      "phone-placeholder": "Телефон *",
+      "email-placeholder": "Email *",
       "error-message": "Заповнуть, будь ласка, форму",
       "confirm-text": "Я надаю згоду на обробку інформації згідно Закону України “Про захист персональних даних”.",
       "btn-text": "ПРИЄДНАТИСЬ",
