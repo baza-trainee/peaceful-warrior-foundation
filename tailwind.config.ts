@@ -59,6 +59,7 @@ const config: Config = {
 
       // => decor-elements
       'gray-devider': '#858585',
+      'form-hover': '#0D408C',
       'gray-border': '#c6c6c5',
       'dashed-border': '#538fe9',
       'gray-form': '#787878',

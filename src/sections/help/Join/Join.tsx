@@ -16,9 +16,9 @@ import InputMask from 'react-input-mask-next';
 type JoinProps = {};
 type JoinForm = {
   name: string;
-
   phone: string;
   email: string;
+  agreement: boolean;
 };
 const Join: React.FC<JoinProps> = () => {
   const t = useTranslations('HelpPage.Join');
@@ -34,7 +34,9 @@ const Join: React.FC<JoinProps> = () => {
       name: '',
       phone: '',
       email: '',
+      agreement: false,
     },
+    mode: 'onChange',
   });
   const submit: SubmitHandler<JoinForm> = async (data) => {
     try {
@@ -70,41 +72,45 @@ const Join: React.FC<JoinProps> = () => {
         toastOptions={{ style: { minWidth: '200px', padding: '16px' } }}
       />
       <form
-        className="flex w-full flex-col items-start tablet:mx-auto tablet:w-[506px]"
+        className="flex w-full flex-col items-start tablet:mx-auto tablet:w-[506px] desktop:w-[674px]"
         onSubmit={handleSubmit(submit, errorForm)}
       >
-        {/* //------------- */}
-        <label className="w-full gap-5 pb-[24px]">
+        {/* //------------- name */}
+        <label className="relative mb-6 w-full">
           <input
             type="text"
-            {...register('name', { required: true, minLength: 2 })}
+            {...register('name', {
+              required: 'Поле обов’язкове для заповнення',
+              minLength: {
+                value: 2,
+                message: 'Ім’я занадто коротке',
+              },
+            })}
             aria-invalid={errors.name ? 'true' : 'false'}
+            //
             className={clsx(
-              'block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
-              { 'border-red-error': errors.name }
+              'hover:border-form-hover hover:placeholder:text-form-hover block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+              { 'border-red-error placeholder:text-red-error': errors.name }
             )}
             // placeholder={t('name-placeholder')}Ім’я *
             placeholder="Ім’я *"
           />
-          {errors.name?.type === 'required' && (
-            <p role="alert" className="text-red-error">
-              Ім’я обов’язкове
-            </p>
-          )}
-          {errors.name?.type === 'minLength' && (
-            <p role="alert" className="text-red-error">
-              Ім’я занадто коротке
+
+          {errors.name && (
+            <p className="text-red-error absolute -bottom-5 text-s leading-4">
+              {errors.name.message}
             </p>
           )}
         </label>
-        <div className="flex w-full flex-wrap gap-4 tablet:flex-nowrap tablet:gap-6">
-          {/* //------------- */}
-          <label className="block w-full tablet:pb-6">
+        {/* //------------- */}
+        <div className="mb-6 flex w-full flex-wrap tablet:mb-4 tablet:flex-nowrap tablet:gap-6">
+          {/* //------------- phone */}
+          <label className="relative mb-6 block w-full tablet:mb-0">
             <Controller
               name="phone"
               control={control} //
               rules={{
-                required: 'Телефон обов’язковий',
+                required: 'Поле обов’язкове для заповнення',
                 pattern: {
                   value: /^\+380 \(\d{2}\) \d{3}-\d{2}-\d{2}$/,
                   message: 'Некоректний номер телефону',
@@ -118,21 +124,26 @@ const Join: React.FC<JoinProps> = () => {
                   type="text"
                   aria-invalid={errors.phone ? 'true' : 'false'}
                   className={clsx(
-                    'block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
-                    { 'border-red-error': errors.phone }
+                    'hover:border-form-hover hover:placeholder:text-form-hover block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+                    {
+                      'border-red-error placeholder:text-red-error':
+                        errors.phone,
+                    }
                   )}
                 />
               )}
             />
             {errors.phone && (
-              <p className="text-red-error">{errors.phone.message}</p>
+              <p className="text-red-error absolute -bottom-5 text-s leading-4">
+                {errors.phone.message}
+              </p>
             )}
           </label>
-          {/* //------------- */}
-          <label className="block w-full pb-6">
+          {/* //------------- email mask */}
+          <label className="relative block w-full">
             <input
               {...register('email', {
-                required: 'Email is required',
+                required: 'Поле обов’язкове для заповнення',
                 pattern: {
                   value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
                   message: 'Некоректна адреса електронної пошти',
@@ -140,39 +151,54 @@ const Join: React.FC<JoinProps> = () => {
               })}
               aria-invalid={errors.email ? 'true' : 'false'}
               className={clsx(
-                'block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
-                { 'border-red-error': errors.email }
+                'hover:border-form-hover hover:placeholder:text-form-hover block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+                { 'border-red-error placeholder:text-red-error': errors.email }
               )}
               // placeholder={t('position-placeholder')}
               placeholder="E-mail *"
             />
             {errors.email && (
-              <p role="alert" className="text-red-error">
+              <p
+                role="alert"
+                className="text-red-error absolute -bottom-5 text-s leading-4"
+              >
                 {errors.email.message}
               </p>
             )}
           </label>
         </div>
         {/* //------------- */}
-        {/* Виведення помилки
-        {error && <p className="pb-4 text-[#F76666]">{error}</p>} */}
 
         {/* Чекбокс для підтвердження */}
-        {/* <div className="z-10 flex items-start gap-3 pb-8">
-          <input
-            id="application_agreement"
-            type="checkbox"
-              className="checkbox h-4 w-4 cursor-pointer rounded bg-light-background tablet:h-5 tablet:w-5"
-            checked={isChecked}
-            onChange={() => setIsChecked(!isChecked)}
-          />
-          <label
-              htmlFor="application_agreement"
-              className="text-s font-regular leading-4 text-body-text"
-            >
-              {t('confirm-text')}
-            </label>
-        </div> */}
+        <Controller
+          name="agreement"
+          control={control}
+          rules={{ required: 'Ви повинні погодитися з умовами' }}
+          render={({ field }) => (
+            <div className="z-10 mb-6 flex items-start gap-3 tablet:mb-8">
+              <input
+                id="application_agreement"
+                type="checkbox"
+                className="checkbox h-4 w-4 cursor-pointer rounded bg-light-background tablet:h-5 tablet:w-5"
+                checked={field.value}
+                onChange={(e) => field.onChange(e.target.checked)}
+              />
+              <label
+                htmlFor="application_agreement"
+                className="text-s font-regular leading-4 text-body-text"
+              >
+                {/* {t('confirm-text')} */}
+                ggggggggg
+              </label>
+            </div>
+          )}
+        />
+        {errors.agreement && (
+          <p className="text-red-error absolute -bottom-5 text-s leading-4">
+            {errors.agreement.message}
+          </p>
+        )}
+        {/* //------------ */}
         <Button
           type="submit"
           modal
