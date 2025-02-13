@@ -182,7 +182,7 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
           <Controller
             name="agreement"
             control={control}
-            rules={{ required: t('required-chakbox') }}
+            rules={{ required: t('required-chесkbox') }}
             render={({ field }) => (
               <div className="z-10 flex items-start gap-3">
                 <input

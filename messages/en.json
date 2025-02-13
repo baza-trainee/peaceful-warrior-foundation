@@ -197,7 +197,7 @@
       "toast": "Your application has been successfully submitted! Thank you,",
       "required-shot": "Required field",
       "required-long": "This field is required",
-      "required-chakbox": "Please confirm your agreement to the terms",
+      "required-chесkbox": "Confirm agreement to the terms",
       "invalid-email": "Invalid email",
       "invalid-phone": "Invalid phone number",
       "invalid-name": "Name is too short",
