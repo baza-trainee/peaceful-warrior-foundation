@@ -14,7 +14,7 @@ const config: Config = {
         smallMobile: '8px',
         mobile: '16px',
         tablet: '32px',
-        laptop: '32px',
+        laptop: '32px', //
         desktop: '150px',
       },
     },
@@ -26,7 +26,7 @@ const config: Config = {
       tablet: '744px',
       // => @media (min-width: 744px) { ... }
       laptop: '1024px',
-      // => @media (min-width: 1024px) { ... }
+      // // => @media (min-width: 1024px) { ... }
       desktop: '1440px',
       // => @media (min-width: 1440px) { ... }
     },
@@ -35,7 +35,7 @@ const config: Config = {
       accent: '#115ccd',
       hover: '#0d408c',
       secondaryTitile: '#fffdfd',
-      mainTitle:'#3b3b3b',
+      mainTitle: '#3b3b3b',
 
       // => background-colors
       'light-background': '#f0f0f0',
@@ -54,9 +54,12 @@ const config: Config = {
       'gray-footer-text': '#bcb9b9',
       'second-text': '#dadada',
       'footer-text': '#8b8b8b',
+      'gray-text': '#5B5B5B',
+      'red-error': '#F76666',
 
       // => decor-elements
       'gray-devider': '#858585',
+      'form-hover': '#0D408C',
       'gray-border': '#c6c6c5',
       'dashed-border': '#538fe9',
       'gray-form': '#787878',
@@ -90,8 +93,18 @@ const config: Config = {
         '5xl': '36px',
         '6xl': '40px',
         '7xl': '44px',
-        '8xl': '56px',
-        '9xl': '48px',
+
+        '8xl': '48px',
+        '9xl': '56px',
+      },
+      lineHeight: {
+        //leading-lh-20
+        'lh-20': '20px',
+      },
+      letterSpacing: {
+        //tracking-tr-4
+
+        'tr-4': '0.04em',
       },
       boxShadow: {
         'btn-shadow': '0 4px 8px 0 rgba(150, 150, 152, 0.45)',
