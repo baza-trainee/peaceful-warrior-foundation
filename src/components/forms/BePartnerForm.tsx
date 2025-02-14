@@ -77,56 +77,60 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({ modal = false }) => {
       )}
       onSubmit={handleSubmit(submit, errorForm)}
     >
-      <label className="relative flex w-full flex-wrap gap-5 pb-[24px] tablet:flex-nowrap">
-        {/* ---- name ---*/}
-        <input
-          type="text"
-          {...register('name', {
-            required: t('required-long'),
-            minLength: {
-              value: 2,
-              message: t('invalid-name'),
-            },
-          })}
-          aria-invalid={errors.name ? 'true' : 'false'}
-          //
-          className={clsx(
-            'block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
-            { 'border-red-error placeholder:text-red-error': errors.name }
+      <div className="mb-6 flex w-full flex-wrap gap-6 tablet:flex-nowrap">
+        <label className="relative w-full">
+          {/* ---- name ---*/}
+          <input
+            type="text"
+            {...register('name', {
+              required: t('required-long'),
+              minLength: {
+                value: 2,
+                message: t('invalid-name'),
+              },
+            })}
+            aria-invalid={errors.name ? 'true' : 'false'}
+            //
+            className={clsx(
+              'block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+              { 'border-red-error placeholder:text-red-error': errors.name }
+            )}
+            placeholder={t('name-placeholder')}
+          />
+          {errors.name && (
+            <ErrorMessage className="absolute -bottom-5 text-s leading-4">
+              {errors.name.message}
+            </ErrorMessage>
           )}
-          placeholder={t('name-placeholder')}
-        />
-        {errors.name && (
-          <ErrorMessage className="absolute -bottom-5 text-s leading-4">
-            {errors.name.message}
-          </ErrorMessage>
-        )}
+        </label>
         {/* ---- surname ----*/}
-        <input
-          type="text"
-          {...register('surname', {
-            required: t('required-long'),
-            minLength: {
-              value: 2,
-              message: t('invalid-surname'),
-            },
-          })}
-          aria-invalid={errors.surname ? 'true' : 'false'}
-          //
-          className={clsx(
-            'block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
-            { 'border-red-error placeholder:text-red-error': errors.surname }
+        <label className="relative w-full">
+          <input
+            type="text"
+            {...register('surname', {
+              required: t('required-long'),
+              minLength: {
+                value: 2,
+                message: t('invalid-surname'),
+              },
+            })}
+            aria-invalid={errors.surname ? 'true' : 'false'}
+            //
+            className={clsx(
+              'block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+              { 'border-red-error placeholder:text-red-error': errors.surname }
+            )}
+            placeholder={t('surname-placeholder')}
+          />
+          {errors.surname && (
+            <ErrorMessage className="absolute -bottom-5 text-s leading-4">
+              {errors.surname.message}
+            </ErrorMessage>
           )}
-          placeholder={t('surname-placeholder')}
-        />
-        {errors.surname && (
-          <ErrorMessage className="absolute -bottom-5 text-s leading-4">
-            {errors.surname.message}
-          </ErrorMessage>
-        )}
-      </label>
+        </label>
+      </div>
       {/*---- phone ----*/}
-      <label className="block w-full pb-6">
+      <label className="relative mb-6 block w-full">
         <Controller
           name="phone"
           control={control}
@@ -160,7 +164,7 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({ modal = false }) => {
         )}
       </label>
       {/* //------------- email mask */}
-      <label className="relative block w-full">
+      <label className="relative mb-6 block w-full">
         <input
           {...register('email', {
             required: t('required-shot'),
@@ -185,13 +189,18 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({ modal = false }) => {
         )}
       </label>
       {/*---- position -----*/}
-      <label className="block w-full pb-6">
+      <label className="relative mb-6 block w-full">
         <input
           type="text"
           {...register('position', {
             required: t('required-long'),
           })}
-          className="block w-full border-b bg-light-background pb-2 text-body-text placeholder:text-m placeholder:leading-[19.5px] focus:outline-none tablet:pb-3 tablet:font-medium tablet:placeholder:text-sm tablet:placeholder:leading-[22px]"
+          className={clsx(
+            'block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+            {
+              'border-red-error placeholder:text-red-error': errors.position,
+            }
+          )}
           placeholder={t('position-placeholder')}
           aria-invalid={errors.position ? 'true' : 'false'}
         />
@@ -201,7 +210,24 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({ modal = false }) => {
           </ErrorMessage>
         )}
       </label>
-
+      {/*---- message ----*/}
+      <label className="mb-6 w-full">
+        <span className="mb-4 block pb-2 text-md font-medium leading-[20px] text-body-text">
+          {t('message-label')}
+        </span>
+        <textarea
+          {...register('message')}
+          placeholder={t('message-placeholder')}
+          rows={1}
+          className={clsx(
+            'block w-full resize-none overflow-hidden border-b bg-light-background pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]'
+          )}
+          onInput={(e) => {
+            e.currentTarget.style.height = 'auto';
+            e.currentTarget.style.height = e.currentTarget.scrollHeight + 'px';
+          }}
+        />
+      </label>
       {/* Чекбокс для підтвердження */}
       <div className="relative mb-6 w-full tablet:mb-8">
         <Controller

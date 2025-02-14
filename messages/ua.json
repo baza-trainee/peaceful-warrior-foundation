@@ -207,7 +207,9 @@
       "surname-placeholder": "Прізвище *",
       "invalid-surname": "Прізвище занадто коротке",
       "position-placeholder": "Посада *",
-      "btnPartner-text": "СТАТИ ПАРТНЕРОМ"
+      "btnPartner-text": "СТАТИ ПАРТНЕРОМ",
+      "message-label": "Залиште повідомлення",
+      "message-placeholder": "Повідомлення"
     }
   }
 }
