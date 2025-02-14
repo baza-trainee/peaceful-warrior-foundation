@@ -22,9 +22,9 @@ const Join: React.FC<JoinProps> = () => {
         </p>
       </div>
       <JoinForm />
-      <div className="-right-5 hidden tablet:absolute tablet:bottom-[90px] tablet:block tablet:h-[82px] tablet:w-[182px] tablet:bg-[url('/assets/images/Help/Join/Vector1.png')] tablet:bg-cover tablet:bg-center tablet:bg-no-repeat desktop:bottom-[120px] desktop:right-[100px] desktop:h-[108px] desktop:w-[225px]" />
-      <div className="-right-8 hidden tablet:absolute tablet:bottom-[120px] tablet:block tablet:h-[206px] tablet:w-[192px] tablet:bg-[url('/assets/images/Help/Join/Vector2.png')] tablet:bg-cover tablet:bg-center tablet:bg-no-repeat desktop:bottom-[133px] desktop:right-12 desktop:h-[210px] desktop:w-[442px]" />
-      <div className="left-0 hidden tablet:absolute tablet:bottom-[90px] tablet:block tablet:h-[202px] tablet:w-[492px] tablet:bg-[url('/assets/icons/help/join/vect6.svg')] tablet:bg-cover tablet:bg-center tablet:bg-no-repeat desktop:bottom-14 desktop:h-[192px] desktop:w-[1032px]" />
+      <div className="-right-8 hidden tablet:absolute tablet:bottom-[120px] tablet:block tablet:h-[229px] tablet:w-[197px] tablet:bg-[url('/assets/images/Help/Join/Vector21.png')] tablet:bg-cover tablet:bg-center tablet:bg-no-repeat desktop:-right-[70px] desktop:bottom-[145px] desktop:h-[287px] desktop:w-[393px]" />
+      <div className="-right-5 hidden tablet:absolute tablet:bottom-[90px] tablet:block tablet:h-[84px] tablet:w-[184px] tablet:bg-[url('/assets/images/Help/Join/Vector1.png')] tablet:bg-cover tablet:bg-center tablet:bg-no-repeat desktop:bottom-[102px] desktop:right-[95px] desktop:h-[108px] desktop:w-[225px]" />{' '}
+      <div className="left-0 hidden tablet:absolute tablet:bottom-[90px] tablet:block tablet:h-[202px] tablet:w-[492px] tablet:bg-[url('/assets/icons/help/join/vect6.svg')] tablet:bg-cover tablet:bg-center tablet:bg-no-repeat desktop:bottom-[116px] desktop:left-[120px] desktop:h-[255px] desktop:w-[622px]" />
     </section>
   );
 };
