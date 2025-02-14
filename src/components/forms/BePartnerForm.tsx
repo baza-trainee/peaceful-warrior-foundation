@@ -16,6 +16,7 @@ import ErrorMessage from './ErrorMessage';
 
 type BePartnerFormProps = {
   modal?: boolean;
+  className?: string;
 };
 type BePartnerForm = {
   name: string;
@@ -26,7 +27,10 @@ type BePartnerForm = {
   message: string;
   agreement: boolean;
 };
-const BePartnerForm: React.FC<BePartnerFormProps> = ({ modal = false }) => {
+const BePartnerForm: React.FC<BePartnerFormProps> = ({
+  modal = false,
+  className,
+}) => {
   const t = useTranslations('Forms.Form');
 
   const {
@@ -73,7 +77,8 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({ modal = false }) => {
         'flex w-full flex-col items-start tablet:mx-auto',
         modal
           ? 'mx-auto tablet:w-[461px]'
-          : 'tablet:w-[506px] desktop:w-[674px]'
+          : 'tablet:w-[506px] desktop:w-[674px]',
+        className
       )}
       onSubmit={handleSubmit(submit, errorForm)}
     >
@@ -212,7 +217,12 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({ modal = false }) => {
       </label>
       {/*---- message ----*/}
       <label className="mb-6 w-full">
-        <span className="mb-4 block pb-2 text-md font-medium leading-[20px] text-body-text tablet:text-l tablet:leading-[26.82px]">
+        <span
+          className={clsx(
+            'mb-4 block text-md font-medium leading-[20px] text-body-text tablet:text-l tablet:leading-[26.82px]',
+            { 'mb-2': modal }
+          )}
+        >
           {t('message-label')}
         </span>
         <textarea

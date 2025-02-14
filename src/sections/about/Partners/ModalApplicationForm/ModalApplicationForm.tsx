@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import InputMask from 'react-input-mask';
+import React from 'react';
+
 import Modal from '@/components/layout/Modal';
 import SectionTitle from '@/components/ui/SectionTitle';
-import Button from '@/components/ui/Button';
+
 import { useTranslations } from 'next-intl';
+import BePartnerForm from '@/components/forms/BePartnerForm';
 
 export interface ModalApplicationFormProps {
   isOpen: boolean;
@@ -16,46 +17,30 @@ export default function ModalApplicationForm({
 }: ModalApplicationFormProps) {
   const t = useTranslations('Home.Partners.modal');
 
-  // Стани для кожного інпуту
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [phone, setPhone] = useState('');
-  const [position, setPosition] = useState('');
-
-  // Стан для чекбокса
-  const [isChecked, setIsChecked] = useState(false);
-
-  // Стан для помилок
-  const [error, setError] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Перевірка чи всі поля заповнені і чи погоджено з умовами
-    if (!name || !surname || !phone || !position || !isChecked) {
-      setError(t('error-message'));
-      return;
-    }
-
-    // Якщо все заповнено, можна виконати додаткові дії (наприклад, відправку форми)
-    setError('');
-    console.log({ name, surname, phone, position });
-  };
-
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className="flex h-[523px] w-[346px] flex-col items-center px-6 tablet:h-[633px] tablet:w-[694px] desktop:h-[659px] desktop:w-[1085px]">
+      {/* h-[523px] */}
+      <div className="flex max-h-screen w-[346px] flex-col items-center overflow-y-auto px-6 pb-12 pt-[60px] tablet:h-[633px] tablet:w-[694px] tablet:py-[72px] desktop:h-[659px] desktop:w-[1085px] desktop:pb-[90px] desktop:pt-14">
         <SectionTitle
           modal
-          className="mb-[22.5px] mt-[60px] tablet:mb-12 tablet:mt-[72px] tablet:text-5xl tablet:leading-[58.14px] desktop:mb-10 desktop:mt-[56px] desktop:text-9xl desktop:leading-[90px]"
+          className="mb-[22.5px] tablet:mb-12 tablet:text-5xl tablet:leading-[58.14px] desktop:mb-10 desktop:text-9xl desktop:leading-[90px]"
         >
           {t('title')}
         </SectionTitle>
-        <form
+        <div className="hidden tablet:absolute tablet:bottom-10 tablet:block tablet:h-[131px] tablet:w-[683px] tablet:bg-[url('/assets/icons/directions/directions_modal.svg')] tablet:bg-cover tablet:bg-center tablet:bg-no-repeat desktop:bottom-14 desktop:h-[192px] desktop:w-[1032px]" />
+        <BePartnerForm modal className="z-20" />
+      </div>
+    </Modal>
+  );
+}
+
+//old one
+{
+  /* <form
           className="flex w-full flex-col items-start tablet:w-[461px]"
           onSubmit={handleSubmit}
         >
-          <label className="flex tablet:flex-nowrap flex-wrap w-full gap-5 pb-[24px]">
+          <label className="flex w-full flex-wrap gap-5 pb-[24px] tablet:flex-nowrap">
             <input
               type="text"
               name="name"
@@ -101,10 +86,8 @@ export default function ModalApplicationForm({
             />
           </label>
 
-          {/* Виведення помилки */}
           {error && <p className="pb-4 text-[#F76666]">{error}</p>}
 
-          {/* Чекбокс для підтвердження */}
           <div className="z-10 flex items-start gap-3 pb-8">
             <input
               id="application_agreement"
@@ -133,9 +116,5 @@ export default function ModalApplicationForm({
               </span>
             </div>
           </Button>
-        </form>
-        <div className="hidden tablet:absolute tablet:bottom-10 tablet:block tablet:h-[131px] tablet:w-[683px] tablet:bg-[url('/assets/icons/directions/directions_modal.svg')] tablet:bg-cover tablet:bg-center tablet:bg-no-repeat desktop:bottom-14 desktop:h-[192px] desktop:w-[1032px]" />
-      </div>
-    </Modal>
-  );
+        </form> */
 }

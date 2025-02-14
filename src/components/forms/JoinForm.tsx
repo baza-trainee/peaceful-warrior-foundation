@@ -17,6 +17,7 @@ import ErrorMessage from './ErrorMessage';
 
 type JoinFormProps = {
   modal?: boolean;
+  className?: string;
 };
 type JoinForm = {
   name: string;
@@ -25,7 +26,7 @@ type JoinForm = {
   agreement: boolean;
 };
 
-const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
+const JoinForm: React.FC<JoinFormProps> = ({ modal = false, className }) => {
   const t = useTranslations('Forms.Form');
 
   const {
