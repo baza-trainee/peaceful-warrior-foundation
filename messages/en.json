@@ -188,13 +188,13 @@
     }
   },
   "Forms": {
-    "JoinForm": {
+    "Form": {
       "name-placeholder": "Name *",
       "phone-placeholder": "Phone *",
       "email-placeholder": "Email *",
       "error-message": "Please fill out the form",
       "confirm-text": "I consent to the processing of information in accordance with the Law of Ukraine 'On Personal Data Protection'.",
-      "btn-text": "JOIN",
+      "btnJoin-text": "JOIN",
       "toast": "Your application has been successfully submitted! Thank you,",
       "required-shot": "Required field",
       "required-long": "This field is required",
@@ -202,7 +202,13 @@
       "invalid-email": "Invalid email",
       "invalid-phone": "Invalid phone number",
       "invalid-name": "Name is too short",
-      "aria-label-btn": "Submit application"
+      "aria-label-btn": "Submit application",
+      "surname-placeholder": "Surname *",
+      "btnPartner-text": "Become a partner",
+      "invalid-surname": "Surname is too short",
+      "position-placeholder": "Position *",
+      "message-label": "Leave a message",
+      "message-placeholder": "Message"
     }
   }
 }
