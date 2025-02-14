@@ -23,10 +23,10 @@ const Join: React.FC<JoinProps> = () => {
       {/*end of decor */}
       <div className="mx-auto mb-3 w-[330px] tablet:mb-6 tablet:w-full desktop:mb-12">
         {' '}
-        <SectionTitle className="">{t('title')}</SectionTitle>
+        <SectionTitle>{t('title')}</SectionTitle>
       </div>
       <div className="mb-6 w-full tablet:mx-auto tablet:w-[674px] desktop:mb-10">
-        <p className="text-gray-text text-center text-sm leading-[22px] tablet:text-l tablet:leading-[26px] desktop:text-lg desktop:leading-8">
+        <p className="text-center text-sm leading-[22px] text-gray-text tablet:text-l tablet:leading-[26px] desktop:text-lg desktop:leading-8">
           {t('text')}
         </p>
       </div>
