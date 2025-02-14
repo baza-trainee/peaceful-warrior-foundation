@@ -14,7 +14,7 @@ const config: Config = {
         smallMobile: '8px',
         mobile: '16px',
         tablet: '32px',
-        // laptop: '32px',
+        laptop: '32px', //
         desktop: '150px',
       },
     },
@@ -25,7 +25,7 @@ const config: Config = {
       // => @media (min-width: 375px) { ... }
       tablet: '744px',
       // => @media (min-width: 744px) { ... }
-      // laptop: '1024px',
+      laptop: '1024px',
       // // => @media (min-width: 1024px) { ... }
       desktop: '1440px',
       // => @media (min-width: 1440px) { ... }

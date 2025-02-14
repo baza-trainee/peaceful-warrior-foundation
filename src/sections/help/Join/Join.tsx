@@ -11,12 +11,13 @@ const Join: React.FC<JoinProps> = () => {
   const t = useTranslations('HelpPage.Join');
 
   return (
-    <section className="relative pb-[60px] pt-6 tablet:pb-[130px] tablet:pt-8 desktop:pb-[180px] desktop:pt-8">
+    <section className="relative mx-auto pb-[60px] pt-6 tablet:pb-[130px] tablet:pt-8 laptop:max-w-[744px] desktop:max-w-[1440px] desktop:pb-[180px] desktop:pt-8">
       {/* decor */}
-      {/* tabl */}
+      {/* tabl pink */}
       <div className="-right-8 hidden tablet:absolute tablet:bottom-[120px] tablet:block tablet:h-[229px] tablet:w-[197px] tablet:bg-[url('/assets/images/Help/Join/Vector2.png')] tablet:bg-cover tablet:bg-center tablet:bg-no-repeat desktop:hidden" />
-      {/* desk */}
+      {/* desk pink */}
       <div className="hidden desktop:absolute desktop:-right-[70px] desktop:bottom-[145px] desktop:block desktop:h-[287px] desktop:w-[393px] desktop:bg-[url('/assets/images/Help/Join/Vector21.png')] desktop:bg-cover desktop:bg-center desktop:bg-no-repeat" />
+      {/* blue */}{' '}
       <div className="-right-5 hidden tablet:absolute tablet:bottom-[90px] tablet:block tablet:h-[84px] tablet:w-[184px] tablet:bg-[url('/assets/images/Help/Join/Vector1.png')] tablet:bg-cover tablet:bg-center tablet:bg-no-repeat desktop:bottom-[102px] desktop:right-[95px] desktop:h-[108px] desktop:w-[225px]" />{' '}
       <div className="left-0 hidden tablet:absolute tablet:bottom-[90px] tablet:block tablet:h-[202px] tablet:w-[492px] tablet:bg-[url('/assets/icons/help/join/vect6.svg')] tablet:bg-cover tablet:bg-center tablet:bg-no-repeat desktop:bottom-[116px] desktop:left-[120px] desktop:h-[255px] desktop:w-[622px]" />
       {/*end of decor */}
