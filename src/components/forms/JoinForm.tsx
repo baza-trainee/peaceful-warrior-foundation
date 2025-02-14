@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+//
+import toast from 'react-hot-toast';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import {
@@ -66,10 +67,6 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
 
   return (
     <>
-      <Toaster
-        position="top-center"
-        toastOptions={{ style: { minWidth: '200px', padding: '16px' } }}
-      />
       <form
         className={clsx(
           'flex w-full flex-col items-start tablet:mx-auto',

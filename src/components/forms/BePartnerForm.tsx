@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
 import {
@@ -212,15 +212,16 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({ modal = false }) => {
       </label>
       {/*---- message ----*/}
       <label className="mb-6 w-full">
-        <span className="mb-4 block pb-2 text-md font-medium leading-[20px] text-body-text">
+        <span className="mb-4 block pb-2 text-md font-medium leading-[20px] text-body-text tablet:text-l tablet:leading-[26.82px]">
           {t('message-label')}
         </span>
         <textarea
           {...register('message')}
           placeholder={t('message-placeholder')}
           rows={1}
+          //   bg-light-background
           className={clsx(
-            'block w-full resize-none overflow-hidden border-b bg-light-background pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]'
+            'block w-full resize-none overflow-hidden border-b bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]'
           )}
           onInput={(e) => {
             e.currentTarget.style.height = 'auto';
