@@ -25,7 +25,7 @@ type JoinForm = {
 };
 
 const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
-  const t = useTranslations('Forms.JoinForm');
+  const t = useTranslations('Forms.Form');
 
   const {
     register,
@@ -93,16 +93,13 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
             aria-invalid={errors.name ? 'true' : 'false'}
             //
             className={clsx(
-              'hover:border-form-hover hover:placeholder:text-form-hover block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+              'block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
               { 'border-red-error placeholder:text-red-error': errors.name }
             )}
             placeholder={t('name-placeholder')}
           />
 
           {errors.name && (
-            // <p className="text-red-error absolute -bottom-5 text-s leading-4">
-            //   {errors.name.message}
-            // </p>
             <ErrorMessage className="absolute -bottom-5 text-s leading-4">
               {errors.name.message}
             </ErrorMessage>
@@ -130,7 +127,7 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
                   type="text"
                   aria-invalid={errors.phone ? 'true' : 'false'}
                   className={clsx(
-                    'hover:border-form-hover hover:placeholder:text-form-hover block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+                    'block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
                     {
                       'border-red-error placeholder:text-red-error':
                         errors.phone,
@@ -160,7 +157,7 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
               })}
               aria-invalid={errors.email ? 'true' : 'false'}
               className={clsx(
-                'hover:border-form-hover hover:placeholder:text-form-hover block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+                'block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
                 {
                   'border-red-error placeholder:text-red-error': errors.email,
                 }
@@ -199,7 +196,7 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
                 />
                 <label
                   htmlFor="application_agreement"
-                  className="text-gray-text text-s font-regular leading-4"
+                  className="text-s font-regular leading-4 text-gray-text"
                 >
                   {t('confirm-text')}
                 </label>
@@ -225,7 +222,7 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false }) => {
         >
           <div>
             <span className="text-center text-sm font-medium leading-[22px]">
-              {t('btn-text')}
+              {t('btnJoin-text')}
             </span>
           </div>
         </Button>

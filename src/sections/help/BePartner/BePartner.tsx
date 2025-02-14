@@ -3,6 +3,7 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 
 import SectionTitle from '@/components/ui/SectionTitle';
+import BePartnerForm from '@/components/forms/BePartnerForm';
 
 type BePartnerProps = {};
 
@@ -22,6 +23,7 @@ const BePartner: React.FC<BePartnerProps> = () => {
           краще, ніж поодинці!
         </p>
       </div>
+      <BePartnerForm />
     </section>
   );
 };

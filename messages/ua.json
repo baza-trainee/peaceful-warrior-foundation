@@ -189,13 +189,13 @@
     }
   },
   "Forms": {
-    "JoinForm": {
+    "Form": {
       "name-placeholder": "Імʼя *",
       "phone-placeholder": "Телефон *",
       "email-placeholder": "Email *",
       "error-message": "Заповнуть, будь ласка, форму",
       "confirm-text": "Я надаю згоду на обробку інформації згідно Закону України “Про захист персональних даних”.",
-      "btn-text": "ПРИЄДНАТИСЬ",
+      "btnJoin-text": "ПРИЄДНАТИСЬ",
       "toast": "Ваша заявка успішно надіслана! Дякуємо,",
       "required-shot": "Обов'язкове поле",
       "required-long": "Поле обов’язкове для заповнення",
@@ -203,7 +203,11 @@
       "invalid-email": "Некоректний email",
       "invalid-phone": "Некоректний номер",
       "invalid-name": "Ім’я занадто коротке",
-      "aria-label-btn": "Подати заявку"
+      "aria-label-btn": "Подати заявку",
+      "surname-placeholder": "Прізвище *",
+      "invalid-surname": "Прізвище занадто коротке",
+      "position-placeholder": "Посада *",
+      "btnPartner-text": "СТАТИ ПАРТНЕРОМ"
     }
   }
 }

@@ -188,7 +188,7 @@
     }
   },
   "Forms": {
-    "JoinForm": {
+    "Form": {
       "name-placeholder": "Name *",
       "phone-placeholder": "Phone *",
       "email-placeholder": "Email *",
@@ -202,7 +202,11 @@
       "invalid-email": "Invalid email",
       "invalid-phone": "Invalid phone number",
       "invalid-name": "Name is too short",
-      "aria-label-btn": "Submit application"
+      "aria-label-btn": "Submit application",
+      "surname-placeholder": "Surname *",
+      "btnPartner-text": "Become a partner",
+      "invalid-surname": "Surname is too short",
+      "position-placeholder": "Position *"
     }
   }
 }
