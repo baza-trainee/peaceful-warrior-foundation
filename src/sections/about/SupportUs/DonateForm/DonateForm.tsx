@@ -1,8 +1,9 @@
 'use client';
-
-import React, { useEffect, useRef, useState } from 'react';
+//5375 4141 0489 1915
+import React, { useEffect, useState } from 'react';
 import { useLocale } from 'next-intl';
 import clsx from 'clsx';
+
 import { useTranslations } from 'next-intl';
 import {
   SUBSCRIPTION_OPTIONS,
@@ -43,13 +44,14 @@ export default function DonateForm({
   const [donationAmount, setDonationAmount] = useState<number | ''>('');
   const [errorDonationAmount, setErrorDonationAmount] =
     useState<boolean>(false);
-
+  console.log('status', transactionStatus);
   useEffect(() => {
     const handleEvent = (event: MessageEvent) => {
       if (event.data === 'WfpWidgetEventClose') {
+        console.log('InClose', event.data);
         if (transactionStatus === 'Declined') {
           //!!!!! Then change to "Approved", and in ModalDonate also!
-
+          console.log('in useEffect', transactionStatus);
           openModal();
         }
       }
@@ -112,17 +114,17 @@ export default function DonateForm({
         },
         //approved
         function (response: any) {
-          // console.log('Payment approved in f', response.transactionStatus);
+          console.log('Payment approved in f', response.transactionStatus);
           setTransactionStatus(response.transactionStatus);
         },
         //declined
         function (response: any) {
-          // console.log('Payment declined in f', response.transactionStatus);
+          console.log('Payment declined in f', response.transactionStatus);
           setTransactionStatus(response.transactionStatus);
         },
         // processing
         function (response: any) {
-          // console.log('Payment processing in f', response.transactionStatus);
+          console.log('Payment processing in f', response.transactionStatus);
           setTransactionStatus(response.transactionStatus);
         }
       );
