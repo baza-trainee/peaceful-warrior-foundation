@@ -1,20 +1,11 @@
-import Link from 'next/link';
-// type PageProps = HTMLAttributes<HTMLDivElement> & {
-//   propertyTypeKey: propertyTypeKey;
-// };
+import NotFoundContent from '@/components/notFound/NotFoundContent';
 
-type PageProps = {};
+export interface NotFoundProps {}
 
-const NotFound = ({}: PageProps) => {
+export default function NotFound({}: NotFoundProps) {
   return (
     <>
-      <h2>Not Found</h2>
-      <p>Could not find requested resource</p>
-      <Link className="text-blue-600" href="/">
-        Return Home
-      </Link>
+      <NotFoundContent />
     </>
   );
-};
-
-export default NotFound;
+}
