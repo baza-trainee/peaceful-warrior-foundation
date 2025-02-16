@@ -14,20 +14,17 @@ import InputMask from 'react-input-mask-next';
 
 import ErrorMessage from './ErrorMessage';
 
-type BePartnerFormProps = {
+type DirectionsFormProps = {
   modal?: boolean;
   className?: string;
 };
-type BePartnerForm = {
+type DirectionsForm = {
   name: string;
-  surname: string;
   phone: string;
-  email: string;
-  position: string;
   message: string;
   agreement: boolean;
 };
-const BePartnerForm: React.FC<BePartnerFormProps> = ({
+const DirectionsForm: React.FC<DirectionsFormProps> = ({
   modal = false,
   className,
 }) => {
@@ -39,20 +36,17 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<BePartnerForm>({
+  } = useForm<DirectionsForm>({
     defaultValues: {
       name: '',
-      surname: '',
       phone: '',
-      email: '',
-      position: '',
       message: '',
       agreement: false,
     },
     mode: 'onChange',
   });
 
-  const submit: SubmitHandler<BePartnerForm> = async (data) => {
+  const submit: SubmitHandler<DirectionsForm> = async (data) => {
     try {
       console.log(data);
       //----------
@@ -70,7 +64,7 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({
       console.error('error-', error);
     }
   };
-  const errorForm: SubmitErrorHandler<BePartnerForm> = (er) => {
+  const errorForm: SubmitErrorHandler<DirectionsForm> = (er) => {
     console.log('er-', er);
   };
 
@@ -85,58 +79,32 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({
       )}
       onSubmit={handleSubmit(submit, errorForm)}
     >
-      <div className="mb-6 flex w-full flex-wrap gap-6 tablet:flex-nowrap">
-        <label className="relative w-full">
-          {/* ---- name ---*/}
-          <input
-            type="text"
-            {...register('name', {
-              required: t('required-long'),
-              minLength: {
-                value: 2,
-                message: t('invalid-name'),
-              },
-            })}
-            aria-invalid={errors.name ? 'true' : 'false'}
-            //
-            className={clsx(
-              'block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
-              { 'border-red-error placeholder:text-red-error': errors.name }
-            )}
-            placeholder={t('name-placeholder')}
-          />
-          {errors.name && (
-            <ErrorMessage className="absolute -bottom-5 text-s leading-4">
-              {errors.name.message}
-            </ErrorMessage>
+      {/*---- name ----*/}
+      <label className="relative mb-6 w-full">
+        <input
+          type="text"
+          {...register('name', {
+            required: t('required-long'),
+            minLength: {
+              value: 2,
+              message: t('invalid-name'),
+            },
+          })}
+          aria-invalid={errors.name ? 'true' : 'false'}
+          //
+          className={clsx(
+            'block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
+            { 'border-red-error placeholder:text-red-error': errors.name }
           )}
-        </label>
-        {/* ---- surname ----*/}
-        <label className="relative w-full">
-          <input
-            type="text"
-            {...register('surname', {
-              required: t('required-long'),
-              minLength: {
-                value: 2,
-                message: t('invalid-surname'),
-              },
-            })}
-            aria-invalid={errors.surname ? 'true' : 'false'}
-            //
-            className={clsx(
-              'block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
-              { 'border-red-error placeholder:text-red-error': errors.surname }
-            )}
-            placeholder={t('surname-placeholder')}
-          />
-          {errors.surname && (
-            <ErrorMessage className="absolute -bottom-5 text-s leading-4">
-              {errors.surname.message}
-            </ErrorMessage>
-          )}
-        </label>
-      </div>
+          placeholder={t('name-placeholder')}
+        />
+        {errors.name && (
+          <ErrorMessage className="absolute -bottom-5 text-s leading-4">
+            {errors.name.message}
+          </ErrorMessage>
+        )}
+      </label>
+
       {/*---- phone ----*/}
       <label className="relative mb-6 block w-full">
         <Controller
@@ -171,53 +139,7 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({
           </ErrorMessage>
         )}
       </label>
-      {/* //------------- email mask */}
-      <label className="relative mb-6 block w-full">
-        <input
-          {...register('email', {
-            required: t('required-shot'),
-            pattern: {
-              value: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
-              message: t('invalid-email'),
-            },
-          })}
-          aria-invalid={errors.email ? 'true' : 'false'}
-          className={clsx(
-            'block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
-            {
-              'border-red-error placeholder:text-red-error': errors.email,
-            }
-          )}
-          placeholder={t('email-placeholder')}
-        />
-        {errors.email && (
-          <ErrorMessage className="absolute -bottom-5 text-s leading-4">
-            {errors.email.message}
-          </ErrorMessage>
-        )}
-      </label>
-      {/*---- position -----*/}
-      <label className="relative mb-6 block w-full">
-        <input
-          type="text"
-          {...register('position', {
-            required: t('required-long'),
-          })}
-          className={clsx(
-            'block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
-            {
-              'border-red-error placeholder:text-red-error': errors.position,
-            }
-          )}
-          placeholder={t('position-placeholder')}
-          aria-invalid={errors.position ? 'true' : 'false'}
-        />
-        {errors.position && (
-          <ErrorMessage className="absolute -bottom-5 text-s leading-4">
-            {errors.position.message}
-          </ErrorMessage>
-        )}
-      </label>
+
       {/*---- message ----*/}
       <label className="mb-6 w-full">
         <span
@@ -267,6 +189,9 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({
           )}
         />
         {errors.agreement && (
+          // <p className="text-red-error absolute -bottom-5 text-s leading-4">
+          //   {errors.agreement.message}
+          // </p>
           <ErrorMessage className="absolute -bottom-5 text-s leading-4">
             {errors.agreement.message}
           </ErrorMessage>
@@ -280,12 +205,11 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({
       >
         <div>
           <span className="text-center text-sm font-medium leading-[22px]">
-            {t('btnPartner-text')}
+            {t('btnDirections-text')}
           </span>
         </div>
       </Button>
     </form>
   );
 };
-
-export default BePartnerForm;
+export default DirectionsForm;

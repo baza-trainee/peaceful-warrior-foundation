@@ -211,7 +211,8 @@
       "invalid-surname": "Surname is too short",
       "position-placeholder": "Position *",
       "message-label": "Leave a message",
-      "message-placeholder": "Message"
+      "message-placeholder": "Message",
+      "btnDirections-text": "SUBMIT APPLICATION"
     }
   }
 }
