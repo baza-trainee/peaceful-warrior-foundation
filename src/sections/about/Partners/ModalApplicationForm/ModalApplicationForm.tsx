@@ -20,8 +20,8 @@ export default function ModalApplicationForm({
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       {/* h-[523px] */}
-      <div className="flex max-h-screen w-[346px] flex-col items-center overflow-y-auto px-6 pb-12 pt-[60px] tablet:h-[633px] tablet:w-[694px] tablet:py-[72px] desktop:h-[659px] desktop:w-[1085px] desktop:pb-[188px] desktop:pt-14">
-        <SectionTitle modal className="mb-[22.5px] tablet:mb-12 desktop:mb-10">
+      <div className="flex max-h-screen w-[346px] flex-col items-center overflow-y-auto px-6 pb-12 pt-[60px] tablet:w-[694px] tablet:py-[72px] desktop:w-[1085px] desktop:pb-[90px] desktop:pt-14">
+        <SectionTitle modal className="mb-6 tablet:mb-12 desktop:mb-10">
           {t('title')}
         </SectionTitle>
         <div className="hidden tablet:absolute tablet:bottom-10 tablet:block tablet:h-[131px] tablet:w-[683px] tablet:bg-[url('/assets/icons/directions/directions_modal.svg')] tablet:bg-cover tablet:bg-center tablet:bg-no-repeat desktop:bottom-14 desktop:h-[192px] desktop:w-[1032px]" />
