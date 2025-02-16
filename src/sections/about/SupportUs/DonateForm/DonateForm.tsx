@@ -1,5 +1,6 @@
 'use client';
 //5375 4141 0489 1915
+// we do not it any more
 import React, { useEffect, useState } from 'react';
 import { useLocale } from 'next-intl';
 import clsx from 'clsx';
