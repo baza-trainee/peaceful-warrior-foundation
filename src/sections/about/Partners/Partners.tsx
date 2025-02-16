@@ -1,21 +1,22 @@
 'use client';
 import { useState } from 'react';
-import { HTMLAttributes } from 'react';
+// import { HTMLAttributes } from 'react';
 import { useTranslations } from 'next-intl';
 import Button from '@/components/ui/Button';
 import ModalApplicationForm from './ModalApplicationForm/ModalApplicationForm';
-import Home from '@/app/[locale]/page';
+// import Home from '@/app/[locale]/page';
+import SectionTitle from '@/components/ui/SectionTitle';
 
 type PartnersProps = {};
 
-const Partners = ({ }: PartnersProps) => {
+const Partners = ({}: PartnersProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations('Home.Partners');
   return (
     <section className="tablet:transparent mb-[60px] text-center laptop:mb-[100px]">
-      <h2 className="pb-3 pt-10 font-noteworthy text-5xl font-normal uppercase tracking-[1.44px] text-accent desktop:pb-12 desktop:text-8xl desktop:tracking-[2.24px]">
+      <SectionTitle className="pb-3 pt-10 desktop:pb-12">
         {t('title')}
-      </h2>
+      </SectionTitle>
       <div className="row-gap container relative mx-auto mb-[56px] grid grid-cols-1 gap-6 tablet:grid-cols-3 laptop:gap-y-11">
         <span className="absolute left-[-23%] -z-10 h-[180%] w-[120%] bg-[url('/assets/images/Partners/partnersDecor-1.png')] bg-contain bg-center bg-no-repeat tablet:block tablet:w-[60%] laptop:bottom-[-70%] laptop:left-[-43%] laptop:w-[90%]" />
         <div className="border-gray-200">
@@ -84,7 +85,8 @@ const Partners = ({ }: PartnersProps) => {
       <Button
         type="submit"
         onClick={() => setIsOpen(true)}
-        className="w-[343px] text-center tablet:w-[326px]">
+        className="w-[343px] text-center tablet:w-[326px]"
+      >
         {t('partners-btn')}
       </Button>
       {isOpen && (

@@ -15,7 +15,7 @@ const Directions = ({}: DirectionsProps) => {
   return (
     <>
       <section className="relative pb-[126px] tablet:pb-[157px] laptop:pb-[156px]">
-        <SectionTitle className="pb-4 text-center font-noteworthy text-5xl font-bold leading-[58px] tracking-[1.44px] text-accent tablet:pb-6 tablet:text-[48px] tablet:font-light tablet:leading-[90px] desktop:pb-12 desktop:text-8xl">
+        <SectionTitle className="pb-4 text-center font-noteworthy tablet:pb-6 desktop:pb-12">
           {t('title-first')}
           <span className="hidden desktop:inline"> {t('title-second')}</span>
         </SectionTitle>
