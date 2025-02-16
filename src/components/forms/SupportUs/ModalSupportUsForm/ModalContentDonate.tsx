@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 import SectionTitle from '@/components/ui/SectionTitle';
 // import DonateForm from './DonateForm';
-import SupportUsForm from '@/components/forms/SupportUsForm';
+import SupportUsForm from '@/components/forms/SupportUs/SupportUsForm';
 
 export interface ModalContentDonateProps {
   isOpen: boolean;
