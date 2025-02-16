@@ -109,7 +109,7 @@ export default function DonateFormContent({
         <input
           className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent] placeholder:text-sm focus:bg-accent focus:text-light-background tablet:m-0 tablet:h-14 tablet:w-[184px] tablet:placeholder:text-l desktop:placeholder:text-l"
           type="number"
-          min="1"
+          // min="1"
           placeholder={t('placeholder')}
           onChange={(e) => handleAmountChange(e.target.value)}
           aria-label={t('aria-label-input')}

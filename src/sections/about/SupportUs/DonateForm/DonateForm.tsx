@@ -44,7 +44,7 @@ export default function DonateForm({
   const [donationAmount, setDonationAmount] = useState<number | ''>('');
   const [errorDonationAmount, setErrorDonationAmount] =
     useState<boolean>(false);
-  console.log('transactionStatus', transactionStatus);
+
   useEffect(() => {
     const handleEvent = (event: MessageEvent) => {
       let status = '';
@@ -74,7 +74,6 @@ export default function DonateForm({
       if (event.data === 'WfpWidgetEventClose') {
         if (transactionStatus === 'Declined') {
           //!!!!! Then change to "Approved", and in ModalDonate also!
-          console.log('in useEffect in if decline', transactionStatus);
           openModal();
         }
       }
@@ -201,6 +200,7 @@ export default function DonateForm({
     </>
   );
 }
+
 //We can process the result of interaction of  user  with widget-
 // For a while don't delete!!
 // window.addEventListener(

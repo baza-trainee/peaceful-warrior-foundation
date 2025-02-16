@@ -103,6 +103,7 @@
       "placeholder": "other amount",
       "support-btn": "SUPPORT",
       "error-message": "Please enter an amount",
+      "error-minimum-amount": "The minimum donation amount is 1 UAH",
       "aria-label-btn": "Go to payment page",
       "aria-label-input": "Enter a different amount"
     }

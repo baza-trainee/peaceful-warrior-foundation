@@ -44,8 +44,7 @@ export default function SupportUsForm({
   const {
     control,
     handleSubmit,
-    setValue,
-    getValues,
+
     formState: { errors },
     reset,
   } = useForm({
@@ -53,10 +52,35 @@ export default function SupportUsForm({
       subscriptionType: 'once',
       donationAmount: '',
     },
+    mode: 'onChange',
   });
 
   useEffect(() => {
     const handleEvent = (event: MessageEvent) => {
+      let status = '';
+      //change to WfpWidgetEventApproved !!!!!!!
+      //and in ModalDonate also!
+
+      //add smth for WfpWidgetEventDeclined
+      // if (event.data === 'WfpWidgetEventApproved') {
+      //   console.log('Платеж успешен');
+      // } else if (event.data === 'WfpWidgetEventDeclined') {
+      //   console.log('Платеж отклонен');
+      // } else if (event.data === 'WfpWidgetEventPending') {
+      //   console.log('Платеж в обработке');
+      // } else if (event.data === 'WfpWidgetEventClose') {
+      //   console.log('Виджет закрыт');
+      // }
+
+      if (event.data === 'WfpWidgetEventApproved') {
+        status = 'Approved';
+        setTransactionStatus(status);
+      }
+
+      if (event.data === 'WfpWidgetEventDeclined') {
+        status = 'Declined';
+        setTransactionStatus(status);
+      }
       if (event.data === 'WfpWidgetEventClose') {
         if (transactionStatus === 'Declined') {
           //!!!!! Then change to "Approved", and in ModalDonate also!
@@ -69,7 +93,7 @@ export default function SupportUsForm({
     return () => {
       window.removeEventListener('message', handleEvent);
     };
-  }, [openModal, transactionStatus]);
+  }, [openModal, setTransactionStatus, transactionStatus]);
 
   const onSubmit = async (data: any) => {
     setTransactionStatus('');
@@ -189,7 +213,10 @@ export default function SupportUsForm({
         <Controller
           name="donationAmount"
           control={control}
-          rules={{ required: t('error-message') }}
+          rules={{
+            required: t('error-message'),
+            validate: (value) => Number(value) > 0 || t('error-minimum-amount'),
+          }}
           render={({ field }) => (
             <div
               className={clsx(
@@ -219,7 +246,7 @@ export default function SupportUsForm({
               <input
                 className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent] placeholder:text-sm focus:bg-accent focus:text-light-background tablet:m-0 tablet:h-14 tablet:w-[184px] tablet:placeholder:text-l desktop:placeholder:text-l"
                 type="number"
-                min="1"
+                // min="1"
                 placeholder={t('placeholder')}
                 value={field.value}
                 onChange={(e) => field.onChange(e.target.value)}
@@ -227,7 +254,7 @@ export default function SupportUsForm({
               />
               {errors.donationAmount && (
                 <ErrorMessage className="absolute -bottom-6 self-center text-s leading-4 tablet:bottom-[-30px]">
-                  {t('error-message')}
+                  {errors.donationAmount.message}
                 </ErrorMessage>
               )}
             </div>
