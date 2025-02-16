@@ -276,7 +276,7 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({
         type="submit"
         modal
         aria-label="Подати заявку"
-        className="z-[999] m-auto h-[44px] w-[298px] py-[11px] tablet:h-[52px] tablet:w-[326px]"
+        className="z-10 m-auto h-[44px] w-[298px] py-[11px] tablet:h-[52px] tablet:w-[326px]"
       >
         <div>
           <span className="text-center text-sm font-medium leading-[22px]">

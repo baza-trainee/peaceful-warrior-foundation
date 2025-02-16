@@ -3,6 +3,7 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 
 import SectionTitle from '@/components/ui/SectionTitle';
+import SupportUsForm from '@/components/forms/SupportUsForm';
 
 type SupportUsProps = {};
 
@@ -18,6 +19,7 @@ const SupportUs: React.FC<SupportUsProps> = () => {
           {t('text')}
         </p>
       </div>
+      <SupportUsForm />
     </section>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { useTranslations } from 'next-intl';
+import ErrorMessage from '@/components/forms/ErrorMessage';
 
 export interface DonateFormContentProps {
   paymentAmountData: string[];
@@ -108,16 +109,21 @@ export default function DonateFormContent({
         <input
           className="m-auto flex h-11 w-[147px] cursor-pointer rounded-xl border-2 border-accent bg-[transparent] text-center leading-8 outline-[transparent] placeholder:text-sm focus:bg-accent focus:text-light-background tablet:m-0 tablet:h-14 tablet:w-[184px] tablet:placeholder:text-l desktop:placeholder:text-l"
           type="number"
-          min="1"
+          // min="1"
           placeholder={t('placeholder')}
           onChange={(e) => handleAmountChange(e.target.value)}
           aria-label={t('aria-label-input')}
           value={donationAmount}
         />
-        {errorDonationAmount && (
+        {/* {errorDonationAmount && (
           <p className="absolute bottom-[-24px] self-center text-s font-regular leading-4 text-[#F76666] tablet:bottom-[-30px]">
             {t('error-message')}
           </p>
+        )} */}
+        {errorDonationAmount && (
+          <ErrorMessage className="absolute -bottom-6 self-center text-s leading-4 tablet:bottom-[-30px]">
+            {t('error-message')}
+          </ErrorMessage>
         )}
       </div>
     </>

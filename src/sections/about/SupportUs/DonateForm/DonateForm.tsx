@@ -1,8 +1,9 @@
 'use client';
-
-import React, { useEffect, useRef, useState } from 'react';
+//5375 4141 0489 1915
+import React, { useEffect, useState } from 'react';
 import { useLocale } from 'next-intl';
 import clsx from 'clsx';
+
 import { useTranslations } from 'next-intl';
 import {
   SUBSCRIPTION_OPTIONS,
@@ -46,10 +47,33 @@ export default function DonateForm({
 
   useEffect(() => {
     const handleEvent = (event: MessageEvent) => {
+      let status = '';
+      //change to WfpWidgetEventApproved !!!!!!!
+      //and in ModalDonate also!
+
+      //add smth for WfpWidgetEventDeclined
+      // if (event.data === 'WfpWidgetEventApproved') {
+      //   console.log('Платеж успешен');
+      // } else if (event.data === 'WfpWidgetEventDeclined') {
+      //   console.log('Платеж отклонен');
+      // } else if (event.data === 'WfpWidgetEventPending') {
+      //   console.log('Платеж в обработке');
+      // } else if (event.data === 'WfpWidgetEventClose') {
+      //   console.log('Виджет закрыт');
+      // }
+
+      if (event.data === 'WfpWidgetEventApproved') {
+        status = 'Approved';
+        setTransactionStatus(status);
+      }
+
+      if (event.data === 'WfpWidgetEventDeclined') {
+        status = 'Declined';
+        setTransactionStatus(status);
+      }
       if (event.data === 'WfpWidgetEventClose') {
         if (transactionStatus === 'Declined') {
           //!!!!! Then change to "Approved", and in ModalDonate also!
-
           openModal();
         }
       }
@@ -60,7 +84,7 @@ export default function DonateForm({
     return () => {
       window.removeEventListener('message', handleEvent);
     };
-  }, [openModal, transactionStatus]);
+  }, [openModal, setTransactionStatus, transactionStatus]);
 
   const handleAmountChange = (value: string) => {
     setErrorDonationAmount(false);
@@ -103,6 +127,7 @@ export default function DonateForm({
       if (isModalOpen) {
         closeModal();
       }
+
       const wayforpay = new Wayforpay();
 
       wayforpay.run(
@@ -112,17 +137,18 @@ export default function DonateForm({
         },
         //approved
         function (response: any) {
-          // console.log('Payment approved in f', response.transactionStatus);
+          //transactionStatus
+          console.log('Payment approved in f', response);
           setTransactionStatus(response.transactionStatus);
         },
         //declined
-        function (response: any) {
-          // console.log('Payment declined in f', response.transactionStatus);
+        (response: any) => {
+          console.log('Payment declined in f', response);
           setTransactionStatus(response.transactionStatus);
         },
         // processing
         function (response: any) {
-          // console.log('Payment processing in f', response.transactionStatus);
+          console.log('Payment processing in f', response);
           setTransactionStatus(response.transactionStatus);
         }
       );
@@ -174,6 +200,7 @@ export default function DonateForm({
     </>
   );
 }
+
 //We can process the result of interaction of  user  with widget-
 // For a while don't delete!!
 // window.addEventListener(

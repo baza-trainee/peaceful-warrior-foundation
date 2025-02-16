@@ -8,10 +8,12 @@ import ThanksModal from './ThanksModal';
 export default function ModalDonate() {
   const { isModalOpen, closeModal } = useModalDonateStore();
   const { transactionStatus, setTransactionStatus } = useTransactionStore();
+
   const handleClose = () => {
     if (transactionStatus === 'Declined') setTransactionStatus('');
     closeModal();
   };
+  // console.log('in modal donate ', transactionStatus);
   return (
     <>
       <Modal isOpen={isModalOpen} onClose={handleClose}>
@@ -19,7 +21,9 @@ export default function ModalDonate() {
           {transactionStatus === '' && (
             <ModalContentDonate isOpen={isModalOpen} />
           )}
+          {/* change to Approved !!!!!!!*/}
           {transactionStatus === 'Declined' && <ThanksModal />}
+          {transactionStatus === 'Approved' && <ThanksModal />}
         </div>
       </Modal>
     </>

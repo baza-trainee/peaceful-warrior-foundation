@@ -103,6 +103,7 @@
       "placeholder": "інша сума",
       "support-btn": " ПІДТРИМАТИ",
       "error-message": "Введіть, будь ласка, суму",
+      "error-minimum-amount": "Мінімальна сума пожертви - 1 грн",
       "aria-label-btn": "Перейти до сторінки платежу",
       "aria-label-input": "Введіть іншу суму"
     }
