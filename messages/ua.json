@@ -212,7 +212,8 @@
       "position-placeholder": "Посада *",
       "btnPartner-text": "СТАТИ ПАРТНЕРОМ",
       "message-label": "Залиште повідомлення",
-      "message-placeholder": "Повідомлення"
+      "message-placeholder": "Повідомлення",
+      "btnDirections-text": "ПОДАТИ ЗАЯВКУ"
     }
   }
 }

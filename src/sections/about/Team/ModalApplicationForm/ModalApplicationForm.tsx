@@ -19,11 +19,8 @@ export default function ModalApplicationForm({
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className="flex h-[523px] w-[346px] flex-col items-center px-6 tablet:h-[633px] tablet:w-[694px] desktop:h-[659px] desktop:w-[1085px]">
-        <SectionTitle
-          modal
-          className="mb-[22.5px] mt-[60px] tablet:mb-12 tablet:mt-[72px] desktop:mb-10 desktop:mt-[56px]"
-        >
+      <div className="flex w-[346px] flex-col items-center px-6 pb-12 pt-[60px] tablet:w-[694px] tablet:pb-[134px] tablet:pt-[72px] desktop:w-[1085px] desktop:pb-[188px] desktop:pt-[56px]">
+        <SectionTitle modal className="mb-6 tablet:mb-12 desktop:mb-12">
           {t('title')}
         </SectionTitle>
         <JoinForm modal />
