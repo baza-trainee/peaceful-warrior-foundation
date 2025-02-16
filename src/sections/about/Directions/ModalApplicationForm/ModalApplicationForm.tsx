@@ -1,7 +1,8 @@
+'use client';
 import Modal from '@/components/layout/Modal';
 import React from 'react';
 import SectionTitle from '@/components/ui/SectionTitle';
-import Button from '@/components/ui/Button';
+
 import { useTranslations } from 'next-intl';
 import DirectionsForm from '@/components/forms/DirectionsForm';
 
