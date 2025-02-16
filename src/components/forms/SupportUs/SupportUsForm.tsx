@@ -1,5 +1,5 @@
 'use client';
-//5375 4141 0489 1915
+
 import React, { useEffect } from 'react';
 import { useLocale } from 'next-intl';
 import clsx from 'clsx';
@@ -275,9 +275,7 @@ export default function SupportUsForm({
         id="wayforpay-script"
         src="https://secure.wayforpay.com/server/pay-widget.js"
         strategy="afterInteractive"
-        nonce="6a9ad3c7e5f255967f93368a43ba5d1b11e2cd89" ///??????
       />
     </>
   );
 }
-//5375 4141 0489 1915
