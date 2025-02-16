@@ -44,14 +44,37 @@ export default function DonateForm({
   const [donationAmount, setDonationAmount] = useState<number | ''>('');
   const [errorDonationAmount, setErrorDonationAmount] =
     useState<boolean>(false);
-  console.log('status', transactionStatus);
+  console.log('transactionStatus', transactionStatus);
   useEffect(() => {
     const handleEvent = (event: MessageEvent) => {
+      let status = '';
+      //change to WfpWidgetEventApproved !!!!!!!
+      //and in ModalDonate also!
+
+      //add smth for WfpWidgetEventDeclined
+      // if (event.data === 'WfpWidgetEventApproved') {
+      //   console.log('Платеж успешен');
+      // } else if (event.data === 'WfpWidgetEventDeclined') {
+      //   console.log('Платеж отклонен');
+      // } else if (event.data === 'WfpWidgetEventPending') {
+      //   console.log('Платеж в обработке');
+      // } else if (event.data === 'WfpWidgetEventClose') {
+      //   console.log('Виджет закрыт');
+      // }
+
+      if (event.data === 'WfpWidgetEventApproved') {
+        status = 'Approved';
+        setTransactionStatus(status);
+      }
+
+      if (event.data === 'WfpWidgetEventDeclined') {
+        status = 'Declined';
+        setTransactionStatus(status);
+      }
       if (event.data === 'WfpWidgetEventClose') {
-        console.log('InClose', event.data);
         if (transactionStatus === 'Declined') {
           //!!!!! Then change to "Approved", and in ModalDonate also!
-          console.log('in useEffect', transactionStatus);
+          console.log('in useEffect in if decline', transactionStatus);
           openModal();
         }
       }
@@ -62,7 +85,7 @@ export default function DonateForm({
     return () => {
       window.removeEventListener('message', handleEvent);
     };
-  }, [openModal, transactionStatus]);
+  }, [openModal, setTransactionStatus, transactionStatus]);
 
   const handleAmountChange = (value: string) => {
     setErrorDonationAmount(false);
@@ -105,6 +128,7 @@ export default function DonateForm({
       if (isModalOpen) {
         closeModal();
       }
+
       const wayforpay = new Wayforpay();
 
       wayforpay.run(
@@ -114,17 +138,18 @@ export default function DonateForm({
         },
         //approved
         function (response: any) {
-          console.log('Payment approved in f', response.transactionStatus);
+          //transactionStatus
+          console.log('Payment approved in f', response);
           setTransactionStatus(response.transactionStatus);
         },
         //declined
-        function (response: any) {
-          console.log('Payment declined in f', response.transactionStatus);
+        (response: any) => {
+          console.log('Payment declined in f', response);
           setTransactionStatus(response.transactionStatus);
         },
         // processing
         function (response: any) {
-          console.log('Payment processing in f', response.transactionStatus);
+          console.log('Payment processing in f', response);
           setTransactionStatus(response.transactionStatus);
         }
       );
