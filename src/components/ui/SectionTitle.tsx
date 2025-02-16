@@ -14,12 +14,12 @@ export default function SectionTitle({
   return (
     <h2
       className={clsx(
-        'text-center font-noteworthy font-bold uppercase text-accent',
+        'text-center font-noteworthy font-bold uppercase tracking-tr-4 text-accent tablet:font-light',
         className,
         modal &&
-          'text-lg leading-[41.99px] desktop:font-light desktop:leading-[90px]',
+          'desktop:text-8xl desktop:leading-[90px] text-lg leading-[41.99px] tablet:text-5xl tablet:leading-[58.14px]',
         !modal &&
-          'tracking-tr-4 text-5xl font-bold leading-[58px] tablet:text-8xl tablet:font-light tablet:leading-[90px] desktop:text-9xl'
+          'text-5xl leading-[58px] tablet:text-8xl tablet:leading-[90px] desktop:text-9xl'
       )}
     >
       {children}

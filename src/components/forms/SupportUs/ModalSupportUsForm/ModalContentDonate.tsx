@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import SectionTitle from '@/components/ui/SectionTitle';
-import DonateForm from './DonateForm';
+// import DonateForm from './DonateForm';
+import SupportUsForm from '@/components/forms/SupportUs/SupportUsForm';
 
 export interface ModalContentDonateProps {
   isOpen: boolean;
@@ -22,7 +23,8 @@ export default function ModalContentDonate({
       >
         {t('title-modal-tablet')}
       </SectionTitle>
-      <DonateForm isOpen={isOpen} modal />
+      {/* <DonateForm isOpen={isOpen} modal /> */}
+      <SupportUsForm isOpen={isOpen} modal />
     </div>
   );
 }

@@ -20,7 +20,7 @@ export default function ModalApplicationForm({
         <div className="flex h-[523px] w-[346px] flex-col items-center px-6 tablet:h-[633px] tablet:w-[694px] desktop:h-[659px] desktop:w-[1085px]">
           <SectionTitle
             modal
-            className="mb-[22.5px] mt-[60px] tablet:mb-12 tablet:mt-[72px] tablet:text-5xl tablet:leading-[58.14px] desktop:mb-10 desktop:mt-[56px] desktop:text-9xl desktop:leading-[90px]"
+            className="mb-[22.5px] mt-[60px] tablet:mb-12 tablet:mt-[72px] desktop:mb-10 desktop:mt-[56px]"
           >
             {t('title')}
           </SectionTitle>
@@ -72,7 +72,7 @@ export default function ModalApplicationForm({
               type="submit"
               modal
               aria-label="Подати заявку"
-              className="m-auto h-[44px] w-[298px] py-[11px] tablet:h-[52px] tablet:w-[326px] z-[999]"
+              className="z-[999] m-auto h-[44px] w-[298px] py-[11px] tablet:h-[52px] tablet:w-[326px]"
             >
               <div>
                 <span className="text-center text-sm font-medium leading-[22px]">

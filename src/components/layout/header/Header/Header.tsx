@@ -15,7 +15,7 @@ const MobileMenu = dynamic(() => import('../MobileMenu/MobileMenu'), {
   ssr: false,
 });
 const ButtonDonate = dynamic(
-  () => import('@/sections/about//SupportUs/DonateForm/ModalDonate')
+  () => import('@/components/forms/SupportUs/ModalSupportUsForm/ModalDonate')
 );
 const Email = dynamic(() => import('../Email/Email'));
 

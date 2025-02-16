@@ -1,6 +1,7 @@
 import Address from '@/components/layout/footer/Address/Address';
 import Email from '@/components/layout/header/Email/Email';
 import Socials from '@/components/layout/header/Socials/Socials';
+import SectionTitle from '@/components/ui/SectionTitle';
 import { ICONS } from '@/constants/icons/icons';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -9,9 +10,9 @@ const Page: React.FC = () => {
   const t = useTranslations('ContactsPage');
   return (
     <section className="pb-[60px] pt-[24px] tablet:pb-[80px] tablet:pt-[32px]">
-      <h1 className="mb-[12px] mt-0 text-center font-noteworthy text-5xl font-bold uppercase leading-[1.61] text-accent tablet:mb-[24px] tablet:text-9xl tablet:font-light tablet:leading-[1.87] laptop:mb-[48px] laptop:text-8xl laptop:leading-[1.61]">
+      <SectionTitle className="mb-[12px] mt-0 text-center tablet:mb-[24px] laptop:mb-[48px]">
         {t('title')}
-      </h1>
+      </SectionTitle>
       <div className="laptop:flex laptop:gap-x-[24px] desktop:justify-between desktop:gap-x-0">
         <ul className="mb-[24px] flex flex-col gap-y-[20px] text-body-text tablet:mb-[32px] tablet:flex-row tablet:flex-wrap tablet:gap-x-[32px] tablet:gap-y-[32px] laptop:flex-col laptop:flex-nowrap">
           <li className="flex items-center gap-x-[12px]">
