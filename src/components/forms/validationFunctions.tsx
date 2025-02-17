@@ -2,7 +2,7 @@ export const validateString =
   (t: (key: string) => string) => (value: string) => {
     const trimmedValue = value.trim();
     if (!trimmedValue) {
-      return t('required-long');
+      return t('required-shot');
     }
 
     const isValid =
@@ -16,6 +16,7 @@ export const validateString =
 
     return true;
   };
+
 export const validateMessage =
   (t: (key: string) => string) => (value: string) => {
     if (!value.trim()) {

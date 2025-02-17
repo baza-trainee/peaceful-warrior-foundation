@@ -214,7 +214,7 @@
       "message-label": "Залиште повідомлення",
       "message-placeholder": "Повідомлення",
       "btnDirections-text": "ПОДАТИ ЗАЯВКУ",
-      "invalid-characters": "Дозволені лише літери, дефіси",
+      "invalid-characters": "Дозволені літери та дефіси",
       "message-too-long": "Повідомлення занадто довге",
       "message-empty": "Ви надсилаєте порожнє повідомлення"
     }
