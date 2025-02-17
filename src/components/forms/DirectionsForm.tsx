@@ -13,6 +13,7 @@ import Button from '@/components/ui/Button';
 import InputMask from 'react-input-mask-next';
 
 import ErrorMessage from './ErrorMessage';
+import { validateString, validateMessage } from './validationFunctions';
 
 type DirectionsFormProps = {
   modal?: boolean;
@@ -89,6 +90,7 @@ const DirectionsForm: React.FC<DirectionsFormProps> = ({
               value: 2,
               message: t('invalid-name'),
             },
+            validate: validateString(t),
           })}
           aria-invalid={errors.name ? 'true' : 'false'}
           //
@@ -141,7 +143,7 @@ const DirectionsForm: React.FC<DirectionsFormProps> = ({
       </label>
 
       {/*---- message ----*/}
-      <label className="mb-6 w-full">
+      <label className="relative mb-6 w-full">
         <span
           className={clsx(
             'mb-4 block text-md font-medium leading-[20px] text-body-text tablet:text-l tablet:leading-[26.82px]',
@@ -151,7 +153,13 @@ const DirectionsForm: React.FC<DirectionsFormProps> = ({
           {t('message-label')}
         </span>
         <textarea
-          {...register('message')}
+          {...register('message', {
+            maxLength: {
+              value: 700,
+              message: t('message-too-long'),
+            },
+            validate: validateMessage(t),
+          })}
           placeholder={t('message-placeholder')}
           rows={1}
           //   bg-light-background
@@ -163,6 +171,11 @@ const DirectionsForm: React.FC<DirectionsFormProps> = ({
             e.currentTarget.style.height = e.currentTarget.scrollHeight + 'px';
           }}
         />
+        {errors.message && (
+          <ErrorMessage className="absolute -bottom-5 text-s leading-4">
+            {errors.message.message}
+          </ErrorMessage>
+        )}
       </label>
       {/* Чекбокс для підтвердження */}
       <div className="relative mb-6 w-full tablet:mb-8">

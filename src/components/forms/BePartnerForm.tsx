@@ -9,10 +9,11 @@ import {
   useForm,
   Controller,
 } from 'react-hook-form';
-import Button from '@/components/ui/Button';
-import InputMask from 'react-input-mask-next';
 
+import InputMask from 'react-input-mask-next';
+import { validateString, validateMessage } from './validationFunctions';
 import ErrorMessage from './ErrorMessage';
+import Button from '@/components/ui/Button';
 
 type BePartnerFormProps = {
   modal?: boolean;
@@ -91,11 +92,12 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({
           <input
             type="text"
             {...register('name', {
-              required: t('required-long'),
+              required: t('required-shot'),
               minLength: {
                 value: 2,
                 message: t('invalid-name'),
               },
+              validate: validateString(t),
             })}
             aria-invalid={errors.name ? 'true' : 'false'}
             //
@@ -116,11 +118,12 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({
           <input
             type="text"
             {...register('surname', {
-              required: t('required-long'),
+              required: t('required-shot'),
               minLength: {
                 value: 2,
                 message: t('invalid-surname'),
               },
+              validate: validateString(t),
             })}
             aria-invalid={errors.surname ? 'true' : 'false'}
             //
@@ -202,6 +205,7 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({
           type="text"
           {...register('position', {
             required: t('required-long'),
+            validate: validateString(t),
           })}
           className={clsx(
             'block w-full border-b border-gray-devider bg-[transparent] pb-2 text-m leading-[19.5px] text-body-text placeholder:text-m placeholder:leading-[19.5px] placeholder:text-gray-devider hover:border-form-hover hover:placeholder:text-form-hover focus:outline-none active:border-body-text tablet:pb-3 tablet:text-sm tablet:font-medium tablet:leading-[22px] tablet:placeholder:text-sm tablet:placeholder:leading-[22px]',
@@ -219,7 +223,7 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({
         )}
       </label>
       {/*---- message ----*/}
-      <label className="mb-6 w-full">
+      <label className="relative mb-6 w-full">
         <span
           className={clsx(
             'mb-4 block text-md font-medium leading-[20px] text-body-text tablet:text-l tablet:leading-[26.82px]',
@@ -229,7 +233,13 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({
           {t('message-label')}
         </span>
         <textarea
-          {...register('message')}
+          {...register('message', {
+            maxLength: {
+              value: 700,
+              message: t('message-too-long'),
+            },
+            validate: validateMessage(t),
+          })}
           placeholder={t('message-placeholder')}
           rows={1}
           //   bg-light-background
@@ -241,6 +251,11 @@ const BePartnerForm: React.FC<BePartnerFormProps> = ({
             e.currentTarget.style.height = e.currentTarget.scrollHeight + 'px';
           }}
         />
+        {errors.message && (
+          <ErrorMessage className="absolute -bottom-5 text-s leading-4">
+            {errors.message.message}
+          </ErrorMessage>
+        )}
       </label>
       {/* Чекбокс для підтвердження */}
       <div className="relative mb-6 w-full tablet:mb-8">

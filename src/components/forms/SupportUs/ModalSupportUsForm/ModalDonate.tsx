@@ -1,5 +1,5 @@
-import Modal from '@/components/layout/Modal';
 import React from 'react';
+import Modal from '@/components/layout/Modal';
 import ModalContentDonate from './ModalContentDonate';
 import useModalDonateStore from '@/state/stateModalDonate';
 import useTransactionStore from '@/state/TransactionState';
@@ -22,7 +22,7 @@ export default function ModalDonate() {
             <ModalContentDonate isOpen={isModalOpen} />
           )}
           {/* change to Approved !!!!!!!*/}
-          {transactionStatus === 'Declined' && <ThanksModal />}
+          {/* {transactionStatus === 'Declined' && <ThanksModal />} */}
           {transactionStatus === 'Approved' && <ThanksModal />}
         </div>
       </Modal>
