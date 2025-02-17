@@ -82,7 +82,7 @@ export default function SupportUsForm({
         setTransactionStatus(status);
       }
       if (event.data === 'WfpWidgetEventClose') {
-        if (transactionStatus === 'Declined') {
+        if (transactionStatus === 'Approved') {
           //!!!!! Then change to "Approved", and in ModalDonate also!
           openModal();
         }
