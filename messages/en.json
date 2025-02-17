@@ -213,7 +213,7 @@
       "message-label": "Leave a message",
       "message-placeholder": "Message",
       "btnDirections-text": "SUBMIT APPLICATION",
-      "invalid-characters": "Only letters and hyphensare allowed",
+      "invalid-characters": "Invalid character",
       "message-too-long": "Message is too long",
       "message-empty": "You are sending an empty message"
     }
