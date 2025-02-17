@@ -10,6 +10,7 @@ import {
   useForm,
   Controller,
 } from 'react-hook-form';
+import { validateString } from './validationFunctions';
 import Button from '@/components/ui/Button';
 
 import InputMask from 'react-input-mask-next';
@@ -87,6 +88,7 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false, className }) => {
                 value: 2,
                 message: t('invalid-name'),
               },
+              validate: validateString(t),
             })}
             aria-invalid={errors.name ? 'true' : 'false'}
             //
@@ -163,12 +165,6 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false, className }) => {
               placeholder={t('email-placeholder')}
             />
             {errors.email && (
-              //   <p
-              //     role="alert"
-              //     className="text-red-error absolute -bottom-5 text-s leading-4"
-              //   >
-              //     {errors.email.message}
-              //   </p>
               <ErrorMessage className="absolute -bottom-5 text-s leading-4">
                 {errors.email.message}
               </ErrorMessage>
@@ -202,9 +198,6 @@ const JoinForm: React.FC<JoinFormProps> = ({ modal = false, className }) => {
             )}
           />
           {errors.agreement && (
-            // <p className="text-red-error absolute -bottom-5 text-s leading-4">
-            //   {errors.agreement.message}
-            // </p>
             <ErrorMessage className="absolute -bottom-5 text-s leading-4">
               {errors.agreement.message}
             </ErrorMessage>

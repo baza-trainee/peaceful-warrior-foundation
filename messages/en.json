@@ -212,7 +212,10 @@
       "position-placeholder": "Position *",
       "message-label": "Leave a message",
       "message-placeholder": "Message",
-      "btnDirections-text": "SUBMIT APPLICATION"
+      "btnDirections-text": "SUBMIT APPLICATION",
+      "invalid-characters": "Only letters and hyphensare allowed",
+      "message-too-long": "Message is too long",
+      "message-empty": "You are sending an empty message"
     }
   }
 }
